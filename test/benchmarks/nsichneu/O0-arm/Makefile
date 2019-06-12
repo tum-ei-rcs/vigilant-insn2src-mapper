@@ -8,6 +8,7 @@ SIM2TIME=/home/becker/async/WCET_gitlab/scripts/ogensim2times.py
 MAPPER=../../../../py-mapping/main.py
 MERGEMAPS=../../../../py-mapping/merge_mapping.py
 ELF2FLOW=../../../../build/bin/elf2flow
+TIMER=/usr/bin/time -v
 
 GRAPH_DIR=graphs/
 MAPDIR=maps
@@ -66,7 +67,7 @@ $(ASM): $(EXE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(DWARF): $(ASM) $(EXE)
-	$(ELF2FLOW) -f $(ASM) -e $(EXE) -a ArmV5 -d $(DWARF) --inc-insn --inc-symb --ignore-errors
+	$(ELF2FLOW) --asm $(ASM) -e $(EXE) --arch ArmV5 -d $(DWARF) --inc-insn --inc-symb 
 
 $(BFLOWS): $(CFG)
 	$(OTAWA2JSON) --xml $(CFG) --out $@ --asm $(ASM)
@@ -91,7 +92,7 @@ $(JSON): $(CFG)
 
 wcet.log: $(EXE) $(FFX) $(OWCET_SCRIPT)
 	mkdir -p $(GRAPH_DIR)
-	$(OTAWA) $(OTAWA_FLAGS) $(EXE) $(FUNC) -f $(FFX) 2>&1 | tee $@
+	$(TIMER) $(OTAWA) $(OTAWA_FLAGS) $(EXE) $(FUNC) -f $(FFX) 2>&1 | tee $@
 
 sim.log: $(EXE)
 	$(SIM) $(SIM_FLAGS) $< 2>&1 | tee sim1.log

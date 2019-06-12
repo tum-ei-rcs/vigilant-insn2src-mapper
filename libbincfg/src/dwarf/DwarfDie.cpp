@@ -12,7 +12,7 @@ printDieAttributes(Dwarf_Off dieOff, AttrSet& dieAttrs,
     if (dieAttrs.size() == 0) {
         Log::log() << "DIE @0x" << std::hex << dieOff << " contains no "
                    << "decoded attributes."
-                   << ELogLevel::LOG_DEBUG; 
+                   << ELogLevel::LOG_DEBUG;
         return;
     }
 
@@ -37,7 +37,7 @@ printDieAttributes(Dwarf_Off dieOff, AttrSet& dieAttrs,
 DwarfDie::DwarfDie(Dwarf_Debug d_debug, Dwarf_Die d_inDie, Dwarf_Off parentOffset,
                    bool findChildren)
     : m_parentOffset(parentOffset),
-      m_isValid(false),
+      m_isValid(true),
       m_isInfo(false)
 {
     do {
@@ -50,11 +50,12 @@ DwarfDie::DwarfDie(Dwarf_Debug d_debug, Dwarf_Die d_inDie, Dwarf_Off parentOffse
         if (dwarf_get_version_of_die(d_inDie, &m_dieVersion, &m_dieOffsetSize)
             != DW_DLV_OK)
         {
-            break;
+            m_isValid = false;
         }
 
         // Read die offset
         if (dwarf_dieoffset(d_inDie, &m_dieOffset, nullptr) != DW_DLV_OK) {
+            m_isValid = false;
             break;
         }
 
@@ -62,14 +63,16 @@ DwarfDie::DwarfDie(Dwarf_Debug d_debug, Dwarf_Die d_inDie, Dwarf_Off parentOffse
         if (dwarf_tag(d_inDie, &m_tagValue, nullptr) != DW_DLV_OK) {
             Log::log() << "Cannot read die tag."
                        << ELogLevel::LOG_ERROR;
+            m_isValid = false;
             break;
         }
 
         // Read attributes
         if (!readAttributes(d_debug, d_inDie)) {
             Log::log() << "Could not read attributes."
-                       << ELogLevel::LOG_ERROR;
-            break;
+                       << ELogLevel::LOG_WARNING;
+            m_isValid = false;
+            // yet, continue
         }
 
         // Find die children, this will construct DwarfDies recursively
@@ -78,14 +81,11 @@ DwarfDie::DwarfDie(Dwarf_Debug d_debug, Dwarf_Die d_inDie, Dwarf_Off parentOffse
                 Log::log() << "Error while processing children of die @0x"
                            << std::hex << m_dieOffset << "."
                            << ELogLevel::LOG_ERROR;
-                break;
             }
         }
 
         //printDieAttributes(m_dieOffset, m_attrs, m_tagValue);
 
-        // Set validity
-        m_isValid = true;
     } while (false);
 }
 
@@ -103,7 +103,7 @@ DwarfDie::readAttributes(Dwarf_Debug d_debug, Dwarf_Die d_inDie)
 /**
  * @todo Implement dwarf_validate_die_sibling() to validate the depth-first
  *       tree walk.
- * 
+ *
  */
 bool
 DwarfDie::findDieChildren(Dwarf_Debug d_debug, Dwarf_Die d_inDie)
@@ -128,14 +128,14 @@ DwarfDie::findDieChildren(Dwarf_Debug d_debug, Dwarf_Die d_inDie)
         while (result == DW_DLV_OK)
         {
             currDie = currSib;
-            
+
             DwarfDie dwDie = DwarfDie(d_debug, currDie, m_dieOffset);
             if (!dwDie.isValid()) {
                 Log::log() << "An error occurred while processing DIE @0x"
                            << std::hex << dwDie.getOffset()
                            << ELogLevel::LOG_ERROR;
                 break;
-            } 
+            }
 
             m_dieChildren.push_back(std::move(dwDie));
             result = dwarf_siblingof_b(d_debug, currDie, m_isInfo, &currSib, nullptr);
@@ -212,117 +212,117 @@ DwarfDie::isValid() const
 static const std::map<Dwarf_Half, const std::string> s_tagStrings {
     #define TSTR(a) {DW_TAG_##a, "DW_TAG_" #a},
 
-        TSTR(array_type) 
-        TSTR(class_type) 
-        TSTR(entry_point) 
-        TSTR(enumeration_type) 
-        TSTR(formal_parameter) 
-        TSTR(imported_declaration) 
-        TSTR(label) 
-        TSTR(lexical_block) 
-        TSTR(member) 
-        TSTR(pointer_type) 
-        TSTR(reference_type) 
-        TSTR(compile_unit) 
-        TSTR(string_type) 
-        TSTR(structure_type) 
-        TSTR(subroutine_type) 
-        TSTR(typedef) 
-        TSTR(union_type) 
-        TSTR(unspecified_parameters) 
-        TSTR(variant) 
-        TSTR(common_block) 
-        TSTR(common_inclusion) 
-        TSTR(inheritance) 
-        TSTR(inlined_subroutine) 
-        TSTR(module) 
-        TSTR(ptr_to_member_type) 
-        TSTR(set_type) 
-        TSTR(subrange_type) 
-        TSTR(with_stmt) 
-        TSTR(access_declaration) 
-        TSTR(base_type) 
-        TSTR(catch_block) 
-        TSTR(const_type) 
-        TSTR(constant) 
-        TSTR(enumerator) 
-        TSTR(file_type) 
-        TSTR(friend) 
-        TSTR(namelist) 
-        TSTR(namelist_item) 
-        TSTR(namelist_items) 
-        TSTR(packed_type) 
-        TSTR(subprogram) 
-        TSTR(template_type_parameter) 
-        TSTR(template_type_param) 
-        TSTR(template_value_parameter) 
-        TSTR(template_value_param) 
-        TSTR(thrown_type) 
-        TSTR(try_block) 
-        TSTR(variant_part) 
-        TSTR(variable) 
-        TSTR(volatile_type) 
-        TSTR(dwarf_procedure) 
-        TSTR(restrict_type) 
-        TSTR(interface_type) 
-        TSTR(namespace) 
-        TSTR(imported_module) 
-        TSTR(unspecified_type) 
-        TSTR(partial_unit) 
-        TSTR(imported_unit) 
-        TSTR(mutable_type) 
-        TSTR(condition) 
-        TSTR(shared_type) 
-        TSTR(type_unit) 
-        TSTR(rvalue_reference_type) 
-        TSTR(template_alias) 
-        TSTR(coarray_type) 
-        TSTR(generic_subrange) 
-        TSTR(dynamic_type) 
-        TSTR(atomic_type) 
-        TSTR(call_site) 
-        TSTR(call_site_parameter) 
-        TSTR(skeleton_unit) 
-        TSTR(immutable_type) 
-        TSTR(lo_user) 
-        TSTR(MIPS_loop) 
-        TSTR(HP_array_descriptor) 
-        TSTR(format_label) 
-        TSTR(function_template) 
-        TSTR(class_template) 
-        TSTR(GNU_BINCL) 
-        TSTR(GNU_EINCL) 
-        TSTR(GNU_template_template_parameter) 
-        TSTR(GNU_template_template_param) 
-        TSTR(GNU_template_parameter_pack) 
-        TSTR(GNU_formal_parameter_pack) 
-        TSTR(GNU_call_site) 
-        TSTR(GNU_call_site_parameter) 
-        TSTR(ALTIUM_circ_type) 
-        TSTR(ALTIUM_mwa_circ_type) 
-        TSTR(ALTIUM_rev_carry_type) 
-        TSTR(ALTIUM_rom) 
-        TSTR(upc_shared_type) 
-        TSTR(upc_strict_type) 
-        TSTR(upc_relaxed_type) 
-        TSTR(PGI_kanji_type) 
-        TSTR(PGI_interface_block) 
-        TSTR(SUN_function_template) 
-        TSTR(SUN_class_template) 
-        TSTR(SUN_struct_template) 
-        TSTR(SUN_union_template) 
-        TSTR(SUN_indirect_inheritance) 
-        TSTR(SUN_codeflags) 
-        TSTR(SUN_memop_info) 
-        TSTR(SUN_omp_child_func) 
-        TSTR(SUN_rtti_descriptor) 
-        TSTR(SUN_dtor_info) 
-        TSTR(SUN_dtor) 
-        TSTR(SUN_f90_interface) 
-        TSTR(SUN_fortran_vax_structure) 
-        TSTR(SUN_hi) 
+        TSTR(array_type)
+        TSTR(class_type)
+        TSTR(entry_point)
+        TSTR(enumeration_type)
+        TSTR(formal_parameter)
+        TSTR(imported_declaration)
+        TSTR(label)
+        TSTR(lexical_block)
+        TSTR(member)
+        TSTR(pointer_type)
+        TSTR(reference_type)
+        TSTR(compile_unit)
+        TSTR(string_type)
+        TSTR(structure_type)
+        TSTR(subroutine_type)
+        TSTR(typedef)
+        TSTR(union_type)
+        TSTR(unspecified_parameters)
+        TSTR(variant)
+        TSTR(common_block)
+        TSTR(common_inclusion)
+        TSTR(inheritance)
+        TSTR(inlined_subroutine)
+        TSTR(module)
+        TSTR(ptr_to_member_type)
+        TSTR(set_type)
+        TSTR(subrange_type)
+        TSTR(with_stmt)
+        TSTR(access_declaration)
+        TSTR(base_type)
+        TSTR(catch_block)
+        TSTR(const_type)
+        TSTR(constant)
+        TSTR(enumerator)
+        TSTR(file_type)
+        TSTR(friend)
+        TSTR(namelist)
+        TSTR(namelist_item)
+        TSTR(namelist_items)
+        TSTR(packed_type)
+        TSTR(subprogram)
+        TSTR(template_type_parameter)
+        TSTR(template_type_param)
+        TSTR(template_value_parameter)
+        TSTR(template_value_param)
+        TSTR(thrown_type)
+        TSTR(try_block)
+        TSTR(variant_part)
+        TSTR(variable)
+        TSTR(volatile_type)
+        TSTR(dwarf_procedure)
+        TSTR(restrict_type)
+        TSTR(interface_type)
+        TSTR(namespace)
+        TSTR(imported_module)
+        TSTR(unspecified_type)
+        TSTR(partial_unit)
+        TSTR(imported_unit)
+        TSTR(mutable_type)
+        TSTR(condition)
+        TSTR(shared_type)
+        TSTR(type_unit)
+        TSTR(rvalue_reference_type)
+        TSTR(template_alias)
+        TSTR(coarray_type)
+        TSTR(generic_subrange)
+        TSTR(dynamic_type)
+        TSTR(atomic_type)
+        TSTR(call_site)
+        TSTR(call_site_parameter)
+        TSTR(skeleton_unit)
+        TSTR(immutable_type)
+        TSTR(lo_user)
+        TSTR(MIPS_loop)
+        TSTR(HP_array_descriptor)
+        TSTR(format_label)
+        TSTR(function_template)
+        TSTR(class_template)
+        TSTR(GNU_BINCL)
+        TSTR(GNU_EINCL)
+        TSTR(GNU_template_template_parameter)
+        TSTR(GNU_template_template_param)
+        TSTR(GNU_template_parameter_pack)
+        TSTR(GNU_formal_parameter_pack)
+        TSTR(GNU_call_site)
+        TSTR(GNU_call_site_parameter)
+        TSTR(ALTIUM_circ_type)
+        TSTR(ALTIUM_mwa_circ_type)
+        TSTR(ALTIUM_rev_carry_type)
+        TSTR(ALTIUM_rom)
+        TSTR(upc_shared_type)
+        TSTR(upc_strict_type)
+        TSTR(upc_relaxed_type)
+        TSTR(PGI_kanji_type)
+        TSTR(PGI_interface_block)
+        TSTR(SUN_function_template)
+        TSTR(SUN_class_template)
+        TSTR(SUN_struct_template)
+        TSTR(SUN_union_template)
+        TSTR(SUN_indirect_inheritance)
+        TSTR(SUN_codeflags)
+        TSTR(SUN_memop_info)
+        TSTR(SUN_omp_child_func)
+        TSTR(SUN_rtti_descriptor)
+        TSTR(SUN_dtor_info)
+        TSTR(SUN_dtor)
+        TSTR(SUN_f90_interface)
+        TSTR(SUN_fortran_vax_structure)
+        TSTR(SUN_hi)
         TSTR(hi_user)
- 
+
     #undef TSTR
 };
 

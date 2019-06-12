@@ -105,8 +105,6 @@ def analyze_loops(graph, entryID=None):
     Note: - Node type is in ['nonheader', 'reducible', 'irreducible', 'self'].
           - Nodes in DFS tree are keyed by their original index, not DFS preorder
             number.
-    
-    (c) Martin Becker
 
     TODO: 1. Fix (split) irreducible loop headers (as in Havlak's paper).
     """
@@ -267,6 +265,9 @@ class LoopInfo:
         # forest.
         return len(self._lTree) - 1
 
+    def get_loop_tree(self):
+        return self._lTree
+
     def get_preorder_number(self, blockId):
         """Returns the dfs preorder number of the tree."""
         assert blockId in self._lTree, "Invalid node id."
@@ -285,11 +286,12 @@ class LoopInfo:
         """Check if blockId is a loop header."""
         if blockId == self._rootId:
             return False
-        
         return blockId in self._lTree
 
     def lookup_node(self, blockId):
-        """Returns loop header if blockId is part of a loop, None otherwise."""
+        """Returns loop header if blockId is part of a loop, None otherwise.
+        FIXME: does it return the innermost?
+        """
         if self.is_loop_header(blockId):
             return blockId
         else:
@@ -323,7 +325,8 @@ class LoopInfo:
     def get_body_nodes(self, blockId):
         """
         Returns a set of loop body nodes. None is returned if blockId not in
-        lTree.
+        lTree. Only returns direct body nodes. If nested loops inside, their bodies
+        are not contained!
         """
         return self._get_header_attr(blockId, 'body')
 
@@ -336,7 +339,7 @@ class LoopInfo:
     def get_parent_node(self, blockId):
         """
         Returns the parent node of given block. Returns None if blockId not in
-        lTree.
+        lTree. Returns -1 if no enclosing one
         """
         if blockId not in self._lTree or blockId == self._rootId:
             return None

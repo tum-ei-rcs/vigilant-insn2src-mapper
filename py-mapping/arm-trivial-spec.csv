@@ -1,5 +1,8 @@
 #each instruction takes one clock cycle (excluding cache effects)
 #opcode;time.min;time.max
+MOVEQ;1;1
+MOVNE;1;1
+STMIA;1;1
 BCS;1;1
 B;1;1
 SUB;1;1

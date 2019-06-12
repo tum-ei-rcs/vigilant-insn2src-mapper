@@ -12,10 +12,7 @@ log = logging.getLogger(__name__)
 
 
 class ControlFlow(object):
-    """
-    Generic control flow
-    FIXME: merge with flow::FlowGraph?
-    """
+    """Generic control flow"""
     __metaclass__ = ABCMeta
 
     def __init__(self, name, filename, simplify=False):
@@ -36,6 +33,12 @@ class ControlFlow(object):
     def __len__(self):
         return len(self.digraph)
 
+    def entryId(self):
+        return self._entryId
+
+    def exitId(self):
+        return self._exitId
+
     def nodes(self):
         return self.digraph.nodes()
 
@@ -44,11 +47,11 @@ class ControlFlow(object):
         self._ctrldep = None
 
     def _post_init(self):
-        # TODO: prune unreachable. cbb-analyzer, and perhaps also binary, may contain such blocks
         if self.simplify:
             log.info("Simplifying CFG of {}".format(self.name))
-            self._prune_unreachable()
             self._contract_straight_paths()
+        # binary: eternal loops. source: codes after 'return'. Remove them.
+        self._prune_unreachable()
         assert self._validate_graph(), "ControlFlow validation failed."
         self._analyze_loops()
 
@@ -62,8 +65,17 @@ class ControlFlow(object):
         self._graph_changed()
 
     def _prune_unreachable(self):
-        # FIXME: implement this
-        pass
+        # reachable = nx.node_connected_component(self.digraph.to_undirected(), self._entryId)
+        # unreach = set(self.digraph.nodes) - set(reachable)
+        dt = nx.dfs_tree(self.digraph, self._entryId)
+        unreach = set(self.digraph.nodes) - set(dt.nodes)
+        if unreach:
+            log.warning("Removing {} unreachable nodes in {}: {}".format
+                        (len(unreach), self.name, unreach))
+            if self._exitId in unreach:
+                log.warning("Function '{}' never terminates".format(self.name))
+                self._exitId = None
+            self.digraph.remove_nodes_from(unreach)
 
     def _add_block(self, ident, _type, _attrs):
         """
@@ -130,8 +142,8 @@ class ControlFlow(object):
         while True:
             if self._entryId is None:
                 break
-            if self._exitId is None:
-                break
+            # if self._exitId is None:
+            #    break
             
             # DiGraph validation
             if not isinstance(self.digraph, nx.DiGraph):
@@ -220,6 +232,14 @@ class ControlFlow(object):
         col_or_disc = b.get('c', '0') if b.get('c', '0') != 0 else b.get('d', 0)
         fname = self.file if fullpath else os.path.basename(self.file)
         return "{}::{}:{}".format(fname, b.get('l', 0), col_or_disc)
+
+    def get_all_func_calls(self):
+        """ Returns a list (control flow, calling node) from this function"""
+        ret = []
+        for n in self.digraph.nodes:
+            calls = self.get_func_calls(n)
+            ret.extend([(n, c) for c in calls])
+        return ret
 
     ####################
     # Abstract methods #
@@ -318,8 +338,8 @@ class BinaryControlFlow(ControlFlow):
         self._collapse_inlined_subroutines()
 
     def _parse_op_time_csv(self, op_time_csv):
-        """
-        FIXME: Add additional checks for line elements.
+        """Read instruction/opcode timing CSV
+        FIXME: sanitize/check input
         """
         opTimes = dict()
 
@@ -338,12 +358,9 @@ class BinaryControlFlow(ControlFlow):
         BLACKLIST.append('spm')  # self-modifying code
         BLACKLIST.sort()
         for b in self.get_blocks():
-            ar = self.get_addr_ranges(b)
-            for r in ar:
-                local_insns = self._insns.get_instructions(r)
-                for i in local_insns:
-                    mnem = i['Mnem']
-                    assert mnem not in BLACKLIST, "Unsupported mnemonic: {}".format(mnem)
+            for addr, inst in self.instructions(b):
+                mnem = inst['Mnem']
+                assert mnem not in BLACKLIST, "Unsupported mnemonic: {}".format(mnem)
 
     def _attr_block_time(self):
         self._blockTimes = dict()
@@ -351,17 +368,14 @@ class BinaryControlFlow(ControlFlow):
         timeMissing = set()
         for b in self.get_blocks():
             totalSum = 0
-            ar = self.get_addr_ranges(b)
-            for r in ar:
-                local_insns = self._insns.get_instructions(r)
-                for i in local_insns:
-                    mnem = i['Mnem']
-                    try:
-                        # Add max time (second element in opTime tuple)
-                        maxTime = self._opTimes[mnem][1]
-                        totalSum += maxTime
-                    except KeyError:
-                        timeMissing.add(mnem)
+            for addr, inst in self.instructions(b):
+                mnem = inst['Mnem']
+                try:
+                    # Add max time (second element in opTime tuple)
+                    maxTime = self._opTimes[mnem][1]
+                    totalSum += maxTime
+                except KeyError:
+                    timeMissing.add(mnem)
 
             self._blockTimes[b] = totalSum
 
@@ -376,6 +390,17 @@ class BinaryControlFlow(ControlFlow):
                                                                                       fullpath)
 
         log.debug("Block times = {}".format(self._blockTimes))
+
+    def instructions(self, blockId):
+        """iterates over instructions of basic block"""
+        ranges = self.get_addr_ranges(blockId)
+        for r in ranges:
+            insns = self._insns.get_instructions(r)
+            for addr, inst in insns:
+                yield addr, inst
+
+    def get_block_time(self, blockId):
+        return self._blockTimes[blockId]
 
     def get_var_accesses(self, blockId):
         """
@@ -668,7 +693,6 @@ class BinaryControlFlow(ControlFlow):
         if self._exitId == blockId2 and self._entryId == blockId1:
             return False  # must stay distinct, since all other algos downstream do fail
 
-        # FIXME: in principle, we could allow the following, but now address get_block_id() fails
         if self._entryId == blockId1:
             return False
 
@@ -704,7 +728,7 @@ class BinaryControlFlow(ControlFlow):
         def split_ranges(ar, addr):
             """
             Splits given list of address ranges @ addr.
-            TODO: Move this function elsewhere.
+            FIXME: Move this function elsewhere.
 
             Args:
                 ar:   List of address range tuples.
@@ -847,15 +871,18 @@ class BinaryControlFlow(ControlFlow):
 
                 block_attrs = self.get_block_attrs(block)
                 # use callee info from flow parser if present and nonempty
-                assert len(block_attrs['calls']) == 1, "icall not supported"
-                callee = block_attrs['calls'][0]
-
-                # alternative, deprecated:
-                # find callee ourselves
-                # log.warning("Resolving callee of {}.{}...".format(self.name, block))
-                # insn = self._insns._insnMap[addrRanges[0][0]]
-                # assert len(insn['Target']) == 1, "Invalid call instruction"
-                # callee = self._symbs[insn['Target'][0]]
+                if 'calls' in block_attrs:
+                    callee = block_attrs['calls'][0]
+                else:
+                    # find callee ourselves (deprecated)
+                    log.warning("Control flow that was read does not resolve function calls; "
+                                "please re-run or update flow parser. Trying a workaround...")
+                    log.warning("Resolving callee of {}.{}...".format(self.name, block))
+                    insn = self._insns._insnMap[addrRanges[0][0]]
+                    assert len(insn['Target']) == 1, "Invalid call instruction"
+                    callee = self._symbs[insn['Target'][0]]
+                if isinstance(callee, (list, set)):
+                    assert len(callee) == 1, "icall not supported"
                 self._funcCalls.update({block: callee})
 
     def _validate_json_obj(self, jsonObj):

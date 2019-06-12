@@ -66,14 +66,14 @@ $(ASM): $(EXE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(DWARF): $(ASM) $(EXE)
-	$(ELF2FLOW) -f $(ASM) -e $(EXE) -a ArmV5 -d $(DWARF) --inc-insn --inc-symb --ignore-errors
+	$(ELF2FLOW) --asm $(ASM) -e $(EXE) --arch ArmV5 -d $(DWARF) --inc-insn --inc-symb 
 
 $(BFLOWS): $(CFG)
 	$(OTAWA2JSON) --xml $(CFG) --out $@ --asm $(ASM)
 
 mapping: $(BFLOWS)
 	mkdir -p $(MAPDIR)
-	python $(MAPPER) --mapper=homomorphism --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --render-graphs $(ANNOTS) 2>&1 | tee mapping.log
+	python $(MAPPER) --mapper=ctrldep --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --render-graphs $(ANNOTS) 2>&1 | tee mapping.log
 	python $(MERGEMAPS) -m $(MAPDIR) -b`pwd` -o mapping.map
 
 $(FF): $(EXE)

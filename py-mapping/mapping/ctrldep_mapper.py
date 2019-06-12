@@ -27,7 +27,9 @@ class CtrlDependencyMapper(AbstractMapper):
         self.trust_dbg_columns = trust_dbg
 
     def _compute_mapping(self):
-        return self.walk_subgraphs(), self.bhFlow, self.shFlow
+        mapping = self.walk_subgraphs()
+        mapping.is_precise = True
+        return mapping, self.bhFlow, self.shFlow
 
     def _map_subgraph(self, input_map, btfg, stfg):
         assert isinstance(btfg, HierarchicalFlowGraph)

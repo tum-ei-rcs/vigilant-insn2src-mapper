@@ -96,7 +96,7 @@ class GraphCluster(object):
         return self._node2cluster.get(n, None)
 
     def check_cluster(self):
-        """children must be disjoint sets"""
+        """children must be disjoint sets from me"""
         for c in self.children:
             assert not (c.nodes & self.nodes), "{} intersects {}".format(c.nodes, self.nodes)
             c.check_cluster()
@@ -230,7 +230,7 @@ def _dot_code_edge(G, e, attrs, lbls, interactive, target=None):
 
     # label it
     if lbls is not None:
-        lbl = lbls[e]
+        lbl = lbls.get(e, None)
     else:
         lbl = G.edges[e].get('label', None)
 
@@ -241,6 +241,8 @@ def _dot_code_edge(G, e, attrs, lbls, interactive, target=None):
         # as placement constraints. Because if it does, then it becomes horribly slow.
         inner += 'xlabel="{}",'.format(lbl)
 
+    if inner.endswith(","):
+        inner = inner[:-1]
     if inner:
         tmpStr += "[{}]".format(inner)
 

@@ -79,7 +79,7 @@ build: $(ELF) $(ASM)
 flow: $(BFLOWS)
 
 $(BFLOWS): $(ELF) 
-	$(ELF2FLOW) -f $(ASM) -e $(ELF) -a Avr -d $(DWARF) -o $(BFLOWS) --inc-insn --inc-symb
+	$(ELF2FLOW) --asm $(ASM) -e $(ELF) --arch Avr -d $(DWARF) --flow $(BFLOWS) --inc-insn --inc-symb
 
 mapping: $(BFLOWS)
 	mkdir -p $(MAPDIR)

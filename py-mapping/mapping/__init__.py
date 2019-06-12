@@ -8,7 +8,9 @@ import loop_matcher
 import edge_matcher
 from homo_mapper import HomomorphismMapper
 from ctrldep_mapper import CtrlDependencyMapper
-from completer import DominatorLumping
+from domlump_mapper import DominatorLumping
+from linelump_mapper import StraightLineLumping
+from skip_mapper import SkipMapper
 import graphmap as gm
 from flow import render, transformer
 
@@ -80,18 +82,41 @@ def map_flows(bFlow, sFlow, mapper_name, hom_order, extLoopInfo=None, do_render=
         report_dic["skipped_bin_r_ids"] = skipped_b_loops_region_ids
 
     def map_all(chosen_mapper):
-        """run sequence of mapppers and return final mapping"""
-        report["mapping_collection"].update(precise=dict(), complete=dict())
-
+        """
+        Run sequence of mapppers and return final mapping
+        FIXME: it's a pipeline, implement it in a generic way
+        """
+        report["mapping_collection"].update(precise=dict(), linelump=dict(), domlump=dict(),
+                                            complete=dict())
+        # precise mapper:
         chosen_mapper.set_report(report["mapping_collection"]["precise"])
         pmap, b_hflow0, s_hflow0 = chosen_mapper.compute_mapping()
-        # pmap.consistency_check()
-        m1 = DominatorLumping(input_hmap=pmap, bFlow=bFlow, sFlow=sFlow, bhFlow=b_hflow0,
-                              shFlow=s_hflow0, do_render=do_render)
-        m1.set_report(report["mapping_collection"]["complete"])
-        hmap, _, _ = m1.compute_mapping()
-        # hmap.consistency_check()
-        hmap.add_predecessor(pmap)
+        pmap.consistency_check()
+
+        # lumps some remaining nodes into their direct pre/succ:
+        slmapper = StraightLineLumping(input_hmap=pmap, bFlow=bFlow, sFlow=sFlow,
+                                       bhFlow=b_hflow0, shFlow=s_hflow0, do_render=False)
+        slmapper.set_report(report["mapping_collection"]["linelump"])
+        lmap, b_hflow1, s_hflow1 = slmapper.compute_mapping()
+        lmap.consistency_check()
+        lmap.add_predecessor(pmap)
+
+        # lumps all remaining nodes into dominators:
+        dlmapper = DominatorLumping(input_hmap=lmap, bFlow=bFlow, sFlow=sFlow, bhFlow=b_hflow1,
+                                    shFlow=s_hflow1, do_render=do_render)
+        dlmapper.set_report(report["mapping_collection"]["domlump"])
+        dmap, b_hflow2, s_hflow2 = dlmapper.compute_mapping()
+        dmap.consistency_check()
+        dmap.add_predecessor(lmap)
+
+        # handles skipped subflows:
+        skipmapper = SkipMapper(input_hmap=dmap, bFlow=bFlow, sFlow=sFlow, bhFlow=b_hflow2,
+                                shFlow=s_hflow2, annot=extLoopInfo, do_render=False)
+        skipmapper.set_report(report["mapping_collection"]["complete"])
+        hmap, _, _ = skipmapper.compute_mapping()
+        hmap.consistency_check()
+        hmap.add_predecessor(dmap)
+
         # -- stats:
         stats = pmap.calc_statistics()  # MappingStatistics
         percent_precise = ((100. * stats.data['mapped']) / stats.data['total']

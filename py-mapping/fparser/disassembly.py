@@ -34,7 +34,7 @@ class Instructions(object):
         #    log.debug("{}: {}".format(k,v))
         # log.debug("insnRange: {}".format(list(insnRange)))
     
-        return [self._insnMap[i_addr] for i_addr in insnRange]
+        return [(i_addr, self._insnMap[i_addr]) for i_addr in insnRange]
 
     def get_next_insn_address(self, addr):
         """

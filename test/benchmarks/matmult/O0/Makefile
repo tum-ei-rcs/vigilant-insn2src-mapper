@@ -79,11 +79,11 @@ build: $(ELF) $(ASM)
 flow: $(BFLOWS)
 
 $(BFLOWS): $(ELF) 
-	$(ELF2FLOW) -f $(ASM) -e $(ELF) -a Avr -d $(DWARF) -o $(BFLOWS) --inc-insn --inc-symb
+	$(ELF2FLOW) --asm $(ASM) -e $(ELF) --arch Avr -d $(DWARF) --flow $(BFLOWS) --inc-insn --inc-symb
 
 mapping: $(BFLOWS)
 	mkdir -p $(MAPDIR)
-	python $(MAPPER) --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --render-graphs $(ANNOTS)
+	python $(MAPPER) --mapper=homomorphism --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --render-graphs $(ANNOTS)
 	python $(MERGEMAPS) -m $(MAPDIR) -b`pwd` -o mapping.map
 
 $(ASM): $(ELF)

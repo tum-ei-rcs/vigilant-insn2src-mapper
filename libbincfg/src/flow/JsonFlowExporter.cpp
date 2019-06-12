@@ -87,7 +87,7 @@ JsonFlowExporter::exportFlow(const Flow* flow, const InsnMap* insnMap,
         auto fIt = funcLocs.find(blockRanges.back().second);
         if (fIt != funcLocs.end()) {
 
-            assert(block.second->getType() == EBBlockType::CALL && "inconsistency");
+            //assert(block.second->getType() == EBBlockType::CALL && "inconsistency");
 
             // New edge from current block to a new dummy block
             jsonEdges.push_back({blockRanges[0].first, --dummyCounter});
@@ -146,20 +146,22 @@ static void
 exportDie(json& outJson, const DwarfDie& die, const std::set<Dwarf_Half>& validTags)
 {
     if (validTags.count(die.getTagValue())) {
-        // Export attributes
-        auto attrs = json::object();
-        for (auto& attrPtr: die.getAttributes())
-        {
-            attrs[Dwarf::getAttrType(attrPtr->getType())] = attrPtr->getValueAsString();
+        if (die.isValid()) {
+            // Export attributes
+            auto attrs = json::object();
+            for (auto& attrPtr: die.getAttributes())
+            {
+                attrs[Dwarf::getAttrType(attrPtr->getType())] = attrPtr->getValueAsString();
+            }
+            // Write json object
+            outJson["Data"]["DIEs"].push_back(json::object({
+                {"Offset",       die.getOffset()},
+                {"ParentOffset", die.getParentOffset()},
+                {"Tag",          Dwarf::getTagType(die.getTagValue())},
+                {"IsValid",      die.isValid()},
+                {"Attributes",   std::move(attrs)}
+            }));
         }
-        // Write json object
-        outJson["Data"]["DIEs"].push_back(json::object({
-            {"Offset",       die.getOffset()},
-            {"ParentOffset", die.getParentOffset()},
-            {"Tag",          Dwarf::getTagType(die.getTagValue())},
-            {"IsValid",      die.isValid()},
-            {"Attributes",   std::move(attrs)}
-        }));
         // Recursive traversal
         for (auto& child: die.getChildren())
         {

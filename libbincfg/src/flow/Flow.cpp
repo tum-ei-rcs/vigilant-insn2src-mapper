@@ -15,6 +15,12 @@ Flow::isBlockPresent(uint64_t bStartAddr) const
     return m_bBlocks.count(bStartAddr);
 }
 
+void
+Flow::_appendBlock(std::shared_ptr<BasicBlock> bb) {
+    const uint64_t startAddr = bb->getEntryAddr();
+    assert(m_bBlocks.find(startAddr) == m_bBlocks.end());
+    m_bBlocks.emplace(startAddr, bb);
+}
 
 bool
 Flow::addNewContiguousBlock(uint64_t startAddr, uint64_t endAddr,
@@ -25,8 +31,7 @@ Flow::addNewContiguousBlock(uint64_t startAddr, uint64_t endAddr,
     }
 
     auto bBlock = std::make_shared<BasicBlock>(m_bbCount++, startAddr, endAddr, type);
-    m_bBlocks.emplace(startAddr, bBlock);
-
+    _appendBlock(bBlock);
     return true;
 }
 
@@ -47,8 +52,7 @@ Flow::addBlock(const BasicBlock& bBlock)
     {
         _bBlock->addAddrRange(kv.first, kv.second);
     }
-
-    m_bBlocks.emplace(bAddrRanges[0].first, _bBlock);
+    _appendBlock(_bBlock);
 
     return true;
 }
@@ -104,10 +108,50 @@ Flow::insertBlockAddrRanges(uint64_t bStartAddr,
     return true;
 }
 
+
+/**
+ * @brief determine whether BB contains callsites
+ */
+bool
+Flow::hasCalls(const std::shared_ptr<BasicBlock>& bb) const {
+    if (m_funcCallLocations.empty()) return false;
+
+    const auto& addrRanges = bb->getAddrRanges();
+    for (auto currRange = addrRanges.rbegin();
+             currRange != addrRanges.rend();
+             currRange++)
+    {
+        uint64_t rBegin = currRange->first;
+        uint64_t rEnd   = currRange->second;
+        auto lbIt = m_funcCallLocations.lower_bound(rBegin);
+        auto ubIt = m_funcCallLocations.upper_bound(rEnd);  // rEnd is the original end, not the current one when splitting
+        return lbIt != ubIt; // instructions in between => has calls
+    }
+    return false;
+}
+
+/**
+ * @brief in case the entry address of a block has changed, we have to update the maps.
+ */
+void
+Flow::_notify_changed_entry(std::shared_ptr<BasicBlock> blockIt, uint64_t old_entry)
+{
+    const uint64_t new_entry = blockIt->getEntryAddr();
+    if (new_entry == old_entry) return;
+
+    Log::log() << "entry address of BB " << blockIt->getID() << "changed. Edges might be broken" 
+               << ELogLevel::LOG_WARNING;
+
+    auto it = m_bBlocks.find(old_entry);
+    m_bBlocks.erase(it);
+    m_bBlocks.emplace(new_entry, blockIt);
+
+}
+
 /**
  * @brief Split a basic block at a given location.
  *
- * *TODO*: A. Not very efficient if a block is split at different locations.
+ * FIXME:  A. Not very efficient if a block is split at different locations.
  *            A new function is needed for this case.
  *         B. Move the trimmed address ranges directly into the new block
  *            instead of copying them.
@@ -122,7 +166,7 @@ Flow::insertBlockAddrRanges(uint64_t bStartAddr,
  * @return false Split could not be performed, block is left unaltered.
  */
 bool
-Flow::splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc,
+Flow::splitBlock(std::shared_ptr<BasicBlock> blockIt, const SplitLocation& splitLoc,
 std::shared_ptr<BasicBlock>* retNewBlock)
 {
     // Check if there is a block starting after the given split location
@@ -130,49 +174,52 @@ std::shared_ptr<BasicBlock>* retNewBlock)
         return false;
     }
 
-    // Find block
-    auto blockIt = m_bBlocks.find(bStartAddr);
-    if (blockIt == m_bBlocks.end()) {
-        return false;
-    }
+    uint64_t bStartAddr = blockIt->getEntryAddr();
 
-    // Do not split at the very end of the block
-    auto& lastAddrRange = blockIt->second->getAddrRanges().back();
+    // Do not split at the very end of the block.
+    auto& lastAddrRange = blockIt->getAddrRanges().back();
     if (splitLoc.insnAddr == lastAddrRange.second) {
+        Log::log() << "splitBlock: not trimming at end" << ELogLevel::LOG_DEBUG;
         return false;
     }
 
-    // Split the found block, first perform trimming starting after insnAddr
-    auto trimmedRanges = blockIt->second->
+    // cut off instructions after insnAddr -> this moves unrelated addr ranges to the trimmedRanges,
+    // removing them from the original BB
+    auto trimmedRanges = blockIt->
         trimBlock(splitLoc.insnAddr+splitLoc.insnSize, splitLoc.insnSize,
                   splitLoc.addrRangeHint);
 
     if (!trimmedRanges.size()) {
+        Log::log() << "splitBlock: trimmed ranges empty" << ELogLevel::LOG_DEBUG;
         return false;
     }
+    //assert(blockIt->getAddrRanges().size() == 1); // see edge handling below
+
+    // first update the maps, since entry address of original BB might have changed
+    _notify_changed_entry(blockIt, bStartAddr);
 
     // Add a new basic block
-    auto newBlock = std::make_shared<BasicBlock>(m_bbCount++, blockIt->second->getType());
+    auto newBlock = std::make_shared<BasicBlock>(m_bbCount++, blockIt->getType());
     if (retNewBlock) *retNewBlock = newBlock;
-
     for (auto rIt = trimmedRanges.begin(); rIt != trimmedRanges.end(); rIt++)
     {
         newBlock->addAddrRange(rIt->first, rIt->second);
     }
-    m_bBlocks.emplace(trimmedRanges[0].first, newBlock);
+    _appendBlock(newBlock);
 
-    // Update preexit markers
-    if (m_preExitBlocks.erase(blockIt->first)) {
+    // Update preexit markers. TODO: we don't know whether this range was the last
+    if (m_preExitBlocks.erase(bStartAddr)) {
         this->markPreExitBlock(trimmedRanges[0].first);
     }
 
-    // Handle edges
-    for (auto& eIt : this->getOutgoingEdges(blockIt->first))
+    // Handle edges: since the new BB also contains also all unrelated address ranges, the
+    // outgoing edges of the original BB now definitely belong to the new BB.
+    for (auto& eIt : this->getOutgoingEdges(bStartAddr))
     {
         this->removeEdge(eIt);
         this->addEdge(std::make_pair(trimmedRanges[0].first, eIt.second));
     }
-    this->addEdge(std::make_pair(blockIt->first, trimmedRanges[0].first));
+    this->addEdge(std::make_pair(bStartAddr, trimmedRanges[0].first));
 
     return true;
 }
@@ -401,7 +448,7 @@ Flow::printBlocks()
 {
     for (auto it = m_bBlocks.begin(); it != m_bBlocks.end(); it++)
     {
-        std::cout << "BB [" << std::hex << it->first << "]: "
+        std::cout << "BB " <<  it->second->getID() << " [" << std::hex << it->first << "]: "
                   << std::endl;
 
         auto addrRanges = it->second->getAddrRanges();
@@ -410,6 +457,7 @@ Flow::printBlocks()
             std::cout << "    [" << range->first << "]:[" << range->second << "]"
                       << std::endl;
         }
+        std::cout << std::dec;
     }
 
     std::cout << std::endl;

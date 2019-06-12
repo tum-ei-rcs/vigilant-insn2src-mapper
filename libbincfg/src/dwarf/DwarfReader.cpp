@@ -4,22 +4,22 @@
 const std::string DwarfReader::m_logIdentifier { "[DwarfReader] " };
 
 DwarfReader::DwarfReader()
-{ 
+{
 }
 
 /**
  * @brief: Returns a DwarfData object containing debugging information. For the
  *         time being, only CU's in debug_info are processed.
- * 
+ *
  * @todo: Inspect some elf file containing dwarf regions that overlap with
  *        one another.
- * 
+ *
  * @note: Experimental two-level line tables are not supported.
- * 
- * @note: Always check the validity of the returned DwarfData object. 
- * 
+ *
+ * @note: Always check the validity of the returned DwarfData object.
+ *
  * @fixme: Status handling for readAddressRanges, readSourceFiles.
- */ 
+ */
 std::shared_ptr<DwarfData>
 DwarfReader::readDwarfData(const std::string& elfPath)
 {
@@ -60,14 +60,14 @@ DwarfReader::readDwarfData(const std::string& elfPath)
             status = readLineNumbers(cuDies, debugData);
 
             // Read subprograms, including inlined ones
-            status = buildDieTree(d_debug, cuDies, debugData);
+            status &= buildDieTree(d_debug, cuDies, debugData);
         }
         else {
             status = false;
         }
 
         // Call dwarf_finish() and close file
-        dwarfFinish(d_debug); 
+        dwarfFinish(d_debug);
         fclose(elfFd);
     } while (false);
 
@@ -79,7 +79,7 @@ DwarfReader::readDwarfData(const std::string& elfPath)
 /**
  * @note: When initStatus is set to false, either an error occurred during
  *        initialization or the file does not contain dwarf data.
- * 
+ *
  * @note: No need to call dwarfFinish when the returned initStatus is false.
  */
 Dwarf_Debug
@@ -87,7 +87,7 @@ DwarfReader::dwarfInit(FILE* elfFd, bool& initStatus)
 {
     Dwarf_Debug  d_debug = nullptr;
     Dwarf_Error  d_error = nullptr;
-    
+
     // Supply a Dwarf_Error, otherwise libdwarf will call abort
     // in case Dwarf_Debug isn't set up (NULL) and an error occurs during init.
     int result = dwarf_init(fileno(elfFd),
@@ -100,16 +100,16 @@ DwarfReader::dwarfInit(FILE* elfFd, bool& initStatus)
     if (result != DW_DLV_OK) {
         initStatus = false;
 
-        Log::log() << m_logIdentifier << "dwafInit() failed."
+        Log::log() << m_logIdentifier << "dwarfInit() failed -- bad or no debug data"
                    << ELogLevel::LOG_DEBUG;
         // Deallocate only the error descriptor, dwarf_object_init_b takes care
         // of the rest. We need not call this function, since it simply returns
         // in our case.
         dwarf_dealloc(d_debug, d_error, DW_DLA_ERROR);
-        
+
         if (d_debug == nullptr && d_error != nullptr) {
             dwarfErrorHandler(d_error, nullptr);
-            
+
             // Free the leaking error.
             if (d_error->er_static_alloc == DE_MALLOC) {
                 free(d_error);
@@ -134,7 +134,7 @@ DwarfReader::dwarfFinish(Dwarf_Debug d_debug)
     if (result != DW_DLV_OK) {
         Log::log() << m_logIdentifier << "Dwarf finish failed."
                    << ELogLevel::LOG_ERROR;
-        
+
         // Errors allocated during dwarf_finish will leak, must be freed manually.
         if (d_debug == nullptr && d_error != nullptr) {
             dwarfErrorHandler(d_error, nullptr);
@@ -152,24 +152,24 @@ DwarfReader::dwarfFinish(Dwarf_Debug d_debug)
 
 
 /**
- * 
+ *
  * @note: This is invoked only if d_debug is not NULL when error handling is
- *        performed in libdwarf (_dwarf_error()). Allocated Dwarf_Error's 
+ *        performed in libdwarf (_dwarf_error()). Allocated Dwarf_Error's
  *        tied to a Dwarf_Debug will get deallocated in dwarf_finish().
- * 
+ *
  * @note: If Dwarf_Error in _dwarf_error() is not NULL, this will not be
  *        called.
- * 
+ *
  * @note: In the case when Dwarf_Error is statically allocated, a call to
  *        dwarf_dealloc is harmless. This case does not arise here, refer
  *        to _dwarf_error() implementation in dwarf_error.c
- * 
+ *
  * @note: If error is NULL, will print "Dwarf_Error is NULL" with error code 0.
  */
 void
 DwarfReader::dwarfErrorHandler(Dwarf_Error error, Dwarf_Ptr errarg)
 {
-    Log::log() << m_logIdentifier << "Error detected: 0x" << std::hex 
+    Log::log() << m_logIdentifier << "Error detected: 0x" << std::hex
                << dwarf_errno(error) << " " << dwarf_errmsg(error)
                << ELogLevel::LOG_ERROR;
 }
@@ -178,13 +178,13 @@ DwarfReader::dwarfErrorHandler(Dwarf_Error error, Dwarf_Ptr errarg)
 /**
  * @brief: Returns a vector of Compilation Unit DIE's found in debug_info or
  *         debug_types.
- * 
+ *
  * @note: All CU headers are processed sequentially.
- * 
+ *
  * @note: Subsequent calls to next_cu_header after it has returned DW_DLV_NO_ENTRY
  *        will repeat the cycle.
- * 
- * @info: The offset returned from dwarf_dieoffset() given a CU die is 
+ *
+ * @info: The offset returned from dwarf_dieoffset() given a CU die is
  *        section-relative.
  */
 std::vector<Dwarf_Die>
@@ -193,7 +193,7 @@ DwarfReader::readCompilationUnits(Dwarf_Debug d_debug, bool d_isInfo)
     std::vector<Dwarf_Die> cuDies;
 
     while (true) {
-        // Get the next compilation unit (cu pointer will be updated 
+        // Get the next compilation unit (cu pointer will be updated
         // internally in d_debug). Always provide non NULL pointers
         // for the following arguments: next_cu_header.
         Dwarf_Unsigned d_nextCuHeader = 0;
@@ -240,8 +240,8 @@ DwarfReader::readCompilationUnits(Dwarf_Debug d_debug, bool d_isInfo)
 /**
  * @brief: Reads source file names for all given CU's, updates DwarfData
  *         accordingly.
- * 
- * 
+ *
+ *
  * @note: Returns false if no source file was retrieved for at least one CU.
  */
 bool
@@ -269,7 +269,7 @@ DwarfReader::readSourceFiles(Dwarf_Debug d_debug,
                        << ELogLevel::LOG_ERROR;
             errorCount++;
             continue;
-        }        
+        }
 
         result = dwarf_srcfiles(d_cuDie, &d_srcFiles, &d_srcCount, nullptr);
         if (result != DW_DLV_OK) {
@@ -323,17 +323,17 @@ DwarfReader::readSourceFiles(Dwarf_Debug d_debug,
 
 
 /**
- * @brief: Reads line number information for all given CU dies, updates 
+ * @brief: Reads line number information for all given CU dies, updates
  *         debugData accordingly. Only single line tables are processed.
- * 
+ *
  * @note: Returns false if no line information was retrieved for at least one
  *        CU.
- * 
- * @note: For the time being, we process only CU dies found in dwarf_info. The 
+ *
+ * @note: For the time being, we process only CU dies found in dwarf_info. The
  *        offset retrieved from dwarf_dieoffset is section-relative, so it
  *        is safe to use this offset as a unique key for identifying a CU. If we
  *        intend to implement processing CU dies found in dwarf_types section,
- *        either another way of keying CU's globally must be thought of or 
+ *        either another way of keying CU's globally must be thought of or
  *        DwarfData must be changed to handle this. dwarf_get_die_infotypes_flag
  *        sets a flag indicating whether a given DIE is part of debug_info or
  *        debug_types. This could be used to distinguish between sections so that
@@ -356,7 +356,7 @@ DwarfReader::readLineNumbers(const std::vector<Dwarf_Die>& cuDies,
         Dwarf_Small        d_isSingleTable = 0;
         Dwarf_Line_Context d_lineContext   = nullptr;
 
-         
+
         // Get CU Die offset first (section relative).
         int result = dwarf_dieoffset(d_cuDie, & d_dieOffset, nullptr);
         if (result != DW_DLV_OK) {
@@ -431,7 +431,7 @@ DwarfReader::processLineContext(Dwarf_Line_Context d_lineContext, uint64_t cuId,
                    << ELogLevel::LOG_DEBUG;
         return false;
     }
-    
+
     Log::log() << "CU has " << d_lineCount << " dwarf_line's."
                << ELogLevel::LOG_DEBUG;
 
@@ -487,11 +487,11 @@ DwarfReader::processLineContext(Dwarf_Line_Context d_lineContext, uint64_t cuId,
 /**
  * @brief: Reads debug_aranges section, saves the found address ranges and their
  *         corresponding CU indices in DwarfData.
- * 
+ *
  */
 bool
 DwarfReader::readAddressRanges(Dwarf_Debug d_debug, DwarfData* debugData)
-{   
+{
     DwarfRange currRange;
     bool warningFlag = false;
     std::size_t totalCount = 0;

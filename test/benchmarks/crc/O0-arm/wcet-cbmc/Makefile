@@ -21,6 +21,7 @@ LOGFILE=wcet.log
 TIMER=timeout -s INT 10m /usr/bin/time -v
 CBMCINTERMED=modelcheck
 FIND_WCET=~/async/WCET_gitlab/scripts/find_wcet.py
+FUNC=CBMCDriver
 
 ########################################
 #  VERIFICATION SETTINGS
@@ -41,7 +42,8 @@ WCET_PREC=1
 all: $(LOGFILE)
 
 $(LOGFILE): $(TMPL)
-	CBMC="$(CBMC)" CBMCFLAGS="$(CBMCFLAGS)" TIMER="$(TIMER)" CBMCINTERMED="$(CBMCINTERMED)" $(PY) -u $(FIND_WCET) -i $< -p $(WCET_PREC) | tee $(LOGFILE)
+	GOTOINSFLAGS="--remove-calls-no-body;--function-inline $(FUNC);--constant-propagator" CBMC="$(CBMC)" CBMCFLAGS="$(CBMCFLAGS)" TIMEOUT="$(TIMER)" CBMCINTERMED="$(CBMCINTERMED)" $(PY) -u $(FIND_WCET) -p $(WCET_PREC) $^ | tee $(LOGFILE)
+	#CBMC="$(CBMC)" CBMCFLAGS="$(CBMCFLAGS)" TIMEOUT="$(TIMER)" CBMCINTERMED="$(CBMCINTERMED)" $(PY) -u $(FIND_WCET) -p $(WCET_PREC) $^ | tee $(LOGFILE)
 
 clean:
 	rm -f $(LOGFILE)

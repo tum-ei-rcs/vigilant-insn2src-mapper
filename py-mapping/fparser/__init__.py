@@ -36,7 +36,7 @@ class Executable(object):
         self.symbols_i = None
         self.dwarfData = None
 
-        self.dwarfData = dw.DwarfData(debugJsonPath)
+        self.dwarfData = dw.DwarfData(debugJsonPath) if debugJsonPath is not None else None
         self._load_binary_flows(binaryJsonPath, jsonSplit, optimeCsvPath, simplify)
         self._load_source_flows(sourceCsvPath, simplify)
         self._map_flow_pairs()
@@ -103,7 +103,7 @@ class Executable(object):
         assert len(jFlowObjs) > 0, "Could not find binary flows."
 
         # Only add flows that have debug info
-        dwSubs = self.dwarfData.get_subprograms()
+        dwSubs = self.dwarfData.get_subprograms()  # FIXME: add ALL, incl lib functions
 
         for jObj in jFlowObjs:
             assert 'Name' in jObj.keys(), "Invalid flow object."
@@ -121,10 +121,10 @@ class Executable(object):
                 continue
             
             log.info("Parsing binary flow graph: {}".format(jObj['Name']))
+            dieOffset = dwSubs[entryAddr]['dieOffset']
             self.bFlowGraphs.append(cf.BinaryControlFlow(jObj, self.dwarfData,
                                                          self.instructions, self.symbols,
-                                                         dwSubs[entryAddr]['dieOffset'],
-                                                         optimeCsv, simplify=simplify))
+                                                         dieOffset, optimeCsv, simplify=simplify))
 
     def _load_source_flows(self, csvPath, simplify):
         log.info("Parsing source flow graphs")

@@ -20,19 +20,45 @@ BasicBlock::addAddrRange(uint64_t startAddr, uint64_t endAddr)
     m_addrRanges.push_back(std::make_pair(startAddr, endAddr));
 }
 
+uint64_t
+BasicBlock::getEntryAddr(void) const {
+    return m_addrRanges[0].first; // FIXME: completely arbitrary. The second range might also be the entry.
+}
+
 /**
- * @brief Trims the block up to the specified location, returns a vector
- *        of address ranges that were trimmed (new block @[trimAddr:end))
+ * @brief Trims/shortens the range of a block up to the specified location, returns a vector
+ *        of address ranges that were cut off (new block @[trimAddr:end))
  *
  *
  * @param trimAddr The address where the trimming starts.
  * @param insnSize Size of the instruction preceding the trim location.
- *
+ * @param rangeHint selects the correct address range to trim. If not known, function is slower.
  * @return std::vector<AddrRangePair> Trimmed address ranges.
  */
 std::vector<AddrRangePair>
 BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHint)
 {
+#if 0
+    std::vector<AddrRangePair> trimmedAddrRanges;
+    const auto startIt = m_addrRanges.begin();
+
+    // Find the address range containing trimAddr
+    // FIXME: do not move unrelated ranges from the BB to the trimmedAddrRange. That's unexpected.
+    // Erase the remaining address ranges and push them to trimmedAddrRanges
+    for (auto it = startIt; it != m_addrRanges.end(); /* in loop */)
+    {
+        if (trimAddr > it->first && trimAddr <= it->second) {
+            trimmedAddrRanges.push_back(std::make_pair(trimAddr, it->second));
+            // keep but modify the affected range in the block
+            it->second = trimAddr - insnSize;
+            ++it;
+        } else {
+            // remove all other ranges from the block
+            trimmedAddrRanges.push_back(*it);
+            it = m_addrRanges.erase(it);
+        }
+    }
+#else
     std::vector<AddrRangePair> trimmedAddrRanges;
     auto rangeIt = m_addrRanges.end();
     auto startIt = m_addrRanges.begin();
@@ -70,6 +96,7 @@ BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHin
         rangeIt = m_addrRanges.erase(rangeIt);
     }
 
+#endif
     return trimmedAddrRanges;
 }
 

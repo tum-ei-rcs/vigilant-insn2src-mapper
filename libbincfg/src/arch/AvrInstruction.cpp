@@ -17,6 +17,7 @@ AvrInstruction::AvrInstruction(const DisasmInstruction& disInsn, bool ignoreErro
         assert(false && "Unknown AVR opcode");
     }
 
+    //printf("Instruction: %s\n", disInsn.textInsn.c_str());
     m_avrMnemonic = mIt->second;
 }
 

@@ -69,7 +69,8 @@ def match(bFlow, sFlow, do_render=False, trust_dbg=False, ignore_discriminators=
             shFlow = HierarchicalFlowGraph("src-discr", stfg)
             hm = HomomorphismMapper(None, bFlow, sFlow, bhFlow, shFlow,
                                     hom_order="predominated-first",
-                                    hom_order_src="predominated-first")
+                                    hom_order_src="predominated-first",
+                                    do_render=False)
             hmap, _, _ = hm.compute_mapping()
             dmap = hmap.mapping
             if not dmap.unmapped():

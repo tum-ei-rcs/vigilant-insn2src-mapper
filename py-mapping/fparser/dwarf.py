@@ -4,7 +4,9 @@ import re
 import networkx as nx
 from sortedcontainers import SortedDict
 
+
 log = logging.getLogger(__name__)
+SUBROUTINE = ('DW_TAG_inlined_subroutine', 'DW_TAG_subprogram')
 
 
 class DwarfData(object):
@@ -278,7 +280,7 @@ class DwarfData(object):
         Return:
             Tuple (s, u), signed and unsigned respectively.
         """
-        m = re.search(r'S_([\+\-0-9]+)_U_([\+\-0-9]+)', attr)
+        m = re.search(r'S_([+\-0-9]+)_U_([+\-0-9]+)', attr)
         assert m is not None
 
         s = int(m.group(1))
@@ -337,7 +339,32 @@ class DwarfData(object):
                 'high_pc': hi_pc
             })
 
-        def test_die(die, d, subp):
+        def get_surrounding_sub(dnode):
+            """Walk up the tree and return next surrounding subroutine
+            Not necessarily the direct parent. There may be lexical scopes and other stuff.
+            """
+            n = dnode
+            try:
+                while n:
+                    n = next(iter(self._dieTree.predecessors(n)))
+                    dd = self._dieTree.nodes[n]
+                    if 'tag' in dd and dd['tag'] in SUBROUTINE:
+                        return n
+            except StopIteration:
+                pass
+            return None
+
+        def get_sub_details(doff):
+            """Return dict with details of subroutine. If die is inlined, go to abstract origin"""
+            assert int(doff) in self._dieTree.nodes, "DWARF data incomplete"
+            # --
+            dd = self._dieTree.nodes[int(doff)]
+            assert dd['tag'] in SUBROUTINE, "not a subprogram"
+            if dd['tag'] == "DW_TAG_inlined_subroutine":
+                return get_sub_details(dd['attrs']['DW_AT_abstract_origin'])
+            return dd['attrs']
+
+        def test_die(die, subp):
             """
             Test if die is an inlined node, add it to self._inlSubroutines.
 
@@ -347,7 +374,6 @@ class DwarfData(object):
 
             Args:
                 die:  Die offset.
-                d:    Path distance from root subp node.
                 subp: Subprogram die offset.
 
             Returns:
@@ -355,29 +381,37 @@ class DwarfData(object):
             """
             dNode = self._dieTree.nodes[die]
             if dNode['tag'] == 'DW_TAG_inlined_subroutine':
-                assert d == 1, "Found nested inlined subroutine, die @0d{}".format(die)
+                inlined_into = int(get_surrounding_sub(die))
+                abstract_orig = int(dNode['attrs']['DW_AT_abstract_origin'])
+                assert inlined_into is not None, "Inlined sub without surrounding sub"
+                sub_into = get_sub_details(inlined_into)
+                sub_myself = get_sub_details(abstract_orig)
+                log.info("Sub '{}' (die +{:x}) was inlined into '{}' (die +{:x})".format
+                         (sub_myself['DW_AT_name'], die, sub_into['DW_AT_name'], inlined_into))
+
+                if self._dieTree.node[inlined_into]['tag'] == 'DW_TAG_inlined_subroutine':
+                    raise NotImplementedError("nested inlining @die offset {:x}".format(die))
 
                 # Check if it contains DW_AT_ranges
                 if 'DW_AT_ranges' in dNode['attrs']:
-                    log.error("Inlined subroutine not in contiguous range.")
-                    # assert False, "Not implemented."
-                    return
+                    raise NotImplementedError("Inlined subroutine not in contiguous range.")
+
                 assert {'DW_AT_low_pc', 'DW_AT_high_pc'} <= set(dNode['attrs'].keys()), \
                     "Incorrect inlined subroutine DIE @0d{}".format(die)
-
-                log.info("Found inlined subroutine.")
 
                 # Add inlined subroutine
                 add_inl(die, dNode, subp)
 
-        def find_children(s, d, subp):
+        def find_children(subt, root):
             """Search the subtree rooted by subp recursively."""
-            for ch in self._dieTree.successors(s):
-                test_die(ch, d, subp)
-                find_children(ch, d + 1, subp)
+            for ch in self._dieTree.successors(subt):
+                test_die(ch, root)
+                find_children(ch, root)
 
         for s in self._subDies:
-            find_children(s, 1, s)
+            find_children(s, s)
+        if self._inlSubroutines:
+            log.warning("Support for inlining is experimental!")
 
     def _find_subprograms(self):
         """
@@ -400,6 +434,8 @@ class DwarfData(object):
 
         NOTE: Subprogram DIEs that are abstract instance root entries are 
               are not added to self._subprograms, but are noted in self._subDies.
+              This happens for subprograms that are always inlined, so that there
+              is no external symbol left.
         
         NOTE: It can happen that a subprogram DIE (DW_TAG_subprogram) which is
               not a concrete out-of-line instance (see below) may be missing 
@@ -433,21 +469,21 @@ class DwarfData(object):
                 # Check if it has an abstract origin attribute -> concrete 
                 # out of line instance.
                 if 'DW_AT_abstract_origin' in die['attrs']:
-                    # log.debug("Skipping subprogram DIE @0d{}, concrete out-of-line instance.".format(s))
+                    # log.debug("Skipping subprog DIE @0d{}, concrete out-of-line
+                    # instance".format(s))
                     continue
 
                 # Don't process abstract instance root entries here but note 
                 # them in self._subDies.
                 if 'DW_AT_inline' in die['attrs']:
-                    # log.debug("Subprogram DIE @0d{} is an abstract instance root entry.".format(s))
+                    log.debug("Subprog DIE @0d{} is an abstract instance root entry.".format(s))
                     self._subDies.append(s)
                     continue
 
-                if not {'DW_AT_name', 'DW_AT_low_pc'} <= set(die['attrs'].keys()):
-                    log.warning(
-                        "Skipping subprogram DIE @0d{}, missing name or low_pc: {}".format(s, die[
-                            'attrs']))
+                if not {'DW_AT_low_pc'} <= set(die['attrs'].keys()):
+                    # a declaration
                     continue
+
                 if 'DW_AT_ranges' in die['attrs']:
                     log.error("Skipping subprogram DIE @0d{}, contains DW_AT_ranges.".format(s))
                     continue

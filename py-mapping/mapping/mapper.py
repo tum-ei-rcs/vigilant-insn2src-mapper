@@ -122,7 +122,7 @@ class AbstractMapper(object):
             :type sub_s: transformer.HierarchicalFlowGraph | None
             :return: the empty map
             """
-            ehm = gm.HierarchicalGraphMap(mname)
+            ehm = gm.HierarchicalGraphMap(mname, skip=True)
             sf = sub_s.flow if sub_s is not None else None
             bf = sub_b.flow if sub_b is not None else None
             em = gm.GraphMap(bf, sf, dict(), mname)
@@ -208,7 +208,7 @@ class AbstractMapper(object):
             assert isinstance(hmap.mapping, gm.GraphMap)
             # ensure that the collapsed nodes are in the map
             for sb in sub_b.subflows:
-                if sb.node_in_parent not in hmap.mapping.mapped():
+                if (not sb.skip) and (sb.node_in_parent not in hmap.mapping.mapped()):
                     log.error("Mapper missed to register fixed points in map")
                     assert False
             # --

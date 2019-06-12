@@ -66,7 +66,7 @@ $(ASM): $(EXE)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 $(DWARF): $(ASM) $(EXE)
-	$(ELF2FLOW) -f $(ASM) -e $(EXE) -a ArmV5 -d $(DWARF) --inc-insn --inc-symb --ignore-errors
+	$(ELF2FLOW) --asm $(ASM) -e $(EXE) --arch ArmV5 -d $(DWARF) --inc-insn --inc-symb
 
 $(BFLOWS): $(CFG)
 	$(OTAWA2JSON) --xml $(CFG) --out $@ --asm $(ASM)

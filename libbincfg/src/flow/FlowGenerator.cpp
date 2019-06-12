@@ -1,5 +1,8 @@
+#include <algorithm>
+#include <iterator>
 #include "bincfg/flow/FlowGenerator.hpp"
 
+// TODO: identify tail calls
 
 std::unique_ptr<FuncMap>
 FlowGenerator::findFunctions(const DisasmSection* section)
@@ -16,27 +19,31 @@ FlowGenerator::findFunctions(const DisasmSection* section)
         uint64_t targetAddr;
 
         if (isFuncCallInstruction(currInsn->second, currInsn->first, targetAddr)) {
-            // FIXME: Handle the case when the target address is not in this
-            //        section.
+            // FIXME: Better handling of the case when the target address is not in this section.
+
             auto sIt = symbMap->find(targetAddr);
             if (sIt != symbMap->end()) {
-                // Add to funcMap if new function
-                if (!funcMap->count(sIt->first)) {
+                // Add to funcMap if not seen before
+                if (!funcMap->count(sIt->first)) { // address known?
                     funcMap->insert(std::make_pair(sIt->first, sIt->second));
                 }
-            }
-            else {
+            } else {
                 // Create new symbol for this function, get symbol context
                 std::string funcName;
+                std::stringstream tmpStream;
+
+                #ifdef BUGGY
                 uint64_t relDiff;
 
                 // Get symbol context
                 auto symbContextIt = section->getSymbolContext(targetAddr);
                 relDiff = targetAddr - symbContextIt->first;
 
-                std::stringstream tmpStream;
                 tmpStream << symbContextIt->second << std::hex
                           << "+0x" << relDiff;
+                #else
+                tmpStream << std::hex << targetAddr;
+                #endif
 
                 funcName = tmpStream.str();
                 funcMap->insert(std::make_pair(targetAddr, funcName));
@@ -166,10 +173,13 @@ FlowGenerator::isFuncCallInstruction(const DisasmInstruction& disasmInsn,
         std::vector<uint64_t> targetAddrs = insn->getTargetAddrs(insnAddr);
 
         const bool regular_call = targetAddrs.size() == 1;
-        if (!m_ignore_errors) {
-            assert(regular_call && "unsupported call");
-        } else {
-            return false;
+        if (!regular_call) {
+            if (!m_ignore_errors) {
+                assert(regular_call && "unsupported call");
+            } else {
+                Log::log() << "CALL " << disasmInsn.textInsn << " has wrong number of targets: " << targetAddrs.size() << ELogLevel::LOG_ERROR;
+                return false;
+            }
         }
 
         auto insnSize = insn->getInstructionSize();
@@ -518,6 +528,7 @@ FlowGenerator::symbolize(const SymbMap* symbols, Flow* flow) {
     /**************************
      * symbolize callee names
      **************************/
+
     // iterate BBs with calls, find targets, look up addresses
     const auto callsite2targets = flow->getFuncCallTargets();
     const auto callsites = flow->getFuncCallLocations();
@@ -525,6 +536,7 @@ FlowGenerator::symbolize(const SymbMap* symbols, Flow* flow) {
     {
         std::shared_ptr<BasicBlock> bb = blockIt.second;
         if (bb->getType() == EBBlockType::CALL) {
+            Log::log() << "Symbolize: BB " << blockIt.first << " has calls" << ELogLevel::LOG_DEBUG;
             bool found = false;
 
             // look through all address ranges to find callee address
@@ -593,9 +605,21 @@ FlowGenerator::manageFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
         return;
     }
 
-    for (auto& blockIt : flow->getBlocks())
+    // we create more blocks on the go, so we cannot just iterate the map
+    const BlockMap& bm = flow->getBlocks();
+    std::set<std::shared_ptr<BasicBlock> > worklist;
+    for (auto& it : bm) {
+        worklist.insert(it.second);
+    }
+
+    while (!worklist.empty())
     {
-        const auto& addrRanges = blockIt.second->getAddrRanges();
+        auto one_bb = worklist.begin();
+        std::shared_ptr<BasicBlock> blockIt = *one_bb;
+        worklist.erase(one_bb);
+        assert (blockIt->getEntryAddr() != 0);
+
+        const auto& addrRanges = blockIt->getAddrRanges();
 
         // Iterate over address ranges backwards, split if containing function
         // calls.
@@ -613,13 +637,13 @@ FlowGenerator::manageFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
             }
 
             auto lbIt = funcCallLocs.lower_bound(rBegin);
-            auto ubIt = funcCallLocs.upper_bound(rEnd);
+            auto ubIt = funcCallLocs.upper_bound(rEnd);  // rEnd is the original end, not the current one when splitting
 
             if (lbIt == ubIt) {
                 continue;  // no calls here
             }
 
-            blockIt.second->setType(EBBlockType::CALL);
+            blockIt->setType(EBBlockType::CALL);
 
             // split block at each callsite
             bool first = true;
@@ -627,22 +651,28 @@ FlowGenerator::manageFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
             {
                 auto insnSize = getInsnSize(*--fIt);
                 if (*fIt != addrRanges.back().second) {
-                    Log::log() << "split: BB " << blockIt.first << std::hex
+                    Log::log() << "split: BB " << blockIt->getID() << std::hex
                                << "[" << rBegin << ".." << rEnd << "] after 0x"
                                << *fIt << std::dec << ELogLevel::LOG_DEBUG;
                     SplitLocation splitLoc {*fIt, insnSize, rIndex};
                     const uint64_t nBegin = splitLoc.insnAddr + splitLoc.insnSize;
                     std::shared_ptr<BasicBlock> newBlock;
-                    assert(flow->splitBlock(blockIt.first, splitLoc, &newBlock));
+                    // XXX: each split may remove address ranges from the original BB
+                    assert(flow->splitBlock(blockIt, splitLoc, &newBlock));
+                    worklist.insert(newBlock);
+                    Log::log() << "split: new BB " << newBlock->getID()
+                               << std::hex << " [0x" << nBegin << "..]" << std::dec
+                               << ELogLevel::LOG_DEBUG;
                     // first new block may or may not have a function call after split, others do.
                     if (first) {
-                        const auto lbnIt = funcCallLocs.lower_bound(nBegin);
-                        const bool hasCall = !first || (lbnIt != ubIt);
+                        // new BB may have inherited other addr ranges during
+                        // the split, thus a full check is needed
+                        const bool hasCall = !first || flow->hasCalls(newBlock);
                         newBlock->setType(hasCall ? EBBlockType::CALL : EBBlockType::NORMAL);
-                        Log::log() << "split: new BB " << std::hex
-                                   << "[" << nBegin << ".." << *fIt << "] has call: "
+                        Log::log() << "split: new BB " << newBlock->getID() << " has call: "
                                    << hasCall << ELogLevel::LOG_DEBUG;
                     }
+                    //flow->printBlocks();
                 }
                 first = false;
             }

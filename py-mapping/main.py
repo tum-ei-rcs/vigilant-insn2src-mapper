@@ -20,6 +20,18 @@ coloredlogs.install(level=lvl, fmt='[ %(levelname)s ] <%(name)s> %(message)s')
 log = logging.getLogger(__file__)
 
 
+def _get_last_precise_map(final_map):
+    """search for the last precise mapping step in the pipeline"""
+    this_map = final_map
+    while not this_map.is_precise:
+        preds = this_map.get_predecessors()
+        assert len(preds) <= 1, "more than one predecessor; cannot mark precisely mapped nodes"
+        if len(preds) == 0:
+            raise ValueError("No precise map present")
+        this_map = next(iter(preds))
+    return this_map
+
+
 def do_render_flows(bFlow, sFlow, attrs=None):
     """render a pair"""
     bAttrs = attrs if attrs is not None else dict(attrs=bFlow.attrKeys)
@@ -38,6 +50,14 @@ def do_mapping(bFlow, sFlow, annot_func, hom_order, mapper_name, do_render=False
                                          do_render=do_render, trust_dbg=trust_dbg)
     end_time = time.time()
     log.debug("Elapsed time for flow {}: {:.2f}s".format(bFlow.name, end_time - start_time))
+
+    # safety check:
+    flatmap = final_map.flatten()
+    if flatmap.unmapped():
+        assert False, "some binary BBs have not been mapped"
+    for n_b, n_s in flatmap.get_map().iteritems():
+        assert n_b in bFlow.digraph.nodes, "flattening failed (virtual binary node in map)"
+        assert n_s in sFlow.digraph.nodes, "flattening failed (virtual source node in map)"
     # --
     assert isinstance(final_map, mapping.graphmap.HierarchicalGraphMap)
     return final_map, reprt
@@ -161,8 +181,7 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
 
     # get the mapping itself
     flatmap = hierarchical_map.flatten()
-    allmap = {add_pre(k, 'b'): add_pre(v, 's') for k, v in flatmap.get_map().iteritems()
-              if k <= bFlow.get_max_id()}
+    allmap = {add_pre(k, 'b'): add_pre(v, 's') for k, v in flatmap.get_map().iteritems()}
 
     # add one commonn entry/exit node for better visualization
     entries = ['b{}'.format(bFlow._entryId), 's{}'.format(sFlow._entryId)]
@@ -182,12 +201,13 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
     ##############################
     precise_nodes = set()
     try:
-        preds = hierarchical_map.get_predecessors()
-        assert len(preds) == 1, "more than one predecessor; cannot mark precisely mapped nodes"
-        precise_map = next(iter(preds))
+        precise_map = _get_last_precise_map(hierarchical_map)
+        log.info("Rendering mapping of '{}' with precise map='{}'".format
+                 (hierarchical_map.name, precise_map.mapping.name()))
+
+        # flatten and colorize nodes
         pflatmap = precise_map.flatten()
-        mid = bFlow.get_max_id()
-        mapped_nodes = [add_pre(n, 'b') for n in pflatmap.mapped() if n <= mid]
+        mapped_nodes = [add_pre(n, 'b') for n in pflatmap.mapped()]
         precise_nodes |= set(mapped_nodes)
         for n in mapped_nodes:
             both_graphs.nodes[n].update(dict(fillcolor='darkolivegreen1', style='filled'))
@@ -255,13 +275,8 @@ def main(args):
                                        hom_order=args.hom_order, mapper_name=args.mapper,
                                        do_render=args.render_graphs, trust_dbg=args.trust_dbg_info)
             funcs_mapped[bFlow.name] = full_map
-            # get statistics for precise mapping (=predecessors of completer)
-            preds = full_map.get_predecessors()
-            if preds:
-                assert len(preds) == 1
-                stats = next(iter(preds)).calc_statistics()
-            else:
-                stats = full_map.calc_statistics()
+            precise_map = _get_last_precise_map(full_map)
+            stats = precise_map.calc_statistics()
             if stats is not None:
                 n_grp += stats.data.get('graphs', 0)
                 n_tot += stats.data.get('total', 0)
@@ -269,26 +284,24 @@ def main(args):
         except AssertionError:
             full_map = rpt = None
             log.error("Failed to match flow {}.".format(bFlow.name), exc_info=True)
+            # exit(2)
 
-        #########
-        # report
-        #########
+        ##########
+        # outputs
+        ##########
         # writes the mapping CSV and JSON reports
-        report.write(bFlow=bFlow, sFlow=sFlow,
-                     annot_func=annot_func, mapping=full_map, reportdata=rpt)
+        if full_map:
+            report.write(bFlow=bFlow, sFlow=sFlow, reportdata=rpt, mapping=full_map)
 
-        #########
-        # render
-        #########
-        if args.render_graphs:
-            full_map.name = bFlow.name
-            try:
-                do_render_mapping(bFlow=bFlow, sFlow=sFlow,
-                                  annot_file=annot_file, hierarchical_map=full_map)
-            except AssertionError:
-                log.warning("Error during rendering of mapping {}".format(full_map.name))
-                import traceback
-                traceback.print_exc()
+            if args.render_graphs:
+                full_map.name = bFlow.name
+                try:
+                    do_render_mapping(bFlow=bFlow, sFlow=sFlow,
+                                      annot_file=annot_file, hierarchical_map=full_map)
+                except AssertionError:
+                    log.warning("Error during rendering of mapping {}".format(full_map.name))
+                    import traceback
+                    traceback.print_exc()
 
     #####################
     # Overall Statistics

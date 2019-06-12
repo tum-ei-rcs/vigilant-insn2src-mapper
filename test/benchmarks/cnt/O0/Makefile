@@ -26,7 +26,7 @@ BFLOWS=main.json
 SFLOWS=$(wildcard *_allflows.csv)
 DWARF=debug.json
 OPTIMES=../../avr-spec.csv
-MAPDIR=temp
+MAPDIR=maps
 
 ############# PLEASE DO NOT CHANGE ANYTHING BELOW THIS LINE ##############
 MCU = atmega128
@@ -70,20 +70,20 @@ OBJ_ALL = $(SRC_ALL:.c=.o) $(ASRC:.S=.o)
 ALL_CFLAGS = -mmcu=$(MCU) -I. $(CFLAGS) $(GENDEPFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
-.PHONY: build flow mapping
+.PHONY: build flow
 
-all: build flow mapping
+all: build flow mapping.log
 
 build: $(ELF) $(ASM)
 
 flow: $(BFLOWS)
 
 $(BFLOWS): $(ELF) 
-	$(ELF2FLOW) -f $(ASM) -e $(ELF) -a Avr -d $(DWARF) -o $(BFLOWS) --inc-insn --inc-symb
+	$(ELF2FLOW) --asm $(ASM) -e $(ELF) --arch Avr -d $(DWARF) --flow $(BFLOWS) --inc-insn --inc-symb
 
-mapping: $(BFLOWS)
+mapping.log: $(BFLOWS)
 	mkdir -p $(MAPDIR)
-	python $(MAPPER) --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --render-graphs $(ANNOTS)
+	python $(MAPPER) --mapper=ctrldep --bin-json $(BFLOWS) --dwarf-json $(DWARF) --src-csv $(SFLOWS) --optime-csv $(OPTIMES) --temp-dir $(MAPDIR) --trust-dbg-info --render-graphs $(ANNOTS) 2>&1 | tee $@
 	python $(MERGEMAPS) -m $(MAPDIR) -b`pwd` -o mapping.map
 
 $(ASM): $(ELF)

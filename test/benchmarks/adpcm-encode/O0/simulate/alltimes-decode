@@ -47,26 +47,26 @@ Running Simulator live...
 Tracefile ignored
 Running Simulator: simulavr -l 0 -d atmega128 -T exit -t stdout -f main.elf
 Cycles: 1 (1 per second), stack=
-Cycles: 112,760 (112,759 per second), stack=main=>encode=>filtez
-Cycles: 212,776 (100,016 per second), stack=main=>encode=>quantl=>my_abs
-Cycles: 312,444 (99,668 per second), stack=main=>encode=>__muldi3=>__muldi3_6
-Cycles: 412,762 (100,318 per second), stack=main=>encode=>quantl=>__ashrdi3
-Cycles: 521,699 (108,937 per second), stack=main=>encode
-Cycles: 636,578 (114,879 per second), stack=main=>encode=>__ashrdi3
-Cycles: 754,154 (117,576 per second), stack=main=>encode
-Cycles: 872,954 (118,800 per second), stack=main=>encode=>quantl
-Cycles: 991,643 (118,689 per second), stack=main=>encode=>filtep=>__muldi3
-Cycles: 1,109,571 (117,928 per second), stack=main=>encode=>__muldi3=>__muldi3_6=>__umulhisi3
-Cycles: 1,227,764 (118,193 per second), stack=main=>encode=>uppol2=>__muldi3=>__muldi3_6=>__umulhisi3
-Cycles: 1,346,974 (119,210 per second), stack=main=>decode=>uppol1=>__adddi3
-Cycles: 1,472,509 (125,535 per second), stack=main=>decode=>scalel
-Cycles: 1,596,125 (123,616 per second), stack=main=>decode
-Cycles: 1,714,657 (118,532 per second), stack=main=>decode=>__muldi3
-Cycles: 1,837,243 (122,586 per second), stack=main=>decode=>__muldi3
-Cycles: 1,963,493 (126,250 per second), stack=main=>decode=>uppol1
-Cycles: 2,085,431 (121,938 per second), stack=main=>decode=>filtez
+Cycles: 109,922 (109,921 per second), stack=main=>encode=>uppol2=>__muldi3
+Cycles: 216,192 (106,270 per second), stack=main=>encode=>quantl
+Cycles: 321,131 (104,939 per second), stack=main=>encode
+Cycles: 426,105 (104,974 per second), stack=main=>encode=>quantl=>__ashrdi3
+Cycles: 531,846 (105,741 per second), stack=main=>encode
+Cycles: 636,897 (105,051 per second), stack=main=>encode
+Cycles: 743,935 (107,038 per second), stack=main=>encode=>quantl=>__muldi3
+Cycles: 849,203 (105,268 per second), stack=main=>encode
+Cycles: 954,683 (105,480 per second), stack=main=>encode=>uppol2=>__ashldi3
+Cycles: 1,060,500 (105,817 per second), stack=main=>encode=>quantl=>__ashrdi3
+Cycles: 1,165,964 (105,464 per second), stack=main=>encode=>__muldi3=>__muldi3_6=>__umulhisi3
+Cycles: 1,271,966 (106,002 per second), stack=main=>encode=>quantl=>__muldi3
+Cycles: 1,383,904 (111,938 per second), stack=main=>decode=>logscl=>__ashldi3
+Cycles: 1,497,285 (113,381 per second), stack=main=>decode=>__muldi3=>__umulhisi3
+Cycles: 1,610,692 (113,407 per second), stack=main=>decode
+Cycles: 1,724,366 (113,674 per second), stack=main=>decode=>__muldi3
+Cycles: 1,837,980 (113,614 per second), stack=main=>decode=>logsch=>__ashrdi3
+Cycles: 1,951,921 (113,941 per second), stack=main=>decode=>filtez=>__muldi3=>__muldi3_6=>__umulhisi3
+Cycles: 2,065,615 (113,694 per second), stack=main=>decode=>uppol1=>__muldi3=>__umulhisi3
 Skipping trace line: number of cpu cycles simulated: 2170770
-
 {'__adddi3': {'bcet': 12,
               'count': 720,
               'et': [],
@@ -299,52 +299,53 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 4118}}
 Coverage by cycles:
-main                                   2,153,333   246.78%
-decode                                   872,566   100.00%
-__muldi3                                 370,856   42.50%
-__umulhisi3                              191,312   21.93%
-upzero                                   158,652   18.18%
-filtez                                   135,160   15.49%
-__muldi3_6                                86,976   9.97%
-uppol2                                    73,452   8.42%
-filtep                                    46,400   5.32%
-uppol1                                    42,020   4.82%
-__ashrdi3                                 31,860   3.65%
-__ashldi3                                 12,760   1.46%
-scalel                                    12,125   1.39%
-logscl                                    10,550   1.21%
-logsch                                    10,167   1.17%
-__muluhisi3                                9,840   1.13%
-__adddi3                                   8,640   0.99%
-__cmpdi2_s8                                5,220   0.60%
-__subdi3                                   1,440   0.17%
-__negdi2                                     380   0.04%
-__adddi3_s8                                  180   0.02%
-__vectors                                      0   0.00%
-my_cos                                         0   0.00%
-__divmodsi4_exit                               0   0.00%
-__negsi2                                       0   0.00%
-__trampolines_start                            0   0.00%
-reset                                          0   0.00%
-encode                                         0   0.00%
-__do_copy_data                                 0   0.00%
-quantl                                         0   0.00%
-__cmpdi2                                       0   0.00%
-__lshrdi3                                      0   0.00%
-_exit                                          0   0.00%
-__do_clear_bss                                 0   0.00%
-_etext                                         0   0.00%
-__mulsi3                                       0   0.00%
-my_sin                                         0   0.00%
-my_fabs                                        0   0.00%
-__vector_9                                     0   0.00%
-my_abs                                         0   0.00%
-__stop_program                                 0   0.00%
-__udivmodsi4                                   0   0.00%
-__divmodsi4                                    0   0.00%
-__udivmodsi4_loop                              0   0.00%
-__udivmodsi4_ep                                0   0.00%
-__divmodsi4_neg2                               0   0.00%
-__stack                                        0   0.00%
-Total cycles: -1
-Total time: 18.8s
+function                                  cycles        calls   percent
+main                                   2,153,333            1   246.78%
+decode                                   872,566           20   100.00%
+__muldi3                                 370,856        1,208   42.50%
+__umulhisi3                              191,312        8,696   21.93%
+upzero                                   158,652           40   18.18%
+filtez                                   135,160           40   15.49%
+__muldi3_6                                86,976        2,416   9.97%
+uppol2                                    73,452           40   8.42%
+filtep                                    46,400           40   5.32%
+uppol1                                    42,020           40   4.82%
+__ashrdi3                                 31,860          340   3.65%
+__ashldi3                                 12,760          200   1.46%
+scalel                                    12,125           40   1.39%
+logscl                                    10,550           20   1.21%
+logsch                                    10,167           20   1.17%
+__muluhisi3                                9,840          240   1.13%
+__adddi3                                   8,640          720   0.99%
+__cmpdi2_s8                                5,220          348   0.60%
+__subdi3                                   1,440          120   0.17%
+__negdi2                                     380           20   0.04%
+__adddi3_s8                                  180           12   0.02%
+__vectors                                      0            0   0.00%
+my_cos                                         0            0   0.00%
+__divmodsi4_exit                               0            0   0.00%
+__negsi2                                       0            0   0.00%
+__trampolines_start                            0            0   0.00%
+reset                                          0            0   0.00%
+encode                                         0            0   0.00%
+__do_copy_data                                 0            0   0.00%
+quantl                                         0            0   0.00%
+__cmpdi2                                       0            0   0.00%
+__lshrdi3                                      0            0   0.00%
+_exit                                          0            0   0.00%
+__do_clear_bss                                 0            0   0.00%
+_etext                                         0            0   0.00%
+__mulsi3                                       0            0   0.00%
+my_sin                                         0            0   0.00%
+my_fabs                                        0            0   0.00%
+__vector_9                                     0            0   0.00%
+my_abs                                         0            0   0.00%
+__stop_program                                 0            0   0.00%
+__udivmodsi4                                   0            0   0.00%
+__divmodsi4                                    0            0   0.00%
+__udivmodsi4_loop                              0            0   0.00%
+__udivmodsi4_ep                                0            0   0.00%
+__divmodsi4_neg2                               0            0   0.00%
+__stack                                        0            0   0.00%
+Total cycles: 2170769
+Total time: 20.0s

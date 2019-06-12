@@ -32,6 +32,10 @@ private:
 
     std::map<uint64_t, std::vector<uint64_t> > m_funcCallTargets;
 
+    bool addBlock(const BasicBlock& bBlock); // deprecated
+    void _appendBlock(std::shared_ptr<BasicBlock> bb);
+    void _notify_changed_entry(std::shared_ptr<BasicBlock> blockIt, uint64_t old_entry);
+
 public:
     Flow(std::string name="");
 
@@ -47,12 +51,14 @@ public:
     bool addNewContiguousBlock(uint64_t startAddr, uint64_t endAddr,
                                EBBlockType type);
 
-    bool addBlock(const BasicBlock& bBlock);
     bool removeBlock(uint64_t bStartAddr, bool updateEntryMarker=true);
-    bool splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc,
+    bool splitBlock(std::shared_ptr<BasicBlock> blockIt,
+                    const SplitLocation& splitLoc,
                     std::shared_ptr<BasicBlock>* newBlock=NULL);
     bool insertBlockAddrRanges(uint64_t bStartAddr,
                                std::vector<AddrRangePair> addrRanges);
+
+    bool hasCalls(const std::shared_ptr<BasicBlock>& bb) const;
 
     // Edge related methods
     void addEdge(EdgeMap::value_type pair);

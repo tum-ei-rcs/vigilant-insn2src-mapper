@@ -377,7 +377,7 @@ def match(bFlow, sFlow, extLoopInfo=None, do_render=False):
             if len(v) == 0:
                 log.warning("Source loop {} at {} has likely been unrolled.".format(k, locstr))
                 skipped_s_loops.add(k)
-            if len(v) > 1:
+            elif len(v) > 1:
                 log.warning("Multiple bin loops mapped to src loop {} at {}.".format(k, locstr))
                 self_loop_count = 0
                 non_self_loop_id = None
