@@ -1,6 +1,6 @@
 # Vigilant Instruction-to-Source Mapper
-This tool was developed for timing analysis of source code. 
-Its main purpose is to establish a safe mapping between machine code 
+This tool was developed for timing analysis of source code.
+Its main purpose is to establish a safe mapping between machine code
 and source-level constructs, such that the timing of the machine
 instructions can be back-annotated to the source code.
 
@@ -15,6 +15,9 @@ The algorithms are described in detail in the publication
 
 Please cite this work when using our tool.
 
+## News
+Support for caches coming soon!
+
 ## Overview
 This tool establishes a mapping from the machine instructions of a program
 to its source code ("what instructions belong to this source block?"). Unlike
@@ -27,10 +30,15 @@ https://doi.org/10.1007/s10009-018-0497-2.
 
 The tool consists of an architecture-specific frontend (C++),
 a C++ code analyzer (not part of this repository), and
-the mapper itself (Python). The frontend parses executables (ELF) and 
+the mapper itself (Python). The frontend parses executables (ELF) and
 produces two JSON files (binary control flow graph and debug info). The code analyzer
 computes source control flow graphs from the sources of a program.
 
+**This version supports AVR and ARMv5 binaries**. In principle it should also work for
+other architectures. In particular, ARM support needs OTAWA installed, since we use it
+to compute the control flow graph (CFG) from the ARM binaries. Since OTAWA also supports
+other architectures, this workflow should also work for those (e.g., ARMv7, PowerPC, Sparc, ...).
+The mapping for AVR and ARMv5 has been verified against cycle-accurate simulations.
 
 ## Building
 ### Frontend
@@ -55,6 +63,8 @@ Compiling:
  2. run 'build.sh -c' (executes cmake to generate Makefiles and then runs step 3 automatically)
  3. run 'build.sh -m' (runs make and make install)
 
+For ARM support, you also need to install OTAWA v1 (www.otawa.fr).
+
 ### Mapper
 This part does not require any compilation, but the following
 Python following modules must be installed:
@@ -63,6 +73,8 @@ Python following modules must be installed:
 ## Usage
 Examples are in the subdirectory `test/benchmarks`. For example, to compute a mapping
 for the program 'adpcm', do the following (assumes Linux):
+
+### Example "adpcm" for AVR
 
 ```sh
 cd test/benchmarks/adpcm-encode/O0
@@ -78,5 +90,24 @@ For parameters see Makefile. The mapping process generates several files:
 
 The file `mapping.map` can be read by our tool `cbbanalyzer` (separate repository), which annotates the C source with the timing. This tool also creates one input file that is necessary for the mapper, which is `adpcm_allflows.csv`. It is generated with clang's CFGGenerator, and gives a listing of source blocks.
 
+### Example "cnt" for ARM
+This requires the OTAWA toolbox to be installed.
+```sh
+cd test/benchmarks/cnt/O0-arm
+make main.elf  # requires arm-none-eabi-gcc. E.g., GNU Arm Embedded 2018-Q4
+make main.asm
+make dwarf  # generates input (debug info) for mapper
+make cfg.json  # generates input (binary flows) for mapper
+make mapping  # generates mapping.map
+```
+Other outputs from the mapper are stored in the subfolder `maps`. For the documentation of `mapping.map`, see description above (AVR usage).
+
 ### WCET Library
 The mapping contains the timing of all binary blocks that map to each source block. However, this timing excludes calls to all functions for which no source code is available. For such functions, we rely on a WCET library. One such library for avr-libc in version 1.8.0 is included in the file `data/wcet-lib/avr/libc-1.8.0/atmega128/wcet.lib`.
+
+### Instruction Time Specification
+Is required to compute the clock cycles that are shown in `mapping.map`. If you don't need this,
+then omit the command line parameter `--optime-csv`. Otherwise, this must point to a CSV file that
+specifies instruction timing. We have included two such specifications here:
+ * `py-mapping/arm-trivial-spec.csv`: for a hypothetical ARM processor where every instruction takes one clock cycle
+ * `py-mapping/avr-spec.csv`: for AVR Atmega
