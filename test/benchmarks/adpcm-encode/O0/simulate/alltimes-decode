@@ -1,4 +1,3 @@
-pretty-print on
 WARN: Symbol at 8c already has a name: __ctors_end. Updating to __ctors_start.
 WARN: Symbol at 8c already has a name: __ctors_start. Updating to __dtors_end.
 WARN: Symbol at 8c already has a name: __dtors_end. Updating to __dtors_start.
@@ -48,26 +47,28 @@ Running Simulator live...
 Tracefile ignored
 Running Simulator: simulavr -l 0 -d atmega128 -T exit -t stdout -f main.elf
 Cycles: 1 (1 per second), stack=
-Cycles: 129,935 (129,934 per second), stack=main=>encode
-Cycles: 254,114 (124,179 per second), stack=main=>encode=>uppol2
-Cycles: 378,242 (124,128 per second), stack=main=>encode=>scalel
-Cycles: 502,715 (124,473 per second), stack=main=>encode=>filtez=>__muldi3
-Cycles: 638,369 (135,654 per second), stack=main=>encode
-Cycles: 764,818 (126,449 per second), stack=main=>encode
-Cycles: 887,266 (122,448 per second), stack=main=>encode=>upzero
-Cycles: 1,009,373 (122,107 per second), stack=main=>encode=>quantl=>__muldi3=>__umulhisi3
-Cycles: 1,133,992 (124,619 per second), stack=main=>encode=>quantl=>__muldi3=>__muldi3_6=>__umulhisi3
-Cycles: 1,259,503 (125,511 per second), stack=main=>encode=>quantl=>__cmpdi2
-Cycles: 1,392,558 (133,055 per second), stack=main=>decode=>filtez=>__muldi3=>__umulhisi3
-Cycles: 1,528,906 (136,348 per second), stack=main=>decode=>__muldi3=>__umulhisi3
-Cycles: 1,670,864 (141,958 per second), stack=main=>decode
-Cycles: 1,807,000 (136,136 per second), stack=main=>decode=>__muldi3=>__umulhisi3
-Cycles: 1,971,264 (164,264 per second), stack=main=>decode=>upzero=>__muldi3=>__umulhisi3
-Cycles: 2,109,700 (138,436 per second), stack=main=>decode=>uppol1=>__muldi3=>__muldi3_6=>__umulhisi3
+Cycles: 112,760 (112,759 per second), stack=main=>encode=>filtez
+Cycles: 212,776 (100,016 per second), stack=main=>encode=>quantl=>my_abs
+Cycles: 312,444 (99,668 per second), stack=main=>encode=>__muldi3=>__muldi3_6
+Cycles: 412,762 (100,318 per second), stack=main=>encode=>quantl=>__ashrdi3
+Cycles: 521,699 (108,937 per second), stack=main=>encode
+Cycles: 636,578 (114,879 per second), stack=main=>encode=>__ashrdi3
+Cycles: 754,154 (117,576 per second), stack=main=>encode
+Cycles: 872,954 (118,800 per second), stack=main=>encode=>quantl
+Cycles: 991,643 (118,689 per second), stack=main=>encode=>filtep=>__muldi3
+Cycles: 1,109,571 (117,928 per second), stack=main=>encode=>__muldi3=>__muldi3_6=>__umulhisi3
+Cycles: 1,227,764 (118,193 per second), stack=main=>encode=>uppol2=>__muldi3=>__muldi3_6=>__umulhisi3
+Cycles: 1,346,974 (119,210 per second), stack=main=>decode=>uppol1=>__adddi3
+Cycles: 1,472,509 (125,535 per second), stack=main=>decode=>scalel
+Cycles: 1,596,125 (123,616 per second), stack=main=>decode
+Cycles: 1,714,657 (118,532 per second), stack=main=>decode=>__muldi3
+Cycles: 1,837,243 (122,586 per second), stack=main=>decode=>__muldi3
+Cycles: 1,963,493 (126,250 per second), stack=main=>decode=>uppol1
+Cycles: 2,085,431 (121,938 per second), stack=main=>decode=>filtez
 Skipping trace line: number of cpu cycles simulated: 2170770
 
 {'__adddi3': {'bcet': 12,
-              'count': 721,
+              'count': 720,
               'et': [],
               'fun': '__adddi3',
               'lastcall': 2168993,
@@ -78,7 +79,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
               'valid': True,
               'wcet': 12},
  '__adddi3_s8': {'bcet': 15,
-                 'count': 13,
+                 'count': 12,
                  'et': [],
                  'fun': '__adddi3_s8',
                  'lastcall': 2152393,
@@ -89,7 +90,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                  'valid': True,
                  'wcet': 15},
  '__ashldi3': {'bcet': 33,
-               'count': 201,
+               'count': 200,
                'et': [],
                'fun': '__ashldi3',
                'lastcall': 2153273,
@@ -100,7 +101,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                'valid': True,
                'wcet': 88},
  '__ashrdi3': {'bcet': 27,
-               'count': 341,
+               'count': 340,
                'et': [],
                'fun': '__ashrdi3',
                'lastcall': 2169188,
@@ -111,7 +112,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                'valid': True,
                'wcet': 111},
  '__cmpdi2_s8': {'bcet': 15,
-                 'count': 349,
+                 'count': 348,
                  'et': [],
                  'fun': '__cmpdi2_s8',
                  'lastcall': 2153884,
@@ -122,7 +123,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                  'valid': True,
                  'wcet': 15},
  '__muldi3': {'bcet': 307,
-              'count': 1209,
+              'count': 1208,
               'et': [],
               'fun': '__muldi3',
               'lastcall': 2168642,
@@ -133,7 +134,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
               'valid': True,
               'wcet': 307},
  '__muldi3_6': {'bcet': 36,
-                'count': 2417,
+                'count': 2416,
                 'et': [],
                 'fun': '__muldi3_6',
                 'lastcall': 2168835,
@@ -144,7 +145,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                 'valid': True,
                 'wcet': 36},
  '__muluhisi3': {'bcet': 41,
-                 'count': 241,
+                 'count': 240,
                  'et': [],
                  'fun': '__muluhisi3',
                  'lastcall': 2150761,
@@ -155,7 +156,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                  'valid': True,
                  'wcet': 41},
  '__negdi2': {'bcet': 19,
-              'count': 21,
+              'count': 20,
               'et': [],
               'fun': '__negdi2',
               'lastcall': 2107732,
@@ -166,7 +167,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
               'valid': True,
               'wcet': 19},
  '__subdi3': {'bcet': 12,
-              'count': 121,
+              'count': 120,
               'et': [],
               'fun': '__subdi3',
               'lastcall': 2153240,
@@ -177,7 +178,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
               'valid': True,
               'wcet': 12},
  '__umulhisi3': {'bcet': 22,
-                 'count': 8697,
+                 'count': 8696,
                  'et': [],
                  'fun': '__umulhisi3',
                  'lastcall': 2168910,
@@ -188,7 +189,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
                  'valid': True,
                  'wcet': 22},
  'decode': {'bcet': 38030,
-            'count': 21,
+            'count': 20,
             'et': [],
             'fun': 'decode',
             'lastcall': 2126749,
@@ -199,7 +200,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 44045},
  'filtep': {'bcet': 1160,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'filtep',
             'lastcall': 2144201,
@@ -210,7 +211,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 1160},
  'filtez': {'bcet': 3379,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'filtez',
             'lastcall': 2140774,
@@ -221,7 +222,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 3379},
  'logsch': {'bcet': 508,
-            'count': 21,
+            'count': 20,
             'et': [],
             'fun': 'logsch',
             'lastcall': 2146069,
@@ -232,7 +233,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 515},
  'logscl': {'bcet': 520,
-            'count': 21,
+            'count': 20,
             'et': [],
             'fun': 'logscl',
             'lastcall': 2132698,
@@ -243,7 +244,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 531},
  'main': {'bcet': 2153333,
-          'count': 2,
+          'count': 1,
           'et': [],
           'fun': 'main',
           'lastcall': 17434,
@@ -254,7 +255,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
           'valid': True,
           'wcet': 2153333},
  'scalel': {'bcet': 269,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'scalel',
             'lastcall': 2146605,
@@ -265,7 +266,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 346},
  'uppol1': {'bcet': 1050,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'uppol1',
             'lastcall': 2153007,
@@ -276,7 +277,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 1051},
  'uppol2': {'bcet': 1802,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'uppol2',
             'lastcall': 2151138,
@@ -287,7 +288,7 @@ Skipping trace line: number of cpu cycles simulated: 2170770
             'valid': True,
             'wcet': 1875},
  'upzero': {'bcet': 1100,
-            'count': 41,
+            'count': 40,
             'et': [],
             'fun': 'upzero',
             'lastcall': 2146965,
@@ -345,5 +346,5 @@ __udivmodsi4_loop                              0   0.00%
 __udivmodsi4_ep                                0   0.00%
 __divmodsi4_neg2                               0   0.00%
 __stack                                        0   0.00%
-Total cycles: 2170769
-Total time: 16.5s
+Total cycles: -1
+Total time: 18.8s

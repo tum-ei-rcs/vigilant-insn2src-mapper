@@ -17,7 +17,7 @@ private:
     std::size_t getWordSize() final override;
 
 public:
-    AvrInstruction(const DisasmInstruction& disInsn);
+    AvrInstruction(const DisasmInstruction& disInsn, bool ignoreErrors=false);
     ~AvrInstruction() {};
 
     bool isSkipInsn()   final override;

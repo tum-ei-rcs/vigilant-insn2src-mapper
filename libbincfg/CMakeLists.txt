@@ -8,7 +8,7 @@ set(_SRC_PATH src)
 
 # For each architecture mentioned here, the following files must be present:
 # <arch>Instruction.cpp, <arch>FlowGenerator.cpp
-set(ARCHS Avr)
+set(ARCHS Avr ArmV5)
 
 # search those files
 foreach(arch ${ARCHS})

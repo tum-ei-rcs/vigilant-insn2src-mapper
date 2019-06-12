@@ -3,7 +3,8 @@
 
 #include <map>
 #include <set>
-#include <algorithm> 
+#include <vector>
+#include <algorithm>
 #include <memory>
 #include <iostream>
 #include <assert.h>
@@ -29,6 +30,8 @@ private:
     std::set<uint64_t> m_preExitBlocks;
     std::set<uint64_t> m_funcCallLocations;
 
+    std::map<uint64_t, std::vector<uint64_t> > m_funcCallTargets;
+
 public:
     Flow(std::string name="");
 
@@ -38,7 +41,7 @@ public:
     bool isPreExitBlock(uint64_t bStartAddr) const;
     void markPostEntryBlock(uint64_t address);
     void markPreExitBlock(uint64_t address);
-    void markFuncCallLocation(uint64_t address);
+    void markFuncCallLocation(uint64_t address_site, const std::vector<uint64_t>& address_target);
 
     // Block manipulation methods
     bool addNewContiguousBlock(uint64_t startAddr, uint64_t endAddr,
@@ -46,7 +49,8 @@ public:
 
     bool addBlock(const BasicBlock& bBlock);
     bool removeBlock(uint64_t bStartAddr, bool updateEntryMarker=true);
-    bool splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc);
+    bool splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc,
+                    std::shared_ptr<BasicBlock>* newBlock=NULL);
     bool insertBlockAddrRanges(uint64_t bStartAddr,
                                std::vector<AddrRangePair> addrRanges);
 
@@ -62,6 +66,8 @@ public:
 
     const BlockMap& getBlocks() const;
     const std::set<uint64_t>& getFuncCallLocations() const;
+    const std::map<uint64_t, std::vector<uint64_t> >& getFuncCallTargets() const;
+
     const std::set<uint64_t>& getPreExitBlocks() const;
     const std::string& getFlowName() const;
     uint64_t getPostEntryBlock() const;

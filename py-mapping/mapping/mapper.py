@@ -206,6 +206,12 @@ class AbstractMapper(object):
             input_map = input_hmap.mapping if input_hmap is not None else None
             hmap.mapping, details = self._map_subgraph(input_map=input_map, btfg=sub_b, stfg=sub_s)
             assert isinstance(hmap.mapping, gm.GraphMap)
+            # ensure that the collapsed nodes are in the map
+            for sb in sub_b.subflows:
+                if sb.node_in_parent not in hmap.mapping.mapped():
+                    log.error("Mapper missed to register fixed points in map")
+                    assert False
+            # --
             paired_bflows.add(sub_b)
             if report is not None:
                 self.report_submap(report, pairname, hmap.mapping, details, "mapping")

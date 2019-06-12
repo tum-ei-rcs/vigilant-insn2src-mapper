@@ -71,7 +71,7 @@ class Executable(object):
             self.flowPairs += [Pair(f.bSubs[name], f.sSubs[name]) for name in cmn]
 
             if len(cmn) != len(f.bSubs):
-                log.warning("Could not find all flow pairs in file: {}".format(_))
+                log.error("Could not find all flow pairs in file: {}".format(_))
 
     def _load_binary_flows(self, bjPath, jSplit, optimeCsv, simplify):
         # Load binary graphs and instructions

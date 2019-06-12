@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="icrc" executed="true" extern="false">
+        <conditional id="IF-2"> <condition line="80" source="crc.c" executed="true"> </condition>
+            <case cond="1" executed="true" line="81" source="crc.c">
+                <loop loopId="2" line="82" source="crc.c" exact="false" maxcount="256" totalcount="256">
+                    <call name="icrc1" numcall="1" line="83" source="crc.c" executed="true" extern="false">
+                        <function name="icrc1">
+                            <loop loopId="1" line="62" source="crc.c" exact="false" maxcount="8" totalcount="2048">
+                                <conditional id="IF-1"> <condition line="63" source="crc.c" executed="true"> </condition>
+                                    <case cond="1" executed="true" line="64" source="crc.c">
+                                    </case>
+                                    <case cond="0" executed="true" line="66" source="crc.c">
+                                    </case>
+                                </conditional>
+                            </loop>
+                        </function>
+                    </call>
+                </loop>
+            </case>
+            <case cond="0" executed="false" >
+            </case>
+        </conditional>
+        <conditional id="IF-3"> <condition line="87" source="crc.c" executed="true"> </condition>
+            <case cond="1" executed="true" line="87" source="crc.c">
+            </case>
+            <case cond="0" executed="true" >
+                <conditional id="IF-4"> <condition line="88" source="crc.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="89" source="crc.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </case>
+        </conditional>
+        <loop loopId="3" line="93" source="crc.c" exact="false" maxcount="NOCOMP" totalcount="NOCOMP">
+            <conditional id="IF-5"> <condition line="94" source="crc.c" executed="true"> </condition>
+                <case cond="1" executed="true" line="95" source="crc.c">
+                </case>
+                <case cond="0" executed="true" line="98" source="crc.c">
+                </case>
+            </conditional>
+        </loop>
+        <conditional id="IF-6"> <condition line="102" source="crc.c" executed="true"> </condition>
+            <case cond="1" executed="true" line="103" source="crc.c">
+            </case>
+            <case cond="0" executed="true" line="106" source="crc.c">
+            </case>
+        </conditional>
+    </function>
+</flowfacts>
+

@@ -132,12 +132,18 @@ def _write_csv(outmap, reportdata, annot_func, bFlow, sFlow):
     ############
     # write CSV
     ############
+    smax = sFlow.get_max_id()  # nodes with higher numbers are not in the original graph
+    bmax = bFlow.get_max_id()
     for n_s, list_n_b in global_mapping_dict.items():
+        if n_s > smax:
+            continue
         lcd_beg = sFlow.get_line_info(n_s)['begin']
         total_time = 0
         f_calls = []
 
         for n in list_n_b:
+            if n > bmax:
+                continue
             assert n in bFlow.digraph.nodes
             total_time += bFlow._blockTimes[n]
             f_calls += bFlow.get_func_calls(n)

@@ -22,9 +22,12 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
+/**
+ * @brief generate control flow graph from ELF and export to JSON
+ */
 std::shared_ptr<DisasmSection>
 elf2flow(const std::string& arch, const std::string& fPath, const std::string& outfile,
-         bool exportInsns, bool exportSymbols)
+         bool exportInsns, bool exportSymbols, bool ignoreErrors)
 {
     auto edr = std::unique_ptr<ElfDisassemblyReader>(new ElfDisassemblyReader(fPath));
     auto tSect = edr->readSection(".text");
@@ -40,46 +43,50 @@ elf2flow(const std::string& arch, const std::string& fPath, const std::string& o
               << std::endl;
 
     auto fGenerator = FlowGeneratorFactory::createFGenerator(arch);
+    fGenerator->setIgnoreErrors(ignoreErrors);
+    fGenerator->printBanner(std::cout);
     auto flowMap = fGenerator->generateFlows(tSect.get());
 
-    // choose exporter according to file extension
-    auto exporter = std::unique_ptr<FlowExporter>();
-    const std::string ext = boost::filesystem::extension(outfile);
-    if (ext == ".csv") {
-        auto ex = new CsvFlowExporter();
-        ex->setAddFuncBlocks(true);
-        exporter.reset(ex);
-        std::cout << "Writing CSV" << endl;
-    } else if (ext == ".dot") {
-        auto ex = new DotFlowExporter();
-        ex->setAddFuncBlocks(true);
-        exporter.reset(ex);
-        std::cout << "Writing dot" << endl;
-    } else {
-        auto ex = new JsonFlowExporter();
-        exporter.reset(ex);
-        std::cout << "Writing JSON" << endl;
+    if (!outfile.empty()) {
+        // choose exporter according to file extension
+        auto exporter = std::unique_ptr<FlowExporter>();
+        const std::string ext = boost::filesystem::extension(outfile);
+        if (ext == ".csv") {
+            auto ex = new CsvFlowExporter();
+            ex->setAddFuncBlocks(true);
+            exporter.reset(ex);
+            std::cout << "Writing CSV" << endl;
+        } else if (ext == ".dot") {
+            auto ex = new DotFlowExporter();
+            ex->setAddFuncBlocks(true);
+            exporter.reset(ex);
+            std::cout << "Writing dot" << endl;
+        } else {
+            auto ex = new JsonFlowExporter();
+            exporter.reset(ex);
+            std::cout << "Writing JSON" << endl;
 
-    }
-    boost::filesystem::remove(outfile);
-
-    for (auto fIt = flowMap->begin(); fIt != flowMap->end(); fIt++)
-    {
-        const std::string flowName = fIt->second->getFlowName();
-        exporter->exportFlow(fIt->second.get(), tInstructions.get(), outfile);
-    }
-
-    if (ext != ".csv" && ext != ".dot") {
-        auto jex = static_cast<JsonFlowExporter*>(exporter.get());
-        if (exportInsns) {
-            jex->exportInsnMap(tInstructions.get(), fGenerator, ".text", outfile);
-            std::cout << "Exported instruction map to: " << outfile
-                      << std::endl;
         }
-        if (exportSymbols) {
-            jex->exportSymbMap(tSymbols.get(), ".text", outfile);
-            std::cout << "Exported symbol map to : " << outfile
-                      << std::endl;
+        boost::filesystem::remove(outfile);
+
+        for (auto fIt = flowMap->begin(); fIt != flowMap->end(); fIt++)
+        {
+            const std::string flowName = fIt->second->getFlowName();
+            exporter->exportFlow(fIt->second.get(), tInstructions.get(), outfile);
+        }
+
+        if (ext != ".csv" && ext != ".dot") {
+            auto jex = static_cast<JsonFlowExporter*>(exporter.get());
+            if (exportInsns) {
+                jex->exportInsnMap(tInstructions.get(), fGenerator, ".text", outfile);
+                std::cout << "Exported instruction map to: " << outfile
+                          << std::endl;
+            }
+            if (exportSymbols) {
+                jex->exportSymbMap(tSymbols.get(), ".text", outfile);
+                std::cout << "Exported symbol map to : " << outfile
+                          << std::endl;
+            }
         }
     }
 
@@ -87,10 +94,12 @@ elf2flow(const std::string& arch, const std::string& fPath, const std::string& o
     return tSect;
 }
 
-
+/**
+ * @brief read debug info from ELF and export to JSON
+ */
 bool
-exportDebug(const std::string& outPath, const std::string& elfPath,
-            const DisasmSection* textSection)
+elf2debug(const std::string& outPath, const std::string& elfPath,
+          const DisasmSection* textSection)
 {
     auto tInstructions = textSection->getInstructions();
 
@@ -100,7 +109,7 @@ exportDebug(const std::string& outPath, const std::string& elfPath,
         std::cout << "Could not process dwarf data successfully." << std::endl;
         return false;
     }
-    
+
     JsonFlowExporter* jex = new JsonFlowExporter();
     jex->exportDebugData(debugData.get(), tInstructions.get(), outPath);
 
@@ -140,7 +149,8 @@ int main(int argc, char* argv[])
                 "file path of elf object")
             ("inc-insn,i", "export disassembled instructions if exporting to JSON")
             ("inc-symb,s", "export symbol map if exporting to JSON")
-            ("suppress-log", "suppress logging");
+            ("suppress-log", "suppress logging")
+            ("ignore-errors", "plough on despite hazards");
 
         po::variables_map vm;
         po::store(po::parse_command_line(argc, argv, desc), vm);
@@ -170,28 +180,32 @@ int main(int argc, char* argv[])
 
         bool exportInsns = false;
         bool exportSymbols = false;
+        bool ignErr = false;
         if (vm.count("inc-insn")) exportInsns = true;
         if (vm.count("inc-symb")) exportSymbols = true;
+        if (vm.count("ignore-errors")) ignErr = true;
         if (!vm.count("suppress-log")) bcfg::Log::registerLogger(lm->createLogger("elf2flow"));
 
         /*****************
          * do it
          *****************/
-        cout << "Analyzing " << asmfile << endl;
-        auto textSection = elf2flow(arch, asmfile, outfile, exportInsns, exportSymbols);
+
+        cout << "Generating flow graphs from ASM " << asmfile << endl;
+        auto textSection = elf2flow(arch, asmfile, outfile, exportInsns, exportSymbols, ignErr);
         cout << "Written file " << outfile << endl;
 
         if (vm.count("debug")) {
+            cout << "Reading debugging information of ELF " << elffile << endl;
             if (!vm.count("elf")) {
                 std::cout << "Please provide the file path of the elf object."
                           << std::endl;
                 return 1;
             }
-
-            if (!exportDebug(outdebugfile, elffile, textSection.get())) {
+            if (!elf2debug(outdebugfile, elffile, textSection.get())) {
                 std::cerr << "Failed to export debug data." << std::endl;
                 return 1;
             }
+            std::cout << "Written file " << outdebugfile << endl;
         }
 
     }

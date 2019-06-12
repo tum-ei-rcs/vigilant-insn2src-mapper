@@ -74,7 +74,6 @@ FlowGenerator::generateFlows(const DisasmSection* section)
     return std::unique_ptr<FlowMap>(flowMap);
 }
 
-
 /**
  * @brief Create a flow object given a function entry address.
  *
@@ -86,10 +85,11 @@ FlowGenerator::generateFlows(const DisasmSection* section)
  */
 std::unique_ptr<Flow>
 FlowGenerator::createFuncFlow(const DisasmSection* section,
-                                 const FuncMap::value_type& funcPair)
+                              const FuncMap::value_type& funcPair)
 {
     Flow* flow = new Flow(funcPair.second);
     auto insnMap = section->getInstructions();
+    auto symbMap = section->getSymbols();
 
     // First block starts at function entry, initialize the worklist
     std::map<uint64_t, uint64_t> blockRefCount;
@@ -128,7 +128,8 @@ FlowGenerator::createFuncFlow(const DisasmSection* section,
 
     fixOverlaps(insnMap.get(), flow);
     mergeJumpBlocks(insnMap.get(), flow);
-    splitFuncCallBlocks(insnMap.get(), flow);
+    manageFuncCallBlocks(insnMap.get(), flow);
+    symbolize(symbMap.get(), flow);
 
     return std::unique_ptr<Flow>(flow);
 }
@@ -163,7 +164,13 @@ FlowGenerator::isFuncCallInstruction(const DisasmInstruction& disasmInsn,
 
     if (insn->isCallInsn()) {
         std::vector<uint64_t> targetAddrs = insn->getTargetAddrs(insnAddr);
-        assert(targetAddrs.size() == 1 && "ICALL not supported.");
+
+        const bool regular_call = targetAddrs.size() == 1;
+        if (!m_ignore_errors) {
+            assert(regular_call && "unsupported call");
+        } else {
+            return false;
+        }
 
         auto insnSize = insn->getInstructionSize();
 
@@ -176,6 +183,7 @@ FlowGenerator::isFuncCallInstruction(const DisasmInstruction& disasmInsn,
         }
 
         targetAddr = targetAddrs[0];
+
         return true;
     }
 
@@ -277,7 +285,7 @@ FlowGenerator::updateWorklist(const InsnMap::value_type& currInsn,
         assert(targetAddrs.size() == 1 && "ICALL not supported.");
 
         if (targetAddrs[0] != currInsn.first + insnSize) {
-            flow->markFuncCallLocation(currInsn.first);
+            flow->markFuncCallLocation(currInsn.first, targetAddrs);
         }
         else
         {
@@ -506,7 +514,71 @@ FlowGenerator::mergeJumpBlocks(const InsnMap* insnMap, Flow* flow)
 
 
 void
-FlowGenerator::splitFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
+FlowGenerator::symbolize(const SymbMap* symbols, Flow* flow) {
+    /**************************
+     * symbolize callee names
+     **************************/
+    // iterate BBs with calls, find targets, look up addresses
+    const auto callsite2targets = flow->getFuncCallTargets();
+    const auto callsites = flow->getFuncCallLocations();
+    for (auto& blockIt : flow->getBlocks())
+    {
+        std::shared_ptr<BasicBlock> bb = blockIt.second;
+        if (bb->getType() == EBBlockType::CALL) {
+            bool found = false;
+
+            // look through all address ranges to find callee address
+            const auto& addrRanges = bb->getAddrRanges();
+            for (auto currRange = addrRanges.rbegin();
+                 currRange != addrRanges.rend();
+                 currRange++)
+            {
+                uint64_t rBegin = currRange->first;
+                uint64_t rEnd   = currRange->second;
+                const auto lbIt = callsites.lower_bound(rBegin);
+                const auto ubIt = callsites.upper_bound(rEnd);
+                if (lbIt == ubIt) continue;  // no calls here
+                for (auto fIt = ubIt; fIt != lbIt;)
+                {
+                    --fIt;
+                    found = true;
+                    const uint64_t callsite = *fIt;
+                    assert(callsite >= rBegin && callsite <= rEnd && "Out of range");
+                    auto its = callsite2targets.find(callsite);
+                    assert(its != callsite2targets.end() && "missing call targets");
+                    const std::vector<uint64_t>& targets = its->second;
+                    for (auto& addr : targets) {
+                        // try to symbolize, fallback to string of address
+                        std::string callee;
+                        auto sIt = symbols->find(addr);
+                        if (sIt != symbols->end()) {
+                            callee = sIt->second;
+                        } else {
+                            std::stringstream ss;
+                            ss << "0x" << std::hex << addr;
+                            callee = ss.str();
+                        }
+                        bb->addCallee(callee);
+                        Log::log() << "symbolize: BB " << blockIt.first << std::hex
+                               << " [" << rBegin << ".." << rEnd << "] callsite @0x"
+                               << callsite << std::dec << ": " << callee <<  ELogLevel::LOG_DEBUG;
+
+                    }
+                }
+            } // curr contiguous instruction range
+            assert(found && "callsite not found");
+        }
+    }
+
+    // FIXME: symbolize other stuff, maybe
+}
+
+/**
+ * @brief marks blocks as CALL if they contain function calls, and
+ * ensures at most one fcn call per block <=> make real BBs from blocks
+ */
+void
+FlowGenerator::manageFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
 {
     auto getInsnSize = [=](uint64_t address) -> std::size_t
     {
@@ -544,18 +616,35 @@ FlowGenerator::splitFuncCallBlocks(const InsnMap* insnMap, Flow* flow)
             auto ubIt = funcCallLocs.upper_bound(rEnd);
 
             if (lbIt == ubIt) {
-                continue;
+                continue;  // no calls here
             }
 
-            // Functions calls in the current address range
+            blockIt.second->setType(EBBlockType::CALL);
+
+            // split block at each callsite
+            bool first = true;
             for (auto fIt = ubIt; fIt != lbIt;)
             {
                 auto insnSize = getInsnSize(*--fIt);
-
                 if (*fIt != addrRanges.back().second) {
+                    Log::log() << "split: BB " << blockIt.first << std::hex
+                               << "[" << rBegin << ".." << rEnd << "] after 0x"
+                               << *fIt << std::dec << ELogLevel::LOG_DEBUG;
                     SplitLocation splitLoc {*fIt, insnSize, rIndex};
-                    assert(flow->splitBlock(blockIt.first, splitLoc));
+                    const uint64_t nBegin = splitLoc.insnAddr + splitLoc.insnSize;
+                    std::shared_ptr<BasicBlock> newBlock;
+                    assert(flow->splitBlock(blockIt.first, splitLoc, &newBlock));
+                    // first new block may or may not have a function call after split, others do.
+                    if (first) {
+                        const auto lbnIt = funcCallLocs.lower_bound(nBegin);
+                        const bool hasCall = !first || (lbnIt != ubIt);
+                        newBlock->setType(hasCall ? EBBlockType::CALL : EBBlockType::NORMAL);
+                        Log::log() << "split: new BB " << std::hex
+                                   << "[" << nBegin << ".." << *fIt << "] has call: "
+                                   << hasCall << ELogLevel::LOG_DEBUG;
+                    }
                 }
+                first = false;
             }
 
             funcCallLocs.erase(lbIt, ubIt);

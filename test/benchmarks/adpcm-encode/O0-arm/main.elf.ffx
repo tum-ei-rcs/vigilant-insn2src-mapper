@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="decode" executed="true" extern="false">
+        <call name="filtez" numcall="20" line="486" source="adpcm.c" executed="true" extern="false">
+            <function name="filtez">
+                <loop loopId="12" line="653" source="adpcm.c" exact="true" maxcount="5" totalcount="5">
+                </loop>
+            </function>
+        </call>
+        <call name="filtep" numcall="21" line="489" source="adpcm.c" executed="true" extern="false">
+            <function name="filtep">
+            </function>
+        </call>
+        <call name="logscl" numcall="22" line="502" source="adpcm.c" executed="true" extern="false">
+            <function name="logscl">
+                <conditional id="IF-6"> <condition line="687" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="687" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="688" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-7"> <condition line="710" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="710" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="scalel" numcall="23" line="505" source="adpcm.c" executed="true" extern="false">
+            <function name="scalel">
+            </function>
+        </call>
+        <call name="upzero" numcall="24" line="512" source="adpcm.c" executed="true" extern="false">
+            <function name="upzero">
+                <conditional id="IF-8"> <condition line="711" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="711" source="adpcm.c">
+                        <loop loopId="14" line="734" source="adpcm.c" exact="false" maxcount="6" totalcount="6">
+                        </loop>
+                    </case>
+                    <case cond="0" executed="true" >
+                        <loop loopId="15" line="739" source="adpcm.c" exact="false" maxcount="6" totalcount="6">
+                            <conditional id="IF-9"> <condition line="733" source="adpcm.c" executed="true"> </condition>
+                                <case cond="1" executed="true" line="734" source="adpcm.c">
+                                </case>
+                                <case cond="0" executed="true" line="739" source="adpcm.c">
+                                </case>
+                            </conditional>
+                        </loop>
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="uppol2" numcall="25" line="515" source="adpcm.c" executed="true" extern="false">
+            <function name="uppol2">
+                <conditional id="IF-10"> <condition line="740" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="740" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="740" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-11"> <condition line="762" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="762" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+                <conditional id="IF-12"> <condition line="764" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="765" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="768" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-13"> <condition line="773" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="773" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="uppol1" numcall="26" line="518" source="adpcm.c" executed="true" extern="false">
+            <function name="uppol1">
+                <conditional id="IF-14"> <condition line="774" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="774" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+                <conditional id="IF-15"> <condition line="786" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="787" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="790" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-16"> <condition line="794" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="794" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="filtez" numcall="27" line="532" source="adpcm.c" executed="true" extern="false">
+            <function name="filtez">
+                <loop loopId="12" line="653" source="adpcm.c" exact="true" maxcount="5" totalcount="5">
+                </loop>
+            </function>
+        </call>
+        <call name="filtep" numcall="28" line="535" source="adpcm.c" executed="true" extern="false">
+            <function name="filtep">
+            </function>
+        </call>
+        <call name="logsch" numcall="29" line="544" source="adpcm.c" executed="true" extern="false">
+            <function name="logsch">
+                <conditional id="IF-17"> <condition line="795" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="795" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+                <conditional id="IF-18"> <condition line="813" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="813" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="scalel" numcall="30" line="547" source="adpcm.c" executed="true" extern="false">
+            <function name="scalel">
+            </function>
+        </call>
+        <call name="upzero" numcall="31" line="553" source="adpcm.c" executed="true" extern="false">
+            <function name="upzero">
+                <conditional id="IF-8"> <condition line="711" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="711" source="adpcm.c">
+                        <loop loopId="14" line="734" source="adpcm.c" exact="false" maxcount="6" totalcount="6">
+                        </loop>
+                    </case>
+                    <case cond="0" executed="true" >
+                        <loop loopId="15" line="739" source="adpcm.c" exact="false" maxcount="6" totalcount="6">
+                            <conditional id="IF-9"> <condition line="733" source="adpcm.c" executed="true"> </condition>
+                                <case cond="1" executed="true" line="734" source="adpcm.c">
+                                </case>
+                                <case cond="0" executed="true" line="739" source="adpcm.c">
+                                </case>
+                            </conditional>
+                        </loop>
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="uppol2" numcall="32" line="556" source="adpcm.c" executed="true" extern="false">
+            <function name="uppol2">
+                <conditional id="IF-10"> <condition line="740" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="740" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="740" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-11"> <condition line="762" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="762" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+                <conditional id="IF-12"> <condition line="764" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="765" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="768" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-13"> <condition line="773" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="773" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <call name="uppol1" numcall="33" line="559" source="adpcm.c" executed="true" extern="false">
+            <function name="uppol1">
+                <conditional id="IF-14"> <condition line="774" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="774" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+                <conditional id="IF-15"> <condition line="786" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="787" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" line="790" source="adpcm.c">
+                    </case>
+                </conditional>
+                <conditional id="IF-16"> <condition line="794" source="adpcm.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="794" source="adpcm.c">
+                    </case>
+                    <case cond="0" executed="true" >
+                    </case>
+                </conditional>
+            </function>
+        </call>
+        <loop loopId="6" line="583" source="adpcm.c" exact="true" maxcount="10" totalcount="10">
+        </loop>
+        <loop loopId="7" line="598" source="adpcm.c" exact="true" maxcount="10" totalcount="10">
+        </loop>
+    </function>
+</flowfacts>
+

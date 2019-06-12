@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="000083f0" size="16" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000083f0" file="ns.c" line="525">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="000083f4" file="ns.c" line="525">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="000083f8" file="ns.c" line="529">
+        <asm>mov r0, #400</asm>
+      </inst>
+      <inst address="000083fc" file="ns.c" line="529">
+        <asm>bl 10000821c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="00008400" size="4" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008400" file="ns.c" line="531">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <exit id="_0-3"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="call" source="_0-1" called="_1"/>
+    <edge kind="not-taken" source="_0-1" target="_0-2"/>
+    <edge kind="virtual" source="_0-2" target="_0-3"/>
+  </cfg>
+  <cfg id="_1" address="_1" label="foo" number="1">
+    <property identifier="otawa::CALLED_BY">BB 1 (000083f0) -&gt; cfg(foo) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (000083f0) -&gt; cfg(foo) (call)</property>
+    <property identifier="otawa::INDEX">1</property>
+    <property identifier="otawa::LABEL">foo</property>
+    <entry id="_1-0"/>
+    <bb id="_1-1" address="0000821c" size="28" number="1">
+      <property identifier="otawa::ENTRY">foo</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="ns.c" line="498">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="00008220" file="ns.c" line="498">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="00008224" file="ns.c" line="498">
+        <asm>sub sp, sp, #24</asm>
+      </inst>
+      <inst address="00008228" file="ns.c" line="498">
+        <asm>str r0, [fp, #-24]</asm>
+      </inst>
+      <inst address="0000822c" file="ns.c" line="504">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008230" file="ns.c" line="504">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008234" file="ns.c" line="504">
+        <asm>b 83cc</asm>
+      </inst>
+    </bb>
+    <bb id="_1-2" address="000083cc" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000083cc" file="ns.c" line="504">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000083d0" file="ns.c" line="504">
+        <asm>cmp r3, #4</asm>
+      </inst>
+      <inst address="000083d4" file="ns.c" line="504">
+        <asm>ble 100008238</asm>
+      </inst>
+    </bb>
+    <bb id="_1-3" address="000083d8" size="4" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="000083d8" file="ns.c" line="520">
+        <asm>mvn r3, #0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-4" address="00008238" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008238" file="ns.c" line="505">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="0000823c" file="ns.c" line="505">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008240" file="ns.c" line="505">
+        <asm>b 83b4</asm>
+      </inst>
+    </bb>
+    <bb id="_1-5" address="000083dc" size="12" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="000083dc" file="ns.c" line="521">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000083e0" file="ns.c" line="521">
+        <asm>sub sp, fp, #4</asm>
+      </inst>
+      <inst address="000083e4" file="ns.c" line="521">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <bb id="_1-6" address="000083b4" size="12" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="000083b4" file="ns.c" line="505">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000083b8" file="ns.c" line="505">
+        <asm>cmp r3, #4</asm>
+      </inst>
+      <inst address="000083bc" file="ns.c" line="505">
+        <asm>ble 100008244</asm>
+      </inst>
+    </bb>
+    <bb id="_1-7" address="000083c0" size="12" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="000083c0" file="ns.c" line="504">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000083c4" file="ns.c" line="504">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000083c8" file="ns.c" line="504">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-8" address="00008244" size="12" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008244" file="ns.c" line="506">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008248" file="ns.c" line="506">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000824c" file="ns.c" line="506">
+        <asm>b 839c</asm>
+      </inst>
+    </bb>
+    <bb id="_1-9" address="0000839c" size="12" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="0000839c" file="ns.c" line="506">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000083a0" file="ns.c" line="506">
+        <asm>cmp r3, #4</asm>
+      </inst>
+      <inst address="000083a4" file="ns.c" line="506">
+        <asm>ble 100008250</asm>
+      </inst>
+    </bb>
+    <bb id="_1-10" address="000083a8" size="12" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="000083a8" file="ns.c" line="505">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000083ac" file="ns.c" line="505">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000083b0" file="ns.c" line="505">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-11" address="00008250" size="12" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="00008250" file="ns.c" line="507">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008254" file="ns.c" line="507">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008258" file="ns.c" line="507">
+        <asm>b 8384</asm>
+      </inst>
+    </bb>
+    <bb id="_1-12" address="00008384" size="12" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="00008384" file="ns.c" line="507">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008388" file="ns.c" line="507">
+        <asm>cmp r3, #4</asm>
+      </inst>
+      <inst address="0000838c" file="ns.c" line="507">
+        <asm>ble 10000825c</asm>
+      </inst>
+    </bb>
+    <bb id="_1-13" address="00008390" size="12" number="13">
+      <property identifier="otawa::INDEX">13</property>
+      <inst address="00008390" file="ns.c" line="506">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008394" file="ns.c" line="506">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008398" file="ns.c" line="506">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-14" address="0000825c" size="100" number="14">
+      <property identifier="otawa::INDEX">14</property>
+      <inst address="0000825c" file="ns.c" line="512">
+        <asm>ldr ip, [pc, #388]</asm>
+      </inst>
+      <inst address="00008260" file="ns.c" line="512">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008264" file="ns.c" line="512">
+        <asm>ldr r0, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008268" file="ns.c" line="512">
+        <asm>ldr r1, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000826c" file="ns.c" line="512">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="00008270" file="ns.c" line="512">
+        <asm>mov r2, r2, lsl #2</asm>
+      </inst>
+      <inst address="00008274" file="ns.c" line="512">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="00008278" file="ns.c" line="512">
+        <asm>mov r3, r1</asm>
+      </inst>
+      <inst address="0000827c" file="ns.c" line="512">
+        <asm>mov r3, r3, lsl #5</asm>
+      </inst>
+      <inst address="00008280" file="ns.c" line="512">
+        <asm>rsb r3, r1, r3</asm>
+      </inst>
+      <inst address="00008284" file="ns.c" line="512">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008288" file="ns.c" line="512">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="0000828c" file="ns.c" line="512">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="00008290" file="ns.c" line="512">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00008294" file="ns.c" line="512">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008298" file="ns.c" line="512">
+        <asm>add r3, r3, r0</asm>
+      </inst>
+      <inst address="0000829c" file="ns.c" line="512">
+        <asm>mov r1, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082a0" file="ns.c" line="512">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="000082a4" file="ns.c" line="512">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="000082a8" file="ns.c" line="512">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000082ac" file="ns.c" line="512">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="000082b0" file="ns.c" line="512">
+        <asm>ldr r2, [ip, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000082b4" file="ns.c" line="512">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="000082b8" file="ns.c" line="512">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="000082bc" file="ns.c" line="512">
+        <asm>bne 8378</asm>
+      </inst>
+    </bb>
+    <bb id="_1-15" address="000082c0" size="184" number="15">
+      <property identifier="otawa::INDEX">15</property>
+      <inst address="000082c0" file="ns.c" line="517">
+        <asm>ldr ip, [pc, #292]</asm>
+      </inst>
+      <inst address="000082c4" file="ns.c" line="517">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082c8" file="ns.c" line="517">
+        <asm>ldr r0, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082cc" file="ns.c" line="517">
+        <asm>ldr r1, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082d0" file="ns.c" line="517">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="000082d4" file="ns.c" line="517">
+        <asm>mov r2, r2, lsl #2</asm>
+      </inst>
+      <inst address="000082d8" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="000082dc" file="ns.c" line="517">
+        <asm>mov r3, r1</asm>
+      </inst>
+      <inst address="000082e0" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #5</asm>
+      </inst>
+      <inst address="000082e4" file="ns.c" line="517">
+        <asm>rsb r3, r1, r3</asm>
+      </inst>
+      <inst address="000082e8" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082ec" file="ns.c" line="517">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="000082f0" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="000082f4" file="ns.c" line="517">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="000082f8" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082fc" file="ns.c" line="517">
+        <asm>add r3, r3, r0</asm>
+      </inst>
+      <inst address="00008300" file="ns.c" line="517">
+        <asm>mov r1, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008304" file="ns.c" line="517">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="00008308" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="0000830c" file="ns.c" line="517">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008310" file="ns.c" line="517">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="00008314" file="ns.c" line="517">
+        <asm>ldr ip, [ip, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008318" file="ns.c" line="517">
+        <asm>ldr lr, [pc, #200]</asm>
+      </inst>
+      <inst address="0000831c" file="ns.c" line="517">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008320" file="ns.c" line="517">
+        <asm>ldr r0, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008324" file="ns.c" line="517">
+        <asm>ldr r1, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008328" file="ns.c" line="517">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="0000832c" file="ns.c" line="517">
+        <asm>mov r2, r2, lsl #2</asm>
+      </inst>
+      <inst address="00008330" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="00008334" file="ns.c" line="517">
+        <asm>mov r3, r1</asm>
+      </inst>
+      <inst address="00008338" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #5</asm>
+      </inst>
+      <inst address="0000833c" file="ns.c" line="517">
+        <asm>rsb r3, r1, r3</asm>
+      </inst>
+      <inst address="00008340" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008344" file="ns.c" line="517">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="00008348" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="0000834c" file="ns.c" line="517">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00008350" file="ns.c" line="517">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008354" file="ns.c" line="517">
+        <asm>add r3, r3, r0</asm>
+      </inst>
+      <inst address="00008358" file="ns.c" line="517">
+        <asm>mov r1, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000835c" file="ns.c" line="517">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="00008360" file="ns.c" line="517">
+        <asm>add r2, r2, r3</asm>
+      </inst>
+      <inst address="00008364" file="ns.c" line="517">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008368" file="ns.c" line="517">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="0000836c" file="ns.c" line="517">
+        <asm>ldr r3, [lr, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008370" file="ns.c" line="517">
+        <asm>add r3, ip, r3</asm>
+      </inst>
+      <inst address="00008374" file="ns.c" line="517">
+        <asm>b 83dc</asm>
+      </inst>
+    </bb>
+    <bb id="_1-16" address="00008378" size="12" number="16">
+      <property identifier="otawa::INDEX">16</property>
+      <inst address="00008378" file="ns.c" line="507">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="0000837c" file="ns.c" line="507">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008380" file="ns.c" line="507">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+    </bb>
+    <exit id="_1-17"/>
+    <edge kind="virtual" source="_1-0" target="_1-1"/>
+    <edge kind="taken" source="_1-1" target="_1-2"/>
+    <edge kind="taken" source="_1-2" target="_1-4"/>
+    <edge kind="not-taken" source="_1-2" target="_1-3"/>
+    <edge kind="not-taken" source="_1-3" target="_1-5"/>
+    <edge kind="taken" source="_1-4" target="_1-6"/>
+    <edge kind="virtual" source="_1-5" target="_1-17"/>
+    <edge kind="taken" source="_1-6" target="_1-8"/>
+    <edge kind="not-taken" source="_1-6" target="_1-7"/>
+    <edge kind="not-taken" source="_1-7" target="_1-2"/>
+    <edge kind="taken" source="_1-8" target="_1-9"/>
+    <edge kind="taken" source="_1-9" target="_1-11"/>
+    <edge kind="not-taken" source="_1-9" target="_1-10"/>
+    <edge kind="not-taken" source="_1-10" target="_1-6"/>
+    <edge kind="taken" source="_1-11" target="_1-12"/>
+    <edge kind="taken" source="_1-12" target="_1-14"/>
+    <edge kind="not-taken" source="_1-12" target="_1-13"/>
+    <edge kind="not-taken" source="_1-13" target="_1-9"/>
+    <edge kind="taken" source="_1-14" target="_1-16"/>
+    <edge kind="not-taken" source="_1-14" target="_1-15"/>
+    <edge kind="taken" source="_1-15" target="_1-5"/>
+    <edge kind="not-taken" source="_1-16" target="_1-12"/>
+  </cfg>
+</cfg-collection>

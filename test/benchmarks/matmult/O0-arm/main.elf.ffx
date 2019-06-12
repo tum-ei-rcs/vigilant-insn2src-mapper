@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="Multiply" executed="true" extern="false">
+        <loop loopId="3" line="154" source="matmult.c" exact="true" maxcount="20" totalcount="20">
+            <loop loopId="4" line="155" source="matmult.c" exact="true" maxcount="20" totalcount="400">
+                <loop loopId="5" line="158" source="matmult.c" exact="true" maxcount="20" totalcount="8000">
+                </loop>
+            </loop>
+        </loop>
+    </function>
+</flowfacts>
+

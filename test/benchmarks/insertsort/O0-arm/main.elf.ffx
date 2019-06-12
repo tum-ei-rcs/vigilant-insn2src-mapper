@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="main" executed="true" extern="false">
+        <loop loopId="1" line="62" source="insertsort.c" exact="true" maxcount="9" totalcount="9">
+            <loop loopId="2" line="70" source="insertsort.c" exact="false" maxcount="10" totalcount="54">
+            </loop>
+        </loop>
+    </function>
+</flowfacts>
+

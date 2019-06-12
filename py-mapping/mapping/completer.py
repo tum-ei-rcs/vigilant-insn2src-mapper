@@ -41,6 +41,7 @@ class DominatorLumping(AbstractMapper):
         # --
         unmapped_nodes = input_map.unmapped()
         mapped_nodes = input_map.mapped()
+        log.debug("Unmapped binary nodes: {}".format(list(unmapped_nodes)))
 
         def Union(a, b):
             # Move elements of a to b
@@ -66,7 +67,6 @@ class DominatorLumping(AbstractMapper):
             """
             nlist = SortedKeyList(iterable=unmapped_nodes,
                                   key=btfg_flow.get_dom_tree().get_preorder_number)
-            log.debug(list(reversed(nlist)))
             # noinspection PyUnreachableCode
             for n in reversed(nlist):
                 pred = list(btfg_flow.get_graph().predecessors(n))
@@ -174,12 +174,14 @@ class DominatorLumping(AbstractMapper):
             for n in last_nodes:
                 assert len(node_sets[n]) == 0, "Algorithm failed, must fix."
 
+            # FIXME: of execution order shall be maintained, we must preserve ctrl dep, as well.
+
             # Yet another sanity check
             for n in btfg_flow.get_graph().nodes:
                 m = Find(n)
                 if m not in mapped_nodes:
-                    assert False, "Not all uncolored nodes were assigned to mapped points.\n" \
-                                  "Uncolored node {}.\n Node Sets: {}".format(m, node_sets)
+                    assert False, "Not all unmapped nodes were assigned to mapped points.\n" \
+                                  "Unmapped node {}.\n Node Sets: {}".format(m, node_sets)
 
         log.info("Completing mapping of {}".format(btfg.name))
 

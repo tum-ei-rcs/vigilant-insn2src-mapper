@@ -11,15 +11,18 @@ class Instruction
 {
 protected:
     const DisasmInstruction  m_disInsn;
+    bool                     m_ignore_errors;
     std::string              m_mnemonic;
     std::vector<std::string> m_operands;
 
-    Instruction(const DisasmInstruction& disInsn, bool defaultRegex);
+    Instruction(const DisasmInstruction& disInsn, bool defaultRegex, bool ignoreErrors=false);
     virtual const std::regex& getInsnRegex();
 
     virtual uint64_t    getAbsoluteAddr(const std::string& operand);
     virtual int64_t     getRelativeDiff(const std::string& operand);
     virtual std::size_t getWordSize() = 0;
+
+
 
 public:
     virtual ~Instruction() {};

@@ -1,0 +1,3009 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="0000821c" size="40" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="ud.c" line="92">
+        <asm>stmdb sp!, {r4, fp, lr}</asm>
+      </inst>
+      <inst address="00008220" file="ud.c" line="92">
+        <asm>add fp, sp, #8</asm>
+      </inst>
+      <inst address="00008224" file="ud.c" line="92">
+        <asm>sub sp, sp, #28</asm>
+      </inst>
+      <inst address="00008228" file="ud.c" line="93">
+        <asm>mov r3, #50</asm>
+      </inst>
+      <inst address="0000822c" file="ud.c" line="93">
+        <asm>str r3, [fp, #-28]</asm>
+      </inst>
+      <inst address="00008230" file="ud.c" line="93">
+        <asm>mov r3, #5</asm>
+      </inst>
+      <inst address="00008234" file="ud.c" line="93">
+        <asm>str r3, [fp, #-32]</asm>
+      </inst>
+      <inst address="00008238" file="ud.c" line="99">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="0000823c" file="ud.c" line="99">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008240" file="ud.c" line="99">
+        <asm>b 83a8</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="000083a8" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000083a8" file="ud.c" line="99">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000083ac" file="ud.c" line="99">
+        <asm>ldr r3, [fp, #-32]</asm>
+      </inst>
+      <inst address="000083b0" file="ud.c" line="99">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="000083b4" file="ud.c" line="99">
+        <asm>ble 100008244</asm>
+      </inst>
+    </bb>
+    <bb id="_0-3" address="000083b8" size="12" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="000083b8" file="ud.c" line="113">
+        <asm>ldr r0, [fp, #-28]</asm>
+      </inst>
+      <inst address="000083bc" file="ud.c" line="113">
+        <asm>ldr r1, [fp, #-32]</asm>
+      </inst>
+      <inst address="000083c0" file="ud.c" line="113">
+        <asm>bl 83d8</asm>
+      </inst>
+    </bb>
+    <bb id="_0-4" address="00008244" size="20" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008244" file="ud.c" line="101">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008248" file="ud.c" line="101">
+        <asm>str r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="0000824c" file="ud.c" line="102">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008250" file="ud.c" line="102">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008254" file="ud.c" line="102">
+        <asm>b 837c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-5" address="000083c4" size="12" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="000083c4" file="ud.c" line="113">
+        <asm>str r0, [fp, #-36]</asm>
+      </inst>
+      <inst address="000083c8" file="ud.c" line="114">
+        <asm>sub sp, fp, #8</asm>
+      </inst>
+      <inst address="000083cc" file="ud.c" line="114">
+        <asm>ldmia sp!, {r4, fp, pc}</asm>
+      </inst>
+    </bb>
+    <bb id="_0-6" address="0000837c" size="16" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="0000837c" file="ud.c" line="102">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008380" file="ud.c" line="102">
+        <asm>ldr r3, [fp, #-32]</asm>
+      </inst>
+      <inst address="00008384" file="ud.c" line="102">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008388" file="ud.c" line="102">
+        <asm>ble 100008258</asm>
+      </inst>
+    </bb>
+    <bb id="_0-7" address="0000838c" size="28" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="0000838c" file="ud.c" line="109">
+        <asm>ldr r1, [pc, #64]</asm>
+      </inst>
+      <inst address="00008390" file="ud.c" line="109">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008394" file="ud.c" line="109">
+        <asm>ldr r2, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008398" file="ud.c" line="109">
+        <asm>str r2, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000839c" file="ud.c" line="99">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000083a0" file="ud.c" line="99">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000083a4" file="ud.c" line="99">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+    </bb>
+    <bb id="_0-8" address="00008258" size="80" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008258" file="ud.c" line="104">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000825c" file="ud.c" line="104">
+        <asm>add r2, r3, #1</asm>
+      </inst>
+      <inst address="00008260" file="ud.c" line="104">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008264" file="ud.c" line="104">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008268" file="ud.c" line="104">
+        <asm>add r1, r2, r3</asm>
+      </inst>
+      <inst address="0000826c" file="ud.c" line="104">
+        <asm>ldr r0, [pc, #348]</asm>
+      </inst>
+      <inst address="00008270" file="ud.c" line="104">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008274" file="ud.c" line="104">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008278" file="ud.c" line="104">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000827c" file="ud.c" line="104">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008280" file="ud.c" line="104">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008284" file="ud.c" line="104">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008288" file="ud.c" line="104">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="0000828c" file="ud.c" line="104">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008290" file="ud.c" line="104">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008294" file="ud.c" line="104">
+        <asm>str r1, [r0, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008298" file="ud.c" line="105">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000829c" file="ud.c" line="105">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000082a0" file="ud.c" line="105">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="000082a4" file="ud.c" line="105">
+        <asm>bne 8338</asm>
+      </inst>
+    </bb>
+    <bb id="_0-9" address="000082a8" size="52" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="000082a8" file="ud.c" line="106">
+        <asm>ldr r1, [pc, #288]</asm>
+      </inst>
+      <inst address="000082ac" file="ud.c" line="106">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082b0" file="ud.c" line="106">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000082b4" file="ud.c" line="106">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082b8" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000082bc" file="ud.c" line="106">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082c0" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000082c4" file="ud.c" line="106">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="000082c8" file="ud.c" line="106">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="000082cc" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000082d0" file="ud.c" line="106">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000082d4" file="ud.c" line="106">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000082d8" file="ud.c" line="106">
+        <asm>bl 8d6c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-10" address="00008338" size="68" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008338" file="ud.c" line="107">
+        <asm>ldr r1, [pc, #144]</asm>
+      </inst>
+      <inst address="0000833c" file="ud.c" line="107">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008340" file="ud.c" line="107">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008344" file="ud.c" line="107">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008348" file="ud.c" line="107">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000834c" file="ud.c" line="107">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008350" file="ud.c" line="107">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008354" file="ud.c" line="107">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008358" file="ud.c" line="107">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="0000835c" file="ud.c" line="107">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008360" file="ud.c" line="107">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008364" file="ud.c" line="107">
+        <asm>ldr r2, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008368" file="ud.c" line="107">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="0000836c" file="ud.c" line="107">
+        <asm>str r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008370" file="ud.c" line="102">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008374" file="ud.c" line="102">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008378" file="ud.c" line="102">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+    </bb>
+    <bb id="_0-11" address="000082dc" size="28" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="000082dc" file="ud.c" line="106">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="000082e0" file="ud.c" line="106">
+        <asm>mov r4, r1</asm>
+      </inst>
+      <inst address="000082e4" file="ud.c" line="106">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000082e8" file="ud.c" line="106">
+        <asm>mov r1, r4</asm>
+      </inst>
+      <inst address="000082ec" file="ud.c" line="106">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="000082f0" file="ud.c" line="106">
+        <asm>mov r3, r4</asm>
+      </inst>
+      <inst address="000082f4" file="ud.c" line="106">
+        <asm>bl 8a38</asm>
+      </inst>
+    </bb>
+    <bb id="_0-12" address="000082f8" size="20" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="000082f8" file="ud.c" line="106">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="000082fc" file="ud.c" line="106">
+        <asm>mov r4, r1</asm>
+      </inst>
+      <inst address="00008300" file="ud.c" line="106">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00008304" file="ud.c" line="106">
+        <asm>mov r1, r4</asm>
+      </inst>
+      <inst address="00008308" file="ud.c" line="106">
+        <asm>bl 8e48</asm>
+      </inst>
+    </bb>
+    <bb id="_0-13" address="0000830c" size="44" number="13">
+      <property identifier="otawa::INDEX">13</property>
+      <inst address="0000830c" file="ud.c" line="106">
+        <asm>ldr r1, [pc, #188]</asm>
+      </inst>
+      <inst address="00008310" file="ud.c" line="106">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008314" file="ud.c" line="106">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008318" file="ud.c" line="106">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000831c" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008320" file="ud.c" line="106">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008324" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008328" file="ud.c" line="106">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="0000832c" file="ud.c" line="106">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008330" file="ud.c" line="106">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008334" file="ud.c" line="106">
+        <asm>str r0, [r1, r3, lsl #2]</asm>
+      </inst>
+    </bb>
+    <exit id="_0-14"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="taken" source="_0-1" target="_0-2"/>
+    <edge kind="taken" source="_0-2" target="_0-4"/>
+    <edge kind="not-taken" source="_0-2" target="_0-3"/>
+    <edge kind="call" source="_0-3" called="_1"/>
+    <edge kind="not-taken" source="_0-3" target="_0-5"/>
+    <edge kind="taken" source="_0-4" target="_0-6"/>
+    <edge kind="virtual" source="_0-5" target="_0-14"/>
+    <edge kind="taken" source="_0-6" target="_0-8"/>
+    <edge kind="not-taken" source="_0-6" target="_0-7"/>
+    <edge kind="not-taken" source="_0-7" target="_0-2"/>
+    <edge kind="taken" source="_0-8" target="_0-10"/>
+    <edge kind="not-taken" source="_0-8" target="_0-9"/>
+    <edge kind="call" source="_0-9" called="_2"/>
+    <edge kind="not-taken" source="_0-9" target="_0-11"/>
+    <edge kind="not-taken" source="_0-10" target="_0-6"/>
+    <edge kind="call" source="_0-11" called="_3"/>
+    <edge kind="not-taken" source="_0-11" target="_0-12"/>
+    <edge kind="call" source="_0-12" called="_4"/>
+    <edge kind="not-taken" source="_0-12" target="_0-13"/>
+    <edge kind="not-taken" source="_0-13" target="_0-10"/>
+  </cfg>
+  <cfg id="_1" address="_1" label="ludcmp" number="1">
+    <property identifier="otawa::CALLED_BY">BB 3 (000083b8) -&gt; cfg(ludcmp) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 3 (000083b8) -&gt; cfg(ludcmp) (call)</property>
+    <property identifier="otawa::INDEX">1</property>
+    <property identifier="otawa::LABEL">ludcmp</property>
+    <entry id="_1-0"/>
+    <bb id="_1-1" address="000083d8" size="32" number="1">
+      <property identifier="otawa::ENTRY">ludcmp</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000083d8" file="ud.c" line="117">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="000083dc" file="ud.c" line="117">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="000083e0" file="ud.c" line="117">
+        <asm>sub sp, sp, #424</asm>
+      </inst>
+      <inst address="000083e4" file="ud.c" line="117">
+        <asm>str r0, [fp, #-424]</asm>
+      </inst>
+      <inst address="000083e8" file="ud.c" line="117">
+        <asm>str r1, [fp, #-428]</asm>
+      </inst>
+      <inst address="000083ec" file="ud.c" line="122">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000083f0" file="ud.c" line="122">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000083f4" file="ud.c" line="122">
+        <asm>b 868c</asm>
+      </inst>
+    </bb>
+    <bb id="_1-2" address="0000868c" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="0000868c" file="ud.c" line="122">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008690" file="ud.c" line="122">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="00008694" file="ud.c" line="122">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008698" file="ud.c" line="122">
+        <asm>blt 1000083f8</asm>
+      </inst>
+    </bb>
+    <bb id="_1-3" address="0000869c" size="24" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="0000869c" file="ud.c" line="143">
+        <asm>ldr r3, [pc, #564]</asm>
+      </inst>
+      <inst address="000086a0" file="ud.c" line="143">
+        <asm>ldr r3, [r3, #0]</asm>
+      </inst>
+      <inst address="000086a4" file="ud.c" line="143">
+        <asm>str r3, [fp, #-420]</asm>
+      </inst>
+      <inst address="000086a8" file="ud.c" line="144">
+        <asm>mov r3, #1</asm>
+      </inst>
+      <inst address="000086ac" file="ud.c" line="144">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000086b0" file="ud.c" line="144">
+        <asm>b 8760</asm>
+      </inst>
+    </bb>
+    <bb id="_1-4" address="000083f8" size="16" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="000083f8" file="ud.c" line="125">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000083fc" file="ud.c" line="125">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008400" file="ud.c" line="125">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008404" file="ud.c" line="125">
+        <asm>b 8548</asm>
+      </inst>
+    </bb>
+    <bb id="_1-5" address="00008760" size="16" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008760" file="ud.c" line="144">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008764" file="ud.c" line="144">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="00008768" file="ud.c" line="144">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="0000876c" file="ud.c" line="144">
+        <asm>ble 1000086b4</asm>
+      </inst>
+    </bb>
+    <bb id="_1-6" address="00008548" size="16" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008548" file="ud.c" line="125">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="0000854c" file="ud.c" line="125">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="00008550" file="ud.c" line="125">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008554" file="ud.c" line="125">
+        <asm>ble 100008408</asm>
+      </inst>
+    </bb>
+    <bb id="_1-7" address="00008770" size="68" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="00008770" file="ud.c" line="151">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="00008774" file="ud.c" line="151">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008778" file="ud.c" line="151">
+        <asm>sub r2, fp, #4</asm>
+      </inst>
+      <inst address="0000877c" file="ud.c" line="151">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="00008780" file="ud.c" line="151">
+        <asm>ldr r0, [r3, #-416]</asm>
+      </inst>
+      <inst address="00008784" file="ud.c" line="151">
+        <asm>ldr r1, [pc, #328]</asm>
+      </inst>
+      <inst address="00008788" file="ud.c" line="151">
+        <asm>ldr r2, [fp, #-428]</asm>
+      </inst>
+      <inst address="0000878c" file="ud.c" line="151">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008790" file="ud.c" line="151">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008794" file="ud.c" line="151">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008798" file="ud.c" line="151">
+        <asm>mov r2, r3, lsl #4</asm>
+      </inst>
+      <inst address="0000879c" file="ud.c" line="151">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000087a0" file="ud.c" line="151">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000087a4" file="ud.c" line="151">
+        <asm>add r3, r1, r3</asm>
+      </inst>
+      <inst address="000087a8" file="ud.c" line="151">
+        <asm>ldr r3, [r3, #0]</asm>
+      </inst>
+      <inst address="000087ac" file="ud.c" line="151">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="000087b0" file="ud.c" line="151">
+        <asm>bl 88e0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-8" address="000086b4" size="28" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="000086b4" file="ud.c" line="146">
+        <asm>ldr r2, [pc, #540]</asm>
+      </inst>
+      <inst address="000086b8" file="ud.c" line="146">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000086bc" file="ud.c" line="146">
+        <asm>ldr r3, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000086c0" file="ud.c" line="146">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000086c4" file="ud.c" line="147">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000086c8" file="ud.c" line="147">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000086cc" file="ud.c" line="147">
+        <asm>b 872c</asm>
+      </inst>
+    </bb>
+    <bb id="_1-9" address="00008558" size="16" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="00008558" file="ud.c" line="135">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000855c" file="ud.c" line="135">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008560" file="ud.c" line="135">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008564" file="ud.c" line="135">
+        <asm>b 8670</asm>
+      </inst>
+    </bb>
+    <bb id="_1-10" address="00008408" size="60" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008408" file="ud.c" line="127">
+        <asm>ldr r1, [pc, #1220]</asm>
+      </inst>
+      <inst address="0000840c" file="ud.c" line="127">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008410" file="ud.c" line="127">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008414" file="ud.c" line="127">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008418" file="ud.c" line="127">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000841c" file="ud.c" line="127">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008420" file="ud.c" line="127">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008424" file="ud.c" line="127">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008428" file="ud.c" line="127">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000842c" file="ud.c" line="127">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008430" file="ud.c" line="127">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008434" file="ud.c" line="127">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008438" file="ud.c" line="128">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000843c" file="ud.c" line="128">
+        <asm>cmp r3, #0</asm>
+      </inst>
+      <inst address="00008440" file="ud.c" line="128">
+        <asm>beq 84d4</asm>
+      </inst>
+    </bb>
+    <bb id="_1-11" address="000087b4" size="36" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="000087b4" file="ud.c" line="151">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="000087b8" file="ud.c" line="151">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="000087bc" file="ud.c" line="151">
+        <asm>ldr r2, [pc, #280]</asm>
+      </inst>
+      <inst address="000087c0" file="ud.c" line="151">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="000087c4" file="ud.c" line="151">
+        <asm>str r1, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000087c8" file="ud.c" line="152">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="000087cc" file="ud.c" line="152">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000087d0" file="ud.c" line="152">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000087d4" file="ud.c" line="152">
+        <asm>b 88b8</asm>
+      </inst>
+    </bb>
+    <bb id="_1-12" address="0000872c" size="16" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="0000872c" file="ud.c" line="147">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008730" file="ud.c" line="147">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008734" file="ud.c" line="147">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008738" file="ud.c" line="147">
+        <asm>blt 1000086d0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-13" address="00008670" size="16" number="13">
+      <property identifier="otawa::INDEX">13</property>
+      <inst address="00008670" file="ud.c" line="135">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008674" file="ud.c" line="135">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="00008678" file="ud.c" line="135">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="0000867c" file="ud.c" line="135">
+        <asm>ble 100008568</asm>
+      </inst>
+    </bb>
+    <bb id="_1-14" address="00008444" size="12" number="14">
+      <property identifier="otawa::INDEX">14</property>
+      <inst address="00008444" file="ud.c" line="131">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008448" file="ud.c" line="131">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000844c" file="ud.c" line="131">
+        <asm>b 84c4</asm>
+      </inst>
+    </bb>
+    <bb id="_1-15" address="000084d4" size="52" number="15">
+      <property identifier="otawa::INDEX">15</property>
+      <inst address="000084d4" file="ud.c" line="133">
+        <asm>ldr r1, [pc, #1016]</asm>
+      </inst>
+      <inst address="000084d8" file="ud.c" line="133">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="000084dc" file="ud.c" line="133">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000084e0" file="ud.c" line="133">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="000084e4" file="ud.c" line="133">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000084e8" file="ud.c" line="133">
+        <asm>mov r2, r3, lsl #4</asm>
+      </inst>
+      <inst address="000084ec" file="ud.c" line="133">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000084f0" file="ud.c" line="133">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000084f4" file="ud.c" line="133">
+        <asm>add r3, r1, r3</asm>
+      </inst>
+      <inst address="000084f8" file="ud.c" line="133">
+        <asm>ldr r3, [r3, #0]</asm>
+      </inst>
+      <inst address="000084fc" file="ud.c" line="133">
+        <asm>ldr r0, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008500" file="ud.c" line="133">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="00008504" file="ud.c" line="133">
+        <asm>bl 88e0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-16" address="000088b8" size="12" number="16">
+      <property identifier="otawa::INDEX">16</property>
+      <inst address="000088b8" file="ud.c" line="152">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000088bc" file="ud.c" line="152">
+        <asm>cmp r3, #0</asm>
+      </inst>
+      <inst address="000088c0" file="ud.c" line="152">
+        <asm>bge 1000087d8</asm>
+      </inst>
+    </bb>
+    <bb id="_1-17" address="0000873c" size="36" number="17">
+      <property identifier="otawa::INDEX">17</property>
+      <inst address="0000873c" file="ud.c" line="149">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008740" file="ud.c" line="149">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008744" file="ud.c" line="149">
+        <asm>sub r2, fp, #4</asm>
+      </inst>
+      <inst address="00008748" file="ud.c" line="149">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="0000874c" file="ud.c" line="149">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008750" file="ud.c" line="149">
+        <asm>str r2, [r3, #-416]</asm>
+      </inst>
+      <inst address="00008754" file="ud.c" line="144">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008758" file="ud.c" line="144">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="0000875c" file="ud.c" line="144">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-18" address="000086d0" size="92" number="18">
+      <property identifier="otawa::INDEX">18</property>
+      <inst address="000086d0" file="ud.c" line="148">
+        <asm>ldr r1, [pc, #508]</asm>
+      </inst>
+      <inst address="000086d4" file="ud.c" line="148">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="000086d8" file="ud.c" line="148">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000086dc" file="ud.c" line="148">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000086e0" file="ud.c" line="148">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000086e4" file="ud.c" line="148">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="000086e8" file="ud.c" line="148">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000086ec" file="ud.c" line="148">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="000086f0" file="ud.c" line="148">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="000086f4" file="ud.c" line="148">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000086f8" file="ud.c" line="148">
+        <asm>ldr r2, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000086fc" file="ud.c" line="148">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008700" file="ud.c" line="148">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008704" file="ud.c" line="148">
+        <asm>sub r1, fp, #4</asm>
+      </inst>
+      <inst address="00008708" file="ud.c" line="148">
+        <asm>add r3, r1, r3</asm>
+      </inst>
+      <inst address="0000870c" file="ud.c" line="148">
+        <asm>ldr r3, [r3, #-416]</asm>
+      </inst>
+      <inst address="00008710" file="ud.c" line="148">
+        <asm>mul r3, r2, r3</asm>
+      </inst>
+      <inst address="00008714" file="ud.c" line="148">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008718" file="ud.c" line="148">
+        <asm>rsb r3, r3, r2</asm>
+      </inst>
+      <inst address="0000871c" file="ud.c" line="148">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008720" file="ud.c" line="147">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008724" file="ud.c" line="147">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008728" file="ud.c" line="147">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-19" address="00008680" size="12" number="19">
+      <property identifier="otawa::INDEX">19</property>
+      <inst address="00008680" file="ud.c" line="122">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008684" file="ud.c" line="122">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008688" file="ud.c" line="122">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-20" address="00008568" size="64" number="20">
+      <property identifier="otawa::INDEX">20</property>
+      <inst address="00008568" file="ud.c" line="137">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000856c" file="ud.c" line="137">
+        <asm>add r2, r3, #1</asm>
+      </inst>
+      <inst address="00008570" file="ud.c" line="137">
+        <asm>ldr r1, [pc, #860]</asm>
+      </inst>
+      <inst address="00008574" file="ud.c" line="137">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008578" file="ud.c" line="137">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000857c" file="ud.c" line="137">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008580" file="ud.c" line="137">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008584" file="ud.c" line="137">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008588" file="ud.c" line="137">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="0000858c" file="ud.c" line="137">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008590" file="ud.c" line="137">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008594" file="ud.c" line="137">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008598" file="ud.c" line="137">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="0000859c" file="ud.c" line="138">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000085a0" file="ud.c" line="138">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000085a4" file="ud.c" line="138">
+        <asm>b 8620</asm>
+      </inst>
+    </bb>
+    <bb id="_1-21" address="000084c4" size="16" number="21">
+      <property identifier="otawa::INDEX">21</property>
+      <inst address="000084c4" file="ud.c" line="131">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000084c8" file="ud.c" line="131">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000084cc" file="ud.c" line="131">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="000084d0" file="ud.c" line="131">
+        <asm>blt 100008450</asm>
+      </inst>
+    </bb>
+    <bb id="_1-22" address="00008508" size="64" number="22">
+      <property identifier="otawa::INDEX">22</property>
+      <inst address="00008508" file="ud.c" line="133">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="0000850c" file="ud.c" line="133">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00008510" file="ud.c" line="133">
+        <asm>ldr r1, [pc, #956]</asm>
+      </inst>
+      <inst address="00008514" file="ud.c" line="133">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008518" file="ud.c" line="133">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="0000851c" file="ud.c" line="133">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008520" file="ud.c" line="133">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008524" file="ud.c" line="133">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008528" file="ud.c" line="133">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000852c" file="ud.c" line="133">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008530" file="ud.c" line="133">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008534" file="ud.c" line="133">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008538" file="ud.c" line="133">
+        <asm>str r0, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000853c" file="ud.c" line="125">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008540" file="ud.c" line="125">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008544" file="ud.c" line="125">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-23" address="000088c4" size="16" number="23">
+      <property identifier="otawa::INDEX">23</property>
+      <inst address="000088c4" file="ud.c" line="159">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000088c8" file="ud.c" line="160">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000088cc" file="ud.c" line="160">
+        <asm>sub sp, fp, #4</asm>
+      </inst>
+      <inst address="000088d0" file="ud.c" line="160">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <bb id="_1-24" address="000087d8" size="40" number="24">
+      <property identifier="otawa::INDEX">24</property>
+      <inst address="000087d8" file="ud.c" line="154">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000087dc" file="ud.c" line="154">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000087e0" file="ud.c" line="154">
+        <asm>sub r2, fp, #4</asm>
+      </inst>
+      <inst address="000087e4" file="ud.c" line="154">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="000087e8" file="ud.c" line="154">
+        <asm>ldr r3, [r3, #-416]</asm>
+      </inst>
+      <inst address="000087ec" file="ud.c" line="154">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000087f0" file="ud.c" line="155">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000087f4" file="ud.c" line="155">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000087f8" file="ud.c" line="155">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000087fc" file="ud.c" line="155">
+        <asm>b 8854</asm>
+      </inst>
+    </bb>
+    <bb id="_1-25" address="00008620" size="16" number="25">
+      <property identifier="otawa::INDEX">25</property>
+      <inst address="00008620" file="ud.c" line="138">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008624" file="ud.c" line="138">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008628" file="ud.c" line="138">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="0000862c" file="ud.c" line="138">
+        <asm>ble 1000085a8</asm>
+      </inst>
+    </bb>
+    <bb id="_1-26" address="00008450" size="116" number="26">
+      <property identifier="otawa::INDEX">26</property>
+      <inst address="00008450" file="ud.c" line="132">
+        <asm>ldr r1, [pc, #1148]</asm>
+      </inst>
+      <inst address="00008454" file="ud.c" line="132">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008458" file="ud.c" line="132">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="0000845c" file="ud.c" line="132">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008460" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008464" file="ud.c" line="132">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008468" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000846c" file="ud.c" line="132">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008470" file="ud.c" line="132">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008474" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008478" file="ud.c" line="132">
+        <asm>ldr r1, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000847c" file="ud.c" line="132">
+        <asm>ldr r0, [pc, #1104]</asm>
+      </inst>
+      <inst address="00008480" file="ud.c" line="132">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008484" file="ud.c" line="132">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008488" file="ud.c" line="132">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000848c" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008490" file="ud.c" line="132">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008494" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008498" file="ud.c" line="132">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="0000849c" file="ud.c" line="132">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="000084a0" file="ud.c" line="132">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000084a4" file="ud.c" line="132">
+        <asm>ldr r3, [r0, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000084a8" file="ud.c" line="132">
+        <asm>mul r3, r1, r3</asm>
+      </inst>
+      <inst address="000084ac" file="ud.c" line="132">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="000084b0" file="ud.c" line="132">
+        <asm>rsb r3, r3, r2</asm>
+      </inst>
+      <inst address="000084b4" file="ud.c" line="132">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000084b8" file="ud.c" line="131">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000084bc" file="ud.c" line="131">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000084c0" file="ud.c" line="131">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-27" address="00008854" size="16" number="27">
+      <property identifier="otawa::INDEX">27</property>
+      <inst address="00008854" file="ud.c" line="155">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008858" file="ud.c" line="155">
+        <asm>ldr r3, [fp, #-428]</asm>
+      </inst>
+      <inst address="0000885c" file="ud.c" line="155">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008860" file="ud.c" line="155">
+        <asm>ble 100008800</asm>
+      </inst>
+    </bb>
+    <bb id="_1-28" address="00008630" size="64" number="28">
+      <property identifier="otawa::INDEX">28</property>
+      <inst address="00008630" file="ud.c" line="140">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008634" file="ud.c" line="140">
+        <asm>add r2, r3, #1</asm>
+      </inst>
+      <inst address="00008638" file="ud.c" line="140">
+        <asm>ldr r1, [pc, #660]</asm>
+      </inst>
+      <inst address="0000863c" file="ud.c" line="140">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008640" file="ud.c" line="140">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008644" file="ud.c" line="140">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008648" file="ud.c" line="140">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000864c" file="ud.c" line="140">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008650" file="ud.c" line="140">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008654" file="ud.c" line="140">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008658" file="ud.c" line="140">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000865c" file="ud.c" line="140">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008660" file="ud.c" line="140">
+        <asm>str r2, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008664" file="ud.c" line="135">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008668" file="ud.c" line="135">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="0000866c" file="ud.c" line="135">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-29" address="000085a8" size="120" number="29">
+      <property identifier="otawa::INDEX">29</property>
+      <inst address="000085a8" file="ud.c" line="139">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000085ac" file="ud.c" line="139">
+        <asm>add r2, r3, #1</asm>
+      </inst>
+      <inst address="000085b0" file="ud.c" line="139">
+        <asm>ldr r1, [pc, #796]</asm>
+      </inst>
+      <inst address="000085b4" file="ud.c" line="139">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000085b8" file="ud.c" line="139">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000085bc" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000085c0" file="ud.c" line="139">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="000085c4" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000085c8" file="ud.c" line="139">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="000085cc" file="ud.c" line="139">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000085d0" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000085d4" file="ud.c" line="139">
+        <asm>ldr r1, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000085d8" file="ud.c" line="139">
+        <asm>ldr r0, [pc, #756]</asm>
+      </inst>
+      <inst address="000085dc" file="ud.c" line="139">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000085e0" file="ud.c" line="139">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000085e4" file="ud.c" line="139">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000085e8" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000085ec" file="ud.c" line="139">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="000085f0" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000085f4" file="ud.c" line="139">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="000085f8" file="ud.c" line="139">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="000085fc" file="ud.c" line="139">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008600" file="ud.c" line="139">
+        <asm>ldr r3, [r0, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008604" file="ud.c" line="139">
+        <asm>mul r3, r1, r3</asm>
+      </inst>
+      <inst address="00008608" file="ud.c" line="139">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="0000860c" file="ud.c" line="139">
+        <asm>rsb r3, r3, r2</asm>
+      </inst>
+      <inst address="00008610" file="ud.c" line="139">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008614" file="ud.c" line="138">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008618" file="ud.c" line="138">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="0000861c" file="ud.c" line="138">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-30" address="00008864" size="52" number="30">
+      <property identifier="otawa::INDEX">30</property>
+      <inst address="00008864" file="ud.c" line="157">
+        <asm>ldr r1, [pc, #104]</asm>
+      </inst>
+      <inst address="00008868" file="ud.c" line="157">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000886c" file="ud.c" line="157">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008870" file="ud.c" line="157">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008874" file="ud.c" line="157">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008878" file="ud.c" line="157">
+        <asm>mov r2, r3, lsl #4</asm>
+      </inst>
+      <inst address="0000887c" file="ud.c" line="157">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008880" file="ud.c" line="157">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008884" file="ud.c" line="157">
+        <asm>add r3, r1, r3</asm>
+      </inst>
+      <inst address="00008888" file="ud.c" line="157">
+        <asm>ldr r3, [r3, #0]</asm>
+      </inst>
+      <inst address="0000888c" file="ud.c" line="157">
+        <asm>ldr r0, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008890" file="ud.c" line="157">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="00008894" file="ud.c" line="157">
+        <asm>bl 88e0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-31" address="00008800" size="84" number="31">
+      <property identifier="otawa::INDEX">31</property>
+      <inst address="00008800" file="ud.c" line="156">
+        <asm>ldr r1, [pc, #204]</asm>
+      </inst>
+      <inst address="00008804" file="ud.c" line="156">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008808" file="ud.c" line="156">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="0000880c" file="ud.c" line="156">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008810" file="ud.c" line="156">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008814" file="ud.c" line="156">
+        <asm>mov r2, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008818" file="ud.c" line="156">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000881c" file="ud.c" line="156">
+        <asm>mov r3, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008820" file="ud.c" line="156">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008824" file="ud.c" line="156">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008828" file="ud.c" line="156">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000882c" file="ud.c" line="156">
+        <asm>ldr r1, [pc, #168]</asm>
+      </inst>
+      <inst address="00008830" file="ud.c" line="156">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008834" file="ud.c" line="156">
+        <asm>ldr r2, [r1, r2, lsl #2]</asm>
+      </inst>
+      <inst address="00008838" file="ud.c" line="156">
+        <asm>mul r3, r2, r3</asm>
+      </inst>
+      <inst address="0000883c" file="ud.c" line="156">
+        <asm>ldr r2, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008840" file="ud.c" line="156">
+        <asm>rsb r3, r3, r2</asm>
+      </inst>
+      <inst address="00008844" file="ud.c" line="156">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008848" file="ud.c" line="155">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="0000884c" file="ud.c" line="155">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008850" file="ud.c" line="155">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-32" address="00008898" size="32" number="32">
+      <property identifier="otawa::INDEX">32</property>
+      <inst address="00008898" file="ud.c" line="157">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="0000889c" file="ud.c" line="157">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="000088a0" file="ud.c" line="157">
+        <asm>ldr r2, [pc, #52]</asm>
+      </inst>
+      <inst address="000088a4" file="ud.c" line="157">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000088a8" file="ud.c" line="157">
+        <asm>str r1, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000088ac" file="ud.c" line="152">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000088b0" file="ud.c" line="152">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000088b4" file="ud.c" line="152">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <exit id="_1-33"/>
+    <edge kind="virtual" source="_1-0" target="_1-1"/>
+    <edge kind="taken" source="_1-1" target="_1-2"/>
+    <edge kind="taken" source="_1-2" target="_1-4"/>
+    <edge kind="not-taken" source="_1-2" target="_1-3"/>
+    <edge kind="taken" source="_1-3" target="_1-5"/>
+    <edge kind="taken" source="_1-4" target="_1-6"/>
+    <edge kind="taken" source="_1-5" target="_1-8"/>
+    <edge kind="not-taken" source="_1-5" target="_1-7"/>
+    <edge kind="taken" source="_1-6" target="_1-10"/>
+    <edge kind="not-taken" source="_1-6" target="_1-9"/>
+    <edge kind="call" source="_1-7" called="_5"/>
+    <edge kind="not-taken" source="_1-7" target="_1-11"/>
+    <edge kind="taken" source="_1-8" target="_1-12"/>
+    <edge kind="taken" source="_1-9" target="_1-13"/>
+    <edge kind="taken" source="_1-10" target="_1-15"/>
+    <edge kind="not-taken" source="_1-10" target="_1-14"/>
+    <edge kind="taken" source="_1-11" target="_1-16"/>
+    <edge kind="taken" source="_1-12" target="_1-18"/>
+    <edge kind="not-taken" source="_1-12" target="_1-17"/>
+    <edge kind="taken" source="_1-13" target="_1-20"/>
+    <edge kind="not-taken" source="_1-13" target="_1-19"/>
+    <edge kind="taken" source="_1-14" target="_1-21"/>
+    <edge kind="call" source="_1-15" called="_5"/>
+    <edge kind="not-taken" source="_1-15" target="_1-22"/>
+    <edge kind="taken" source="_1-16" target="_1-24"/>
+    <edge kind="not-taken" source="_1-16" target="_1-23"/>
+    <edge kind="not-taken" source="_1-17" target="_1-5"/>
+    <edge kind="not-taken" source="_1-18" target="_1-12"/>
+    <edge kind="not-taken" source="_1-19" target="_1-2"/>
+    <edge kind="taken" source="_1-20" target="_1-25"/>
+    <edge kind="taken" source="_1-21" target="_1-26"/>
+    <edge kind="not-taken" source="_1-21" target="_1-15"/>
+    <edge kind="not-taken" source="_1-22" target="_1-6"/>
+    <edge kind="virtual" source="_1-23" target="_1-33"/>
+    <edge kind="taken" source="_1-24" target="_1-27"/>
+    <edge kind="taken" source="_1-25" target="_1-29"/>
+    <edge kind="not-taken" source="_1-25" target="_1-28"/>
+    <edge kind="not-taken" source="_1-26" target="_1-21"/>
+    <edge kind="taken" source="_1-27" target="_1-31"/>
+    <edge kind="not-taken" source="_1-27" target="_1-30"/>
+    <edge kind="not-taken" source="_1-28" target="_1-13"/>
+    <edge kind="not-taken" source="_1-29" target="_1-25"/>
+    <edge kind="call" source="_1-30" called="_5"/>
+    <edge kind="not-taken" source="_1-30" target="_1-32"/>
+    <edge kind="not-taken" source="_1-31" target="_1-27"/>
+    <edge kind="not-taken" source="_1-32" target="_1-16"/>
+  </cfg>
+  <cfg id="_2" address="_2" label="__aeabi_i2d" number="2">
+    <property identifier="otawa::CALLED_BY">BB 9 (000082a8) -&gt; cfg(__aeabi_i2d) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 9 (000082a8) -&gt; cfg(__aeabi_i2d) (call)</property>
+    <property identifier="otawa::INDEX">2</property>
+    <property identifier="otawa::LABEL">__aeabi_i2d</property>
+    <entry id="_2-0"/>
+    <bb id="_2-1" address="00008d6c" size="12" number="1">
+      <property identifier="otawa::ENTRY">__aeabi_i2d</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008d6c">
+        <asm>teq r0, #0</asm>
+      </inst>
+      <inst address="00008d70">
+        <asm>moveq r1, #0</asm>
+      </inst>
+      <inst address="00008d74">
+        <asm>bxeq lr</asm>
+      </inst>
+    </bb>
+    <bb id="_2-2" address="00008d78" size="28" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008d78">
+        <asm>stmdb sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008d7c">
+        <asm>mov r4, #1024</asm>
+      </inst>
+      <inst address="00008d80">
+        <asm>add r4, r4, #50</asm>
+      </inst>
+      <inst address="00008d84">
+        <asm>ands r5, r0, #2147483648</asm>
+      </inst>
+      <inst address="00008d88">
+        <asm>rsbmi r0, r0, #0</asm>
+      </inst>
+      <inst address="00008d8c">
+        <asm>mov r1, #0</asm>
+      </inst>
+      <inst address="00008d90">
+        <asm>b 100008b88</asm>
+      </inst>
+    </bb>
+    <bb id="_2-3" address="00008b88" size="84" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008b88">
+        <asm>teq r1, #0</asm>
+      </inst>
+      <inst address="00008b8c">
+        <asm>movne r3, #20</asm>
+      </inst>
+      <inst address="00008b90">
+        <asm>moveq r3, #52</asm>
+      </inst>
+      <inst address="00008b94">
+        <asm>moveq r1, r0</asm>
+      </inst>
+      <inst address="00008b98">
+        <asm>moveq r0, #0</asm>
+      </inst>
+      <inst address="00008b9c">
+        <asm>mov r2, r1</asm>
+      </inst>
+      <inst address="00008ba0">
+        <asm>cmp r2, #65536</asm>
+      </inst>
+      <inst address="00008ba4">
+        <asm>movcs r2, r2, lsr #16</asm>
+      </inst>
+      <inst address="00008ba8">
+        <asm>subcs r3, r3, #16</asm>
+      </inst>
+      <inst address="00008bac">
+        <asm>cmp r2, #256</asm>
+      </inst>
+      <inst address="00008bb0">
+        <asm>movcs r2, r2, lsr #8</asm>
+      </inst>
+      <inst address="00008bb4">
+        <asm>subcs r3, r3, #8</asm>
+      </inst>
+      <inst address="00008bb8">
+        <asm>cmp r2, #16</asm>
+      </inst>
+      <inst address="00008bbc">
+        <asm>movcs r2, r2, lsr #4</asm>
+      </inst>
+      <inst address="00008bc0">
+        <asm>subcs r3, r3, #4</asm>
+      </inst>
+      <inst address="00008bc4">
+        <asm>cmp r2, #4</asm>
+      </inst>
+      <inst address="00008bc8">
+        <asm>subcs r3, r3, #2</asm>
+      </inst>
+      <inst address="00008bcc">
+        <asm>subcc r3, r3, r2, lsr #1</asm>
+      </inst>
+      <inst address="00008bd0">
+        <asm>sub r3, r3, r2, lsr #3</asm>
+      </inst>
+      <inst address="00008bd4">
+        <asm>subs r2, r3, #32</asm>
+      </inst>
+      <inst address="00008bd8">
+        <asm>bge 8bfc</asm>
+      </inst>
+    </bb>
+    <bb id="_2-4" address="00008bdc" size="8" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008bdc">
+        <asm>adds r2, r2, #12</asm>
+      </inst>
+      <inst address="00008be0">
+        <asm>ble 8bf8</asm>
+      </inst>
+    </bb>
+    <bb id="_2-5" address="00008bfc" size="16" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008bfc">
+        <asm>rsble ip, r2, #32</asm>
+      </inst>
+      <inst address="00008c00">
+        <asm>mov r1, r1, lsl r2</asm>
+      </inst>
+      <inst address="00008c04">
+        <asm>orrle r1, r1, r0, lsr ip</asm>
+      </inst>
+      <inst address="00008c08">
+        <asm>movle r0, r0, lsl r2</asm>
+      </inst>
+    </bb>
+    <bb id="_2-6" address="00008be4" size="20" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008be4">
+        <asm>add ip, r2, #20</asm>
+      </inst>
+      <inst address="00008be8">
+        <asm>rsb r2, r2, #12</asm>
+      </inst>
+      <inst address="00008bec">
+        <asm>mov r0, r1, lsl ip</asm>
+      </inst>
+      <inst address="00008bf0">
+        <asm>mov r1, r1, lsr r2</asm>
+      </inst>
+      <inst address="00008bf4">
+        <asm>b 8c0c</asm>
+      </inst>
+    </bb>
+    <bb id="_2-7" address="00008bf8" size="4" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="00008bf8">
+        <asm>add r2, r2, #20</asm>
+      </inst>
+    </bb>
+    <bb id="_2-8" address="00008c0c" size="20" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008c0c">
+        <asm>subs r4, r4, r3</asm>
+      </inst>
+      <inst address="00008c10">
+        <asm>addge r1, r1, r4, lsl #20</asm>
+      </inst>
+      <inst address="00008c14">
+        <asm>orrge r1, r1, r5</asm>
+      </inst>
+      <inst address="00008c18">
+        <asm>ldmgeia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c1c">
+        <asm>bxge lr</asm>
+      </inst>
+    </bb>
+    <bb id="_2-9" address="00008c20" size="12" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="00008c20">
+        <asm>mvn r4, r4</asm>
+      </inst>
+      <inst address="00008c24">
+        <asm>subs r4, r4, #31</asm>
+      </inst>
+      <inst address="00008c28">
+        <asm>bge 8c6c</asm>
+      </inst>
+    </bb>
+    <bb id="_2-10" address="00008c2c" size="8" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008c2c">
+        <asm>adds r4, r4, #12</asm>
+      </inst>
+      <inst address="00008c30">
+        <asm>bgt 8c50</asm>
+      </inst>
+    </bb>
+    <bb id="_2-11" address="00008c6c" size="16" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="00008c6c">
+        <asm>mov r0, r1, lsr r4</asm>
+      </inst>
+      <inst address="00008c70">
+        <asm>mov r1, r5</asm>
+      </inst>
+      <inst address="00008c74">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c78">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_2-12" address="00008c34" size="28" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="00008c34">
+        <asm>add r4, r4, #20</asm>
+      </inst>
+      <inst address="00008c38">
+        <asm>rsb r2, r4, #32</asm>
+      </inst>
+      <inst address="00008c3c">
+        <asm>mov r0, r0, lsr r4</asm>
+      </inst>
+      <inst address="00008c40">
+        <asm>orr r0, r0, r1, lsl r2</asm>
+      </inst>
+      <inst address="00008c44">
+        <asm>orr r1, r5, r1, lsr r4</asm>
+      </inst>
+      <inst address="00008c48">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c4c">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_2-13" address="00008c50" size="28" number="13">
+      <property identifier="otawa::INDEX">13</property>
+      <inst address="00008c50">
+        <asm>rsb r4, r4, #12</asm>
+      </inst>
+      <inst address="00008c54">
+        <asm>rsb r2, r4, #32</asm>
+      </inst>
+      <inst address="00008c58">
+        <asm>mov r0, r0, lsr r2</asm>
+      </inst>
+      <inst address="00008c5c">
+        <asm>orr r0, r0, r1, lsl r4</asm>
+      </inst>
+      <inst address="00008c60">
+        <asm>mov r1, r5</asm>
+      </inst>
+      <inst address="00008c64">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c68">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_2-14"/>
+    <edge kind="virtual" source="_2-0" target="_2-1"/>
+    <edge kind="not-taken" source="_2-1" target="_2-2"/>
+    <edge kind="virtual" source="_2-1" target="_2-14"/>
+    <edge kind="taken" source="_2-2" target="_2-3"/>
+    <edge kind="taken" source="_2-3" target="_2-5"/>
+    <edge kind="not-taken" source="_2-3" target="_2-4"/>
+    <edge kind="taken" source="_2-4" target="_2-7"/>
+    <edge kind="not-taken" source="_2-4" target="_2-6"/>
+    <edge kind="not-taken" source="_2-5" target="_2-8"/>
+    <edge kind="taken" source="_2-6" target="_2-8"/>
+    <edge kind="not-taken" source="_2-7" target="_2-5"/>
+    <edge kind="not-taken" source="_2-8" target="_2-9"/>
+    <edge kind="virtual" source="_2-8" target="_2-14"/>
+    <edge kind="taken" source="_2-9" target="_2-11"/>
+    <edge kind="not-taken" source="_2-9" target="_2-10"/>
+    <edge kind="taken" source="_2-10" target="_2-13"/>
+    <edge kind="not-taken" source="_2-10" target="_2-12"/>
+    <edge kind="virtual" source="_2-11" target="_2-14"/>
+    <edge kind="virtual" source="_2-12" target="_2-14"/>
+    <edge kind="virtual" source="_2-13" target="_2-14"/>
+  </cfg>
+  <cfg id="_3" address="_3" label="__adddf3" number="3">
+    <property identifier="otawa::CALLED_BY">BB 11 (000082dc) -&gt; cfg(__adddf3) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 11 (000082dc) -&gt; cfg(__adddf3) (call)</property>
+    <property identifier="otawa::INDEX">3</property>
+    <property identifier="otawa::LABEL">__adddf3</property>
+    <entry id="_3-0"/>
+    <bb id="_3-1" address="00008a38" size="40" number="1">
+      <property identifier="otawa::ENTRY">__adddf3</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008a38">
+        <asm>stmdb sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008a3c">
+        <asm>mov r4, r1, lsl #1</asm>
+      </inst>
+      <inst address="00008a40">
+        <asm>mov r5, r3, lsl #1</asm>
+      </inst>
+      <inst address="00008a44">
+        <asm>teq r4, r5</asm>
+      </inst>
+      <inst address="00008a48">
+        <asm>teqeq r0, r2</asm>
+      </inst>
+      <inst address="00008a4c">
+        <asm>orrnes ip, r4, r0</asm>
+      </inst>
+      <inst address="00008a50">
+        <asm>orrnes ip, r5, r2</asm>
+      </inst>
+      <inst address="00008a54">
+        <asm>mvnnes ip, r4, asr #21</asm>
+      </inst>
+      <inst address="00008a58">
+        <asm>mvnnes ip, r5, asr #21</asm>
+      </inst>
+      <inst address="00008a5c">
+        <asm>beq 8c94</asm>
+      </inst>
+    </bb>
+    <bb id="_3-2" address="00008a60" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008a60">
+        <asm>mov r4, r4, lsr #21</asm>
+      </inst>
+      <inst address="00008a64">
+        <asm>rsbs r5, r4, r5, lsr #21</asm>
+      </inst>
+      <inst address="00008a68">
+        <asm>rsblt r5, r5, #0</asm>
+      </inst>
+      <inst address="00008a6c">
+        <asm>ble 8a8c</asm>
+      </inst>
+    </bb>
+    <bb id="_3-3" address="00008c94" size="12" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008c94">
+        <asm>mvns ip, r4, asr #21</asm>
+      </inst>
+      <inst address="00008c98">
+        <asm>mvnnes ip, r5, asr #21</asm>
+      </inst>
+      <inst address="00008c9c">
+        <asm>beq 8d18</asm>
+      </inst>
+    </bb>
+    <bb id="_3-4" address="00008a70" size="28" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008a70">
+        <asm>add r4, r4, r5</asm>
+      </inst>
+      <inst address="00008a74">
+        <asm>eor r2, r0, r2</asm>
+      </inst>
+      <inst address="00008a78">
+        <asm>eor r3, r1, r3</asm>
+      </inst>
+      <inst address="00008a7c">
+        <asm>eor r0, r2, r0</asm>
+      </inst>
+      <inst address="00008a80">
+        <asm>eor r1, r3, r1</asm>
+      </inst>
+      <inst address="00008a84">
+        <asm>eor r2, r0, r2</asm>
+      </inst>
+      <inst address="00008a88">
+        <asm>eor r3, r1, r3</asm>
+      </inst>
+    </bb>
+    <bb id="_3-5" address="00008a8c" size="12" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008a8c">
+        <asm>cmp r5, #54</asm>
+      </inst>
+      <inst address="00008a90">
+        <asm>ldmhiia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008a94">
+        <asm>bxhi lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-6" address="00008ca0" size="12" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008ca0">
+        <asm>teq r4, r5</asm>
+      </inst>
+      <inst address="00008ca4">
+        <asm>teqeq r0, r2</asm>
+      </inst>
+      <inst address="00008ca8">
+        <asm>beq 8cc0</asm>
+      </inst>
+    </bb>
+    <bb id="_3-7" address="00008d18" size="48" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="00008d18">
+        <asm>mvns ip, r4, asr #21</asm>
+      </inst>
+      <inst address="00008d1c">
+        <asm>movne r1, r3</asm>
+      </inst>
+      <inst address="00008d20">
+        <asm>movne r0, r2</asm>
+      </inst>
+      <inst address="00008d24">
+        <asm>mvneqs ip, r5, asr #21</asm>
+      </inst>
+      <inst address="00008d28">
+        <asm>movne r3, r1</asm>
+      </inst>
+      <inst address="00008d2c">
+        <asm>movne r2, r0</asm>
+      </inst>
+      <inst address="00008d30">
+        <asm>orrs r4, r0, r1, lsl #12</asm>
+      </inst>
+      <inst address="00008d34">
+        <asm>orreqs r5, r2, r3, lsl #12</asm>
+      </inst>
+      <inst address="00008d38">
+        <asm>teqeq r1, r3</asm>
+      </inst>
+      <inst address="00008d3c">
+        <asm>orrne r1, r1, #524288</asm>
+      </inst>
+      <inst address="00008d40">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008d44">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-8" address="00008a98" size="20" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008a98">
+        <asm>tst r1, #2147483648</asm>
+      </inst>
+      <inst address="00008a9c">
+        <asm>mov r1, r1, lsl #12</asm>
+      </inst>
+      <inst address="00008aa0">
+        <asm>mov ip, #1048576</asm>
+      </inst>
+      <inst address="00008aa4">
+        <asm>orr r1, ip, r1, lsr #12</asm>
+      </inst>
+      <inst address="00008aa8">
+        <asm>beq 8ab4</asm>
+      </inst>
+    </bb>
+    <bb id="_3-9" address="00008cac" size="20" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="00008cac">
+        <asm>orrs ip, r4, r0</asm>
+      </inst>
+      <inst address="00008cb0">
+        <asm>moveq r1, r3</asm>
+      </inst>
+      <inst address="00008cb4">
+        <asm>moveq r0, r2</asm>
+      </inst>
+      <inst address="00008cb8">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008cbc">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-10" address="00008cc0" size="20" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008cc0">
+        <asm>teq r1, r3</asm>
+      </inst>
+      <inst address="00008cc4">
+        <asm>movne r1, #0</asm>
+      </inst>
+      <inst address="00008cc8">
+        <asm>movne r0, #0</asm>
+      </inst>
+      <inst address="00008ccc">
+        <asm>ldmneia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008cd0">
+        <asm>bxne lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-11" address="00008aac" size="8" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="00008aac">
+        <asm>rsbs r0, r0, #0</asm>
+      </inst>
+      <inst address="00008ab0">
+        <asm>rsc r1, r1, #0</asm>
+      </inst>
+    </bb>
+    <bb id="_3-12" address="00008ab4" size="16" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="00008ab4">
+        <asm>tst r3, #2147483648</asm>
+      </inst>
+      <inst address="00008ab8">
+        <asm>mov r3, r3, lsl #12</asm>
+      </inst>
+      <inst address="00008abc">
+        <asm>orr r3, ip, r3, lsr #12</asm>
+      </inst>
+      <inst address="00008ac0">
+        <asm>beq 8acc</asm>
+      </inst>
+    </bb>
+    <bb id="_3-13" address="00008cd4" size="8" number="13">
+      <property identifier="otawa::INDEX">13</property>
+      <inst address="00008cd4">
+        <asm>movs ip, r4, lsr #21</asm>
+      </inst>
+      <inst address="00008cd8">
+        <asm>bne 8cf0</asm>
+      </inst>
+    </bb>
+    <bb id="_3-14" address="00008ac4" size="8" number="14">
+      <property identifier="otawa::INDEX">14</property>
+      <inst address="00008ac4">
+        <asm>rsbs r2, r2, #0</asm>
+      </inst>
+      <inst address="00008ac8">
+        <asm>rsc r3, r3, #0</asm>
+      </inst>
+    </bb>
+    <bb id="_3-15" address="00008acc" size="8" number="15">
+      <property identifier="otawa::INDEX">15</property>
+      <inst address="00008acc">
+        <asm>teq r4, r5</asm>
+      </inst>
+      <inst address="00008ad0">
+        <asm>beq 8c7c</asm>
+      </inst>
+    </bb>
+    <bb id="_3-16" address="00008cdc" size="20" number="16">
+      <property identifier="otawa::INDEX">16</property>
+      <inst address="00008cdc">
+        <asm>movs r0, r0, lsl #1</asm>
+      </inst>
+      <inst address="00008ce0">
+        <asm>adcs r1, r1, r1</asm>
+      </inst>
+      <inst address="00008ce4">
+        <asm>orrcs r1, r1, #2147483648</asm>
+      </inst>
+      <inst address="00008ce8">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008cec">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-17" address="00008cf0" size="16" number="17">
+      <property identifier="otawa::INDEX">17</property>
+      <inst address="00008cf0">
+        <asm>adds r4, r4, #4194304</asm>
+      </inst>
+      <inst address="00008cf4">
+        <asm>addcc r1, r1, #1048576</asm>
+      </inst>
+      <inst address="00008cf8">
+        <asm>ldmccia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008cfc">
+        <asm>bxcc lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-18" address="00008ad4" size="12" number="18">
+      <property identifier="otawa::INDEX">18</property>
+      <inst address="00008ad4">
+        <asm>sub r4, r4, #1</asm>
+      </inst>
+      <inst address="00008ad8">
+        <asm>rsbs lr, r5, #32</asm>
+      </inst>
+      <inst address="00008adc">
+        <asm>blt 8af8</asm>
+      </inst>
+    </bb>
+    <bb id="_3-19" address="00008c7c" size="24" number="19">
+      <property identifier="otawa::INDEX">19</property>
+      <inst address="00008c7c">
+        <asm>teq r4, #0</asm>
+      </inst>
+      <inst address="00008c80">
+        <asm>eor r3, r3, #1048576</asm>
+      </inst>
+      <inst address="00008c84">
+        <asm>eoreq r1, r1, #1048576</asm>
+      </inst>
+      <inst address="00008c88">
+        <asm>addeq r4, r4, #1</asm>
+      </inst>
+      <inst address="00008c8c">
+        <asm>subne r5, r5, #1</asm>
+      </inst>
+      <inst address="00008c90">
+        <asm>b 100008ad4</asm>
+      </inst>
+    </bb>
+    <bb id="_3-20" address="00008d00" size="4" number="20">
+      <property identifier="otawa::INDEX">20</property>
+      <inst address="00008d00">
+        <asm>and r5, r1, #2147483648</asm>
+      </inst>
+    </bb>
+    <bb id="_3-21" address="00008ae0" size="24" number="21">
+      <property identifier="otawa::INDEX">21</property>
+      <inst address="00008ae0">
+        <asm>mov ip, r2, lsl lr</asm>
+      </inst>
+      <inst address="00008ae4">
+        <asm>adds r0, r0, r2, lsr r5</asm>
+      </inst>
+      <inst address="00008ae8">
+        <asm>adc r1, r1, #0</asm>
+      </inst>
+      <inst address="00008aec">
+        <asm>adds r0, r0, r3, lsl lr</asm>
+      </inst>
+      <inst address="00008af0">
+        <asm>adcs r1, r1, r3, asr r5</asm>
+      </inst>
+      <inst address="00008af4">
+        <asm>b 8b14</asm>
+      </inst>
+    </bb>
+    <bb id="_3-22" address="00008af8" size="28" number="22">
+      <property identifier="otawa::INDEX">22</property>
+      <inst address="00008af8">
+        <asm>sub r5, r5, #32</asm>
+      </inst>
+      <inst address="00008afc">
+        <asm>add lr, lr, #32</asm>
+      </inst>
+      <inst address="00008b00">
+        <asm>cmp r2, #1</asm>
+      </inst>
+      <inst address="00008b04">
+        <asm>mov ip, r3, lsl lr</asm>
+      </inst>
+      <inst address="00008b08">
+        <asm>orrcs ip, ip, #2</asm>
+      </inst>
+      <inst address="00008b0c">
+        <asm>adds r0, r0, r3, asr r5</asm>
+      </inst>
+      <inst address="00008b10">
+        <asm>adcs r1, r1, r3, asr #31</asm>
+      </inst>
+    </bb>
+    <bb id="_3-23" address="00008d04" size="20" number="23">
+      <property identifier="otawa::INDEX">23</property>
+      <inst address="00008d04">
+        <asm>orr r1, r5, #2130706432</asm>
+      </inst>
+      <inst address="00008d08">
+        <asm>orr r1, r1, #15728640</asm>
+      </inst>
+      <inst address="00008d0c">
+        <asm>mov r0, #0</asm>
+      </inst>
+      <inst address="00008d10">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008d14">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-24" address="00008b14" size="8" number="24">
+      <property identifier="otawa::INDEX">24</property>
+      <inst address="00008b14">
+        <asm>and r5, r1, #2147483648</asm>
+      </inst>
+      <inst address="00008b18">
+        <asm>bpl 8b28</asm>
+      </inst>
+    </bb>
+    <bb id="_3-25" address="00008b1c" size="12" number="25">
+      <property identifier="otawa::INDEX">25</property>
+      <inst address="00008b1c">
+        <asm>rsbs ip, ip, #0</asm>
+      </inst>
+      <inst address="00008b20">
+        <asm>rscs r0, r0, #0</asm>
+      </inst>
+      <inst address="00008b24">
+        <asm>rsc r1, r1, #0</asm>
+      </inst>
+    </bb>
+    <bb id="_3-26" address="00008b28" size="8" number="26">
+      <property identifier="otawa::INDEX">26</property>
+      <inst address="00008b28">
+        <asm>cmp r1, #1048576</asm>
+      </inst>
+      <inst address="00008b2c">
+        <asm>bcc 8b70</asm>
+      </inst>
+    </bb>
+    <bb id="_3-27" address="00008b30" size="8" number="27">
+      <property identifier="otawa::INDEX">27</property>
+      <inst address="00008b30">
+        <asm>cmp r1, #2097152</asm>
+      </inst>
+      <inst address="00008b34">
+        <asm>bcc 8b54</asm>
+      </inst>
+    </bb>
+    <bb id="_3-28" address="00008b70" size="24" number="28">
+      <property identifier="otawa::INDEX">28</property>
+      <inst address="00008b70">
+        <asm>movs ip, ip, lsl #1</asm>
+      </inst>
+      <inst address="00008b74">
+        <asm>adcs r0, r0, r0</asm>
+      </inst>
+      <inst address="00008b78">
+        <asm>adc r1, r1, r1</asm>
+      </inst>
+      <inst address="00008b7c">
+        <asm>tst r1, #1048576</asm>
+      </inst>
+      <inst address="00008b80">
+        <asm>sub r4, r4, #1</asm>
+      </inst>
+      <inst address="00008b84">
+        <asm>bne 100008b54</asm>
+      </inst>
+    </bb>
+    <bb id="_3-29" address="00008b38" size="28" number="29">
+      <property identifier="otawa::INDEX">29</property>
+      <inst address="00008b38">
+        <asm>movs r1, r1, lsr #1</asm>
+      </inst>
+      <inst address="00008b3c">
+        <asm>movs r0, r0, rrx #0</asm>
+      </inst>
+      <inst address="00008b40">
+        <asm>mov ip, ip, rrx #0</asm>
+      </inst>
+      <inst address="00008b44">
+        <asm>add r4, r4, #1</asm>
+      </inst>
+      <inst address="00008b48">
+        <asm>mov r2, r4, lsl #21</asm>
+      </inst>
+      <inst address="00008b4c">
+        <asm>cmn r2, #4194304</asm>
+      </inst>
+      <inst address="00008b50">
+        <asm>bcs 8d04</asm>
+      </inst>
+    </bb>
+    <bb id="_3-30" address="00008b54" size="28" number="30">
+      <property identifier="otawa::INDEX">30</property>
+      <inst address="00008b54">
+        <asm>cmp ip, #2147483648</asm>
+      </inst>
+      <inst address="00008b58">
+        <asm>moveqs ip, r0, lsr #1</asm>
+      </inst>
+      <inst address="00008b5c">
+        <asm>adcs r0, r0, #0</asm>
+      </inst>
+      <inst address="00008b60">
+        <asm>adc r1, r1, r4, lsl #20</asm>
+      </inst>
+      <inst address="00008b64">
+        <asm>orr r1, r1, r5</asm>
+      </inst>
+      <inst address="00008b68">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008b6c">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-31" address="00008b88" size="84" number="31">
+      <property identifier="otawa::INDEX">31</property>
+      <inst address="00008b88">
+        <asm>teq r1, #0</asm>
+      </inst>
+      <inst address="00008b8c">
+        <asm>movne r3, #20</asm>
+      </inst>
+      <inst address="00008b90">
+        <asm>moveq r3, #52</asm>
+      </inst>
+      <inst address="00008b94">
+        <asm>moveq r1, r0</asm>
+      </inst>
+      <inst address="00008b98">
+        <asm>moveq r0, #0</asm>
+      </inst>
+      <inst address="00008b9c">
+        <asm>mov r2, r1</asm>
+      </inst>
+      <inst address="00008ba0">
+        <asm>cmp r2, #65536</asm>
+      </inst>
+      <inst address="00008ba4">
+        <asm>movcs r2, r2, lsr #16</asm>
+      </inst>
+      <inst address="00008ba8">
+        <asm>subcs r3, r3, #16</asm>
+      </inst>
+      <inst address="00008bac">
+        <asm>cmp r2, #256</asm>
+      </inst>
+      <inst address="00008bb0">
+        <asm>movcs r2, r2, lsr #8</asm>
+      </inst>
+      <inst address="00008bb4">
+        <asm>subcs r3, r3, #8</asm>
+      </inst>
+      <inst address="00008bb8">
+        <asm>cmp r2, #16</asm>
+      </inst>
+      <inst address="00008bbc">
+        <asm>movcs r2, r2, lsr #4</asm>
+      </inst>
+      <inst address="00008bc0">
+        <asm>subcs r3, r3, #4</asm>
+      </inst>
+      <inst address="00008bc4">
+        <asm>cmp r2, #4</asm>
+      </inst>
+      <inst address="00008bc8">
+        <asm>subcs r3, r3, #2</asm>
+      </inst>
+      <inst address="00008bcc">
+        <asm>subcc r3, r3, r2, lsr #1</asm>
+      </inst>
+      <inst address="00008bd0">
+        <asm>sub r3, r3, r2, lsr #3</asm>
+      </inst>
+      <inst address="00008bd4">
+        <asm>subs r2, r3, #32</asm>
+      </inst>
+      <inst address="00008bd8">
+        <asm>bge 8bfc</asm>
+      </inst>
+    </bb>
+    <bb id="_3-32" address="00008bdc" size="8" number="32">
+      <property identifier="otawa::INDEX">32</property>
+      <inst address="00008bdc">
+        <asm>adds r2, r2, #12</asm>
+      </inst>
+      <inst address="00008be0">
+        <asm>ble 8bf8</asm>
+      </inst>
+    </bb>
+    <bb id="_3-33" address="00008bfc" size="16" number="33">
+      <property identifier="otawa::INDEX">33</property>
+      <inst address="00008bfc">
+        <asm>rsble ip, r2, #32</asm>
+      </inst>
+      <inst address="00008c00">
+        <asm>mov r1, r1, lsl r2</asm>
+      </inst>
+      <inst address="00008c04">
+        <asm>orrle r1, r1, r0, lsr ip</asm>
+      </inst>
+      <inst address="00008c08">
+        <asm>movle r0, r0, lsl r2</asm>
+      </inst>
+    </bb>
+    <bb id="_3-34" address="00008be4" size="20" number="34">
+      <property identifier="otawa::INDEX">34</property>
+      <inst address="00008be4">
+        <asm>add ip, r2, #20</asm>
+      </inst>
+      <inst address="00008be8">
+        <asm>rsb r2, r2, #12</asm>
+      </inst>
+      <inst address="00008bec">
+        <asm>mov r0, r1, lsl ip</asm>
+      </inst>
+      <inst address="00008bf0">
+        <asm>mov r1, r1, lsr r2</asm>
+      </inst>
+      <inst address="00008bf4">
+        <asm>b 8c0c</asm>
+      </inst>
+    </bb>
+    <bb id="_3-35" address="00008bf8" size="4" number="35">
+      <property identifier="otawa::INDEX">35</property>
+      <inst address="00008bf8">
+        <asm>add r2, r2, #20</asm>
+      </inst>
+    </bb>
+    <bb id="_3-36" address="00008c0c" size="20" number="36">
+      <property identifier="otawa::INDEX">36</property>
+      <inst address="00008c0c">
+        <asm>subs r4, r4, r3</asm>
+      </inst>
+      <inst address="00008c10">
+        <asm>addge r1, r1, r4, lsl #20</asm>
+      </inst>
+      <inst address="00008c14">
+        <asm>orrge r1, r1, r5</asm>
+      </inst>
+      <inst address="00008c18">
+        <asm>ldmgeia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c1c">
+        <asm>bxge lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-37" address="00008c20" size="12" number="37">
+      <property identifier="otawa::INDEX">37</property>
+      <inst address="00008c20">
+        <asm>mvn r4, r4</asm>
+      </inst>
+      <inst address="00008c24">
+        <asm>subs r4, r4, #31</asm>
+      </inst>
+      <inst address="00008c28">
+        <asm>bge 8c6c</asm>
+      </inst>
+    </bb>
+    <bb id="_3-38" address="00008c2c" size="8" number="38">
+      <property identifier="otawa::INDEX">38</property>
+      <inst address="00008c2c">
+        <asm>adds r4, r4, #12</asm>
+      </inst>
+      <inst address="00008c30">
+        <asm>bgt 8c50</asm>
+      </inst>
+    </bb>
+    <bb id="_3-39" address="00008c6c" size="16" number="39">
+      <property identifier="otawa::INDEX">39</property>
+      <inst address="00008c6c">
+        <asm>mov r0, r1, lsr r4</asm>
+      </inst>
+      <inst address="00008c70">
+        <asm>mov r1, r5</asm>
+      </inst>
+      <inst address="00008c74">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c78">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-40" address="00008c34" size="28" number="40">
+      <property identifier="otawa::INDEX">40</property>
+      <inst address="00008c34">
+        <asm>add r4, r4, #20</asm>
+      </inst>
+      <inst address="00008c38">
+        <asm>rsb r2, r4, #32</asm>
+      </inst>
+      <inst address="00008c3c">
+        <asm>mov r0, r0, lsr r4</asm>
+      </inst>
+      <inst address="00008c40">
+        <asm>orr r0, r0, r1, lsl r2</asm>
+      </inst>
+      <inst address="00008c44">
+        <asm>orr r1, r5, r1, lsr r4</asm>
+      </inst>
+      <inst address="00008c48">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c4c">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-41" address="00008c50" size="28" number="41">
+      <property identifier="otawa::INDEX">41</property>
+      <inst address="00008c50">
+        <asm>rsb r4, r4, #12</asm>
+      </inst>
+      <inst address="00008c54">
+        <asm>rsb r2, r4, #32</asm>
+      </inst>
+      <inst address="00008c58">
+        <asm>mov r0, r0, lsr r2</asm>
+      </inst>
+      <inst address="00008c5c">
+        <asm>orr r0, r0, r1, lsl r4</asm>
+      </inst>
+      <inst address="00008c60">
+        <asm>mov r1, r5</asm>
+      </inst>
+      <inst address="00008c64">
+        <asm>ldmia sp!, {r4, r5, lr}</asm>
+      </inst>
+      <inst address="00008c68">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_3-42"/>
+    <edge kind="virtual" source="_3-0" target="_3-1"/>
+    <edge kind="taken" source="_3-1" target="_3-3"/>
+    <edge kind="not-taken" source="_3-1" target="_3-2"/>
+    <edge kind="taken" source="_3-2" target="_3-5"/>
+    <edge kind="not-taken" source="_3-2" target="_3-4"/>
+    <edge kind="taken" source="_3-3" target="_3-7"/>
+    <edge kind="not-taken" source="_3-3" target="_3-6"/>
+    <edge kind="not-taken" source="_3-4" target="_3-5"/>
+    <edge kind="not-taken" source="_3-5" target="_3-8"/>
+    <edge kind="virtual" source="_3-5" target="_3-42"/>
+    <edge kind="taken" source="_3-6" target="_3-10"/>
+    <edge kind="not-taken" source="_3-6" target="_3-9"/>
+    <edge kind="virtual" source="_3-7" target="_3-42"/>
+    <edge kind="taken" source="_3-8" target="_3-12"/>
+    <edge kind="not-taken" source="_3-8" target="_3-11"/>
+    <edge kind="virtual" source="_3-9" target="_3-42"/>
+    <edge kind="not-taken" source="_3-10" target="_3-13"/>
+    <edge kind="virtual" source="_3-10" target="_3-42"/>
+    <edge kind="not-taken" source="_3-11" target="_3-12"/>
+    <edge kind="taken" source="_3-12" target="_3-15"/>
+    <edge kind="not-taken" source="_3-12" target="_3-14"/>
+    <edge kind="taken" source="_3-13" target="_3-17"/>
+    <edge kind="not-taken" source="_3-13" target="_3-16"/>
+    <edge kind="not-taken" source="_3-14" target="_3-15"/>
+    <edge kind="taken" source="_3-15" target="_3-19"/>
+    <edge kind="not-taken" source="_3-15" target="_3-18"/>
+    <edge kind="virtual" source="_3-16" target="_3-42"/>
+    <edge kind="not-taken" source="_3-17" target="_3-20"/>
+    <edge kind="virtual" source="_3-17" target="_3-42"/>
+    <edge kind="taken" source="_3-18" target="_3-22"/>
+    <edge kind="not-taken" source="_3-18" target="_3-21"/>
+    <edge kind="taken" source="_3-19" target="_3-18"/>
+    <edge kind="not-taken" source="_3-20" target="_3-23"/>
+    <edge kind="taken" source="_3-21" target="_3-24"/>
+    <edge kind="not-taken" source="_3-22" target="_3-24"/>
+    <edge kind="virtual" source="_3-23" target="_3-42"/>
+    <edge kind="taken" source="_3-24" target="_3-26"/>
+    <edge kind="not-taken" source="_3-24" target="_3-25"/>
+    <edge kind="not-taken" source="_3-25" target="_3-26"/>
+    <edge kind="taken" source="_3-26" target="_3-28"/>
+    <edge kind="not-taken" source="_3-26" target="_3-27"/>
+    <edge kind="taken" source="_3-27" target="_3-30"/>
+    <edge kind="not-taken" source="_3-27" target="_3-29"/>
+    <edge kind="taken" source="_3-28" target="_3-30"/>
+    <edge kind="not-taken" source="_3-28" target="_3-31"/>
+    <edge kind="taken" source="_3-29" target="_3-23"/>
+    <edge kind="not-taken" source="_3-29" target="_3-30"/>
+    <edge kind="virtual" source="_3-30" target="_3-42"/>
+    <edge kind="taken" source="_3-31" target="_3-33"/>
+    <edge kind="not-taken" source="_3-31" target="_3-32"/>
+    <edge kind="taken" source="_3-32" target="_3-35"/>
+    <edge kind="not-taken" source="_3-32" target="_3-34"/>
+    <edge kind="not-taken" source="_3-33" target="_3-36"/>
+    <edge kind="taken" source="_3-34" target="_3-36"/>
+    <edge kind="not-taken" source="_3-35" target="_3-33"/>
+    <edge kind="not-taken" source="_3-36" target="_3-37"/>
+    <edge kind="virtual" source="_3-36" target="_3-42"/>
+    <edge kind="taken" source="_3-37" target="_3-39"/>
+    <edge kind="not-taken" source="_3-37" target="_3-38"/>
+    <edge kind="taken" source="_3-38" target="_3-41"/>
+    <edge kind="not-taken" source="_3-38" target="_3-40"/>
+    <edge kind="virtual" source="_3-39" target="_3-42"/>
+    <edge kind="virtual" source="_3-40" target="_3-42"/>
+    <edge kind="virtual" source="_3-41" target="_3-42"/>
+  </cfg>
+  <cfg id="_4" address="_4" label="__fixdfsi" number="4">
+    <property identifier="otawa::CALLED_BY">BB 12 (000082f8) -&gt; cfg(__fixdfsi) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 12 (000082f8) -&gt; cfg(__fixdfsi) (call)</property>
+    <property identifier="otawa::INDEX">4</property>
+    <property identifier="otawa::LABEL">__fixdfsi</property>
+    <entry id="_4-0"/>
+    <bb id="_4-1" address="00008e48" size="12" number="1">
+      <property identifier="otawa::ENTRY">__fixdfsi</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008e48">
+        <asm>mov r2, r1, lsl #1</asm>
+      </inst>
+      <inst address="00008e4c">
+        <asm>adds r2, r2, #2097152</asm>
+      </inst>
+      <inst address="00008e50">
+        <asm>bcs 8e88</asm>
+      </inst>
+    </bb>
+    <bb id="_4-2" address="00008e54" size="4" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008e54">
+        <asm>bpl 8e80</asm>
+      </inst>
+    </bb>
+    <bb id="_4-3" address="00008e88" size="8" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008e88">
+        <asm>orrs r0, r0, r1, lsl #12</asm>
+      </inst>
+      <inst address="00008e8c">
+        <asm>bne 8e9c</asm>
+      </inst>
+    </bb>
+    <bb id="_4-4" address="00008e58" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008e58">
+        <asm>mvn r3, #992</asm>
+      </inst>
+      <inst address="00008e5c">
+        <asm>subs r2, r3, r2, asr #21</asm>
+      </inst>
+      <inst address="00008e60">
+        <asm>bls 8e90</asm>
+      </inst>
+    </bb>
+    <bb id="_4-5" address="00008e80" size="8" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008e80">
+        <asm>mov r0, #0</asm>
+      </inst>
+      <inst address="00008e84">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_4-6" address="00008e90" size="12" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008e90">
+        <asm>ands r0, r1, #2147483648</asm>
+      </inst>
+      <inst address="00008e94">
+        <asm>mvneq r0, #2147483648</asm>
+      </inst>
+      <inst address="00008e98">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_4-7" address="00008e9c" size="8" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="00008e9c">
+        <asm>mov r0, #0</asm>
+      </inst>
+      <inst address="00008ea0">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_4-8" address="00008e64" size="28" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008e64">
+        <asm>mov r3, r1, lsl #11</asm>
+      </inst>
+      <inst address="00008e68">
+        <asm>orr r3, r3, #2147483648</asm>
+      </inst>
+      <inst address="00008e6c">
+        <asm>orr r3, r3, r0, lsr #21</asm>
+      </inst>
+      <inst address="00008e70">
+        <asm>tst r1, #2147483648</asm>
+      </inst>
+      <inst address="00008e74">
+        <asm>mov r0, r3, lsr r2</asm>
+      </inst>
+      <inst address="00008e78">
+        <asm>rsbne r0, r0, #0</asm>
+      </inst>
+      <inst address="00008e7c">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_4-9"/>
+    <edge kind="virtual" source="_4-0" target="_4-1"/>
+    <edge kind="taken" source="_4-1" target="_4-3"/>
+    <edge kind="not-taken" source="_4-1" target="_4-2"/>
+    <edge kind="taken" source="_4-2" target="_4-5"/>
+    <edge kind="not-taken" source="_4-2" target="_4-4"/>
+    <edge kind="taken" source="_4-3" target="_4-7"/>
+    <edge kind="not-taken" source="_4-3" target="_4-6"/>
+    <edge kind="taken" source="_4-4" target="_4-6"/>
+    <edge kind="not-taken" source="_4-4" target="_4-8"/>
+    <edge kind="virtual" source="_4-5" target="_4-9"/>
+    <edge kind="virtual" source="_4-6" target="_4-9"/>
+    <edge kind="virtual" source="_4-7" target="_4-9"/>
+    <edge kind="virtual" source="_4-8" target="_4-9"/>
+  </cfg>
+  <cfg id="_5" address="_5" label="__divsi3" number="5">
+    <property identifier="otawa::CALLED_BY">BB 7 (00008770) -&gt; cfg(__divsi3) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 7 (00008770) -&gt; cfg(__divsi3) (call)</property>
+    <property identifier="otawa::INDEX">5</property>
+    <property identifier="otawa::LABEL">__divsi3</property>
+    <entry id="_5-0"/>
+    <bb id="_5-1" address="000088e0" size="8" number="1">
+      <property identifier="otawa::ENTRY">__divsi3</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000088e0">
+        <asm>cmp r1, #0</asm>
+      </inst>
+      <inst address="000088e4">
+        <asm>beq 89f8</asm>
+      </inst>
+    </bb>
+    <bb id="_5-2" address="000089f8" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000089f8">
+        <asm>cmp r0, #0</asm>
+      </inst>
+      <inst address="000089fc">
+        <asm>mvngt r0, #2147483648</asm>
+      </inst>
+      <inst address="00008a00">
+        <asm>movlt r0, #2147483648</asm>
+      </inst>
+      <inst address="00008a04">
+        <asm>b 8a28</asm>
+      </inst>
+    </bb>
+    <exit id="_5-3"/>
+    <edge kind="virtual" source="_5-0" target="_5-1"/>
+    <edge kind="taken" source="_5-1" target="_5-2"/>
+    <edge kind="virtual" source="_5-1" target="_5-3"/>
+    <edge kind="call" source="_5-1" called="_6"/>
+    <edge kind="virtual" source="_5-2" target="_5-3"/>
+    <edge kind="call" source="_5-2" called="_7"/>
+  </cfg>
+  <cfg id="_6" address="_6" label=".divsi3_skip_div0_test" number="6">
+    <property identifier="otawa::CALLED_BY">BB 1 (000088e0) -&gt; cfg(.divsi3_skip_div0_test) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (000088e0) -&gt; cfg(.divsi3_skip_div0_test) (call)</property>
+    <property identifier="otawa::INDEX">6</property>
+    <entry id="_6-0"/>
+    <bb id="_6-1" address="000088e8" size="16" number="1">
+      <property identifier="otawa::ENTRY">.divsi3_skip_div0_test</property>
+      <property identifier="otawa::INDEX">1</property>
+      <property identifier="otawa::LABEL">.divsi3_skip_div0_test</property>
+      <inst address="000088e8">
+        <asm>eor ip, r0, r1</asm>
+      </inst>
+      <inst address="000088ec">
+        <asm>rsbmi r1, r1, #0</asm>
+      </inst>
+      <inst address="000088f0">
+        <asm>subs r2, r1, #1</asm>
+      </inst>
+      <inst address="000088f4">
+        <asm>beq 8998</asm>
+      </inst>
+    </bb>
+    <bb id="_6-2" address="000088f8" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000088f8">
+        <asm>movs r3, r0</asm>
+      </inst>
+      <inst address="000088fc">
+        <asm>rsbmi r3, r0, #0</asm>
+      </inst>
+      <inst address="00008900">
+        <asm>cmp r3, r1</asm>
+      </inst>
+      <inst address="00008904">
+        <asm>bls 89a4</asm>
+      </inst>
+    </bb>
+    <bb id="_6-3" address="00008998" size="12" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008998">
+        <asm>teq ip, r0</asm>
+      </inst>
+      <inst address="0000899c">
+        <asm>rsbmi r0, r0, #0</asm>
+      </inst>
+      <inst address="000089a0">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_6-4" address="00008908" size="8" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008908">
+        <asm>tst r1, r2</asm>
+      </inst>
+      <inst address="0000890c">
+        <asm>beq 89b4</asm>
+      </inst>
+    </bb>
+    <bb id="_6-5" address="000089a4" size="16" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="000089a4">
+        <asm>movcc r0, #0</asm>
+      </inst>
+      <inst address="000089a8">
+        <asm>moveq r0, ip, asr #31</asm>
+      </inst>
+      <inst address="000089ac">
+        <asm>orreq r0, r0, #1</asm>
+      </inst>
+      <inst address="000089b0">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_6-6" address="00008910" size="16" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008910">
+        <asm>tst r1, #3758096384</asm>
+      </inst>
+      <inst address="00008914">
+        <asm>moveq r1, r1, lsl #3</asm>
+      </inst>
+      <inst address="00008918">
+        <asm>moveq r2, #8</asm>
+      </inst>
+      <inst address="0000891c">
+        <asm>movne r2, #1</asm>
+      </inst>
+    </bb>
+    <bb id="_6-7" address="000089b4" size="68" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="000089b4">
+        <asm>cmp r1, #65536</asm>
+      </inst>
+      <inst address="000089b8">
+        <asm>movcs r1, r1, lsr #16</asm>
+      </inst>
+      <inst address="000089bc">
+        <asm>movcs r2, #16</asm>
+      </inst>
+      <inst address="000089c0">
+        <asm>movcc r2, #0</asm>
+      </inst>
+      <inst address="000089c4">
+        <asm>cmp r1, #256</asm>
+      </inst>
+      <inst address="000089c8">
+        <asm>movcs r1, r1, lsr #8</asm>
+      </inst>
+      <inst address="000089cc">
+        <asm>addcs r2, r2, #8</asm>
+      </inst>
+      <inst address="000089d0">
+        <asm>cmp r1, #16</asm>
+      </inst>
+      <inst address="000089d4">
+        <asm>movcs r1, r1, lsr #4</asm>
+      </inst>
+      <inst address="000089d8">
+        <asm>addcs r2, r2, #4</asm>
+      </inst>
+      <inst address="000089dc">
+        <asm>cmp r1, #4</asm>
+      </inst>
+      <inst address="000089e0">
+        <asm>addhi r2, r2, #3</asm>
+      </inst>
+      <inst address="000089e4">
+        <asm>addls r2, r2, r1, lsr #1</asm>
+      </inst>
+      <inst address="000089e8">
+        <asm>cmp ip, #0</asm>
+      </inst>
+      <inst address="000089ec">
+        <asm>mov r0, r3, lsr r2</asm>
+      </inst>
+      <inst address="000089f0">
+        <asm>rsbmi r0, r0, #0</asm>
+      </inst>
+      <inst address="000089f4">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_6-8" address="00008920" size="20" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="00008920">
+        <asm>cmp r1, #268435456</asm>
+      </inst>
+      <inst address="00008924">
+        <asm>cmpcc r1, r3</asm>
+      </inst>
+      <inst address="00008928">
+        <asm>movcc r1, r1, lsl #4</asm>
+      </inst>
+      <inst address="0000892c">
+        <asm>movcc r2, r2, lsl #4</asm>
+      </inst>
+      <inst address="00008930">
+        <asm>bcc 100008920</asm>
+      </inst>
+    </bb>
+    <bb id="_6-9" address="00008934" size="20" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="00008934">
+        <asm>cmp r1, #2147483648</asm>
+      </inst>
+      <inst address="00008938">
+        <asm>cmpcc r1, r3</asm>
+      </inst>
+      <inst address="0000893c">
+        <asm>movcc r1, r1, lsl #1</asm>
+      </inst>
+      <inst address="00008940">
+        <asm>movcc r2, r2, lsl #1</asm>
+      </inst>
+      <inst address="00008944">
+        <asm>bcc 100008934</asm>
+      </inst>
+    </bb>
+    <bb id="_6-10" address="00008948" size="4" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008948">
+        <asm>mov r0, #0</asm>
+      </inst>
+    </bb>
+    <bb id="_6-11" address="0000894c" size="64" number="11">
+      <property identifier="otawa::INDEX">11</property>
+      <inst address="0000894c">
+        <asm>cmp r3, r1</asm>
+      </inst>
+      <inst address="00008950">
+        <asm>subcs r3, r3, r1</asm>
+      </inst>
+      <inst address="00008954">
+        <asm>orrcs r0, r0, r2</asm>
+      </inst>
+      <inst address="00008958">
+        <asm>cmp r3, r1, lsr #1</asm>
+      </inst>
+      <inst address="0000895c">
+        <asm>subcs r3, r3, r1, lsr #1</asm>
+      </inst>
+      <inst address="00008960">
+        <asm>orrcs r0, r0, r2, lsr #1</asm>
+      </inst>
+      <inst address="00008964">
+        <asm>cmp r3, r1, lsr #2</asm>
+      </inst>
+      <inst address="00008968">
+        <asm>subcs r3, r3, r1, lsr #2</asm>
+      </inst>
+      <inst address="0000896c">
+        <asm>orrcs r0, r0, r2, lsr #2</asm>
+      </inst>
+      <inst address="00008970">
+        <asm>cmp r3, r1, lsr #3</asm>
+      </inst>
+      <inst address="00008974">
+        <asm>subcs r3, r3, r1, lsr #3</asm>
+      </inst>
+      <inst address="00008978">
+        <asm>orrcs r0, r0, r2, lsr #3</asm>
+      </inst>
+      <inst address="0000897c">
+        <asm>cmp r3, #0</asm>
+      </inst>
+      <inst address="00008980">
+        <asm>movnes r2, r2, lsr #4</asm>
+      </inst>
+      <inst address="00008984">
+        <asm>movne r1, r1, lsr #4</asm>
+      </inst>
+      <inst address="00008988">
+        <asm>bne 10000894c</asm>
+      </inst>
+    </bb>
+    <bb id="_6-12" address="0000898c" size="12" number="12">
+      <property identifier="otawa::INDEX">12</property>
+      <inst address="0000898c">
+        <asm>cmp ip, #0</asm>
+      </inst>
+      <inst address="00008990">
+        <asm>rsbmi r0, r0, #0</asm>
+      </inst>
+      <inst address="00008994">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_6-13"/>
+    <edge kind="virtual" source="_6-0" target="_6-1"/>
+    <edge kind="taken" source="_6-1" target="_6-3"/>
+    <edge kind="not-taken" source="_6-1" target="_6-2"/>
+    <edge kind="taken" source="_6-2" target="_6-5"/>
+    <edge kind="not-taken" source="_6-2" target="_6-4"/>
+    <edge kind="virtual" source="_6-3" target="_6-13"/>
+    <edge kind="taken" source="_6-4" target="_6-7"/>
+    <edge kind="not-taken" source="_6-4" target="_6-6"/>
+    <edge kind="virtual" source="_6-5" target="_6-13"/>
+    <edge kind="not-taken" source="_6-6" target="_6-8"/>
+    <edge kind="virtual" source="_6-7" target="_6-13"/>
+    <edge kind="taken" source="_6-8" target="_6-8"/>
+    <edge kind="not-taken" source="_6-8" target="_6-9"/>
+    <edge kind="taken" source="_6-9" target="_6-9"/>
+    <edge kind="not-taken" source="_6-9" target="_6-10"/>
+    <edge kind="not-taken" source="_6-10" target="_6-11"/>
+    <edge kind="taken" source="_6-11" target="_6-11"/>
+    <edge kind="not-taken" source="_6-11" target="_6-12"/>
+    <edge kind="virtual" source="_6-12" target="_6-13"/>
+  </cfg>
+  <cfg id="_7" address="_7" label="__aeabi_ldiv0" number="7">
+    <property identifier="otawa::CALLED_BY">BB 2 (000089f8) -&gt; cfg(__aeabi_ldiv0) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 2 (000089f8) -&gt; cfg(__aeabi_ldiv0) (call)</property>
+    <property identifier="otawa::INDEX">7</property>
+    <property identifier="otawa::LABEL">__aeabi_ldiv0</property>
+    <entry id="_7-0"/>
+    <bb id="_7-1" address="00008a28" size="4" number="1">
+      <property identifier="otawa::ENTRY">__aeabi_ldiv0</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008a28">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_7-2"/>
+    <edge kind="virtual" source="_7-0" target="_7-1"/>
+    <edge kind="virtual" source="_7-1" target="_7-2"/>
+  </cfg>
+</cfg-collection>

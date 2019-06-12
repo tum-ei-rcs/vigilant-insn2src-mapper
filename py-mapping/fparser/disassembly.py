@@ -6,7 +6,8 @@ from sortedcontainers import SortedDict
 log = logging.getLogger(__name__)
 
 
-class Instructions:
+class Instructions(object):
+
     def __init__(self, insns):
         assert len(insns) > 0, "Empty instruction list."
 

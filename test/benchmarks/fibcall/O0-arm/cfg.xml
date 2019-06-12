@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="000082ac" size="28" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000082ac" file="fibcall.c" line="65">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="000082b0" file="fibcall.c" line="65">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="000082b4" file="fibcall.c" line="65">
+        <asm>sub sp, sp, #8</asm>
+      </inst>
+      <inst address="000082b8" file="fibcall.c" line="68">
+        <asm>mov r3, #30</asm>
+      </inst>
+      <inst address="000082bc" file="fibcall.c" line="68">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082c0" file="fibcall.c" line="69">
+        <asm>ldr r0, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082c4" file="fibcall.c" line="69">
+        <asm>bl 10000821c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="000082c8" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000082c8" file="fibcall.c" line="70">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082cc" file="fibcall.c" line="71">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000082d0" file="fibcall.c" line="71">
+        <asm>sub sp, fp, #4</asm>
+      </inst>
+      <inst address="000082d4" file="fibcall.c" line="71">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <exit id="_0-3"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="call" source="_0-1" called="_1"/>
+    <edge kind="not-taken" source="_0-1" target="_0-2"/>
+    <edge kind="virtual" source="_0-2" target="_0-3"/>
+  </cfg>
+  <cfg id="_1" address="_1" label="fib" number="1">
+    <property identifier="otawa::CALLED_BY">BB 1 (000082ac) -&gt; cfg(fib) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (000082ac) -&gt; cfg(fib) (call)</property>
+    <property identifier="otawa::INDEX">1</property>
+    <property identifier="otawa::LABEL">fib</property>
+    <entry id="_1-0"/>
+    <bb id="_1-1" address="0000821c" size="44" number="1">
+      <property identifier="otawa::ENTRY">fib</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="fibcall.c" line="48">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00008220" file="fibcall.c" line="48">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008224" file="fibcall.c" line="48">
+        <asm>sub sp, sp, #36</asm>
+      </inst>
+      <inst address="00008228" file="fibcall.c" line="48">
+        <asm>str r0, [fp, #-32]</asm>
+      </inst>
+      <inst address="0000822c" file="fibcall.c" line="51">
+        <asm>mov r3, #1</asm>
+      </inst>
+      <inst address="00008230" file="fibcall.c" line="51">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008234" file="fibcall.c" line="51">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008238" file="fibcall.c" line="51">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000823c" file="fibcall.c" line="52">
+        <asm>mov r3, #2</asm>
+      </inst>
+      <inst address="00008240" file="fibcall.c" line="52">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008244" file="fibcall.c" line="52">
+        <asm>b 8274</asm>
+      </inst>
+    </bb>
+    <bb id="_1-2" address="00008274" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008274" file="fibcall.c" line="52">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008278" file="fibcall.c" line="52">
+        <asm>cmp r3, #30</asm>
+      </inst>
+      <inst address="0000827c" file="fibcall.c" line="52">
+        <asm>bgt 8290</asm>
+      </inst>
+    </bb>
+    <bb id="_1-3" address="00008280" size="16" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008280" file="fibcall.c" line="53">
+        <asm>ldr r2, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008284" file="fibcall.c" line="53">
+        <asm>ldr r3, [fp, #-32]</asm>
+      </inst>
+      <inst address="00008288" file="fibcall.c" line="53">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="0000828c" file="fibcall.c" line="53">
+        <asm>ble 100008248</asm>
+      </inst>
+    </bb>
+    <bb id="_1-4" address="00008290" size="28" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008290" file="fibcall.c" line="60">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008294" file="fibcall.c" line="60">
+        <asm>str r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008298" file="fibcall.c" line="61">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="0000829c" file="fibcall.c" line="62">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000082a0" file="fibcall.c" line="62">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="000082a4" file="fibcall.c" line="62">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="000082a8" file="fibcall.c" line="62">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_1-5" address="00008248" size="44" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008248" file="fibcall.c" line="56">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="0000824c" file="fibcall.c" line="56">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008250" file="fibcall.c" line="57">
+        <asm>ldr r2, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008254" file="fibcall.c" line="57">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008258" file="fibcall.c" line="57">
+        <asm>add r3, r2, r3</asm>
+      </inst>
+      <inst address="0000825c" file="fibcall.c" line="57">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008260" file="fibcall.c" line="58">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008264" file="fibcall.c" line="58">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008268" file="fibcall.c" line="54">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000826c" file="fibcall.c" line="54">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008270" file="fibcall.c" line="54">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <exit id="_1-6"/>
+    <edge kind="virtual" source="_1-0" target="_1-1"/>
+    <edge kind="taken" source="_1-1" target="_1-2"/>
+    <edge kind="taken" source="_1-2" target="_1-4"/>
+    <edge kind="not-taken" source="_1-2" target="_1-3"/>
+    <edge kind="taken" source="_1-3" target="_1-5"/>
+    <edge kind="not-taken" source="_1-3" target="_1-4"/>
+    <edge kind="virtual" source="_1-4" target="_1-6"/>
+    <edge kind="not-taken" source="_1-5" target="_1-2"/>
+  </cfg>
+</cfg-collection>

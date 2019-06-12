@@ -15,8 +15,6 @@ The algorithms are described in detail in the publication
 
 Please cite this work when using our tool.
 
-**This is the deprecated version for AVR targets**
-
 ## Overview
 This tool establishes a mapping from the machine instructions of a program
 to its source code ("what instructions belong to this source block?"). Unlike

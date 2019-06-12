@@ -66,6 +66,7 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
             gdst.edges[(add_pre(_e0, prefix), add_pre(_e1, prefix))].update(at)
 
     def build_clusters(hmap):
+        """convert hierarchy into subgraph clusters for renderer"""
         assert isinstance(hmap, gm.HierarchicalGraphMap)
         parts = hmap.name.split("|")
         if len(parts) == 2:
@@ -148,8 +149,8 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
     ############################
     both_graphs = nx.DiGraph()
     both_graphs.graph.update(bFlow.digraph.graph)  # take graph attrs from bin
-    copy_and_rename(both_graphs, bFlow.digraph, "b", bFlow._maxId)
-    copy_and_rename(both_graphs, sFlow.digraph, "s", sFlow._maxId)
+    copy_and_rename(both_graphs, bFlow.digraph, "b", bFlow.get_max_id())
+    copy_and_rename(both_graphs, sFlow.digraph, "s", sFlow.get_max_id())
 
     # get cluster/subgraph hierarchy
     clusters = build_clusters(hierarchical_map)
@@ -161,7 +162,7 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
     # get the mapping itself
     flatmap = hierarchical_map.flatten()
     allmap = {add_pre(k, 'b'): add_pre(v, 's') for k, v in flatmap.get_map().iteritems()
-              if k <= bFlow._maxId}
+              if k <= bFlow.get_max_id()}
 
     # add one commonn entry/exit node for better visualization
     entries = ['b{}'.format(bFlow._entryId), 's{}'.format(sFlow._entryId)]
@@ -185,7 +186,8 @@ def do_render_mapping(bFlow, sFlow, hierarchical_map, annot_file):
         assert len(preds) == 1, "more than one predecessor; cannot mark precisely mapped nodes"
         precise_map = next(iter(preds))
         pflatmap = precise_map.flatten()
-        mapped_nodes = [add_pre(n, 'b') for n in pflatmap.mapped() if n <= bFlow._maxId]
+        mid = bFlow.get_max_id()
+        mapped_nodes = [add_pre(n, 'b') for n in pflatmap.mapped() if n <= mid]
         precise_nodes |= set(mapped_nodes)
         for n in mapped_nodes:
             both_graphs.nodes[n].update(dict(fillcolor='darkolivegreen1', style='filled'))
@@ -241,9 +243,6 @@ def main(args):
         if args.render_graphs:
             do_render_flows(bFlow=bFlow, sFlow=sFlow)
 
-        ##############
-        # Annotations?
-        ##############
         annot_func = None
         if annot_file is not None and bFlow.name in annot_file:
             annot_func = annot_file[bFlow.name]
@@ -274,13 +273,9 @@ def main(args):
         #########
         # report
         #########
-        try:
-            report.write(bFlow=bFlow, sFlow=sFlow, annot_func=annot_func, mapping=full_map,
-                         reportdata=rpt)
-        except:
-            import traceback
-            log.error("Could not write report for {}".format(bFlow.name))
-            traceback.print_exc()
+        # writes the mapping CSV and JSON reports
+        report.write(bFlow=bFlow, sFlow=sFlow,
+                     annot_func=annot_func, mapping=full_map, reportdata=rpt)
 
         #########
         # render

@@ -60,7 +60,7 @@ class HomomorphismMapper(AbstractMapper):
 
             def get_sblocks_matching_dwarflines():
                 """
-                Find sBBs that match to each dwarf line
+                Find sBBs that match to each dwarf line (i.e., ~adress)
                 :returns tuple (map_precise, map_fallback) where
                             map_precise: dw line -> src BB. considering column/discr info
                             map_fallback: dw line -> src BB. considering only line numbers
@@ -68,15 +68,14 @@ class HomomorphismMapper(AbstractMapper):
 
                 def verbose_unique():
                     """just debug output"""
-                    nodes_unq_dwlines = self.bFlow.get_unique_dw_lines(
-                        nodes_b)  # map: dwarf line -> unique BB
+                    nodes_unq_dwlines = self.bFlow.get_unique_dw_lines(nodes_b)  # line -> unique BB
                     log.debug("Unique dwlines:")
                     for dwl_i, node in nodes_unq_dwlines.items():
                         log.debug("Found in node {}, dwl={}".format
                                   (node, self.bFlow._dwData._dwData['LineInfoEntries'][str(dwl_i)]))
                     log.debug("")
 
-                verbose_unique()
+                # verbose_unique()
 
                 # LUT
                 allDwLines = dict()
@@ -84,7 +83,7 @@ class HomomorphismMapper(AbstractMapper):
                     dwLines = self.bFlow._dwData.get_dw_lines(self.bFlow.get_addr_ranges(n))
                     allDwLines.update(dwLines)
 
-                # precise (line+col/discr)
+                # generate precise (line+col/discr; known to be unreliable with gcc)
                 dw2src_map = dict()
                 if self.trust_dbg_columns:
                     haveCol = False
@@ -96,15 +95,17 @@ class HomomorphismMapper(AbstractMapper):
                     if not haveCol:
                         log.warning("No column numbers in debug info. Turn on to improve mapping.")
 
-                # fallback (only by line number)
+                # generate fallback (only by line number)
                 lines = {dw['LineNumber'] for k, dw in allDwLines.items()}
                 srcline2sbb = self.sFlow.find_source_blocks_line_only(lines, nodes_s)
                 dw2src_map_line_only = {key: srcline2sbb[dw['LineNumber']]
                                         for key, dw in allDwLines.items()}
                 # --
+                # maps contain ALL sBBs for those bBBs which have no debug info
                 return dw2src_map, dw2src_map_line_only
 
             def add_refs_by_location():
+                """for one bin-BB 'n', append potential src-equivalents to set p_b"""
                 dwLines = self.bFlow._dwData.get_dw_lines(self.bFlow.get_addr_ranges(n))
                 for key, dwLine in dwLines.items():
                     mapped_source_block = dw2src_map_precise.get(key, None)
@@ -114,7 +115,6 @@ class HomomorphismMapper(AbstractMapper):
                                   "(line only): {}".format(key, n, mapped_blocks))
                         for b in mapped_blocks:
                             p_b.add(b)
-                        continue
                     else:
                         p_b.add(mapped_source_block)
 
@@ -133,10 +133,11 @@ class HomomorphismMapper(AbstractMapper):
                 # FIXME: implement matching by accessed variables
                 pass
 
+            # get potential maps: addr -> src-BBs
             dw2src_map_precise, dw2src_map_fallback = get_sblocks_matching_dwarflines()
+            # generate self-sorting list of potential src nodes for each bin node
             ret_map_bin2src = dict()
             for n in nodes_b:
-                # src nodes always sorted by pre-porder number, i.e., dominating ones come first
                 if self.hom_order_src == 'predominator-first':
                     # noinspection PyArgumentList
                     p_b = SortedSet(key=self.sFlow.predom_tree().get_preorder_number)
@@ -151,12 +152,13 @@ class HomomorphismMapper(AbstractMapper):
                     p_b = SortedSet(key=lambda x: -self.sFlow.postdom_tree().get_preorder_number(x))
                 else:
                     assert False, "Invalid argument (self.hom_order_src)."
+                # fill the list:
                 add_refs_by_location()
                 add_refs_by_fcalls()
                 add_refs_by_varaccess()
                 ret_map_bin2src[n] = p_b
             # --
-            return ret_map_bin2src
+            return ret_map_bin2src  # bin node -> potential src nodes (SortedSet)
 
         def get_original_loop_id(tfg, regionId):
             assert isinstance(tfg, transformer.TransformedFlowGraph)
@@ -178,17 +180,19 @@ class HomomorphismMapper(AbstractMapper):
             :returns GraphMap
             """
 
+            def translate_id(node_id, isBinary):
+                """some IDs are newly inserted for collapsed graphs and do not exist in the
+                original flow graph -- translate them to their original equivalent"""
+                if isBinary:
+                    if node_id > self.bFlow.get_max_id():
+                        return nodes_new_b[node_id]
+                else:
+                    if node_id > self.sFlow.get_max_id():
+                        return nodes_new_s[node_id]
+                return node_id
+
             def test_homomorphism(binary_nodes):
                 """Check whether all the mapping is valid so far"""
-
-                def translate_id(node_id, isBinary):
-                    if isBinary:
-                        if node_id > self.bFlow.get_max_id():
-                            return nodes_new_b[node_id]
-                    else:
-                        if node_id > self.sFlow.get_max_id():
-                            return nodes_new_s[node_id]
-                    return node_id
 
                 failed_count = 0
                 for b in binary_nodes:
@@ -249,15 +253,9 @@ class HomomorphismMapper(AbstractMapper):
                 return hasConflict
 
             def select_reference(b):
-                """Among possible references, return the first non-conflicting one
-                XXX: heuristic!
-                """
-                # FIXME: select the innermost src bb first for loops
-                # hom_order = pre: bin body come here first, and are paired with src hdr first
-                # hom_order = post: bin hdrs come here first, and are paired with src hdr first
+                """Among possible references, return the first non-conflicting one"""
                 p_b = potential_map_bin2src[b]
-                # for r in reversed(p_b):  # picking src dominated first
-                for r in p_b:  # picking src dominators first
+                for r in p_b:
                     if not check_conflict(r, b):
                         return r
                 return None
@@ -305,7 +303,6 @@ class HomomorphismMapper(AbstractMapper):
                 # --
                 return ambiguous_bbb
 
-            f_map = dict()
             log.info("Running dominator homomorphism mapping on '{}', order: {}".format
                      (btfg.name, self.hom_order))
             if self.hom_order == 'predominated-first':
@@ -326,16 +323,14 @@ class HomomorphismMapper(AbstractMapper):
                 assert False, "Invalid argument (self.hom_order)."
 
             # Add known relations between entry and exit nodes of subgraphs & test for safety
-            if flag_isCondensed:
-                f_map[btfg.flow.entryId] = fixed_points[btfg.flow.entryId]
-                f_map[btfg.flow.exitId] = fixed_points[btfg.flow.exitId]
-            else:
-                f_map[btfg.loop_id] = stfg.loop_id
+            f_map = dict()
+            f_map.update(fixed_points)
             log.debug("Fixed points={}".format(f_map.items()))
             assert test_homomorphism(f_map.keys()) == 0, \
                 "Initial homomorphism test failed for fixed points."
 
             f_confl = {n: dict() for n in nodes_b}
+            f_confl.update({n: dict() for n in fixed_points.keys()})
             log.debug("Initial worklist={}".format(worklist))
             rounds = 0
             while len(worklist) > 0:
@@ -348,7 +343,7 @@ class HomomorphismMapper(AbstractMapper):
                         b = worklist.pop(0)  # using postDom, matching bin dominator (header) first
                     log.debug("Current worklist element: {}".format(b))
                     if b in fixed_points.keys():
-                        continue
+                        continue  # don't touch
                     a = select_reference(b)  # multiple b's might pull the same a here.
                     if a is None:
                         log.debug("Only conflicting references for {} left...".format(b))
@@ -370,10 +365,14 @@ class HomomorphismMapper(AbstractMapper):
                         if a is None or a_ is None:  # could still be None if we removed it
                             continue
                         # FIXME: could cache the following
-                        fwd_fail = self.bFlow.predom_tree().test_dominance(b, b_) != \
-                            self.sFlow.predom_tree().test_dominance(a, a_)
-                        rev_fail = self.bFlow.predom_tree().test_dominance(b_, b) != \
-                            self.sFlow.predom_tree().test_dominance(a_, a)
+                        fwd_fail = self.bFlow.predom_tree().test_dominance(
+                            translate_id(b, True), translate_id(b_, True)) != \
+                            self.sFlow.predom_tree().test_dominance(
+                                translate_id(a, False), translate_id(a_, False))
+                        rev_fail = self.bFlow.predom_tree().test_dominance(
+                            translate_id(b_, True), translate_id(b, True)) != \
+                            self.sFlow.predom_tree().test_dominance(
+                                translate_id(a_, False), translate_id(a, False))
                         if fwd_fail or rev_fail:
                             log.debug("Dominance check failed: b,a=({},{}) ; b_,a_=({},{})".format
                                       (b, a, b_, a_) + ". Fail type: {}".format

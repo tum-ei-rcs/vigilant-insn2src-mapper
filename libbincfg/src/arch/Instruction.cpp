@@ -1,7 +1,7 @@
 #include "bincfg/arch/Instruction.hpp"
 
-Instruction::Instruction(const DisasmInstruction& disInsn, bool defaultRegex)
-    : m_disInsn(disInsn)
+Instruction::Instruction(const DisasmInstruction& disInsn, bool defaultRegex, bool ignoreErrors)
+    : m_disInsn(disInsn), m_ignore_errors(ignoreErrors)
 {
     if (!defaultRegex) {
         return;
@@ -42,13 +42,13 @@ Instruction::getInsnRegex()
 uint64_t
 Instruction::getAbsoluteAddr(const std::string& operand)
 {
-    return std::stoull(operand, nullptr, 16);    
+    return std::stoull(operand, nullptr, 16);
 }
 
 
 /**
- * @todo: Don't throw exception. Use assert instead. 
- *  
+ * @todo: Don't throw exception. Use assert instead.
+ *
  */
 int64_t
 Instruction::getRelativeDiff(const std::string& operand)

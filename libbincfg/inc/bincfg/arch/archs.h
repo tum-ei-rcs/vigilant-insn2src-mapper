@@ -3,5 +3,6 @@
 #define _ARCHS_H
 
 #include "bincfg/arch/AvrFlowGenerator.hpp"
+#include "bincfg/arch/ArmV5FlowGenerator.hpp"
 
 #endif /* _ARCHS_H */

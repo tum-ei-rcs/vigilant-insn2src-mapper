@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="Sum" executed="true" extern="false">
+        <loop loopId="3" line="89" source="cnt.c" exact="true" maxcount="10" totalcount="10">
+            <loop loopId="4" line="90" source="cnt.c" exact="true" maxcount="10" totalcount="100">
+                <conditional id="IF-1"> <condition line="94" source="cnt.c" executed="true"> </condition>
+                    <case cond="1" executed="true" line="96" source="cnt.c">
+                    </case>
+                    <case cond="0" executed="true" line="100" source="cnt.c">
+                    </case>
+                </conditional>
+            </loop>
+        </loop>
+    </function>
+</flowfacts>
+

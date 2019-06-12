@@ -1,0 +1,95 @@
+CBMCFLAGS: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function main --all-properties --slice-formula --yices
+GOTOINSFLAGS: 
+Initial guess: 0..0
+Requested WCET precision: 1
+Assertions per step: 10
+Max steps: 0
+All Flags: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function main --all-properties --slice-formula --yices
+Output path: /home/becker/async/graph-mapping/test/benchmarks/crc/O0-arm/wcet-cbmc
+Output path intermediate: modelcheck
+Template file: crc_i.in
+Other files: 
+...step #1: WCET in [0,9223372036854775807], precision=9223372036854775807
+......cand: 6208, 1, 18854838150406, 1485633833817296, 78, 38543920, 3037000499, 239295116727, 489178, 117057906865942864, 9223372036854775807
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.1]
+......WARNING: empty counterexample [main.assertion.2]
+......WARNING: empty counterexample [main.assertion.5]
+......walltime=1.27, usertime=1.16, dbg_time1=1.32, mem=67904, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37647, 'sum': 37647, 'avg': 37647, 'n': 1, 'min': 37647}}
+......WCET in [6208,489178], precision=482970
+......remaining steps <=6
+...step #2: WCET in [6208,489178], precision=482970
+......cand: 6208, 199396, 392584, 54505, 247693, 440881, 102802, 295990, 489178, 151099, 344287
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.1]
+......WARNING: empty counterexample [main.assertion.4]
+......walltime=1.18, usertime=1.1, dbg_time1=1.22, mem=66364, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37646, 'sum': 37646, 'avg': 37646, 'n': 1, 'min': 37646}}
+......WCET in [54505,102802], precision=48297
+......remaining steps <=5
+...step #3: WCET in [54505,102802], precision=48297
+......cand: 68994, 64164, 59334, 54505, 102802, 97972, 93142, 88312, 83483, 78653, 73823
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.4]
+......walltime=1.1, usertime=1.04, dbg_time1=1.15, mem=64732, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37645, 'sum': 37645, 'avg': 37645, 'n': 1, 'min': 37645}}
+......WCET in [54505,59334], precision=4829
+......remaining steps <=4
+...step #4: WCET in [54505,59334], precision=4829
+......cand: 58368, 58851, 59334, 54505, 54987, 55470, 55953, 56436, 56919, 57402, 57885
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.4]
+......walltime=1.11, usertime=1.06, dbg_time1=1.17, mem=64736, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37645, 'sum': 37645, 'avg': 37645, 'n': 1, 'min': 37645}}
+......WCET in [54505,54987], precision=482
+......remaining steps <=3
+...step #5: WCET in [54505,54987], precision=482
+......cand: 54890, 54938, 54505, 54794, 54987, 54697, 54649, 54746, 54553, 54842, 54601
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.3]
+......WARNING: empty counterexample [main.assertion.9]
+......walltime=1.18, usertime=1.12, dbg_time1=1.23, mem=66368, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37646, 'sum': 37646, 'avg': 37646, 'n': 1, 'min': 37646}}
+......WCET in [54553,54601], precision=48
+......remaining steps <=2
+...step #6: WCET in [54553,54601], precision=48
+......cand: 54562, 54596, 54567, 54601, 54572, 54577, 54581, 54553, 54586, 54557, 54591
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.1]
+......WARNING: empty counterexample [main.assertion.3]
+......WARNING: empty counterexample [main.assertion.5]
+......WARNING: empty counterexample [main.assertion.6]
+......WARNING: empty counterexample [main.assertion.7]
+......WARNING: empty counterexample [main.assertion.8]
+......WARNING: empty counterexample [main.assertion.9]
+......WARNING: empty counterexample [main.assertion.10]
+......WARNING: empty counterexample [main.assertion.11]
+......walltime=1.68, usertime=1.56, dbg_time1=1.74, mem=77164, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37653, 'sum': 37653, 'avg': 37653, 'n': 1, 'min': 37653}}
+......WCET in [54591,54596], precision=5
+......remaining steps <=1
+...step #7: WCET in [54591,54596], precision=5
+......cand: 54592, 54593, 54594, 54595, 54596, 54591
+......Reading properties from ['modelcheck/tmp_crc_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [main.assertion.1]
+......WARNING: empty counterexample [main.assertion.6]
+......walltime=1.17, usertime=1.09, dbg_time1=1.22, mem=66300, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 37646, 'sum': 37646, 'avg': 37646, 'n': 1, 'min': 37646}}
+......WCET in [54592,54593], precision=1
+SUCCESS: Precise enough after 7 iterations, precision=1
+RESULT: 54592 < WCET <= 54593 cycles
+peak memory (kBytes): samples=7, min=64732.0, avg=67652.5714286, max=77164.0, sum=473568.0
+cbmc walltime (sec): samples=7, min=1.1, avg=1.24142857143, max=1.68, sum=8.69
+cbmc usertime (sec): samples=7, min=1.04, avg=1.16142857143, max=1.56, sum=8.13
+variables: samples=0, min=None, avg=None, max=None, sum=0
+clauses: samples=0, min=None, avg=None, max=None, sum=0
+steps: samples=7, min=37645, avg=37646, max=37653, sum=263528
+Script: alltime=16.29, selftime=7.60, ret=0

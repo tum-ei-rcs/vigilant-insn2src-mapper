@@ -1,0 +1,284 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="0000821c" size="156" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="insertsort.c" line="55">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00008220" file="insertsort.c" line="55">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008224" file="insertsort.c" line="55">
+        <asm>sub sp, sp, #20</asm>
+      </inst>
+      <inst address="00008228" file="insertsort.c" line="58">
+        <asm>ldr r3, [pc, #304]</asm>
+      </inst>
+      <inst address="0000822c" file="insertsort.c" line="58">
+        <asm>mov r2, #0</asm>
+      </inst>
+      <inst address="00008230" file="insertsort.c" line="58">
+        <asm>str r2, [r3, #0]</asm>
+      </inst>
+      <inst address="00008234" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #292]</asm>
+      </inst>
+      <inst address="00008238" file="insertsort.c" line="59">
+        <asm>mov r2, #11</asm>
+      </inst>
+      <inst address="0000823c" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #4]</asm>
+      </inst>
+      <inst address="00008240" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #280]</asm>
+      </inst>
+      <inst address="00008244" file="insertsort.c" line="59">
+        <asm>mov r2, #10</asm>
+      </inst>
+      <inst address="00008248" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #8]</asm>
+      </inst>
+      <inst address="0000824c" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #268]</asm>
+      </inst>
+      <inst address="00008250" file="insertsort.c" line="59">
+        <asm>mov r2, #9</asm>
+      </inst>
+      <inst address="00008254" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #12]</asm>
+      </inst>
+      <inst address="00008258" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #256]</asm>
+      </inst>
+      <inst address="0000825c" file="insertsort.c" line="59">
+        <asm>mov r2, #8</asm>
+      </inst>
+      <inst address="00008260" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #16]</asm>
+      </inst>
+      <inst address="00008264" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #244]</asm>
+      </inst>
+      <inst address="00008268" file="insertsort.c" line="59">
+        <asm>mov r2, #7</asm>
+      </inst>
+      <inst address="0000826c" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #20]</asm>
+      </inst>
+      <inst address="00008270" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #232]</asm>
+      </inst>
+      <inst address="00008274" file="insertsort.c" line="59">
+        <asm>mov r2, #6</asm>
+      </inst>
+      <inst address="00008278" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #24]</asm>
+      </inst>
+      <inst address="0000827c" file="insertsort.c" line="59">
+        <asm>ldr r3, [pc, #220]</asm>
+      </inst>
+      <inst address="00008280" file="insertsort.c" line="59">
+        <asm>mov r2, #5</asm>
+      </inst>
+      <inst address="00008284" file="insertsort.c" line="59">
+        <asm>str r2, [r3, #28]</asm>
+      </inst>
+      <inst address="00008288" file="insertsort.c" line="60">
+        <asm>ldr r3, [pc, #208]</asm>
+      </inst>
+      <inst address="0000828c" file="insertsort.c" line="60">
+        <asm>mov r2, #4</asm>
+      </inst>
+      <inst address="00008290" file="insertsort.c" line="60">
+        <asm>str r2, [r3, #32]</asm>
+      </inst>
+      <inst address="00008294" file="insertsort.c" line="60">
+        <asm>ldr r3, [pc, #196]</asm>
+      </inst>
+      <inst address="00008298" file="insertsort.c" line="60">
+        <asm>mov r2, #3</asm>
+      </inst>
+      <inst address="0000829c" file="insertsort.c" line="60">
+        <asm>str r2, [r3, #36]</asm>
+      </inst>
+      <inst address="000082a0" file="insertsort.c" line="60">
+        <asm>ldr r3, [pc, #184]</asm>
+      </inst>
+      <inst address="000082a4" file="insertsort.c" line="60">
+        <asm>mov r2, #2</asm>
+      </inst>
+      <inst address="000082a8" file="insertsort.c" line="60">
+        <asm>str r2, [r3, #40]</asm>
+      </inst>
+      <inst address="000082ac" file="insertsort.c" line="61">
+        <asm>mov r3, #2</asm>
+      </inst>
+      <inst address="000082b0" file="insertsort.c" line="61">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082b4" file="insertsort.c" line="62">
+        <asm>b 8340</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="00008340" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008340" file="insertsort.c" line="62">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008344" file="insertsort.c" line="62">
+        <asm>cmp r3, #10</asm>
+      </inst>
+      <inst address="00008348" file="insertsort.c" line="62">
+        <asm>ble 1000082b8</asm>
+      </inst>
+    </bb>
+    <bb id="_0-3" address="0000834c" size="20" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="0000834c" file="insertsort.c" line="88">
+        <asm>mov r3, #1</asm>
+      </inst>
+      <inst address="00008350" file="insertsort.c" line="89">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00008354" file="insertsort.c" line="89">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="00008358" file="insertsort.c" line="89">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="0000835c" file="insertsort.c" line="89">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_0-4" address="000082b8" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="000082b8" file="insertsort.c" line="66">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000082bc" file="insertsort.c" line="66">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082c0" file="insertsort.c" line="70">
+        <asm>b 8310</asm>
+      </inst>
+    </bb>
+    <bb id="_0-5" address="00008310" size="36" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008310" file="insertsort.c" line="70">
+        <asm>ldr r2, [pc, #72]</asm>
+      </inst>
+      <inst address="00008314" file="insertsort.c" line="70">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008318" file="insertsort.c" line="70">
+        <asm>ldr r2, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000831c" file="insertsort.c" line="70">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008320" file="insertsort.c" line="70">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="00008324" file="insertsort.c" line="70">
+        <asm>ldr r1, [pc, #52]</asm>
+      </inst>
+      <inst address="00008328" file="insertsort.c" line="70">
+        <asm>ldr r3, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="0000832c" file="insertsort.c" line="70">
+        <asm>cmp r2, r3</asm>
+      </inst>
+      <inst address="00008330" file="insertsort.c" line="70">
+        <asm>bcc 1000082c4</asm>
+      </inst>
+    </bb>
+    <bb id="_0-6" address="00008334" size="12" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008334" file="insertsort.c" line="83">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008338" file="insertsort.c" line="83">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="0000833c" file="insertsort.c" line="83">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <bb id="_0-7" address="000082c4" size="76" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="000082c4" file="insertsort.c" line="75">
+        <asm>ldr r2, [pc, #148]</asm>
+      </inst>
+      <inst address="000082c8" file="insertsort.c" line="75">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082cc" file="insertsort.c" line="75">
+        <asm>ldr r3, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000082d0" file="insertsort.c" line="75">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082d4" file="insertsort.c" line="76">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082d8" file="insertsort.c" line="76">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000082dc" file="insertsort.c" line="76">
+        <asm>ldr r2, [pc, #124]</asm>
+      </inst>
+      <inst address="000082e0" file="insertsort.c" line="76">
+        <asm>ldr r2, [r2, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000082e4" file="insertsort.c" line="76">
+        <asm>ldr r1, [pc, #116]</asm>
+      </inst>
+      <inst address="000082e8" file="insertsort.c" line="76">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082ec" file="insertsort.c" line="76">
+        <asm>str r2, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="000082f0" file="insertsort.c" line="77">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="000082f4" file="insertsort.c" line="77">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000082f8" file="insertsort.c" line="77">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082fc" file="insertsort.c" line="77">
+        <asm>ldr r1, [pc, #92]</asm>
+      </inst>
+      <inst address="00008300" file="insertsort.c" line="77">
+        <asm>str r2, [r1, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008304" file="insertsort.c" line="78">
+        <asm>ldr r3, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008308" file="insertsort.c" line="78">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="0000830c" file="insertsort.c" line="78">
+        <asm>str r3, [fp, #-12]</asm>
+      </inst>
+    </bb>
+    <exit id="_0-8"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="taken" source="_0-1" target="_0-2"/>
+    <edge kind="taken" source="_0-2" target="_0-4"/>
+    <edge kind="not-taken" source="_0-2" target="_0-3"/>
+    <edge kind="virtual" source="_0-3" target="_0-8"/>
+    <edge kind="taken" source="_0-4" target="_0-5"/>
+    <edge kind="taken" source="_0-5" target="_0-7"/>
+    <edge kind="not-taken" source="_0-5" target="_0-6"/>
+    <edge kind="not-taken" source="_0-6" target="_0-2"/>
+    <edge kind="not-taken" source="_0-7" target="_0-5"/>
+  </cfg>
+</cfg-collection>

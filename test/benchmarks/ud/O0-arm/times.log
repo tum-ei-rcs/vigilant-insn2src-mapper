@@ -1,0 +1,53 @@
+WARN: Symbol at 8a38 already has a name: __adddf3. Updating to __aeabi_dadd.
+WARN: Symbol at 8a28 already has a name: __aeabi_idiv0. Updating to __aeabi_ldiv0.
+WARN: Symbol at 88e0 already has a name: __aeabi_idiv. Updating to __divsi3.
+WARN: Symbol at 8d94 already has a name: __aeabi_f2d. Updating to __extendsfdf2.
+WARN: Symbol at 11304 already has a name: __do_global_dtors_aux_fini_array_entry. Updating to __fini_array_start.
+WARN: Symbol at 8e48 already has a name: __aeabi_d2iz. Updating to __fixdfsi.
+WARN: Symbol at 8de8 already has a name: __aeabi_l2d. Updating to __floatdidf.
+WARN: Symbol at 8d6c already has a name: __aeabi_i2d. Updating to __floatsidf.
+WARN: Symbol at 8dd4 already has a name: __aeabi_ul2d. Updating to __floatundidf.
+WARN: Symbol at 8d48 already has a name: __aeabi_ui2d. Updating to __floatunsidf.
+WARN: Symbol at 11304 already has a name: __fini_array_start. Updating to __init_array_end.
+WARN: Symbol at 112fc already has a name: __init_array_start. Updating to __preinit_array_end.
+WARN: Symbol at 112fc already has a name: __preinit_array_end. Updating to __preinit_array_start.
+WARN: Symbol at 8108 already has a name: _mainCRTStartup. Updating to _start.
+WARN: Symbol at 8a34 already has a name: __aeabi_dsub. Updating to __subdf3.
+Loaded 32 symbols.
+Parsing trace post-mortem...
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000083ec but no bound at main.elf.ffx:4
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000083f8 but no bound at main.elf.ffx:5
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 00008444 but no bound at main.elf.ffx:8
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 00008558 but no bound at main.elf.ffx:15
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 0000859c but no bound at main.elf.ffx:16
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000086a8 but no bound at main.elf.ffx:20
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000086c4 but no bound at main.elf.ffx:21
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000087c8 but no bound at main.elf.ffx:24
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:loop exists at 000087f0 but no bound at main.elf.ffx:25
+Skipping trace line: creating output: buffer_DE width = 1
+Skipping trace line: creating output: buffer_EX width = 1
+Skipping trace line:  - bank 'ON-CHIP NON-VOLATILE MEMORY': size=524288 B, latency=0, cached=true
+Skipping trace line:  - bank 'ON-CHIP STATIC RAM': size=32768 B, latency=1, cached=true
+Skipping trace line:  - bank 'VPB PERIPHERALS': size=268435456 B, latency=10, cached=true
+Skipping trace line:  - bank 'AHB PERIPHERALS': size=268435456 B, latency=10, cached=true
+Skipping trace line: Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_neg is deprecated use sc_sensitive << with neg() instead
+Skipping trace line: INFO: instruction queue FQ has in_ports = 1, out_ports = 1
+Skipping trace line: INFO: instruction queue buffer_DE has in_ports = 1, out_ports = 1
+Skipping trace line: INFO: instruction queue buffer_EX has in_ports = 1, out_ports = 1
+Skipping trace line: Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Skipping trace line: INFO: using generic in-order execution
+Skipping trace line: Starting at 00008108 (no info)
+Cycles: 0 (0 per second), stack=
+Skipping trace line: WARN: had lost track of BBs, recovered now.
+Skipping trace line: WARN: had lost track of BBs, recovered now.
+File sim.log could not be processed <type 'exceptions.IndexError'>
+Traceback (most recent call last):
+  File "/home/becker/async/WCET_gitlab/scripts/simtrace.py", line 351, in parse_trace
+    if not self.consume_line(line):
+  File "/home/becker/async/WCET_gitlab/scripts/simtrace.py", line 281, in consume_line
+    self._register_ret(current_cycle)  # time for the return is attributed to the callee
+  File "/home/becker/async/WCET_gitlab/scripts/simtrace.py", line 108, in _register_ret
+    fun, callcycle = self.stack.pop()
+IndexError: pop from empty list
+
+Total time: 0.1s

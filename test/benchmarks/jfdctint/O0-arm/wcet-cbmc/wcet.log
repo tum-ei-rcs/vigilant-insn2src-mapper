@@ -1,0 +1,88 @@
+CBMCFLAGS: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+GOTOINSFLAGS: 
+Initial guess: 0..0
+Requested WCET precision: 1
+Assertions per step: 10
+Max steps: 0
+All Flags: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+Output path: /home/becker/async/graph-mapping/test/benchmarks/jfdctint/O0-arm/wcet-cbmc
+Output path intermediate: modelcheck
+Template file: jfdctint_i.in
+Other files: 
+...step #1: WCET in [0,9223372036854775807], precision=9223372036854775807
+......cand: 6208, 1, 18854838150406, 1485633833817296, 78, 38543920, 3037000499, 239295116727, 489178, 117057906865942864, 9223372036854775807
+......Reading properties from ['modelcheck/tmp_jfdctint_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......walltime=0.09, usertime=0.07, dbg_time1=0.14, mem=11212, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 911, 'sum': 911, 'avg': 911, 'n': 1, 'min': 911}}
+......WCET in [78,6208], precision=6130
+......remaining steps <=4
+...step #2: WCET in [78,6208], precision=6130
+......cand: 6208, 2530, 3143, 3756, 78, 4369, 691, 4982, 1304, 5595, 1917
+......Reading properties from ['modelcheck/tmp_jfdctint_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.3]
+......WARNING: empty counterexample [CBMCDriver.assertion.4]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......WARNING: empty counterexample [CBMCDriver.assertion.6]
+......WARNING: empty counterexample [CBMCDriver.assertion.7]
+......WARNING: empty counterexample [CBMCDriver.assertion.8]
+......WARNING: empty counterexample [CBMCDriver.assertion.9]
+......WARNING: empty counterexample [CBMCDriver.assertion.11]
+......walltime=0.1, usertime=0.08, dbg_time1=0.14, mem=11288, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 918, 'sum': 918, 'avg': 918, 'n': 1, 'min': 918}}
+......WCET in [4982,5595], precision=613
+......remaining steps <=3
+...step #3: WCET in [4982,5595], precision=613
+......cand: 5472, 5411, 5349, 5288, 5227, 5165, 5104, 5043, 4982, 5595, 5533
+......Reading properties from ['modelcheck/tmp_jfdctint_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.7]
+......WARNING: empty counterexample [CBMCDriver.assertion.8]
+......WARNING: empty counterexample [CBMCDriver.assertion.9]
+......walltime=0.09, usertime=0.08, dbg_time1=0.14, mem=11216, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 912, 'sum': 912, 'avg': 912, 'n': 1, 'min': 912}}
+......WCET in [5104,5165], precision=61
+......remaining steps <=2
+...step #4: WCET in [5104,5165], precision=61
+......cand: 5152, 5122, 5158, 5128, 5165, 5134, 5104, 5140, 5110, 5146, 5116
+......Reading properties from ['modelcheck/tmp_jfdctint_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.4]
+......WARNING: empty counterexample [CBMCDriver.assertion.6]
+......WARNING: empty counterexample [CBMCDriver.assertion.7]
+......WARNING: empty counterexample [CBMCDriver.assertion.8]
+......WARNING: empty counterexample [CBMCDriver.assertion.9]
+......WARNING: empty counterexample [CBMCDriver.assertion.10]
+......WARNING: empty counterexample [CBMCDriver.assertion.11]
+......walltime=0.08, usertime=0.06, dbg_time1=0.13, mem=11316, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 918, 'sum': 918, 'avg': 918, 'n': 1, 'min': 918}}
+......WCET in [5152,5158], precision=6
+......remaining steps <=1
+...step #5: WCET in [5152,5158], precision=6
+......cand: 5152, 5153, 5154, 5155, 5156, 5157, 5158
+......Reading properties from ['modelcheck/tmp_jfdctint_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.3]
+......WARNING: empty counterexample [CBMCDriver.assertion.4]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......WARNING: empty counterexample [CBMCDriver.assertion.6]
+......walltime=0.08, usertime=0.08, dbg_time1=0.13, mem=11328, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 915, 'sum': 915, 'avg': 915, 'n': 1, 'min': 915}}
+......WCET in [5157,5158], precision=1
+SUCCESS: Precise enough after 5 iterations, precision=1
+RESULT: 5157 < WCET <= 5158 cycles
+peak memory (kBytes): samples=5, min=11212.0, avg=11272.0, max=11328.0, sum=56360.0
+cbmc walltime (sec): samples=5, min=0.08, avg=0.088, max=0.1, sum=0.44
+cbmc usertime (sec): samples=5, min=0.06, avg=0.074, max=0.08, sum=0.37
+variables: samples=0, min=None, avg=None, max=None, sum=0
+clauses: samples=0, min=None, avg=None, max=None, sum=0
+steps: samples=5, min=911, avg=914, max=918, sum=4574
+Script: alltime=0.87, selftime=0.43, ret=0

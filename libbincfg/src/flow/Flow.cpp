@@ -61,25 +61,25 @@ Flow::removeBlock(uint64_t bStartAddr, bool updateEntryMarker)
     if (bBlock == m_bBlocks.end()) {
         return false;
     }
-    
+
     if (bStartAddr == m_postEntryBlock && updateEntryMarker) {
         assert(m_outEdges.count(m_postEntryBlock) == 1 &&
                "Cannot remove post entry block.");
         markPostEntryBlock(m_outEdges.find(m_postEntryBlock)->second);
     }
-    
+
     auto peBlock = m_preExitBlocks.find(bStartAddr);
     if (peBlock != m_preExitBlocks.end()) {
         m_preExitBlocks.erase(peBlock);
     }
-    
+
     // Remove block from blockMap
     m_bBlocks.erase(bBlock);
-    
+
     //if (peBlock != m_preExitBlocks.end() && !m_outEdges.count(*peBlock)) {
     //    return true;
     //}
-    
+
     // Remove block edges
     assert(removeEdges(bStartAddr) == true &&
            "Present block in block map has no corresponding edges.");
@@ -87,7 +87,7 @@ Flow::removeBlock(uint64_t bStartAddr, bool updateEntryMarker)
 }
 
 
-bool 
+bool
 Flow::insertBlockAddrRanges(uint64_t bStartAddr,
                             std::vector<AddrRangePair> addrRanges)
 {
@@ -95,33 +95,35 @@ Flow::insertBlockAddrRanges(uint64_t bStartAddr,
     if (blockIt == m_bBlocks.end()) {
         return false;
     }
-    
+
     for (auto& range : addrRanges)
     {
         blockIt->second->addAddrRange(range.first, range.second);
     }
-    
+
     return true;
 }
 
 /**
  * @brief Split a basic block at a given location.
- * 
+ *
  * *TODO*: A. Not very efficient if a block is split at different locations.
- *            A new function is needed for this case. 
- *         B. Move the trimmed address ranges directly into the new block 
+ *            A new function is needed for this case.
+ *         B. Move the trimmed address ranges directly into the new block
  *            instead of copying them.
  *         C. Define private methods for handling edges given a block iterator.
- * 
- * 
+ *
+ *
  * @param bStartAddr Block starting address.
  * @param splitLoc   Location after which the new block starts.
- *  
- * @return true  Split was successful. 
+ * @param newBlock   if not NULL; the shared ptr is filled with pointer to the new block
+ *
+ * @return true  Split was successful.
  * @return false Split could not be performed, block is left unaltered.
  */
 bool
-Flow::splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc)
+Flow::splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc,
+std::shared_ptr<BasicBlock>* retNewBlock)
 {
     // Check if there is a block starting after the given split location
     if (m_bBlocks.find(splitLoc.insnAddr+splitLoc.insnSize) != m_bBlocks.end()) {
@@ -151,7 +153,8 @@ Flow::splitBlock(uint64_t bStartAddr, const SplitLocation& splitLoc)
 
     // Add a new basic block
     auto newBlock = std::make_shared<BasicBlock>(m_bbCount++, blockIt->second->getType());
-    
+    if (retNewBlock) *retNewBlock = newBlock;
+
     for (auto rIt = trimmedRanges.begin(); rIt != trimmedRanges.end(); rIt++)
     {
         newBlock->addAddrRange(rIt->first, rIt->second);
@@ -222,7 +225,7 @@ Flow::isPostEntryBlock(uint64_t bStartAddr) const
     if (bStartAddr == m_postEntryBlock) {
         return true;
     }
-    
+
     return false;
 }
 
@@ -240,15 +243,16 @@ Flow::isPreExitBlock(uint64_t bStartAddr) const
     if (m_preExitBlocks.find(bStartAddr) != m_preExitBlocks.end()) {
         return true;
     }
-    
+
     return false;
 }
 
 
 void
-Flow::markFuncCallLocation(uint64_t address)
+Flow::markFuncCallLocation(uint64_t address_site, const std::vector<uint64_t>& address_target)
 {
-    m_funcCallLocations.insert(address);
+    m_funcCallLocations.insert(address_site);
+    m_funcCallTargets.insert(std::make_pair(address_site, address_target));
 }
 
 
@@ -257,19 +261,19 @@ Flow::removeEdge(EdgeMap::value_type pair)
 {
     auto eqRange = m_outEdges.equal_range(pair.first);
     auto edge = m_outEdges.end();
-    
+
     for (auto it = eqRange.first; it != eqRange.second; it++) {
         if (it->second == pair.second) {
             edge = it;
         }
     }
-    
+
     if (edge == m_outEdges.end()) {
         return false;
     }
-    
+
     m_outEdges.erase(edge);
-    
+
     // If the given edge is found in outEdges, it is also present in inEdges
     eqRange = m_inEdges.equal_range(pair.second);
     edge = m_inEdges.end();
@@ -279,12 +283,12 @@ Flow::removeEdge(EdgeMap::value_type pair)
             edge = it;
         }
     }
-    
+
     assert(edge != m_inEdges.end() &&
            "The given edge must be present in inEdges map.");
-           
+
     m_inEdges.erase(edge);
-    
+
     return true;
 }
 
@@ -298,7 +302,7 @@ Flow::removeEdges(uint64_t bStartAddr)
     {
         removeEdge(it);
     }
-    
+
     auto inEdges = getIncomingEdges(bStartAddr);
     for (auto it : inEdges)
     {
@@ -313,14 +317,14 @@ std::size_t
 Flow::removeEdges(std::vector<EdgeMap::value_type> edges)
 {
     std::size_t removedCount = 0;
-    
+
     for (auto edgeIt = edges.begin(); edgeIt != edges.end(); edgeIt++)
     {
         if (removeEdge(*edgeIt)) {
             removedCount++;
         }
     }
-    
+
     return removedCount;
 }
 
@@ -333,7 +337,7 @@ Flow::getOutgoingEdges(uint64_t bStartAddr) const
     {
         outgoingEdges.push_back(std::make_pair(edgeIt->first, edgeIt->second));
     }
-    
+
     return outgoingEdges;
 }
 
@@ -347,7 +351,7 @@ Flow::getIncomingEdges(uint64_t bStartAddr) const
     {
         incomingEdges.push_back(std::make_pair(edgeIt->first, edgeIt->second));
     }
-    
+
     return incomingEdges;
 }
 
@@ -365,6 +369,11 @@ Flow::getFuncCallLocations() const
     return m_funcCallLocations;
 }
 
+const std::map<uint64_t, std::vector<uint64_t> >&
+Flow::getFuncCallTargets() const
+{
+    return m_funcCallTargets;
+}
 
 uint64_t
 Flow::getPostEntryBlock() const
@@ -414,8 +423,8 @@ Flow::printEdges()
 
     for (auto edge = m_outEdges.begin(); edge != m_outEdges.end(); edge++)
     {
-        std::cout << "    Edge " << std::hex << edge->first << " to " 
-                  << edge->second << "." 
+        std::cout << "    Edge " << std::hex << edge->first << " to "
+                  << edge->second << "."
                   << std::endl;
     }
 
@@ -423,13 +432,13 @@ Flow::printEdges()
 
     for (auto edge = m_inEdges.begin(); edge != m_inEdges.end(); edge++)
     {
-        std::cout << "    Edge " << std::hex << edge->first << " to " 
-                  << edge->second << "." 
+        std::cout << "    Edge " << std::hex << edge->first << " to "
+                  << edge->second << "."
                   << std::endl;
     }
 
 
-    std::cout << std::endl << "Post entry block: [" << m_postEntryBlock 
+    std::cout << std::endl << "Post entry block: [" << m_postEntryBlock
               << "]." << std::endl;
 
     std::cout << "Pre exit blocks: ";

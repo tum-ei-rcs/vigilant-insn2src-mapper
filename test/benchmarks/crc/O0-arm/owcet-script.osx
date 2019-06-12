@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes" ?>
+<otawa-script
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:xi="http://www.w3.org/2001/XInclude">
+
+
+<name>Generic WCET Computation</name>
+
+<info>
+This script proposes a generic approach to compute WCET. Mainly, this approach
+is based on IPET (Implicit Enumeration Technique) and is composed of:
+<ul>
+<li>support for L1 instruction cache if any (LRU replacement only),</li>
+<li>very basic support for L1 data cache if any (LRU replacement only),</li>
+<li>support for branch prediction by category if any,</li>
+<li>computation by execution graph of block timing.</li>
+</ul>
+
+If no processor configuration is given, a 5-level stage pipeline is considered.
+Other hardware components are optional and must be provided by the user expressed
+in the OTAWA XML formats.
+
+In addition to the pure WCET time in cycle, the user can request other information
+to be provided:
+<ul>
+<li>time and frequency by block,</li>
+<li>output of CFG used  by the calculation,</li>
+<li>dump in HTML of the produced ILP system of the IPET approach.</li>
+</ul>
+
+</info>
+
+<configuration>
+	<item name="pipeline" type="string" label="pipeline description file">
+		<help>Select the path of the pipeline description file to use.
+		If not configured, use a default 5-stage pipeline.</help>
+	</item>
+	<item name="cache" type="string" label="cache description file">
+		<help>Select the path of the cache description file to use.
+		If none is provided, the hardware is considered without caches.</help>
+	</item>
+	<item name="memory" type="string" label="memory description file">
+		<help>Select the path of the memory description file to use.
+		If none is provided, the memory is made of only one 32-bits bank with 10-cycles access.</help>
+	</item>
+	<item name="bbstats" type="bool" default="false" label="BB stat">
+		<help>Set to true, display statistics on execution time
+		and execution occurrence count of BBs.</help>
+	</item>
+	<item name="exportcfg" type="bool" default="true" label="CFG info">
+		<help>Set to true to save resulting CFG.</help>
+	</item>
+	<item name="draw" type="bool" default="true" label="dot">
+		<help>Set to true, to draw graphs at location given by graphdir.</help>
+	</item>
+	<item name="graphdir" type="string" default="graphs" label="where to output dot">
+		<help>Select the path where graphs are saved.</help>
+	</item>
+	<item name="inline" type="bool" default="true" label="CFG Virt">
+		<help>Turn CFG virtualization off.</help>
+	</item>
+</configuration>
+
+<platform>
+	<xi:include href="otawa-pipelineconfig.xml"/>
+	<xi:include href="otawa-memoryconfig.xml"/><!-- backing memory -->
+</platform>
+
+<script>
+	<!-- detailed description of ILP constraints -->
+	<config name="otawa::ipet::EXPLICIT" value="true"/>
+
+	<!-- cache persistence analysis settings (doesn't activate cache analysis) yet -->
+	<!--<config name="otawa::FIRSTMISS_LEVEL" value="FML_MULTI"/>--><!-- unsafe -->
+	<config name="otawa::FIRSTMISS_LEVEL" value="FML_NONE"/><!-- pessimistic, but safe -->
+	<!--<config name="otawa::FIRSTMISS_LEVEL" value="FML_OUTER"/>--><!-- unsafe -->
+	<!--<config name="otawa::FIRSTMISS_LEVEL" value="FML_INNER"/>--><!-- unsafe -->
+
+	<!-- for BB timing: time=#insn*depth -->
+	<config name="otawa::ipet::PIPELINE_DEPTH" value="1"/>
+
+	<!--<config name="otawa::SIMULATOR_NAME" value="arm2"/> --><!-- not working in this otawa version -->
+
+	<!-- dump platform config to HTML -->
+	<step processor="otawa::display::ConfigOutput"/>
+
+	<!-- OUTPUT: dump dot graphs before virtualization -->
+	<!--
+	<xsl:if test="$draw">
+		<step processor="otawa::display::CFGOutput">
+			<config name="otawa::display::CFGOutput::PATH" value="{$graphdir}"/>
+		</step>
+	</xsl:if>
+	-->
+
+	<!-- FLOW: virtual inlining: some functions may be unbounded w/o this (need more flow facts) -->
+	<config name="otawa::VIRTUAL_INLINING" value="{$inline}"/>
+	<step processor="otawa::Virtualizer"/>
+
+	<!-- BB Timing: either simulator or trivial one -->
+	<step processor="otawa::ipet::TrivialBBTime"/>
+	<!--<step processor="otawa::tsim::BBTimeSimulator"/>--><!-- ERROR: "no simulator available" -->
+
+	<!-- FLOW: value analysis -->
+	<!--<step require="otawa::clp::FEATURE"/>--><!-- circular linear progression analysis (register value ranges) -->
+
+	<!-- HW: branch predictor (modifies obj fcn. BUGGY: creates infeasible ILP system for adpcm) -->
+	<!--<step require="otawa::bpred::BRANCH_PREDICTION_FEATURE"/>-->
+
+	<!--<step processor="otawa::StackAnalysis"/>-->
+
+	<!-- HW: cache analysis -->
+	<!--<step require="otawa::ipet::INST_CACHE_SUPPORT_FEATURE"/>--><!-- this is a very simplistic Icache model, don't use -->
+	<!--<step require="otawa::etime::EDGE_TIME_FEATURE"/>--><!-- ensures that block cost has been computed according to the context of edges. -->
+	<!--<step require="otawa::ccg::CONSTRAINT_FEATURE"/>--><!-- older i-cache analysis method (CCG) -->
+	<!--<step require="otawa::ICACHE_CONSTRAINT2_FEATURE"/>--><!-- ensure instruction cache analysis constraints have been propagated to ILP // triggers MUST/MAY/PERS analysis -->
+	<!--<step require="otawa::dcache::CONSTRAINTS_FEATURE"/>--><!-- ensure data cache analysis constraints have been propagated to ILP -->
+
+	<!-- WCET: timing analysis -->
+	<step require="otawa::ipet::WCET_FEATURE"/>
+
+	<!-- OUTPUT: back-annotate counters to CFG -->
+	<step processor="otawa::ipet::WCETCountRecorder"/>
+
+	<!-- OUTPUT -->
+	<xsl:if test="$bbstats">
+		<step processor="otawa::BBRatioDisplayer"/>
+	</xsl:if>
+	<xsl:if test="$exportcfg">
+		<step processor="otawa::display::ILPSystemDisplayer"/> <!-- ILP with BB results, no edges, no addresses. html only. -->
+		<!--<step processor="otawa::CFGSaver"/> --><!-- XML stdout with BBs, no timing exec count -->
+		<step processor="otawa::cfgio::Output">
+			<config name="otawa::cfgio::Output::FILENAME" value="wcet.cfg"/>
+		</step>
+	</xsl:if>
+
+</script>
+
+</otawa-script>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<memory xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+	<banks>
+
+		<bank>
+			<name>ON-CHIP NON-VOLATILE MEMORY</name>
+			<address>0x00000000</address>
+				<size>0x80000</size>
+			<type>ROM</type>
+			<on_chip>true</on_chip>
+			<!-- in [1, 7] -->
+			<latency>0</latency>
+			<cached>true</cached>
+		</bank>
+
+		<bank>
+			<name>ON-CHIP STATIC RAM</name>
+			<address>0x40000000</address>
+			<size>0x8000</size>
+			<latency>1</latency>
+			<type>SPM</type>
+			<on_chip>true</on_chip>
+		</bank>
+
+		<bank>
+			<name>VPB PERIPHERALS</name>
+			<address>0xe0000000</address>
+			<size>0x10000000</size>
+			<type>IO</type>
+		</bank>
+
+		<bank>
+			<name>AHB PERIPHERALS</name>
+			<address>0xf0000000</address>
+			<size>0x10000000</size>
+			<type>IO</type>
+		</bank>
+	</banks>
+</memory>

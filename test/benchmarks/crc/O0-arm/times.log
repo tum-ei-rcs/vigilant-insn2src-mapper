@@ -1,0 +1,235 @@
+WARN: Symbol at 10af8 already has a name: __do_global_dtors_aux_fini_array_entry. Updating to __fini_array_start.
+WARN: Symbol at 10af8 already has a name: __fini_array_start. Updating to __init_array_end.
+WARN: Symbol at 10af0 already has a name: __init_array_start. Updating to __preinit_array_end.
+WARN: Symbol at 10af0 already has a name: __preinit_array_end. Updating to __preinit_array_start.
+WARN: Symbol at 8108 already has a name: _mainCRTStartup. Updating to _start.
+Loaded 21 symbols.
+Parsing trace post-mortem...
+Skipping trace line: WARNING:otawa::util::FlowFactLoader 1.4.1:no flow fact file for main.elf
+Skipping trace line: creating output: buffer_DE width = 1
+Skipping trace line: creating output: buffer_EX width = 1
+Skipping trace line:  - bank 'ON-CHIP NON-VOLATILE MEMORY': size=524288 B, latency=0, cached=true
+Skipping trace line:  - bank 'ON-CHIP STATIC RAM': size=32768 B, latency=1, cached=true
+Skipping trace line:  - bank 'VPB PERIPHERALS': size=268435456 B, latency=10, cached=true
+Skipping trace line:  - bank 'AHB PERIPHERALS': size=268435456 B, latency=10, cached=true
+Skipping trace line: Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_neg is deprecated use sc_sensitive << with neg() instead
+Skipping trace line: INFO: instruction queue FQ has in_ports = 1, out_ports = 1
+Skipping trace line: INFO: instruction queue buffer_DE has in_ports = 1, out_ports = 1
+Skipping trace line: INFO: instruction queue buffer_EX has in_ports = 1, out_ports = 1
+Skipping trace line: Info: (I804) /IEEE_Std_1666/deprecated: sc_sensitive_pos is deprecated use sc_sensitive << with pos() instead
+Skipping trace line: INFO: using generic in-order execution
+Skipping trace line: Starting at 00008108 (no info)
+Cycles: 0 (0 per second), stack=
+Skipping trace line: WARN: had lost track of BBs, recovered now.
+Skipping trace line: WARN: had lost track of BBs, recovered now.
+Skipping trace line: Dumping CFG to file sim.cfg
+Parsed 55098 lines
+{'0x8040': {'bcet': 9223372036854775807,
+            'count': 1,
+            'et': [],
+            'fun': '0x8040',
+            'lastcall': 55048,
+            'total': 0,
+            'total-self': 0,
+            'treturnedto': 55048,
+            'valid': True,
+            'wcet': 0},
+ '0x8060': {'bcet': 2,
+            'count': 1,
+            'et': [],
+            'fun': '0x8060',
+            'lastcall': 538,
+            'running': False,
+            'total': 2,
+            'total-self': 2,
+            'treturnedto': 538,
+            'valid': True,
+            'wcet': 2},
+ '__call_exitprocs': {'bcet': 89,
+                      'count': 1,
+                      'et': [],
+                      'fun': '__call_exitprocs',
+                      'lastcall': 54953,
+                      'running': False,
+                      'total': 89,
+                      'total-self': 54,
+                      'treturnedto': 55026,
+                      'valid': True,
+                      'wcet': 89},
+ '__do_global_dtors_aux': {'bcet': 13,
+                           'count': 1,
+                           'et': [],
+                           'fun': '__do_global_dtors_aux',
+                           'lastcall': 55002,
+                           'running': False,
+                           'total': 13,
+                           'total-self': 13,
+                           'treturnedto': 55002,
+                           'valid': True,
+                           'wcet': 13},
+ '__libc_fini_array': {'bcet': 35,
+                       'count': 1,
+                       'et': [],
+                       'fun': '__libc_fini_array',
+                       'lastcall': 54991,
+                       'running': False,
+                       'total': 35,
+                       'total-self': 16,
+                       'treturnedto': 55024,
+                       'valid': True,
+                       'wcet': 35},
+ '__libc_init_array': {'bcet': 9223372036854775807,
+                       'count': 1,
+                       'et': [],
+                       'fun': '__libc_init_array',
+                       'lastcall': 509,
+                       'total': 0,
+                       'total-self': 22,
+                       'treturnedto': 54948,
+                       'valid': True,
+                       'wcet': 0},
+ '__register_exitproc': {'bcet': 23,
+                         'count': 1,
+                         'et': [],
+                         'fun': '__register_exitproc',
+                         'lastcall': 483,
+                         'running': False,
+                         'total': 23,
+                         'total-self': 23,
+                         'treturnedto': 483,
+                         'valid': True,
+                         'wcet': 23},
+ '_fini': {'bcet': 6,
+           'count': 1,
+           'et': [],
+           'fun': '_fini',
+           'lastcall': 55018,
+           'running': False,
+           'total': 6,
+           'total-self': 6,
+           'treturnedto': 55018,
+           'valid': True,
+           'wcet': 6},
+ '_init': {'bcet': 6,
+           'count': 1,
+           'et': [],
+           'fun': '_init',
+           'lastcall': 520,
+           'running': False,
+           'total': 6,
+           'total-self': 6,
+           'treturnedto': 520,
+           'valid': True,
+           'wcet': 6},
+ 'atexit': {'bcet': 31,
+            'count': 1,
+            'et': [],
+            'fun': 'atexit',
+            'lastcall': 477,
+            'running': False,
+            'total': 31,
+            'total-self': 8,
+            'treturnedto': 506,
+            'valid': True,
+            'wcet': 31},
+ 'exit': {'bcet': 9223372036854775807,
+          'count': 1,
+          'et': [],
+          'fun': 'exit',
+          'lastcall': 54949,
+          'total': 0,
+          'total-self': 10,
+          'treturnedto': 55042,
+          'valid': True,
+          'wcet': 0},
+ 'frame_dummy': {'bcet': 12,
+                 'count': 1,
+                 'et': [],
+                 'fun': 'frame_dummy',
+                 'lastcall': 546,
+                 'running': False,
+                 'total': 12,
+                 'total-self': 12,
+                 'treturnedto': 546,
+                 'valid': True,
+                 'wcet': 12},
+ 'icrc': {'bcet': 1601,
+          'count': 2,
+          'et': [],
+          'fun': 'icrc',
+          'lastcall': 53341,
+          'running': False,
+          'total': 54337,
+          'total-self': 13377,
+          'treturnedto': 53341,
+          'valid': True,
+          'wcet': 52736},
+ 'icrc1': {'bcet': 140,
+           'count': 256,
+           'et': [],
+           'fun': 'icrc1',
+           'lastcall': 51610,
+           'running': False,
+           'total': 40960,
+           'total-self': 40960,
+           'treturnedto': 51610,
+           'valid': True,
+           'wcet': 180},
+ 'main': {'bcet': 54383,
+          'count': 1,
+          'et': [],
+          'fun': 'main',
+          'lastcall': 565,
+          'running': False,
+          'total': 54383,
+          'total-self': 46,
+          'treturnedto': 54942,
+          'valid': True,
+          'wcet': 54383},
+ 'memset': {'bcet': 425,
+            'count': 1,
+            'et': [],
+            'fun': 'memset',
+            'lastcall': 37,
+            'running': False,
+            'total': 425,
+            'total-self': 425,
+            'treturnedto': 37,
+            'valid': True,
+            'wcet': 425},
+ 'register_fini': {'bcet': 29,
+                   'count': 1,
+                   'et': [],
+                   'fun': 'register_fini',
+                   'lastcall': 533,
+                   'running': False,
+                   'total': 29,
+                   'total-self': 15,
+                   'treturnedto': 558,
+                   'valid': True,
+                   'wcet': 29}}
+Coverage by cycles:
+function                                  cycles        calls   percent
+main                                      54,383            1   98.79%
+icrc                                      54,337            2   98.71%
+icrc1                                     40,960          256   74.41%
+memset                                       425            1   0.77%
+__call_exitprocs                              89            1   0.16%
+__libc_fini_array                             35            1   0.06%
+atexit                                        31            1   0.06%
+register_fini                                 29            1   0.05%
+__register_exitproc                           23            1   0.04%
+__do_global_dtors_aux                         13            1   0.02%
+frame_dummy                                   12            1   0.02%
+_fini                                          6            1   0.01%
+_init                                          6            1   0.01%
+_exit                                          0            0   0.00%
+__preinit_array_start                          0            0   0.00%
+_start                                         0            0   0.00%
+__libc_init_array                              0            1   0.00%
+__init_array_end                               0            0   0.00%
+__frame_dummy_init_array_entry                 0            0   0.00%
+exit                                           0            1   0.00%
+__fini_array_end                               0            0   0.00%
+Total cycles: 55049
+Total time: 0.4s

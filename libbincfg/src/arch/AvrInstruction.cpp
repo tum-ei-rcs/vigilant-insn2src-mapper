@@ -5,8 +5,8 @@
  * @note The removed WORD "mnemonic" appears in e.g. debug sections, not really
  *       an instruction.
  */
-AvrInstruction::AvrInstruction(const DisasmInstruction& disInsn)
-    : Instruction(disInsn, true)
+AvrInstruction::AvrInstruction(const DisasmInstruction& disInsn, bool ignoreErrors)
+    : Instruction(disInsn, true, ignoreErrors)
 {
     assert(m_operands.size() <= 2 && "Invalid number of operands.");
 

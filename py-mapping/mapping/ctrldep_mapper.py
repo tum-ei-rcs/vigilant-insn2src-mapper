@@ -86,17 +86,8 @@ class CtrlDependencyMapper(AbstractMapper):
                 return deps_bin, deps_src
 
             f_map = dict()
+            f_map.update(fixed_points)
             log.info("Running ctrl-dep mapping on '{}'".format(btfg.name))
-
-            #############
-            # fix-points
-            #############
-            # Add known relations between entry and exit nodes of subgraphs & test for safety
-            if flag_isCondensed:
-                f_map[btfg.flow.entryId] = fixed_points[btfg.flow.entryId]
-                f_map[btfg.flow.exitId] = fixed_points[btfg.flow.exitId]
-            else:
-                f_map[btfg.loop_id] = stfg.loop_id
             log.debug("Fixed points={}".format(f_map.items()))
 
             #####################

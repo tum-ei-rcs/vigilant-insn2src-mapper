@@ -1,0 +1,693 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="0000821c" size="12" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="matmult.c" line="53">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="00008220" file="matmult.c" line="53">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="00008224" file="matmult.c" line="54">
+        <asm>bl 8248</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="00008228" size="16" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008228" file="matmult.c" line="61">
+        <asm>ldr r0, [pc, #12]</asm>
+      </inst>
+      <inst address="0000822c" file="matmult.c" line="61">
+        <asm>ldr r1, [pc, #12]</asm>
+      </inst>
+      <inst address="00008230" file="matmult.c" line="61">
+        <asm>ldr r2, [pc, #12]</asm>
+      </inst>
+      <inst address="00008234" file="matmult.c" line="61">
+        <asm>bl 826c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-3" address="00008238" size="4" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008238" file="matmult.c" line="62">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <exit id="_0-4"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="call" source="_0-1" called="_1"/>
+    <edge kind="not-taken" source="_0-1" target="_0-2"/>
+    <edge kind="call" source="_0-2" called="_2"/>
+    <edge kind="not-taken" source="_0-2" target="_0-3"/>
+    <edge kind="virtual" source="_0-3" target="_0-4"/>
+  </cfg>
+  <cfg id="_1" address="_1" label="InitSeed" number="1">
+    <property identifier="otawa::CALLED_BY">BB 1 (0000821c) -&gt; cfg(InitSeed) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (0000821c) -&gt; cfg(InitSeed) (call)</property>
+    <property identifier="otawa::INDEX">1</property>
+    <property identifier="otawa::LABEL">InitSeed</property>
+    <entry id="_1-0"/>
+    <bb id="_1-1" address="00008248" size="32" number="1">
+      <property identifier="otawa::ENTRY">InitSeed</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008248" file="matmult.c" line="69">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="0000824c" file="matmult.c" line="69">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008250" file="matmult.c" line="73">
+        <asm>ldr r3, [pc, #16]</asm>
+      </inst>
+      <inst address="00008254" file="matmult.c" line="73">
+        <asm>mov r2, #0</asm>
+      </inst>
+      <inst address="00008258" file="matmult.c" line="73">
+        <asm>str r2, [r3, #0]</asm>
+      </inst>
+      <inst address="0000825c" file="matmult.c" line="74">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="00008260" file="matmult.c" line="74">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="00008264" file="matmult.c" line="74">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_1-2"/>
+    <edge kind="virtual" source="_1-0" target="_1-1"/>
+    <edge kind="virtual" source="_1-1" target="_1-2"/>
+  </cfg>
+  <cfg id="_2" address="_2" label="Test" number="2">
+    <property identifier="otawa::CALLED_BY">BB 2 (00008228) -&gt; cfg(Test) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 2 (00008228) -&gt; cfg(Test) (call)</property>
+    <property identifier="otawa::INDEX">2</property>
+    <property identifier="otawa::LABEL">Test</property>
+    <entry id="_2-0"/>
+    <bb id="_2-1" address="0000826c" size="32" number="1">
+      <property identifier="otawa::ENTRY">Test</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000826c" file="matmult.c" line="82">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="00008270" file="matmult.c" line="82">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="00008274" file="matmult.c" line="82">
+        <asm>sub sp, sp, #16</asm>
+      </inst>
+      <inst address="00008278" file="matmult.c" line="82">
+        <asm>str r0, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000827c" file="matmult.c" line="82">
+        <asm>str r1, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008280" file="matmult.c" line="82">
+        <asm>str r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008284" file="matmult.c" line="88">
+        <asm>ldr r0, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008288" file="matmult.c" line="88">
+        <asm>bl 82ac</asm>
+      </inst>
+    </bb>
+    <bb id="_2-2" address="0000828c" size="8" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="0000828c" file="matmult.c" line="89">
+        <asm>ldr r0, [fp, #-12]</asm>
+      </inst>
+      <inst address="00008290" file="matmult.c" line="89">
+        <asm>bl 82ac</asm>
+      </inst>
+    </bb>
+    <bb id="_2-3" address="00008294" size="16" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008294" file="matmult.c" line="96">
+        <asm>ldr r0, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008298" file="matmult.c" line="96">
+        <asm>ldr r1, [fp, #-12]</asm>
+      </inst>
+      <inst address="0000829c" file="matmult.c" line="96">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082a0" file="matmult.c" line="96">
+        <asm>bl 83c0</asm>
+      </inst>
+    </bb>
+    <bb id="_2-4" address="000082a4" size="8" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="000082a4" file="matmult.c" line="105">
+        <asm>sub sp, fp, #4</asm>
+      </inst>
+      <inst address="000082a8" file="matmult.c" line="105">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <exit id="_2-5"/>
+    <edge kind="virtual" source="_2-0" target="_2-1"/>
+    <edge kind="call" source="_2-1" called="_3"/>
+    <edge kind="not-taken" source="_2-1" target="_2-2"/>
+    <edge kind="call" source="_2-2" called="_3"/>
+    <edge kind="not-taken" source="_2-2" target="_2-3"/>
+    <edge kind="call" source="_2-3" called="_4"/>
+    <edge kind="not-taken" source="_2-3" target="_2-4"/>
+    <edge kind="virtual" source="_2-4" target="_2-5"/>
+  </cfg>
+  <cfg id="_3" address="_3" label="Initialize" number="3">
+    <property identifier="otawa::CALLED_BY">BB 1 (0000826c) -&gt; cfg(Initialize) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (0000826c) -&gt; cfg(Initialize) (call)</property>
+    <property identifier="otawa::INDEX">3</property>
+    <property identifier="otawa::LABEL">Initialize</property>
+    <entry id="_3-0"/>
+    <bb id="_3-1" address="000082ac" size="28" number="1">
+      <property identifier="otawa::ENTRY">Initialize</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000082ac" file="matmult.c" line="112">
+        <asm>stmdb sp!, {r4, fp, lr}</asm>
+      </inst>
+      <inst address="000082b0" file="matmult.c" line="112">
+        <asm>add fp, sp, #8</asm>
+      </inst>
+      <inst address="000082b4" file="matmult.c" line="112">
+        <asm>sub sp, sp, #20</asm>
+      </inst>
+      <inst address="000082b8" file="matmult.c" line="112">
+        <asm>str r0, [fp, #-24]</asm>
+      </inst>
+      <inst address="000082bc" file="matmult.c" line="115">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000082c0" file="matmult.c" line="115">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082c4" file="matmult.c" line="115">
+        <asm>b 8328</asm>
+      </inst>
+    </bb>
+    <bb id="_3-2" address="00008328" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008328" file="matmult.c" line="115">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000832c" file="matmult.c" line="115">
+        <asm>cmp r3, #19</asm>
+      </inst>
+      <inst address="00008330" file="matmult.c" line="115">
+        <asm>ble 1000082c8</asm>
+      </inst>
+    </bb>
+    <bb id="_3-3" address="00008334" size="8" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008334" file="matmult.c" line="118">
+        <asm>sub sp, fp, #8</asm>
+      </inst>
+      <inst address="00008338" file="matmult.c" line="118">
+        <asm>ldmia sp!, {r4, fp, pc}</asm>
+      </inst>
+    </bb>
+    <bb id="_3-4" address="000082c8" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="000082c8" file="matmult.c" line="116">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="000082cc" file="matmult.c" line="116">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="000082d0" file="matmult.c" line="116">
+        <asm>b 8310</asm>
+      </inst>
+    </bb>
+    <bb id="_3-5" address="00008310" size="12" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008310" file="matmult.c" line="116">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008314" file="matmult.c" line="116">
+        <asm>cmp r3, #19</asm>
+      </inst>
+      <inst address="00008318" file="matmult.c" line="116">
+        <asm>ble 1000082d4</asm>
+      </inst>
+    </bb>
+    <bb id="_3-6" address="0000831c" size="12" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="0000831c" file="matmult.c" line="115">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008320" file="matmult.c" line="115">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008324" file="matmult.c" line="115">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+    </bb>
+    <bb id="_3-7" address="000082d4" size="36" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="000082d4" file="matmult.c" line="117">
+        <asm>ldr r2, [fp, #-16]</asm>
+      </inst>
+      <inst address="000082d8" file="matmult.c" line="117">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000082dc" file="matmult.c" line="117">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000082e0" file="matmult.c" line="117">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000082e4" file="matmult.c" line="117">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="000082e8" file="matmult.c" line="117">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="000082ec" file="matmult.c" line="117">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="000082f0" file="matmult.c" line="117">
+        <asm>add r4, r3, r2</asm>
+      </inst>
+      <inst address="000082f4" file="matmult.c" line="117">
+        <asm>bl 833c</asm>
+      </inst>
+    </bb>
+    <bb id="_3-8" address="000082f8" size="24" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="000082f8" file="matmult.c" line="117">
+        <asm>mov r2, r0</asm>
+      </inst>
+      <inst address="000082fc" file="matmult.c" line="117">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008300" file="matmult.c" line="117">
+        <asm>str r2, [r4, r3, lsl #2]</asm>
+      </inst>
+      <inst address="00008304" file="matmult.c" line="116">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="00008308" file="matmult.c" line="116">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="0000830c" file="matmult.c" line="116">
+        <asm>str r3, [fp, #-20]</asm>
+      </inst>
+    </bb>
+    <exit id="_3-9"/>
+    <edge kind="virtual" source="_3-0" target="_3-1"/>
+    <edge kind="taken" source="_3-1" target="_3-2"/>
+    <edge kind="taken" source="_3-2" target="_3-4"/>
+    <edge kind="not-taken" source="_3-2" target="_3-3"/>
+    <edge kind="virtual" source="_3-3" target="_3-9"/>
+    <edge kind="taken" source="_3-4" target="_3-5"/>
+    <edge kind="taken" source="_3-5" target="_3-7"/>
+    <edge kind="not-taken" source="_3-5" target="_3-6"/>
+    <edge kind="not-taken" source="_3-6" target="_3-2"/>
+    <edge kind="call" source="_3-7" called="_5"/>
+    <edge kind="not-taken" source="_3-7" target="_3-8"/>
+    <edge kind="not-taken" source="_3-8" target="_3-5"/>
+  </cfg>
+  <cfg id="_4" address="_4" label="Multiply" number="4">
+    <property identifier="otawa::CALLED_BY">BB 3 (00008294) -&gt; cfg(Multiply) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 3 (00008294) -&gt; cfg(Multiply) (call)</property>
+    <property identifier="otawa::INDEX">4</property>
+    <property identifier="otawa::LABEL">Multiply</property>
+    <entry id="_4-0"/>
+    <bb id="_4-1" address="000083c0" size="32" number="1">
+      <property identifier="otawa::ENTRY">Multiply</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000083c0" file="matmult.c" line="151">
+        <asm>stmdb sp!, {r4, r5, r6, fp}</asm>
+      </inst>
+      <inst address="000083c4" file="matmult.c" line="151">
+        <asm>add fp, sp, #12</asm>
+      </inst>
+      <inst address="000083c8" file="matmult.c" line="151">
+        <asm>sub sp, sp, #16</asm>
+      </inst>
+      <inst address="000083cc" file="matmult.c" line="151">
+        <asm>str r0, [fp, #-16]</asm>
+      </inst>
+      <inst address="000083d0" file="matmult.c" line="151">
+        <asm>str r1, [fp, #-20]</asm>
+      </inst>
+      <inst address="000083d4" file="matmult.c" line="151">
+        <asm>str r2, [fp, #-24]</asm>
+      </inst>
+      <inst address="000083d8" file="matmult.c" line="154">
+        <asm>mov r5, #0</asm>
+      </inst>
+      <inst address="000083dc" file="matmult.c" line="154">
+        <asm>b 84cc</asm>
+      </inst>
+    </bb>
+    <bb id="_4-2" address="000084cc" size="8" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000084cc" file="matmult.c" line="154">
+        <asm>cmp r5, #19</asm>
+      </inst>
+      <inst address="000084d0" file="matmult.c" line="154">
+        <asm>ble 1000083e0</asm>
+      </inst>
+    </bb>
+    <bb id="_4-3" address="000084d4" size="12" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="000084d4" file="matmult.c" line="162">
+        <asm>sub sp, fp, #12</asm>
+      </inst>
+      <inst address="000084d8" file="matmult.c" line="162">
+        <asm>ldmia sp!, {r4, r5, r6, fp}</asm>
+      </inst>
+      <inst address="000084dc" file="matmult.c" line="162">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_4-4" address="000083e0" size="8" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="000083e0" file="matmult.c" line="155">
+        <asm>mov r4, #0</asm>
+      </inst>
+      <inst address="000083e4" file="matmult.c" line="155">
+        <asm>b 84c0</asm>
+      </inst>
+    </bb>
+    <bb id="_4-5" address="000084c0" size="8" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="000084c0" file="matmult.c" line="155">
+        <asm>cmp r4, #19</asm>
+      </inst>
+      <inst address="000084c4" file="matmult.c" line="155">
+        <asm>ble 1000083e8</asm>
+      </inst>
+    </bb>
+    <bb id="_4-6" address="000084c8" size="4" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="000084c8" file="matmult.c" line="154">
+        <asm>add r5, r5, #1</asm>
+      </inst>
+    </bb>
+    <bb id="_4-7" address="000083e8" size="48" number="7">
+      <property identifier="otawa::INDEX">7</property>
+      <inst address="000083e8" file="matmult.c" line="157">
+        <asm>mov r2, r5</asm>
+      </inst>
+      <inst address="000083ec" file="matmult.c" line="157">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="000083f0" file="matmult.c" line="157">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="000083f4" file="matmult.c" line="157">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="000083f8" file="matmult.c" line="157">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="000083fc" file="matmult.c" line="157">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="00008400" file="matmult.c" line="157">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008404" file="matmult.c" line="157">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008408" file="matmult.c" line="157">
+        <asm>mov r2, #0</asm>
+      </inst>
+      <inst address="0000840c" file="matmult.c" line="157">
+        <asm>str r2, [r3, r4, lsl #2]</asm>
+      </inst>
+      <inst address="00008410" file="matmult.c" line="158">
+        <asm>mov r6, #0</asm>
+      </inst>
+      <inst address="00008414" file="matmult.c" line="158">
+        <asm>b 84b4</asm>
+      </inst>
+    </bb>
+    <bb id="_4-8" address="000084b4" size="8" number="8">
+      <property identifier="otawa::INDEX">8</property>
+      <inst address="000084b4" file="matmult.c" line="158">
+        <asm>cmp r6, #19</asm>
+      </inst>
+      <inst address="000084b8" file="matmult.c" line="158">
+        <asm>ble 100008418</asm>
+      </inst>
+    </bb>
+    <bb id="_4-9" address="000084bc" size="4" number="9">
+      <property identifier="otawa::INDEX">9</property>
+      <inst address="000084bc" file="matmult.c" line="155">
+        <asm>add r4, r4, #1</asm>
+      </inst>
+    </bb>
+    <bb id="_4-10" address="00008418" size="156" number="10">
+      <property identifier="otawa::INDEX">10</property>
+      <inst address="00008418" file="matmult.c" line="159">
+        <asm>mov r2, r5</asm>
+      </inst>
+      <inst address="0000841c" file="matmult.c" line="159">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008420" file="matmult.c" line="159">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008424" file="matmult.c" line="159">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008428" file="matmult.c" line="159">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="0000842c" file="matmult.c" line="159">
+        <asm>mov r2, r3</asm>
+      </inst>
+      <inst address="00008430" file="matmult.c" line="159">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008434" file="matmult.c" line="159">
+        <asm>add r2, r3, r2</asm>
+      </inst>
+      <inst address="00008438" file="matmult.c" line="159">
+        <asm>mov r1, r5</asm>
+      </inst>
+      <inst address="0000843c" file="matmult.c" line="159">
+        <asm>mov r3, r1</asm>
+      </inst>
+      <inst address="00008440" file="matmult.c" line="159">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008444" file="matmult.c" line="159">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="00008448" file="matmult.c" line="159">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="0000844c" file="matmult.c" line="159">
+        <asm>mov r1, r3</asm>
+      </inst>
+      <inst address="00008450" file="matmult.c" line="159">
+        <asm>ldr r3, [fp, #-24]</asm>
+      </inst>
+      <inst address="00008454" file="matmult.c" line="159">
+        <asm>add r3, r3, r1</asm>
+      </inst>
+      <inst address="00008458" file="matmult.c" line="159">
+        <asm>ldr r1, [r3, r4, lsl #2]</asm>
+      </inst>
+      <inst address="0000845c" file="matmult.c" line="160">
+        <asm>mov r0, r5</asm>
+      </inst>
+      <inst address="00008460" file="matmult.c" line="160">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00008464" file="matmult.c" line="160">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008468" file="matmult.c" line="160">
+        <asm>add r3, r3, r0</asm>
+      </inst>
+      <inst address="0000846c" file="matmult.c" line="160">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="00008470" file="matmult.c" line="160">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00008474" file="matmult.c" line="160">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008478" file="matmult.c" line="160">
+        <asm>add r3, r3, r0</asm>
+      </inst>
+      <inst address="0000847c" file="matmult.c" line="160">
+        <asm>ldr r0, [r3, r6, lsl #2]</asm>
+      </inst>
+      <inst address="00008480" file="matmult.c" line="160">
+        <asm>mov ip, r6</asm>
+      </inst>
+      <inst address="00008484" file="matmult.c" line="160">
+        <asm>mov r3, ip</asm>
+      </inst>
+      <inst address="00008488" file="matmult.c" line="160">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000848c" file="matmult.c" line="160">
+        <asm>add r3, r3, ip</asm>
+      </inst>
+      <inst address="00008490" file="matmult.c" line="160">
+        <asm>mov r3, r3, lsl #4</asm>
+      </inst>
+      <inst address="00008494" file="matmult.c" line="160">
+        <asm>mov ip, r3</asm>
+      </inst>
+      <inst address="00008498" file="matmult.c" line="160">
+        <asm>ldr r3, [fp, #-20]</asm>
+      </inst>
+      <inst address="0000849c" file="matmult.c" line="160">
+        <asm>add r3, r3, ip</asm>
+      </inst>
+      <inst address="000084a0" file="matmult.c" line="160">
+        <asm>ldr r3, [r3, r4, lsl #2]</asm>
+      </inst>
+      <inst address="000084a4" file="matmult.c" line="160">
+        <asm>mul r3, r0, r3</asm>
+      </inst>
+      <inst address="000084a8" file="matmult.c" line="159">
+        <asm>add r3, r1, r3</asm>
+      </inst>
+      <inst address="000084ac" file="matmult.c" line="159">
+        <asm>str r3, [r2, r4, lsl #2]</asm>
+      </inst>
+      <inst address="000084b0" file="matmult.c" line="158">
+        <asm>add r6, r6, #1</asm>
+      </inst>
+    </bb>
+    <exit id="_4-11"/>
+    <edge kind="virtual" source="_4-0" target="_4-1"/>
+    <edge kind="taken" source="_4-1" target="_4-2"/>
+    <edge kind="taken" source="_4-2" target="_4-4"/>
+    <edge kind="not-taken" source="_4-2" target="_4-3"/>
+    <edge kind="virtual" source="_4-3" target="_4-11"/>
+    <edge kind="taken" source="_4-4" target="_4-5"/>
+    <edge kind="taken" source="_4-5" target="_4-7"/>
+    <edge kind="not-taken" source="_4-5" target="_4-6"/>
+    <edge kind="not-taken" source="_4-6" target="_4-2"/>
+    <edge kind="taken" source="_4-7" target="_4-8"/>
+    <edge kind="taken" source="_4-8" target="_4-10"/>
+    <edge kind="not-taken" source="_4-8" target="_4-9"/>
+    <edge kind="not-taken" source="_4-9" target="_4-5"/>
+    <edge kind="not-taken" source="_4-10" target="_4-8"/>
+  </cfg>
+  <cfg id="_5" address="_5" label="RandomInteger" number="5">
+    <property identifier="otawa::CALLED_BY">BB 7 (000082d4) -&gt; cfg(RandomInteger) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 7 (000082d4) -&gt; cfg(RandomInteger) (call)</property>
+    <property identifier="otawa::INDEX">5</property>
+    <property identifier="otawa::LABEL">RandomInteger</property>
+    <entry id="_5-0"/>
+    <bb id="_5-1" address="0000833c" size="124" number="1">
+      <property identifier="otawa::ENTRY">RandomInteger</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000833c" file="matmult.c" line="125">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00008340" file="matmult.c" line="125">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008344" file="matmult.c" line="126">
+        <asm>ldr r3, [pc, #108]</asm>
+      </inst>
+      <inst address="00008348" file="matmult.c" line="126">
+        <asm>ldr r2, [r3, #0]</asm>
+      </inst>
+      <inst address="0000834c" file="matmult.c" line="126">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="00008350" file="matmult.c" line="126">
+        <asm>mov r3, r3, lsl #5</asm>
+      </inst>
+      <inst address="00008354" file="matmult.c" line="126">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008358" file="matmult.c" line="126">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="0000835c" file="matmult.c" line="126">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="00008360" file="matmult.c" line="126">
+        <asm>add r1, r3, #81</asm>
+      </inst>
+      <inst address="00008364" file="matmult.c" line="126">
+        <asm>ldr r3, [pc, #80]</asm>
+      </inst>
+      <inst address="00008368" file="matmult.c" line="126">
+        <asm>smull r2,r3,r1,r3</asm>
+      </inst>
+      <inst address="0000836c" file="matmult.c" line="126">
+        <asm>mov r2, r3, asr #9</asm>
+      </inst>
+      <inst address="00008370" file="matmult.c" line="126">
+        <asm>mov r3, r1, asr #31</asm>
+      </inst>
+      <inst address="00008374" file="matmult.c" line="126">
+        <asm>rsb r2, r3, r2</asm>
+      </inst>
+      <inst address="00008378" file="matmult.c" line="126">
+        <asm>mov r3, r2</asm>
+      </inst>
+      <inst address="0000837c" file="matmult.c" line="126">
+        <asm>mov r3, r3, lsl #6</asm>
+      </inst>
+      <inst address="00008380" file="matmult.c" line="126">
+        <asm>rsb r3, r2, r3</asm>
+      </inst>
+      <inst address="00008384" file="matmult.c" line="126">
+        <asm>mov r3, r3, lsl #2</asm>
+      </inst>
+      <inst address="00008388" file="matmult.c" line="126">
+        <asm>add r3, r3, r2</asm>
+      </inst>
+      <inst address="0000838c" file="matmult.c" line="126">
+        <asm>mov r3, r3, lsl #5</asm>
+      </inst>
+      <inst address="00008390" file="matmult.c" line="126">
+        <asm>rsb r3, r2, r3</asm>
+      </inst>
+      <inst address="00008394" file="matmult.c" line="126">
+        <asm>rsb r2, r3, r1</asm>
+      </inst>
+      <inst address="00008398" file="matmult.c" line="126">
+        <asm>ldr r3, [pc, #24]</asm>
+      </inst>
+      <inst address="0000839c" file="matmult.c" line="126">
+        <asm>str r2, [r3, #0]</asm>
+      </inst>
+      <inst address="000083a0" file="matmult.c" line="127">
+        <asm>ldr r3, [pc, #16]</asm>
+      </inst>
+      <inst address="000083a4" file="matmult.c" line="127">
+        <asm>ldr r3, [r3, #0]</asm>
+      </inst>
+      <inst address="000083a8" file="matmult.c" line="128">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000083ac" file="matmult.c" line="128">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="000083b0" file="matmult.c" line="128">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="000083b4" file="matmult.c" line="128">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <exit id="_5-2"/>
+    <edge kind="virtual" source="_5-0" target="_5-1"/>
+    <edge kind="virtual" source="_5-1" target="_5-2"/>
+  </cfg>
+</cfg-collection>

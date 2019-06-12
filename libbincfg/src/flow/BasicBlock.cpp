@@ -23,12 +23,12 @@ BasicBlock::addAddrRange(uint64_t startAddr, uint64_t endAddr)
 /**
  * @brief Trims the block up to the specified location, returns a vector
  *        of address ranges that were trimmed (new block @[trimAddr:end))
- * 
- * 
+ *
+ *
  * @param trimAddr The address where the trimming starts.
  * @param insnSize Size of the instruction preceding the trim location.
- * 
- * @return std::vector<AddrRangePair> Trimmed address ranges. 
+ *
+ * @return std::vector<AddrRangePair> Trimmed address ranges.
  */
 std::vector<AddrRangePair>
 BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHint)
@@ -38,7 +38,7 @@ BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHin
     auto startIt = m_addrRanges.begin();
 
     if (rangeHint > 0 && rangeHint < m_addrRanges.size() &&
-        (trimAddr >= m_addrRanges[rangeHint].first && 
+        (trimAddr >= m_addrRanges[rangeHint].first &&
          trimAddr <= m_addrRanges[rangeHint].second))
     {
         std::advance(startIt, rangeHint);
@@ -52,7 +52,7 @@ BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHin
             rangeIt = it;
             break;
         }
-        
+
         if (trimAddr > it->first && trimAddr <= it->second) {
             trimmedAddrRanges.push_back(std::make_pair(trimAddr, it->second));
             it->second = trimAddr - insnSize;
@@ -60,18 +60,18 @@ BasicBlock::trimBlock(uint64_t trimAddr, uint64_t insnSize, std::size_t rangeHin
             break;
         }
     }
-    
+
     // Erase the remaining address ranges and push them to trimmedAddrRanges
-    // FIXME: Don't erase this way in a vector, unnecessary movement of 
+    // FIXME: Don't erase this way in a vector, unnecessary movement of
     //        all elements after iterator.
     while (rangeIt != m_addrRanges.end())
     {
         trimmedAddrRanges.push_back(*rangeIt);
         rangeIt = m_addrRanges.erase(rangeIt);
     }
-    
+
     return trimmedAddrRanges;
-} 
+}
 
 
 std::size_t
@@ -85,6 +85,19 @@ EBBlockType
 BasicBlock::getType() const
 {
     return m_type;
+}
+
+
+std::string
+BasicBlock::getTypeString() const {
+    switch (m_type) {
+        case EBBlockType::NORMAL:
+            return "Normal";
+        case EBBlockType::CALL:
+            return "Call";
+        default:
+            return "OTHER";
+    }
 }
 
 

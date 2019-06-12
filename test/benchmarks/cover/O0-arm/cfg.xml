@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cfg-collection>
+  <cfg id="_0" address="_0" label="main" number="0">
+    <property identifier="otawa::INDEX">0</property>
+    <property identifier="otawa::LABEL">main</property>
+    <entry id="_0-0"/>
+    <bb id="_0-1" address="0000922c" size="32" number="1">
+      <property identifier="otawa::ENTRY">main</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000922c" file="cover.c" line="227">
+        <asm>stmdb sp!, {fp, lr}</asm>
+      </inst>
+      <inst address="00009230" file="cover.c" line="227">
+        <asm>add fp, sp, #4</asm>
+      </inst>
+      <inst address="00009234" file="cover.c" line="227">
+        <asm>sub sp, sp, #8</asm>
+      </inst>
+      <inst address="00009238" file="cover.c" line="228">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="0000923c" file="cover.c" line="228">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009240" file="cover.c" line="230">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009244" file="cover.c" line="230">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00009248" file="cover.c" line="230">
+        <asm>bl 1000090fc</asm>
+      </inst>
+    </bb>
+    <bb id="_0-2" address="0000924c" size="20" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="0000924c" file="cover.c" line="230">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00009250" file="cover.c" line="230">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009254" file="cover.c" line="231">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009258" file="cover.c" line="231">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="0000925c" file="cover.c" line="231">
+        <asm>bl 100008be4</asm>
+      </inst>
+    </bb>
+    <bb id="_0-3" address="00009260" size="20" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00009260" file="cover.c" line="231">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00009264" file="cover.c" line="231">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009268" file="cover.c" line="232">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000926c" file="cover.c" line="232">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00009270" file="cover.c" line="232">
+        <asm>bl 10000821c</asm>
+      </inst>
+    </bb>
+    <bb id="_0-4" address="00009274" size="24" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00009274" file="cover.c" line="232">
+        <asm>mov r3, r0</asm>
+      </inst>
+      <inst address="00009278" file="cover.c" line="232">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000927c" file="cover.c" line="236">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009280" file="cover.c" line="238">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00009284" file="cover.c" line="238">
+        <asm>sub sp, fp, #4</asm>
+      </inst>
+      <inst address="00009288" file="cover.c" line="238">
+        <asm>ldmia sp!, {fp, pc}</asm>
+      </inst>
+    </bb>
+    <exit id="_0-5"/>
+    <edge kind="virtual" source="_0-0" target="_0-1"/>
+    <edge kind="call" source="_0-1" called="_1"/>
+    <edge kind="not-taken" source="_0-1" target="_0-2"/>
+    <edge kind="call" source="_0-2" called="_2"/>
+    <edge kind="not-taken" source="_0-2" target="_0-3"/>
+    <edge kind="call" source="_0-3" called="_3"/>
+    <edge kind="not-taken" source="_0-3" target="_0-4"/>
+    <edge kind="virtual" source="_0-4" target="_0-5"/>
+  </cfg>
+  <cfg id="_1" address="_1" label="swi10" number="1">
+    <property identifier="otawa::CALLED_BY">BB 1 (0000922c) -&gt; cfg(swi10) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 1 (0000922c) -&gt; cfg(swi10) (call)</property>
+    <property identifier="otawa::INDEX">1</property>
+    <property identifier="otawa::LABEL">swi10</property>
+    <entry id="_1-0"/>
+    <bb id="_1-1" address="000090fc" size="28" number="1">
+      <property identifier="otawa::ENTRY">swi10</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="000090fc" file="cover.c" line="206">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00009100" file="cover.c" line="206">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00009104" file="cover.c" line="206">
+        <asm>sub sp, sp, #20</asm>
+      </inst>
+      <inst address="00009108" file="cover.c" line="206">
+        <asm>str r0, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000910c" file="cover.c" line="208">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00009110" file="cover.c" line="208">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009114" file="cover.c" line="208">
+        <asm>b 920c</asm>
+      </inst>
+    </bb>
+    <bb id="_1-2" address="0000920c" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="0000920c" file="cover.c" line="208">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009210" file="cover.c" line="208">
+        <asm>cmp r3, #9</asm>
+      </inst>
+      <inst address="00009214" file="cover.c" line="208">
+        <asm>ble 100009118</asm>
+      </inst>
+    </bb>
+    <bb id="_1-3" address="00009218" size="20" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00009218" file="cover.c" line="223">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000921c" file="cover.c" line="224">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00009220" file="cover.c" line="224">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="00009224" file="cover.c" line="224">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="00009228" file="cover.c" line="224">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_1-4" address="00009118" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00009118" file="cover.c" line="209">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000911c" file="cover.c" line="209">
+        <asm>cmp r3, #9</asm>
+      </inst>
+      <inst address="00009120" file="cover.c" line="209">
+        <asm>ldrls pc, [pc, r3, lsl #2]</asm>
+      </inst>
+    </bb>
+    <bb id="_1-5" address="00009124" size="4" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00009124" file="cover.c" line="209">
+        <asm>b 91f0</asm>
+      </inst>
+    </bb>
+    <bb id="_1-6" address="000091f0" size="28" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="000091f0" file="cover.c" line="220">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000091f4" file="cover.c" line="220">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000091f8" file="cover.c" line="220">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000091fc" file="cover.c" line="220">
+        <asm>mov r0, r0</asm>
+      </inst>
+      <inst address="00009200" file="cover.c" line="208">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00009204" file="cover.c" line="208">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00009208" file="cover.c" line="208">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <exit id="_1-7"/>
+    <edge kind="virtual" source="_1-0" target="_1-1"/>
+    <edge kind="taken" source="_1-1" target="_1-2"/>
+    <edge kind="taken" source="_1-2" target="_1-4"/>
+    <edge kind="not-taken" source="_1-2" target="_1-3"/>
+    <edge kind="virtual" source="_1-3" target="_1-7"/>
+    <edge kind="not-taken" source="_1-4" target="_1-5"/>
+    <edge kind="taken" source="_1-5" target="_1-6"/>
+    <edge kind="not-taken" source="_1-6" target="_1-2"/>
+  </cfg>
+  <cfg id="_2" address="_2" label="swi50" number="2">
+    <property identifier="otawa::CALLED_BY">BB 2 (0000924c) -&gt; cfg(swi50) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 2 (0000924c) -&gt; cfg(swi50) (call)</property>
+    <property identifier="otawa::INDEX">2</property>
+    <property identifier="otawa::LABEL">swi50</property>
+    <entry id="_2-0"/>
+    <bb id="_2-1" address="00008be4" size="28" number="1">
+      <property identifier="otawa::ENTRY">swi50</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="00008be4" file="cover.c" line="134">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00008be8" file="cover.c" line="134">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008bec" file="cover.c" line="134">
+        <asm>sub sp, sp, #20</asm>
+      </inst>
+      <inst address="00008bf0" file="cover.c" line="134">
+        <asm>str r0, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008bf4" file="cover.c" line="136">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008bf8" file="cover.c" line="136">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008bfc" file="cover.c" line="136">
+        <asm>b 90dc</asm>
+      </inst>
+    </bb>
+    <bb id="_2-2" address="000090dc" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="000090dc" file="cover.c" line="136">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000090e0" file="cover.c" line="136">
+        <asm>cmp r3, #49</asm>
+      </inst>
+      <inst address="000090e4" file="cover.c" line="136">
+        <asm>ble 100008c00</asm>
+      </inst>
+    </bb>
+    <bb id="_2-3" address="000090e8" size="20" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="000090e8" file="cover.c" line="201">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000090ec" file="cover.c" line="202">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="000090f0" file="cover.c" line="202">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="000090f4" file="cover.c" line="202">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="000090f8" file="cover.c" line="202">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_2-4" address="00008c00" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008c00" file="cover.c" line="137">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008c04" file="cover.c" line="137">
+        <asm>cmp r3, #59</asm>
+      </inst>
+      <inst address="00008c08" file="cover.c" line="137">
+        <asm>ldrls pc, [pc, r3, lsl #2]</asm>
+      </inst>
+    </bb>
+    <bb id="_2-5" address="00008c0c" size="4" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008c0c" file="cover.c" line="137">
+        <asm>b 90c0</asm>
+      </inst>
+    </bb>
+    <bb id="_2-6" address="000090c0" size="28" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="000090c0" file="cover.c" line="198">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000090c4" file="cover.c" line="198">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="000090c8" file="cover.c" line="198">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="000090cc" file="cover.c" line="198">
+        <asm>mov r0, r0</asm>
+      </inst>
+      <inst address="000090d0" file="cover.c" line="136">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="000090d4" file="cover.c" line="136">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="000090d8" file="cover.c" line="136">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <exit id="_2-7"/>
+    <edge kind="virtual" source="_2-0" target="_2-1"/>
+    <edge kind="taken" source="_2-1" target="_2-2"/>
+    <edge kind="taken" source="_2-2" target="_2-4"/>
+    <edge kind="not-taken" source="_2-2" target="_2-3"/>
+    <edge kind="virtual" source="_2-3" target="_2-7"/>
+    <edge kind="not-taken" source="_2-4" target="_2-5"/>
+    <edge kind="taken" source="_2-5" target="_2-6"/>
+    <edge kind="not-taken" source="_2-6" target="_2-2"/>
+  </cfg>
+  <cfg id="_3" address="_3" label="swi120" number="3">
+    <property identifier="otawa::CALLED_BY">BB 3 (00009260) -&gt; cfg(swi120) (call)</property>
+    <property identifier="otawa::CALLED_BY">BB 3 (00009260) -&gt; cfg(swi120) (call)</property>
+    <property identifier="otawa::INDEX">3</property>
+    <property identifier="otawa::LABEL">swi120</property>
+    <entry id="_3-0"/>
+    <bb id="_3-1" address="0000821c" size="28" number="1">
+      <property identifier="otawa::ENTRY">swi120</property>
+      <property identifier="otawa::INDEX">1</property>
+      <inst address="0000821c" file="cover.c" line="2">
+        <asm>str fp, [sp, #-4]!</asm>
+      </inst>
+      <inst address="00008220" file="cover.c" line="2">
+        <asm>add fp, sp, #0</asm>
+      </inst>
+      <inst address="00008224" file="cover.c" line="2">
+        <asm>sub sp, sp, #20</asm>
+      </inst>
+      <inst address="00008228" file="cover.c" line="2">
+        <asm>str r0, [fp, #-16]</asm>
+      </inst>
+      <inst address="0000822c" file="cover.c" line="4">
+        <asm>mov r3, #0</asm>
+      </inst>
+      <inst address="00008230" file="cover.c" line="4">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008234" file="cover.c" line="4">
+        <asm>b 8bc4</asm>
+      </inst>
+    </bb>
+    <bb id="_3-2" address="00008bc4" size="12" number="2">
+      <property identifier="otawa::INDEX">2</property>
+      <inst address="00008bc4" file="cover.c" line="4">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008bc8" file="cover.c" line="4">
+        <asm>cmp r3, #119</asm>
+      </inst>
+      <inst address="00008bcc" file="cover.c" line="4">
+        <asm>ble 100008238</asm>
+      </inst>
+    </bb>
+    <bb id="_3-3" address="00008bd0" size="20" number="3">
+      <property identifier="otawa::INDEX">3</property>
+      <inst address="00008bd0" file="cover.c" line="129">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008bd4" file="cover.c" line="130">
+        <asm>mov r0, r3</asm>
+      </inst>
+      <inst address="00008bd8" file="cover.c" line="130">
+        <asm>sub sp, fp, #0</asm>
+      </inst>
+      <inst address="00008bdc" file="cover.c" line="130">
+        <asm>ldr fp, [sp], #4</asm>
+      </inst>
+      <inst address="00008be0" file="cover.c" line="130">
+        <asm>bx lr</asm>
+      </inst>
+    </bb>
+    <bb id="_3-4" address="00008238" size="12" number="4">
+      <property identifier="otawa::INDEX">4</property>
+      <inst address="00008238" file="cover.c" line="5">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="0000823c" file="cover.c" line="5">
+        <asm>cmp r3, #119</asm>
+      </inst>
+      <inst address="00008240" file="cover.c" line="5">
+        <asm>ldrls pc, [pc, r3, lsl #2]</asm>
+      </inst>
+    </bb>
+    <bb id="_3-5" address="00008244" size="4" number="5">
+      <property identifier="otawa::INDEX">5</property>
+      <inst address="00008244" file="cover.c" line="5">
+        <asm>b 8ba8</asm>
+      </inst>
+    </bb>
+    <bb id="_3-6" address="00008ba8" size="28" number="6">
+      <property identifier="otawa::INDEX">6</property>
+      <inst address="00008ba8" file="cover.c" line="126">
+        <asm>ldr r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008bac" file="cover.c" line="126">
+        <asm>sub r3, r3, #1</asm>
+      </inst>
+      <inst address="00008bb0" file="cover.c" line="126">
+        <asm>str r3, [fp, #-16]</asm>
+      </inst>
+      <inst address="00008bb4" file="cover.c" line="126">
+        <asm>mov r0, r0</asm>
+      </inst>
+      <inst address="00008bb8" file="cover.c" line="4">
+        <asm>ldr r3, [fp, #-8]</asm>
+      </inst>
+      <inst address="00008bbc" file="cover.c" line="4">
+        <asm>add r3, r3, #1</asm>
+      </inst>
+      <inst address="00008bc0" file="cover.c" line="4">
+        <asm>str r3, [fp, #-8]</asm>
+      </inst>
+    </bb>
+    <exit id="_3-7"/>
+    <edge kind="virtual" source="_3-0" target="_3-1"/>
+    <edge kind="taken" source="_3-1" target="_3-2"/>
+    <edge kind="taken" source="_3-2" target="_3-4"/>
+    <edge kind="not-taken" source="_3-2" target="_3-3"/>
+    <edge kind="virtual" source="_3-3" target="_3-7"/>
+    <edge kind="not-taken" source="_3-4" target="_3-5"/>
+    <edge kind="taken" source="_3-5" target="_3-6"/>
+    <edge kind="not-taken" source="_3-6" target="_3-2"/>
+  </cfg>
+</cfg-collection>

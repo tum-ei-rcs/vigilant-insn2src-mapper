@@ -1,0 +1,1822 @@
+INFO: looking for loader "elf_40"
+INFO: prefix path = /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core
+INFO: searchpaths:
+INFO:	- ./.otawa/loader
+INFO:	- /home/becker/.otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core-build/otawa/lib/otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader
+INFO: available loaders
+INFO:	- elf_20 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_20.eld)
+INFO:	- arm (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO:	- elf_40 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_40.eld)
+INFO:	- ppc2 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/ppc2.so)
+INFO:	- elf_20 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_20.eld)
+INFO:	- arm (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO:	- elf_40 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_40.eld)
+INFO:	- ppc2 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/ppc2.so)
+INFO: selected loader: arm (2.1.0) ( /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO: using script from owcet-script.osx
+Starting otawa::script::Script (1.0.0)
+otawa-pipelineconfig.xml:2: I/O warning : failed to load external entity "/home/casse/otawa/otawa/data/dtd/pipeline.dtd"
+<!DOCTYPE processor SYSTEM "/home/casse/otawa/otawa/data/dtd/pipeline.dtd">
+                                                                           ^
+	script parameter "pipeline" found.
+	script parameter "cache" found.
+	script parameter "memory" found.
+	script parameter "bbstats" found.
+	script parameter "exportcfg" found.
+	script parameter "draw" found.
+	script parameter "graphdir" found.
+	script parameter "inline" found.
+	adding argument "pipeline" to "otawa-pipelineconfig.xml"
+	adding argument "cache" to "otawa-cacheconfig.xml"
+	adding argument "graphdir" to "graphs/"
+	found platform description.
+	processor configuration found.
+	memory configuration found.
+	setting property otawa::ipet::EXPLICIT with true
+	setting property otawa::FIRSTMISS_LEVEL with FML_NONE
+	setting property otawa::ipet::PIPELINE_DEPTH with 1
+	setting property otawa::VIRTUAL_INLINING with 1
+INFO: preparing to run otawa::display::ConfigOutput
+INFO: plugged otawa/display (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/proc/otawa/../../../libodisplay.so)
+REQUIRED: otawa::hard::CACHE_CONFIGURATION_FEATURE by otawa::display::ConfigOutput
+Starting otawa::CacheConfigurationProcessor (1.0.0)
+	no cache configuration
+Ending otawa::CacheConfigurationProcessor
+PROVIDED: otawa::hard::CACHE_CONFIGURATION_FEATURE by otawa::CacheConfigurationProcessor
+REQUIRED: otawa::hard::MEMORY_FEATURE by otawa::display::ConfigOutput
+Starting otawa::MemoryProcessor (1.0.0)
+	memory configuration from XML element
+		ON-CHIP NON-VOLATILE MEMORY	00000000-0007ffff
+		ON-CHIP STATIC RAM	00000000-00007fff
+		VPB PERIPHERALS	00000000-0fffffff
+		AHB PERIPHERALS	00000000-0fffffff
+Ending otawa::MemoryProcessor
+PROVIDED: otawa::hard::MEMORY_FEATURE by otawa::MemoryProcessor
+REQUIRED: otawa::hard::PROCESSOR_FEATURE by otawa::display::ConfigOutput
+Starting otawa::ProcessorProcessor (1.0.0)
+	processor configuration from XML element
+Ending otawa::ProcessorProcessor
+PROVIDED: otawa::hard::PROCESSOR_FEATURE by otawa::ProcessorProcessor
+Starting otawa::display::ConfigOutput (1.0.0)
+Ending otawa::display::ConfigOutput
+INFO: preparing to run otawa::Virtualizer
+USED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+REQUIRED: otawa::CFG_INFO_FEATURE by otawa::CFGCollector
+REQUIRED: otawa::DECODED_TEXT by otawa::CFGBuilder
+REQUIRED: otawa::FLOW_FACTS_FEATURE by otawa::TextDecoder
+REQUIRED: otawa::dfa::INITIAL_STATE_FEATURE by otawa::util::FlowFactLoader
+Starting otawa::dfa::InitialStateBuilder (1.0.0)
+Ending otawa::dfa::InitialStateBuilder
+PROVIDED: otawa::dfa::INITIAL_STATE_FEATURE by otawa::dfa::InitialStateBuilder
+Starting otawa::util::FlowFactLoader (1.4.1)
+	loading "main.elf.ffx"
+	adpcm.c:653 is 00009ae4:00009af0
+	[FUN(00008d88), CALL(00008dc0), FUN(00009a78)](MAX_ITERATION,00009ae4) = 5
+	[FUN(00008d88), CALL(00008dc0), FUN(00009a78)](TOTAL_ITERATION,00009ae4) = 5
+	adpcm.c:734 is 00009ed4:00009ee0
+	[FUN(00008d88), CALL(00008f8c), FUN(00009eb0)](MAX_ITERATION,00009ed4) = 6
+	[FUN(00008d88), CALL(00008f8c), FUN(00009eb0)](TOTAL_ITERATION,00009ed4) = 6
+	adpcm.c:739 is 00009f34:00009f40
+	[FUN(00008d88), CALL(00008f8c), FUN(00009eb0)](MAX_ITERATION,00009f34) = 6
+	[FUN(00008d88), CALL(00008f8c), FUN(00009eb0)](TOTAL_ITERATION,00009f34) = 6
+	adpcm.c:653 is 00009ae4:00009af0
+	[FUN(00008d88), CALL(00009064), FUN(00009a78)](MAX_ITERATION,00009ae4) = 5
+	[FUN(00008d88), CALL(00009064), FUN(00009a78)](TOTAL_ITERATION,00009ae4) = 5
+	adpcm.c:734 is 00009ed4:00009ee0
+	[FUN(00008d88), CALL(000091a0), FUN(00009eb0)](MAX_ITERATION,00009ed4) = 6
+	[FUN(00008d88), CALL(000091a0), FUN(00009eb0)](TOTAL_ITERATION,00009ed4) = 6
+	adpcm.c:739 is 00009f34:00009f40
+	[FUN(00008d88), CALL(000091a0), FUN(00009eb0)](MAX_ITERATION,00009f34) = 6
+	[FUN(00008d88), CALL(000091a0), FUN(00009eb0)](TOTAL_ITERATION,00009f34) = 6
+	adpcm.c:583 is 00009360:0000936c
+	[FUN(00008d88)](MAX_ITERATION,00009360) = 10
+	[FUN(00008d88)](TOTAL_ITERATION,00009360) = 10
+	adpcm.c:598 is 0000953c:00009548
+	[FUN(00008d88)](MAX_ITERATION,0000953c) = 10
+	[FUN(00008d88)](TOTAL_ITERATION,0000953c) = 10
+WARNING:otawa::util::FlowFactLoader 1.4.1:no checksum: flow facts and executable file may no match !
+Ending otawa::util::FlowFactLoader
+PROVIDED: otawa::FLOW_FACTS_FEATURE by otawa::util::FlowFactLoader
+PROVIDED: otawa::MKFF_PRESERVATION_FEATURE by otawa::util::FlowFactLoader
+Starting otawa::TextDecoder (1.0.0)
+INFO: no default decoder
+INFO: using VarTextDecoder
+Starting otawa::VarTextDecoder (1.0.0)
+	processing entry at 00008108
+	processing function "_fini" at 0000aa8c
+	processing function "uppol1" at 0000a218
+	processing function "uppol2" at 0000a068
+	processing function "__libc_init_array" at 0000a660
+	processing function "scalel" at 00009e40
+	processing function "__aeabi_idiv0" at 0000a65c
+	processing function "main" at 0000a3d4
+	processing function "__do_global_dtors_aux" at 00008070
+	processing function "__aeabi_idiv" at 0000a514
+	processing function "logsch" at 0000a324
+	processing function "logscl" at 00009d8c
+	processing function "__libc_fini_array" at 0000a960
+	processing function "register_fini" at 0000804c
+	processing function "encode" at 00008448
+	processing function "quantl" at 00009c84
+	processing function "my_fabs" at 00008264
+	processing function "__aeabi_idivmod" at 0000a63c
+	processing function "decode" at 00008d88
+	processing function "memset" at 0000a6e0
+	processing function "reset" at 00009688
+	processing function "_exit" at 0000aa88
+	processing function "__register_exitproc" at 0000a9a8
+	processing function "my_abs" at 0000821c
+	processing function "frame_dummy" at 000080b0
+	processing function "__divsi3" at 0000a514
+	processing function "filtep" at 00009b8c
+	processing function "exit" at 00008018
+	processing function "filtez" at 00009a78
+	processing function "upzero" at 00009eb0
+	processing function "__call_exitprocs" at 0000a7d4
+	processing function "atexit" at 0000a940
+	processing function "__aeabi_ldiv0" at 0000a65c
+	processing function "my_sin" at 000082ac
+	processing function "my_cos" at 00008414
+	processing function "_init" at 00008000
+Ending otawa::VarTextDecoder
+PROVIDED: otawa::DECODED_TEXT by otawa::VarTextDecoder
+Ending otawa::TextDecoder
+PROVIDED: otawa::DECODED_TEXT by otawa::TextDecoder
+Starting otawa::CFGBuilder (1.0.0)
+	found BB at 00008108
+		added cfg _mainCRTStartup (0x00008108)
+	found BB at 0000aa8c
+		added cfg _fini (0x0000aa8c)
+	found BB at 0000a218
+		added cfg uppol1 (0x0000a218)
+	found BB at 0000a068
+		added cfg uppol2 (0x0000a068)
+	found BB at 0000a660
+		added cfg __libc_init_array (0x0000a660)
+	found BB at 00009e40
+		added cfg scalel (0x00009e40)
+	found BB at 0000a65c
+		added cfg __aeabi_ldiv0 (0x0000a65c)
+	found BB at 0000a3d4
+		added cfg main (0x0000a3d4)
+	found BB at 00008070
+		added cfg __do_global_dtors_aux (0x00008070)
+	found BB at 0000a514
+		added cfg __divsi3 (0x0000a514)
+	found BB at 0000a324
+		added cfg logsch (0x0000a324)
+	found BB at 00009d8c
+		added cfg logscl (0x00009d8c)
+	found BB at 0000a960
+		added cfg __libc_fini_array (0x0000a960)
+	found BB at 0000804c
+		added cfg register_fini (0x0000804c)
+	found BB at 00008448
+		added cfg encode (0x00008448)
+	found BB at 00009c84
+		added cfg quantl (0x00009c84)
+	found BB at 00008264
+		added cfg my_fabs (0x00008264)
+	found BB at 0000a63c
+		added cfg __aeabi_idivmod (0x0000a63c)
+	found BB at 00008d88
+		added cfg decode (0x00008d88)
+	found BB at 0000a6e0
+		added cfg memset (0x0000a6e0)
+	found BB at 00009688
+		added cfg reset (0x00009688)
+	found BB at 0000aa88
+		added cfg _exit (0x0000aa88)
+	found BB at 0000a9a8
+		added cfg __register_exitproc (0x0000a9a8)
+	found BB at 0000821c
+		added cfg my_abs (0x0000821c)
+	found BB at 000080b0
+		added cfg frame_dummy (0x000080b0)
+	found BB at 00009b8c
+		added cfg filtep (0x00009b8c)
+	found BB at 00008018
+		added cfg exit (0x00008018)
+	found BB at 00009a78
+		added cfg filtez (0x00009a78)
+	found BB at 00009eb0
+		added cfg upzero (0x00009eb0)
+	found BB at 0000a7d4
+		added cfg __call_exitprocs (0x0000a7d4)
+	found BB at 0000a940
+		added cfg atexit (0x0000a940)
+	found BB at 000082ac
+		added cfg my_sin (0x000082ac)
+	found BB at 00008414
+		added cfg my_cos (0x00008414)
+	found BB at 00008000
+		added cfg _init (0x00008000)
+	segment .init
+	segment .text
+	found BB at 00008028
+	found BB at 00008040
+	found BB at 00008048
+	found BB at 00008060
+	found BB at 0000809c
+	found BB at 00008084
+	found BB at 000080e0
+	found BB at 000080d8
+	found BB at 000080ec
+	found BB at 0000817c
+	found BB at 00008124
+	found BB at 0000819c
+	found BB at 000081b0
+	found BB at 000081a8
+	found BB at 000081c4
+	found BB at 000081bc
+	found BB at 000081e8
+	found BB at 000081e0
+	found BB at 000081ec
+	found BB at 000081f8
+	found BB at 000081fc
+	found BB at 00008244
+	found BB at 00008238
+	found BB at 00008250
+	found BB at 0000828c
+	found BB at 00008280
+	found BB at 00008298
+	found BB at 000082e0
+	found BB at 000082d0
+	found BB at 000082f0
+	found BB at 00008304
+	found BB at 000082f4
+	found BB at 00008314
+	found BB at 00008360
+	found BB at 000083e8
+	found BB at 00008388
+	found BB at 000083c4
+	found BB at 000083f0
+	found BB at 000083fc
+	found BB at 00008438
+	found BB at 000085ec
+	found BB at 00008528
+	found BB at 000085f8
+	found BB at 000086ec
+	found BB at 000086c0
+	found BB at 000086f8
+	found BB at 000087a4
+	found BB at 000087d4
+	found BB at 00008834
+	found BB at 000088c8
+	found BB at 000088e8
+	found BB at 00008928
+	found BB at 0000895c
+	found BB at 0000898c
+	found BB at 00008a00
+	found BB at 00008a30
+	found BB at 00008a94
+	found BB at 00008a84
+	found BB at 00008aa0
+	found BB at 00008af8
+	found BB at 00008b1c
+	found BB at 00008b08
+	found BB at 00008b90
+	found BB at 00008bb0
+	found BB at 00008bf0
+	found BB at 00008c24
+	found BB at 00008c54
+	found BB at 00008dc4
+	found BB at 00008dfc
+	found BB at 00008f30
+	found BB at 00008f50
+	found BB at 00008f90
+	found BB at 00008fc4
+	found BB at 00008ff4
+	found BB at 00009068
+	found BB at 00009098
+	found BB at 00009144
+	found BB at 00009164
+	found BB at 000091a4
+	found BB at 000091d8
+	found BB at 00009208
+	found BB at 00009430
+	found BB at 0000936c
+	found BB at 0000943c
+	found BB at 00009594
+	found BB at 00009548
+	found BB at 000095a0
+	found BB at 000098d4
+	found BB at 00009888
+	found BB at 000098e0
+	found BB at 00009938
+	found BB at 000098ec
+	found BB at 00009944
+	found BB at 0000996c
+	found BB at 00009950
+	found BB at 00009978
+	found BB at 000099b0
+	found BB at 00009984
+	found BB at 000099bc
+	found BB at 00009b5c
+	found BB at 00009af0
+	found BB at 00009b68
+	found BB at 00009ca0
+	found BB at 00009d34
+	found BB at 00009cbc
+	found BB at 00009d28
+	found BB at 00009d24
+	found BB at 00009d40
+	found BB at 00009d60
+	found BB at 00009d4c
+	found BB at 00009d70
+	found BB at 00009e14
+	found BB at 00009e0c
+	found BB at 00009e28
+	found BB at 00009e20
+	found BB at 00009f34
+	found BB at 00009ed4
+	found BB at 00009f24
+	found BB at 00009ee0
+	found BB at 00009f30
+	found BB at 00009ffc
+	found BB at 00009ff0
+	found BB at 00009f40
+	found BB at 00009f94
+	found BB at 00009f88
+	found BB at 00009f9c
+	found BB at 0000a0f8
+	found BB at 0000a0e0
+	found BB at 0000a168
+	found BB at 0000a14c
+	found BB at 0000a180
+	found BB at 0000a1f0
+	found BB at 0000a1e8
+	found BB at 0000a204
+	found BB at 0000a1fc
+	found BB at 0000a2c0
+	found BB at 0000a2b0
+	found BB at 0000a2cc
+	found BB at 0000a2f0
+	found BB at 0000a2e8
+	found BB at 0000a310
+	found BB at 0000a304
+	found BB at 0000a3a8
+	found BB at 0000a3a0
+	found BB at 0000a3bc
+	found BB at 0000a3b4
+	found BB at 0000a3e4
+	found BB at 0000a454
+	found BB at 0000a400
+	found BB at 0000a43c
+	found BB at 0000a460
+	found BB at 0000a4c8
+	found BB at 0000a46c
+	found BB at 0000a490
+	found BB at 0000a4d4
+	found BB at 0000a62c
+	found BB at 0000a51c
+	found BB at 0000a5cc
+	found BB at 0000a52c
+	found BB at 0000a5d8
+	found BB at 0000a53c
+	found BB at 0000a5e8
+	found BB at 0000a544
+	found BB at 0000a554
+	found BB at 0000a568
+	found BB at 0000a57c
+	found BB at 0000a580
+	found BB at 0000a5c0
+	found BB at 0000a644
+		added cfg .divsi3_skip_div0_test (0x0000a51c)
+	found BB at 0000a64c
+	found BB at 0000a694
+	found BB at 0000a67c
+	found BB at 0000a68c
+	found BB at 0000a6a4
+	found BB at 0000a6c8
+	found BB at 0000a6b0
+	found BB at 0000a6c0
+	found BB at 0000a7cc
+	found BB at 0000a6ec
+	found BB at 0000a7c4
+	found BB at 0000a6f8
+	found BB at 0000a710
+	found BB at 0000a704
+	found BB at 0000a71c
+	found BB at 0000a7a8
+	found BB at 0000a724
+	found BB at 0000a77c
+	found BB at 0000a738
+	found BB at 0000a740
+	found BB at 0000a760
+	found BB at 0000a784
+	found BB at 0000a794
+	found BB at 0000a7b0
+	found BB at 0000a7b8
+	found BB at 0000a8f0
+	found BB at 0000a80c
+	found BB at 0000a844
+	found BB at 0000a824
+	found BB at 0000a8b4
+	found BB at 0000a828
+	found BB at 0000a84c
+	found BB at 0000a834
+	found BB at 0000a86c
+	found BB at 0000a8fc
+	found BB at 0000a884
+	found BB at 0000a88c
+	found BB at 0000a7fc
+	found BB at 0000a898
+	found BB at 0000a8a4
+	found BB at 0000a8c0
+	found BB at 0000a92c
+	found BB at 0000a8d0
+	found BB at 0000a8d8
+	found BB at 0000a810
+	found BB at 0000a91c
+	found BB at 0000a908
+	found BB at 0000a918
+	found BB at 0000a928
+	found BB at 0000a8e8
+	found BB at 0000a958
+	found BB at 0000a994
+	found BB at 0000a97c
+	found BB at 0000a98c
+	found BB at 0000a998
+	found BB at 0000aa24
+	found BB at 0000a9e4
+	found BB at 0000aa78
+	found BB at 0000a9f0
+	found BB at 0000aa00
+	found BB at 0000aa44
+	found BB at 0000aa2c
+	found BB at 0000aa3c
+	segment .fini
+Ending otawa::CFGBuilder
+PROVIDED: otawa::CFG_INFO_FEATURE by otawa::CFGBuilder
+REQUIRED: otawa::CFG_INFO_FEATURE by otawa::CFGCollector
+Starting otawa::CFGCollector (1.1.0)
+	CFG found for address 0x00008d88
+	adding decode
+	starting recursive traversal
+		adding filtez
+		adding filtep
+		adding logscl
+		adding scalel
+		adding upzero
+		adding uppol2
+		adding uppol1
+		adding logsch
+	ending recursive traversal
+Ending otawa::CFGCollector
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGCollector
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGCollector
+Starting otawa::Virtualizer (1.2.0)
+	begin inlining decode
+		processing BB 1 (00008d88)
+	begin inlining filtez
+		processing BB 1 (00009a78)
+		processing BB 2 (00009b5c)
+		processing BB 3 (00009b68)
+		processing BB 4 (00009af0)
+	end inlining filtez
+		processing BB 2 (00008dc4)
+	begin inlining filtep
+		processing BB 1 (00009b8c)
+	end inlining filtep
+		processing BB 3 (00008dfc)
+	begin inlining logscl
+		processing BB 1 (00009d8c)
+		processing BB 2 (00009e0c)
+		processing BB 3 (00009e14)
+		processing BB 4 (00009e20)
+		processing BB 5 (00009e28)
+	end inlining logscl
+		processing BB 4 (00008f30)
+	begin inlining scalel
+		processing BB 1 (00009e40)
+	end inlining scalel
+		processing BB 5 (00008f50)
+	begin inlining upzero
+		processing BB 1 (00009eb0)
+		processing BB 2 (00009ed4)
+		processing BB 3 (00009f34)
+		processing BB 4 (00009f24)
+		processing BB 5 (00009ff0)
+		processing BB 6 (00009f30)
+		processing BB 7 (00009ee0)
+		processing BB 8 (00009ffc)
+		processing BB 9 (00009f40)
+		processing BB 10 (00009f88)
+		processing BB 11 (00009f94)
+		processing BB 12 (00009f9c)
+	end inlining upzero
+		processing BB 6 (00008f90)
+	begin inlining uppol2
+		processing BB 1 (0000a068)
+		processing BB 2 (0000a0e0)
+		processing BB 3 (0000a0f8)
+		processing BB 4 (0000a14c)
+		processing BB 5 (0000a168)
+		processing BB 6 (0000a180)
+		processing BB 7 (0000a1e8)
+		processing BB 8 (0000a1f0)
+		processing BB 9 (0000a1fc)
+		processing BB 10 (0000a204)
+	end inlining uppol2
+		processing BB 7 (00008fc4)
+	begin inlining uppol1
+		processing BB 1 (0000a218)
+		processing BB 2 (0000a2b0)
+		processing BB 3 (0000a2c0)
+		processing BB 4 (0000a2cc)
+		processing BB 5 (0000a2e8)
+		processing BB 6 (0000a2f0)
+		processing BB 7 (0000a304)
+		processing BB 8 (0000a310)
+	end inlining uppol1
+		processing BB 8 (00008ff4)
+	begin inlining filtez
+		processing BB 1 (00009a78)
+		processing BB 2 (00009b5c)
+		processing BB 3 (00009b68)
+		processing BB 4 (00009af0)
+	end inlining filtez
+		processing BB 9 (00009068)
+	begin inlining filtep
+		processing BB 1 (00009b8c)
+	end inlining filtep
+		processing BB 10 (00009098)
+	begin inlining logsch
+		processing BB 1 (0000a324)
+		processing BB 2 (0000a3a0)
+		processing BB 3 (0000a3a8)
+		processing BB 4 (0000a3b4)
+		processing BB 5 (0000a3bc)
+	end inlining logsch
+		processing BB 11 (00009144)
+	begin inlining scalel
+		processing BB 1 (00009e40)
+	end inlining scalel
+		processing BB 12 (00009164)
+	begin inlining upzero
+		processing BB 1 (00009eb0)
+		processing BB 2 (00009ed4)
+		processing BB 3 (00009f34)
+		processing BB 4 (00009f24)
+		processing BB 5 (00009ff0)
+		processing BB 6 (00009f30)
+		processing BB 7 (00009ee0)
+		processing BB 8 (00009ffc)
+		processing BB 9 (00009f40)
+		processing BB 10 (00009f88)
+		processing BB 11 (00009f94)
+		processing BB 12 (00009f9c)
+	end inlining upzero
+		processing BB 13 (000091a4)
+	begin inlining uppol2
+		processing BB 1 (0000a068)
+		processing BB 2 (0000a0e0)
+		processing BB 3 (0000a0f8)
+		processing BB 4 (0000a14c)
+		processing BB 5 (0000a168)
+		processing BB 6 (0000a180)
+		processing BB 7 (0000a1e8)
+		processing BB 8 (0000a1f0)
+		processing BB 9 (0000a1fc)
+		processing BB 10 (0000a204)
+	end inlining uppol2
+		processing BB 14 (000091d8)
+	begin inlining uppol1
+		processing BB 1 (0000a218)
+		processing BB 2 (0000a2b0)
+		processing BB 3 (0000a2c0)
+		processing BB 4 (0000a2cc)
+		processing BB 5 (0000a2e8)
+		processing BB 6 (0000a2f0)
+		processing BB 7 (0000a304)
+		processing BB 8 (0000a310)
+	end inlining uppol1
+		processing BB 15 (00009208)
+		processing BB 16 (00009430)
+		processing BB 17 (0000943c)
+		processing BB 18 (0000936c)
+		processing BB 19 (00009594)
+		processing BB 20 (000095a0)
+		processing BB 21 (00009548)
+	end inlining decode
+	INFO: 105 basic blocks.
+Ending otawa::Virtualizer
+INVALIDATED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+PROVIDED: otawa::VIRTUALIZED_CFG_FEATURE by otawa::Virtualizer
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+INFO: preparing to run otawa::ipet::TrivialBBTime
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::TrivialBBTime
+Starting otawa::ipet::TrivialBBTime (1.1.0)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::ipet::TrivialBBTime
+PROVIDED: otawa::ipet::BB_TIME_FEATURE by otawa::ipet::TrivialBBTime
+INFO: requiring otawa::ipet::WCET_FEATURE
+REQUIRED: otawa::ipet::CONTROL_CONSTRAINTS_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::BasicConstraintsBuilder
+Starting otawa::ipet::ILPSystemGetter (1.0.0)
+	making an ILP system from "default" plugin
+Ending otawa::ipet::ILPSystemGetter
+PROVIDED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::ILPSystemGetter
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::BasicConstraintsBuilder
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::VarAssignment
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::VarAssignment
+Starting otawa::ipet::VarAssignment (1.0.0)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::ipet::VarAssignment
+PROVIDED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::VarAssignment
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::BasicConstraintsBuilder
+Starting otawa::ipet::BasicConstraintsBuilder (1.0.0)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::ipet::BasicConstraintsBuilder
+PROVIDED: otawa::ipet::CONTROL_CONSTRAINTS_FEATURE by otawa::ipet::BasicConstraintsBuilder
+REQUIRED: otawa::ipet::OBJECT_FUNCTION_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::BB_TIME_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+Starting otawa::ipet::BasicObjectFunctionBuilder (1.0.1)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::ipet::BasicObjectFunctionBuilder
+PROVIDED: otawa::ipet::OBJECT_FUNCTION_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::FLOW_FACTS_CONSTRAINTS_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::LOOP_HEADERS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::Dominance
+Starting otawa::Dominance (1.2.0)
+	process CFG decode
+Ending otawa::Dominance
+PROVIDED: otawa::LOOP_HEADERS_FEATURE by otawa::Dominance
+PROVIDED: otawa::DOMINANCE_FEATURE by otawa::Dominance
+REQUIRED: otawa::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::CHECKED_CFG_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGChecker
+Starting otawa::CFGChecker (1.0.0)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::CFGChecker
+PROVIDED: otawa::CHECKED_CFG_FEATURE by otawa::CFGChecker
+Starting otawa::ipet::FlowFactLoader (1.1.2)
+	process CFG decode
+		[0] entering call to BB 1 (00008d88) from ENTRY
+		[1] processing BB 1 (00008d88)
+		[1] entering call to BB 22 (00009a78) from BB 1 (00008d88)
+		[2] processing BB 22 (00009a78)
+			MAX_ITERATION([FUN(00008d88), CALL(00008dc0), FUN(00009a78)]:BB 23 (00009b5c)) = 5
+			TOTAL_ITERATION([FUN(00008d88), CALL(00008dc0), FUN(00009a78)]:BB 23 (00009b5c)) = 5
+		[2] processing BB 23 (00009b5c)
+		[2] processing BB 25 (00009af0)
+		[2] processing BB 24 (00009b68)
+		[2] leaving call
+		[1] processing BB 2 (00008dc4)
+		[1] entering call to BB 26 (00009b8c) from BB 2 (00008dc4)
+		[2] processing BB 26 (00009b8c)
+		[2] leaving call
+		[1] processing BB 3 (00008dfc)
+		[1] entering call to BB 27 (00009d8c) from BB 3 (00008dfc)
+		[2] processing BB 27 (00009d8c)
+		[2] processing BB 29 (00009e14)
+		[2] processing BB 31 (00009e28)
+		[2] processing BB 30 (00009e20)
+		[2] processing BB 28 (00009e0c)
+		[2] leaving call
+		[1] processing BB 4 (00008f30)
+		[1] entering call to BB 32 (00009e40) from BB 4 (00008f30)
+		[2] processing BB 32 (00009e40)
+		[2] leaving call
+		[1] processing BB 5 (00008f50)
+		[1] entering call to BB 33 (00009eb0) from BB 5 (00008f50)
+		[2] processing BB 33 (00009eb0)
+		[2] processing BB 35 (00009f34)
+			MAX_ITERATION([FUN(00008d88), CALL(00008f8c), FUN(00009eb0)]:BB 37 (00009ff0)) = 6
+			TOTAL_ITERATION([FUN(00008d88), CALL(00008f8c), FUN(00009eb0)]:BB 37 (00009ff0)) = 6
+		[2] processing BB 37 (00009ff0)
+		[2] processing BB 41 (00009f40)
+		[2] processing BB 43 (00009f94)
+		[2] processing BB 44 (00009f9c)
+		[2] processing BB 42 (00009f88)
+		[2] processing BB 40 (00009ffc)
+		[2] processing BB 34 (00009ed4)
+			MAX_ITERATION([FUN(00008d88), CALL(00008f8c), FUN(00009eb0)]:BB 36 (00009f24)) = 6
+			TOTAL_ITERATION([FUN(00008d88), CALL(00008f8c), FUN(00009eb0)]:BB 36 (00009f24)) = 6
+		[2] processing BB 36 (00009f24)
+		[2] processing BB 39 (00009ee0)
+		[2] processing BB 38 (00009f30)
+		[2] leaving call
+		[1] processing BB 6 (00008f90)
+		[1] entering call to BB 45 (0000a068) from BB 6 (00008f90)
+		[2] processing BB 45 (0000a068)
+		[2] processing BB 47 (0000a0f8)
+		[2] processing BB 49 (0000a168)
+		[2] processing BB 50 (0000a180)
+		[2] processing BB 52 (0000a1f0)
+		[2] processing BB 54 (0000a204)
+		[2] processing BB 53 (0000a1fc)
+		[2] processing BB 51 (0000a1e8)
+		[2] processing BB 48 (0000a14c)
+		[2] processing BB 46 (0000a0e0)
+		[2] leaving call
+		[1] processing BB 7 (00008fc4)
+		[1] entering call to BB 55 (0000a218) from BB 7 (00008fc4)
+		[2] processing BB 55 (0000a218)
+		[2] processing BB 57 (0000a2c0)
+		[2] processing BB 58 (0000a2cc)
+		[2] processing BB 60 (0000a2f0)
+		[2] processing BB 62 (0000a310)
+		[2] processing BB 61 (0000a304)
+		[2] processing BB 59 (0000a2e8)
+		[2] processing BB 56 (0000a2b0)
+		[2] leaving call
+		[1] processing BB 8 (00008ff4)
+		[1] entering call to BB 63 (00009a78) from BB 8 (00008ff4)
+		[2] processing BB 63 (00009a78)
+			MAX_ITERATION([FUN(00008d88), CALL(00009064), FUN(00009a78)]:BB 64 (00009b5c)) = 5
+			TOTAL_ITERATION([FUN(00008d88), CALL(00009064), FUN(00009a78)]:BB 64 (00009b5c)) = 5
+		[2] processing BB 64 (00009b5c)
+		[2] processing BB 66 (00009af0)
+		[2] processing BB 65 (00009b68)
+		[2] leaving call
+		[1] processing BB 9 (00009068)
+		[1] entering call to BB 67 (00009b8c) from BB 9 (00009068)
+		[2] processing BB 67 (00009b8c)
+		[2] leaving call
+		[1] processing BB 10 (00009098)
+		[1] entering call to BB 68 (0000a324) from BB 10 (00009098)
+		[2] processing BB 68 (0000a324)
+		[2] processing BB 70 (0000a3a8)
+		[2] processing BB 72 (0000a3bc)
+		[2] processing BB 71 (0000a3b4)
+		[2] processing BB 69 (0000a3a0)
+		[2] leaving call
+		[1] processing BB 11 (00009144)
+		[1] entering call to BB 73 (00009e40) from BB 11 (00009144)
+		[2] processing BB 73 (00009e40)
+		[2] leaving call
+		[1] processing BB 12 (00009164)
+		[1] entering call to BB 74 (00009eb0) from BB 12 (00009164)
+		[2] processing BB 74 (00009eb0)
+		[2] processing BB 76 (00009f34)
+			MAX_ITERATION([FUN(00008d88), CALL(000091a0), FUN(00009eb0)]:BB 78 (00009ff0)) = 6
+			TOTAL_ITERATION([FUN(00008d88), CALL(000091a0), FUN(00009eb0)]:BB 78 (00009ff0)) = 6
+		[2] processing BB 78 (00009ff0)
+		[2] processing BB 82 (00009f40)
+		[2] processing BB 84 (00009f94)
+		[2] processing BB 85 (00009f9c)
+		[2] processing BB 83 (00009f88)
+		[2] processing BB 81 (00009ffc)
+		[2] processing BB 75 (00009ed4)
+			MAX_ITERATION([FUN(00008d88), CALL(000091a0), FUN(00009eb0)]:BB 77 (00009f24)) = 6
+			TOTAL_ITERATION([FUN(00008d88), CALL(000091a0), FUN(00009eb0)]:BB 77 (00009f24)) = 6
+		[2] processing BB 77 (00009f24)
+		[2] processing BB 80 (00009ee0)
+		[2] processing BB 79 (00009f30)
+		[2] leaving call
+		[1] processing BB 13 (000091a4)
+		[1] entering call to BB 86 (0000a068) from BB 13 (000091a4)
+		[2] processing BB 86 (0000a068)
+		[2] processing BB 88 (0000a0f8)
+		[2] processing BB 90 (0000a168)
+		[2] processing BB 91 (0000a180)
+		[2] processing BB 93 (0000a1f0)
+		[2] processing BB 95 (0000a204)
+		[2] processing BB 94 (0000a1fc)
+		[2] processing BB 92 (0000a1e8)
+		[2] processing BB 89 (0000a14c)
+		[2] processing BB 87 (0000a0e0)
+		[2] leaving call
+		[1] processing BB 14 (000091d8)
+		[1] entering call to BB 96 (0000a218) from BB 14 (000091d8)
+		[2] processing BB 96 (0000a218)
+		[2] processing BB 98 (0000a2c0)
+		[2] processing BB 99 (0000a2cc)
+		[2] processing BB 101 (0000a2f0)
+		[2] processing BB 103 (0000a310)
+		[2] processing BB 102 (0000a304)
+		[2] processing BB 100 (0000a2e8)
+		[2] processing BB 97 (0000a2b0)
+		[2] leaving call
+		[1] processing BB 15 (00009208)
+			MAX_ITERATION([FUN(00008d88)]:BB 16 (00009430)) = 10
+			TOTAL_ITERATION([FUN(00008d88)]:BB 16 (00009430)) = 10
+		[1] processing BB 16 (00009430)
+		[1] processing BB 18 (0000936c)
+		[1] processing BB 17 (0000943c)
+			MAX_ITERATION([FUN(00008d88)]:BB 19 (00009594)) = 10
+			TOTAL_ITERATION([FUN(00008d88)]:BB 19 (00009594)) = 10
+		[1] processing BB 19 (00009594)
+		[1] processing BB 21 (00009548)
+		[1] processing BB 20 (000095a0)
+		[1] leaving call
+		[0] processing EXIT
+Ending otawa::ipet::FlowFactLoader
+	total loop = 8 (100%)
+	found loop = 8 (100%)
+	line loop = 8 (100%)
+	flow cons = 16
+PROVIDED: otawa::ipet::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::LOOP_HEADERS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+Starting otawa::ipet::FlowFactConstraintBuilder (1.1.1)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		looking up loop bound for BB 16 (00009430)
+		max = 10
+		total = 10
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		looking up loop bound for BB 19 (00009594)
+		max = 10
+		total = 10
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		looking up loop bound for BB 23 (00009b5c)
+		max = 5
+		total = 5
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		looking up loop bound for BB 36 (00009f24)
+		max = 6
+		total = 6
+		process BB 37 (00009ff0)
+		looking up loop bound for BB 37 (00009ff0)
+		max = 6
+		total = 6
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		looking up loop bound for BB 64 (00009b5c)
+		max = 5
+		total = 5
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		looking up loop bound for BB 77 (00009f24)
+		max = 6
+		total = 6
+		process BB 78 (00009ff0)
+		looking up loop bound for BB 78 (00009ff0)
+		max = 6
+		total = 6
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::ipet::FlowFactConstraintBuilder
+PROVIDED: otawa::ipet::FLOW_FACTS_CONSTRAINTS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+Starting otawa::ipet::WCETComputation (1.0.0)
+	launching ILP solver: lp_solve5
+	objective function = 2804
+	WCET = 2804
+Ending otawa::ipet::WCETComputation
+PROVIDED: otawa::ipet::WCET_FEATURE by otawa::ipet::WCETComputation
+INFO: preparing to run otawa::ipet::WCETCountRecorder
+REQUIRED: otawa::ipet::WCET_FEATURE by otawa::ipet::WCETCountRecorder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::WCETCountRecorder
+Starting otawa::ipet::WCETCountRecorder (1.0.1)
+	process CFG decode
+		process BB 0 (00000000)
+		BB 0 COUNT=1 TOTAL_TIME=0, 
+		process BB 1 (00008d88)
+		BB 1 COUNT=1 TOTAL_TIME=15, 
+		process BB 2 (00008dc4)
+		BB 2 COUNT=1 TOTAL_TIME=14, 
+		process BB 3 (00008dfc)
+		BB 3 COUNT=1 TOTAL_TIME=77, 
+		process BB 4 (00008f30)
+		BB 4 COUNT=1 TOTAL_TIME=8, 
+		process BB 5 (00008f50)
+		BB 5 COUNT=1 TOTAL_TIME=16, 
+		process BB 6 (00008f90)
+		BB 6 COUNT=1 TOTAL_TIME=13, 
+		process BB 7 (00008fc4)
+		BB 7 COUNT=1 TOTAL_TIME=12, 
+		process BB 8 (00008ff4)
+		BB 8 COUNT=1 TOTAL_TIME=29, 
+		process BB 9 (00009068)
+		BB 9 COUNT=1 TOTAL_TIME=12, 
+		process BB 10 (00009098)
+		BB 10 COUNT=1 TOTAL_TIME=43, 
+		process BB 11 (00009144)
+		BB 11 COUNT=1 TOTAL_TIME=8, 
+		process BB 12 (00009164)
+		BB 12 COUNT=1 TOTAL_TIME=16, 
+		process BB 13 (000091a4)
+		BB 13 COUNT=1 TOTAL_TIME=13, 
+		process BB 14 (000091d8)
+		BB 14 COUNT=1 TOTAL_TIME=12, 
+		process BB 15 (00009208)
+		BB 15 COUNT=1 TOTAL_TIME=89, 
+		process BB 16 (00009430)
+		BB 16 COUNT=11 TOTAL_TIME=33, 
+		process BB 17 (0000943c)
+		BB 17 COUNT=1 TOTAL_TIME=67, 
+		process BB 18 (0000936c)
+		BB 18 COUNT=10 TOTAL_TIME=490, 
+		process BB 19 (00009594)
+		BB 19 COUNT=11 TOTAL_TIME=33, 
+		process BB 20 (000095a0)
+		BB 20 COUNT=1 TOTAL_TIME=11, 
+		process BB 21 (00009548)
+		BB 21 COUNT=10 TOTAL_TIME=190, 
+		process BB 22 (00009a78)
+		BB 22 COUNT=1 TOTAL_TIME=30, 
+		process BB 23 (00009b5c)
+		BB 23 COUNT=6 TOTAL_TIME=18, 
+		process BB 24 (00009b68)
+		BB 24 COUNT=1 TOTAL_TIME=9, 
+		process BB 25 (00009af0)
+		BB 25 COUNT=5 TOTAL_TIME=135, 
+		process BB 26 (00009b8c)
+		BB 26 COUNT=1 TOTAL_TIME=62, 
+		process BB 27 (00009d8c)
+		BB 27 COUNT=1 TOTAL_TIME=32, 
+		process BB 28 (00009e0c)
+		BB 28 COUNT=1 TOTAL_TIME=2, 
+		process BB 29 (00009e14)
+		BB 29 COUNT=1 TOTAL_TIME=3, 
+		process BB 30 (00009e20)
+		BB 30 COUNT=1 TOTAL_TIME=2, 
+		process BB 31 (00009e28)
+		BB 31 COUNT=1 TOTAL_TIME=5, 
+		process BB 32 (00009e40)
+		BB 32 COUNT=1 TOTAL_TIME=27, 
+		process BB 33 (00009eb0)
+		BB 33 COUNT=1 TOTAL_TIME=9, 
+		process BB 34 (00009ed4)
+		BB 34 COUNT=0 TOTAL_TIME=0, 
+		process BB 35 (00009f34)
+		BB 35 COUNT=1 TOTAL_TIME=3, 
+		process BB 36 (00009f24)
+		BB 36 COUNT=0 TOTAL_TIME=0, 
+		process BB 37 (00009ff0)
+		BB 37 COUNT=7 TOTAL_TIME=21, 
+		process BB 38 (00009f30)
+		BB 38 COUNT=0 TOTAL_TIME=0, 
+		process BB 39 (00009ee0)
+		BB 39 COUNT=0 TOTAL_TIME=0, 
+		process BB 40 (00009ffc)
+		BB 40 COUNT=1 TOTAL_TIME=27, 
+		process BB 41 (00009f40)
+		BB 41 COUNT=6 TOTAL_TIME=108, 
+		process BB 42 (00009f88)
+		BB 42 COUNT=6 TOTAL_TIME=18, 
+		process BB 43 (00009f94)
+		BB 43 COUNT=0 TOTAL_TIME=0, 
+		process BB 44 (00009f9c)
+		BB 44 COUNT=6 TOTAL_TIME=126, 
+		process BB 45 (0000a068)
+		BB 45 COUNT=1 TOTAL_TIME=30, 
+		process BB 46 (0000a0e0)
+		BB 46 COUNT=1 TOTAL_TIME=6, 
+		process BB 47 (0000a0f8)
+		BB 47 COUNT=1 TOTAL_TIME=21, 
+		process BB 48 (0000a14c)
+		BB 48 COUNT=1 TOTAL_TIME=7, 
+		process BB 49 (0000a168)
+		BB 49 COUNT=0 TOTAL_TIME=0, 
+		process BB 50 (0000a180)
+		BB 50 COUNT=1 TOTAL_TIME=26, 
+		process BB 51 (0000a1e8)
+		BB 51 COUNT=1 TOTAL_TIME=2, 
+		process BB 52 (0000a1f0)
+		BB 52 COUNT=1 TOTAL_TIME=3, 
+		process BB 53 (0000a1fc)
+		BB 53 COUNT=1 TOTAL_TIME=2, 
+		process BB 54 (0000a204)
+		BB 54 COUNT=1 TOTAL_TIME=4, 
+		process BB 55 (0000a218)
+		BB 55 COUNT=1 TOTAL_TIME=38, 
+		process BB 56 (0000a2b0)
+		BB 56 COUNT=1 TOTAL_TIME=4, 
+		process BB 57 (0000a2c0)
+		BB 57 COUNT=0 TOTAL_TIME=0, 
+		process BB 58 (0000a2cc)
+		BB 58 COUNT=1 TOTAL_TIME=7, 
+		process BB 59 (0000a2e8)
+		BB 59 COUNT=1 TOTAL_TIME=2, 
+		process BB 60 (0000a2f0)
+		BB 60 COUNT=1 TOTAL_TIME=5, 
+		process BB 61 (0000a304)
+		BB 61 COUNT=1 TOTAL_TIME=3, 
+		process BB 62 (0000a310)
+		BB 62 COUNT=1 TOTAL_TIME=5, 
+		process BB 63 (00009a78)
+		BB 63 COUNT=1 TOTAL_TIME=30, 
+		process BB 64 (00009b5c)
+		BB 64 COUNT=6 TOTAL_TIME=18, 
+		process BB 65 (00009b68)
+		BB 65 COUNT=1 TOTAL_TIME=9, 
+		process BB 66 (00009af0)
+		BB 66 COUNT=5 TOTAL_TIME=135, 
+		process BB 67 (00009b8c)
+		BB 67 COUNT=1 TOTAL_TIME=62, 
+		process BB 68 (0000a324)
+		BB 68 COUNT=1 TOTAL_TIME=31, 
+		process BB 69 (0000a3a0)
+		BB 69 COUNT=1 TOTAL_TIME=2, 
+		process BB 70 (0000a3a8)
+		BB 70 COUNT=1 TOTAL_TIME=3, 
+		process BB 71 (0000a3b4)
+		BB 71 COUNT=1 TOTAL_TIME=2, 
+		process BB 72 (0000a3bc)
+		BB 72 COUNT=1 TOTAL_TIME=5, 
+		process BB 73 (00009e40)
+		BB 73 COUNT=1 TOTAL_TIME=27, 
+		process BB 74 (00009eb0)
+		BB 74 COUNT=1 TOTAL_TIME=9, 
+		process BB 75 (00009ed4)
+		BB 75 COUNT=0 TOTAL_TIME=0, 
+		process BB 76 (00009f34)
+		BB 76 COUNT=1 TOTAL_TIME=3, 
+		process BB 77 (00009f24)
+		BB 77 COUNT=0 TOTAL_TIME=0, 
+		process BB 78 (00009ff0)
+		BB 78 COUNT=7 TOTAL_TIME=21, 
+		process BB 79 (00009f30)
+		BB 79 COUNT=0 TOTAL_TIME=0, 
+		process BB 80 (00009ee0)
+		BB 80 COUNT=0 TOTAL_TIME=0, 
+		process BB 81 (00009ffc)
+		BB 81 COUNT=1 TOTAL_TIME=27, 
+		process BB 82 (00009f40)
+		BB 82 COUNT=6 TOTAL_TIME=108, 
+		process BB 83 (00009f88)
+		BB 83 COUNT=6 TOTAL_TIME=18, 
+		process BB 84 (00009f94)
+		BB 84 COUNT=0 TOTAL_TIME=0, 
+		process BB 85 (00009f9c)
+		BB 85 COUNT=6 TOTAL_TIME=126, 
+		process BB 86 (0000a068)
+		BB 86 COUNT=1 TOTAL_TIME=30, 
+		process BB 87 (0000a0e0)
+		BB 87 COUNT=1 TOTAL_TIME=6, 
+		process BB 88 (0000a0f8)
+		BB 88 COUNT=1 TOTAL_TIME=21, 
+		process BB 89 (0000a14c)
+		BB 89 COUNT=1 TOTAL_TIME=7, 
+		process BB 90 (0000a168)
+		BB 90 COUNT=0 TOTAL_TIME=0, 
+		process BB 91 (0000a180)
+		BB 91 COUNT=1 TOTAL_TIME=26, 
+		process BB 92 (0000a1e8)
+		BB 92 COUNT=1 TOTAL_TIME=2, 
+		process BB 93 (0000a1f0)
+		BB 93 COUNT=1 TOTAL_TIME=3, 
+		process BB 94 (0000a1fc)
+		BB 94 COUNT=1 TOTAL_TIME=2, 
+		process BB 95 (0000a204)
+		BB 95 COUNT=1 TOTAL_TIME=4, 
+		process BB 96 (0000a218)
+		BB 96 COUNT=1 TOTAL_TIME=38, 
+		process BB 97 (0000a2b0)
+		BB 97 COUNT=1 TOTAL_TIME=4, 
+		process BB 98 (0000a2c0)
+		BB 98 COUNT=0 TOTAL_TIME=0, 
+		process BB 99 (0000a2cc)
+		BB 99 COUNT=1 TOTAL_TIME=7, 
+		process BB 100 (0000a2e8)
+		BB 100 COUNT=1 TOTAL_TIME=2, 
+		process BB 101 (0000a2f0)
+		BB 101 COUNT=1 TOTAL_TIME=5, 
+		process BB 102 (0000a304)
+		BB 102 COUNT=1 TOTAL_TIME=3, 
+		process BB 103 (0000a310)
+		BB 103 COUNT=1 TOTAL_TIME=5, 
+		process BB 104 (00000000)
+		BB 104 COUNT=1 TOTAL_TIME=0, 
+Ending otawa::ipet::WCETCountRecorder
+PROVIDED: otawa::ipet::WCET_COUNT_RECORDED_FEATURE by otawa::ipet::WCETCountRecorder
+INFO: preparing to run otawa::display::ILPSystemDisplayer
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::display::ILPSystemDisplayer
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::display::ILPSystemDisplayer
+Starting otawa::display::ILPSystemDisplayer (1.0.1)
+Ending otawa::display::ILPSystemDisplayer
+INFO: preparing to run otawa::cfgio::Output
+	setting property otawa::cfgio::Output::FILENAME with wcet.cfg
+INFO: plugged otawa/cfgio (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/proc/otawa/cfgio.so)
+cfgio::Output: FILENAME=wcet.cfg
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::cfgio::Output
+Starting otawa::cfgio::Output (1.0.0)
+	process CFG decode
+		process BB 0 (00000000)
+		process BB 1 (00008d88)
+		process BB 2 (00008dc4)
+		process BB 3 (00008dfc)
+		process BB 4 (00008f30)
+		process BB 5 (00008f50)
+		process BB 6 (00008f90)
+		process BB 7 (00008fc4)
+		process BB 8 (00008ff4)
+		process BB 9 (00009068)
+		process BB 10 (00009098)
+		process BB 11 (00009144)
+		process BB 12 (00009164)
+		process BB 13 (000091a4)
+		process BB 14 (000091d8)
+		process BB 15 (00009208)
+		process BB 16 (00009430)
+		process BB 17 (0000943c)
+		process BB 18 (0000936c)
+		process BB 19 (00009594)
+		process BB 20 (000095a0)
+		process BB 21 (00009548)
+		process BB 22 (00009a78)
+		process BB 23 (00009b5c)
+		process BB 24 (00009b68)
+		process BB 25 (00009af0)
+		process BB 26 (00009b8c)
+		process BB 27 (00009d8c)
+		process BB 28 (00009e0c)
+		process BB 29 (00009e14)
+		process BB 30 (00009e20)
+		process BB 31 (00009e28)
+		process BB 32 (00009e40)
+		process BB 33 (00009eb0)
+		process BB 34 (00009ed4)
+		process BB 35 (00009f34)
+		process BB 36 (00009f24)
+		process BB 37 (00009ff0)
+		process BB 38 (00009f30)
+		process BB 39 (00009ee0)
+		process BB 40 (00009ffc)
+		process BB 41 (00009f40)
+		process BB 42 (00009f88)
+		process BB 43 (00009f94)
+		process BB 44 (00009f9c)
+		process BB 45 (0000a068)
+		process BB 46 (0000a0e0)
+		process BB 47 (0000a0f8)
+		process BB 48 (0000a14c)
+		process BB 49 (0000a168)
+		process BB 50 (0000a180)
+		process BB 51 (0000a1e8)
+		process BB 52 (0000a1f0)
+		process BB 53 (0000a1fc)
+		process BB 54 (0000a204)
+		process BB 55 (0000a218)
+		process BB 56 (0000a2b0)
+		process BB 57 (0000a2c0)
+		process BB 58 (0000a2cc)
+		process BB 59 (0000a2e8)
+		process BB 60 (0000a2f0)
+		process BB 61 (0000a304)
+		process BB 62 (0000a310)
+		process BB 63 (00009a78)
+		process BB 64 (00009b5c)
+		process BB 65 (00009b68)
+		process BB 66 (00009af0)
+		process BB 67 (00009b8c)
+		process BB 68 (0000a324)
+		process BB 69 (0000a3a0)
+		process BB 70 (0000a3a8)
+		process BB 71 (0000a3b4)
+		process BB 72 (0000a3bc)
+		process BB 73 (00009e40)
+		process BB 74 (00009eb0)
+		process BB 75 (00009ed4)
+		process BB 76 (00009f34)
+		process BB 77 (00009f24)
+		process BB 78 (00009ff0)
+		process BB 79 (00009f30)
+		process BB 80 (00009ee0)
+		process BB 81 (00009ffc)
+		process BB 82 (00009f40)
+		process BB 83 (00009f88)
+		process BB 84 (00009f94)
+		process BB 85 (00009f9c)
+		process BB 86 (0000a068)
+		process BB 87 (0000a0e0)
+		process BB 88 (0000a0f8)
+		process BB 89 (0000a14c)
+		process BB 90 (0000a168)
+		process BB 91 (0000a180)
+		process BB 92 (0000a1e8)
+		process BB 93 (0000a1f0)
+		process BB 94 (0000a1fc)
+		process BB 95 (0000a204)
+		process BB 96 (0000a218)
+		process BB 97 (0000a2b0)
+		process BB 98 (0000a2c0)
+		process BB 99 (0000a2cc)
+		process BB 100 (0000a2e8)
+		process BB 101 (0000a2f0)
+		process BB 102 (0000a304)
+		process BB 103 (0000a310)
+		process BB 104 (00000000)
+Ending otawa::cfgio::Output
+Ending otawa::script::Script
+WCET[decode] = 2804 cycles

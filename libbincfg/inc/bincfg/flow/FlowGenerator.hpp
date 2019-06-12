@@ -1,6 +1,7 @@
 #ifndef FLOWGENERATOR_H
 #define FLOWGENERATOR_H
 
+#include <ostream>
 #include <queue>
 #include "bincfg/disasm/ElfDisassemblyReader.hpp"
 #include "bincfg/flow/Flow.hpp"
@@ -44,15 +45,23 @@ protected:
 
     virtual void fixOverlaps(const InsnMap* insnMap, Flow* flow);
     virtual void mergeJumpBlocks(const InsnMap* insnMap, Flow* flow);
-    virtual void splitFuncCallBlocks(const InsnMap* insnMap, Flow* flow);
+    virtual void manageFuncCallBlocks(const InsnMap* insnMap, Flow* flow);
+    virtual void symbolize(const SymbMap* symbols, Flow* flow);
+
+    bool m_ignore_errors;
 
 public:
+    FlowGenerator() : m_ignore_errors(false) {}
     virtual ~FlowGenerator() {};
+
+    void setIgnoreErrors(bool ign) { m_ignore_errors = ign; }
 
     virtual std::unique_ptr<FlowMap>
         generateFlows(const DisasmSection* section);
 
     virtual std::unique_ptr<Instruction> getInstruction(const DisasmInstruction& disasmInsn) = 0;
+
+    virtual void printBanner(std::ostream& output) const = 0;
 };
 
 

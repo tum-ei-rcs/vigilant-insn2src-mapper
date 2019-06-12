@@ -1,0 +1,674 @@
+INFO: looking for loader "elf_40"
+INFO: prefix path = /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core
+INFO: searchpaths:
+INFO:	- ./.otawa/loader
+INFO:	- /home/becker/.otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core-build/otawa/lib/otawa/loader
+INFO:	- /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader
+INFO: available loaders
+INFO:	- elf_20 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_20.eld)
+INFO:	- arm (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO:	- elf_40 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_40.eld)
+INFO:	- ppc2 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/ppc2.so)
+INFO:	- elf_20 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_20.eld)
+INFO:	- arm (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO:	- elf_40 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/elf_40.eld)
+INFO:	- ppc2 (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/ppc2.so)
+INFO: selected loader: arm (2.1.0) ( /home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/loader/arm.so)
+INFO: using script from owcet-script.osx
+Starting otawa::script::Script (1.0.0)
+otawa-pipelineconfig.xml:2: I/O warning : failed to load external entity "/home/casse/otawa/otawa/data/dtd/pipeline.dtd"
+<!DOCTYPE processor SYSTEM "/home/casse/otawa/otawa/data/dtd/pipeline.dtd">
+                                                                           ^
+	script parameter "pipeline" found.
+	script parameter "cache" found.
+	script parameter "memory" found.
+	script parameter "bbstats" found.
+	script parameter "exportcfg" found.
+	script parameter "draw" found.
+	script parameter "graphdir" found.
+	script parameter "inline" found.
+	adding argument "pipeline" to "otawa-pipelineconfig.xml"
+	adding argument "cache" to "otawa-cacheconfig.xml"
+	adding argument "graphdir" to "graphs/"
+	found platform description.
+	processor configuration found.
+	memory configuration found.
+	setting property otawa::ipet::EXPLICIT with true
+	setting property otawa::FIRSTMISS_LEVEL with FML_NONE
+	setting property otawa::ipet::PIPELINE_DEPTH with 1
+	setting property otawa::VIRTUAL_INLINING with 1
+INFO: preparing to run otawa::display::ConfigOutput
+INFO: plugged otawa/display (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/proc/otawa/../../../libodisplay.so)
+REQUIRED: otawa::hard::CACHE_CONFIGURATION_FEATURE by otawa::display::ConfigOutput
+Starting otawa::CacheConfigurationProcessor (1.0.0)
+	no cache configuration
+Ending otawa::CacheConfigurationProcessor
+PROVIDED: otawa::hard::CACHE_CONFIGURATION_FEATURE by otawa::CacheConfigurationProcessor
+REQUIRED: otawa::hard::MEMORY_FEATURE by otawa::display::ConfigOutput
+Starting otawa::MemoryProcessor (1.0.0)
+	memory configuration from XML element
+		ON-CHIP NON-VOLATILE MEMORY	00000000-0007ffff
+		ON-CHIP STATIC RAM	00000000-00007fff
+		VPB PERIPHERALS	00000000-0fffffff
+		AHB PERIPHERALS	00000000-0fffffff
+Ending otawa::MemoryProcessor
+PROVIDED: otawa::hard::MEMORY_FEATURE by otawa::MemoryProcessor
+REQUIRED: otawa::hard::PROCESSOR_FEATURE by otawa::display::ConfigOutput
+Starting otawa::ProcessorProcessor (1.0.0)
+	processor configuration from XML element
+Ending otawa::ProcessorProcessor
+PROVIDED: otawa::hard::PROCESSOR_FEATURE by otawa::ProcessorProcessor
+Starting otawa::display::ConfigOutput (1.0.0)
+Ending otawa::display::ConfigOutput
+INFO: preparing to run otawa::Virtualizer
+USED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+REQUIRED: otawa::CFG_INFO_FEATURE by otawa::CFGCollector
+REQUIRED: otawa::DECODED_TEXT by otawa::CFGBuilder
+REQUIRED: otawa::FLOW_FACTS_FEATURE by otawa::TextDecoder
+REQUIRED: otawa::dfa::INITIAL_STATE_FEATURE by otawa::util::FlowFactLoader
+Starting otawa::dfa::InitialStateBuilder (1.0.0)
+Ending otawa::dfa::InitialStateBuilder
+PROVIDED: otawa::dfa::INITIAL_STATE_FEATURE by otawa::dfa::InitialStateBuilder
+Starting otawa::util::FlowFactLoader (1.4.1)
+	loading "main.elf.ffx"
+	cnt.c:89 is 000083a4:000083ac
+	[FUN(00008374)](MAX_ITERATION,000083a4) = 10
+	[FUN(00008374)](TOTAL_ITERATION,000083a4) = 10
+	cnt.c:90 is 000083ac:000083b4
+	[FUN(00008374)](MAX_ITERATION,000083ac) = 10
+	[FUN(00008374)](TOTAL_ITERATION,000083ac) = 100
+WARNING:otawa::util::FlowFactLoader 1.4.1:no checksum: flow facts and executable file may no match !
+Ending otawa::util::FlowFactLoader
+PROVIDED: otawa::FLOW_FACTS_FEATURE by otawa::util::FlowFactLoader
+PROVIDED: otawa::MKFF_PRESERVATION_FEATURE by otawa::util::FlowFactLoader
+Starting otawa::TextDecoder (1.0.0)
+INFO: no default decoder
+INFO: using VarTextDecoder
+Starting otawa::VarTextDecoder (1.0.0)
+	processing entry at 00008108
+	processing function "_fini" at 000092c8
+	processing function "__libc_init_array" at 00008e9c
+	processing function "__floatundidf" at 000088ec
+	processing function "Sum" at 00008374
+	processing function "main" at 0000821c
+	processing function "__do_global_dtors_aux" at 00008070
+	processing function "__subdf3" at 0000854c
+	processing function "__aeabi_ddiv" at 00008bf0
+	processing function "__libc_fini_array" at 0000919c
+	processing function "register_fini" at 0000804c
+	processing function "__aeabi_ui2d" at 00008860
+	processing function "__aeabi_f2d" at 000088ac
+	processing function "InitSeed" at 00008348
+	processing function "__aeabi_d2f" at 00008dfc
+	processing function "Initialize" at 000082d4
+	processing function "__extendsfdf2" at 000088ac
+	processing function "__floatdidf" at 00008900
+	processing function "__truncdfsf2" at 00008dfc
+	processing function "memset" at 00008f1c
+	processing function "Test" at 00008240
+	processing function "_exit" at 000092c4
+	processing function "__register_exitproc" at 000091e4
+	processing function "RandomInteger" at 000084c0
+	processing function "__floatsidf" at 00008884
+	processing function "__aeabi_ul2d" at 000088ec
+	processing function "__aeabi_drsub" at 00008544
+	processing function "frame_dummy" at 000080b0
+	processing function "__aeabi_i2d" at 00008884
+	processing function "exit" at 00008018
+	processing function "__aeabi_dadd" at 00008550
+	processing function "__aeabi_dmul" at 00008960
+	processing function "__call_exitprocs" at 00009010
+	processing function "atexit" at 0000917c
+	processing function "__adddf3" at 00008550
+	processing function "__divdf3" at 00008bf0
+	processing function "__floatunsidf" at 00008860
+	processing function "__muldf3" at 00008960
+	processing function "__aeabi_dsub" at 0000854c
+	processing function "__aeabi_l2d" at 00008900
+	processing function "_init" at 00008000
+Ending otawa::VarTextDecoder
+PROVIDED: otawa::DECODED_TEXT by otawa::VarTextDecoder
+Ending otawa::TextDecoder
+PROVIDED: otawa::DECODED_TEXT by otawa::TextDecoder
+Starting otawa::CFGBuilder (1.0.0)
+	found BB at 00008108
+		added cfg _mainCRTStartup (0x00008108)
+	found BB at 000092c8
+		added cfg _fini (0x000092c8)
+	found BB at 00008e9c
+		added cfg __libc_init_array (0x00008e9c)
+	found BB at 000088ec
+		added cfg __aeabi_ul2d (0x000088ec)
+	found BB at 00008374
+		added cfg Sum (0x00008374)
+	found BB at 0000821c
+		added cfg main (0x0000821c)
+	found BB at 00008070
+		added cfg __do_global_dtors_aux (0x00008070)
+	found BB at 0000854c
+		added cfg __aeabi_dsub (0x0000854c)
+	found BB at 00008bf0
+		added cfg __divdf3 (0x00008bf0)
+	found BB at 0000919c
+		added cfg __libc_fini_array (0x0000919c)
+	found BB at 0000804c
+		added cfg register_fini (0x0000804c)
+	found BB at 00008860
+		added cfg __floatunsidf (0x00008860)
+	found BB at 000088ac
+		added cfg __extendsfdf2 (0x000088ac)
+	found BB at 00008348
+		added cfg InitSeed (0x00008348)
+	found BB at 00008dfc
+		added cfg __truncdfsf2 (0x00008dfc)
+	found BB at 000082d4
+		added cfg Initialize (0x000082d4)
+	found BB at 00008900
+		added cfg __aeabi_l2d (0x00008900)
+	found BB at 00008f1c
+		added cfg memset (0x00008f1c)
+	found BB at 00008240
+		added cfg Test (0x00008240)
+	found BB at 000092c4
+		added cfg _exit (0x000092c4)
+	found BB at 000091e4
+		added cfg __register_exitproc (0x000091e4)
+	found BB at 000084c0
+		added cfg RandomInteger (0x000084c0)
+	found BB at 00008884
+		added cfg __aeabi_i2d (0x00008884)
+	found BB at 00008544
+		added cfg __aeabi_drsub (0x00008544)
+	found BB at 000080b0
+		added cfg frame_dummy (0x000080b0)
+	found BB at 00008018
+		added cfg exit (0x00008018)
+	found BB at 00008550
+		added cfg __adddf3 (0x00008550)
+	found BB at 00008960
+		added cfg __muldf3 (0x00008960)
+	found BB at 00009010
+		added cfg __call_exitprocs (0x00009010)
+	found BB at 0000917c
+		added cfg atexit (0x0000917c)
+	found BB at 00008000
+		added cfg _init (0x00008000)
+	segment .init
+	segment .text
+	found BB at 00008028
+	found BB at 00008040
+	found BB at 00008048
+	found BB at 00008060
+	found BB at 0000809c
+	found BB at 00008084
+	found BB at 000080e0
+	found BB at 000080d8
+	found BB at 000080ec
+	found BB at 0000817c
+	found BB at 00008124
+	found BB at 0000819c
+	found BB at 000081b0
+	found BB at 000081a8
+	found BB at 000081c4
+	found BB at 000081bc
+	found BB at 000081e8
+	found BB at 000081e0
+	found BB at 000081ec
+	found BB at 000081f8
+	found BB at 000081fc
+	found BB at 00008228
+	found BB at 00008230
+	found BB at 00008258
+	found BB at 00008268
+	found BB at 00008284
+	found BB at 000082a0
+	found BB at 000082b4
+	found BB at 00008330
+	found BB at 000082ec
+	found BB at 00008324
+	found BB at 000082f4
+	found BB at 00008318
+	found BB at 0000832c
+	found BB at 00008338
+	found BB at 0000846c
+	found BB at 000083ac
+	found BB at 00008460
+	found BB at 000083b4
+	found BB at 00008420
+	found BB at 000083e0
+	found BB at 0000845c
+	found BB at 00008468
+	found BB at 00008474
+	found BB at 000087ac
+	found BB at 00008578
+	found BB at 000085a4
+	found BB at 00008588
+	found BB at 000085b0
+	found BB at 000085cc
+	found BB at 000085c4
+	found BB at 000085e4
+	found BB at 000085dc
+	found BB at 00008794
+	found BB at 000085ec
+	found BB at 00008610
+	found BB at 000085f8
+	found BB at 0000862c
+	found BB at 00008640
+	found BB at 00008634
+	found BB at 00008688
+	found BB at 00008648
+	found BB at 0000866c
+	found BB at 00008650
+	found BB at 0000881c
+	found BB at 000086a0
+	found BB at 00008714
+	found BB at 000086f4
+	found BB at 00008710
+	found BB at 000086fc
+	found BB at 00008724
+	found BB at 00008738
+	found BB at 00008784
+	found BB at 00008744
+	found BB at 00008768
+	found BB at 0000874c
+	found BB at 00008830
+	found BB at 000087b8
+	found BB at 000087d8
+	found BB at 000087c4
+	found BB at 000087ec
+	found BB at 00008808
+	found BB at 000087f4
+	found BB at 00008818
+	found BB at 0000886c
+	found BB at 00008890
+	found BB at 000088cc
+	found BB at 000088d8
+	found BB at 000088f4
+	found BB at 0000891c
+	found BB at 00008908
+	found BB at 00008914
+	found BB at 0000892c
+	found BB at 00008b58
+		added cfg  (0x00008b58)
+	found BB at 00008980
+	found BB at 00008a1c
+	found BB at 000089a4
+	found BB at 000089e4
+	found BB at 000089d8
+	found BB at 00008a4c
+	found BB at 00008a04
+	found BB at 00008a40
+	found BB at 00008bc8
+	found BB at 00008a50
+	found BB at 00008a64
+	found BB at 00008adc
+	found BB at 00008a70
+	found BB at 00008aac
+	found BB at 00008a78
+	found BB at 00008b0c
+	found BB at 00008b38
+	found BB at 00008b14
+	found BB at 00008b18
+	found BB at 00008b2c
+	found BB at 00008b3c
+	found BB at 00008b50
+	found BB at 00008b88
+	found BB at 00008b68
+	found BB at 00008b74
+	found BB at 00008be0
+	found BB at 00008b9c
+	found BB at 00008bac
+	found BB at 00008ba4
+	found BB at 00008bc4
+	found BB at 00008bb4
+	found BB at 00008d8c
+		added cfg  (0x00008d8c)
+	found BB at 00008c10
+	found BB at 00008d58
+	found BB at 00008c24
+	found BB at 00008c64
+	found BB at 00008c5c
+	found BB at 00008d24
+	found BB at 00008cec
+	found BB at 00008c7c
+	found BB at 00008d0c
+	found BB at 00008d30
+	found BB at 00008d14
+	found BB at 00008d3c
+	found BB at 00008d74
+	found BB at 00008d9c
+	found BB at 00008dc0
+	found BB at 00008da4
+	found BB at 00008dac
+	found BB at 00008db4
+	found BB at 00008ddc
+	found BB at 00008dc8
+	found BB at 00008dd0
+	found BB at 00008de8
+	found BB at 00008df0
+	found BB at 00008df8
+	found BB at 00008e2c
+	found BB at 00008e10
+	found BB at 00008e74
+	found BB at 00008e34
+	found BB at 00008e40
+	found BB at 00008e8c
+	found BB at 00008e7c
+	found BB at 00008ed0
+	found BB at 00008eb8
+	found BB at 00008ec8
+	found BB at 00008ee0
+	found BB at 00008f04
+	found BB at 00008eec
+	found BB at 00008efc
+	found BB at 00009008
+	found BB at 00008f28
+	found BB at 00009000
+	found BB at 00008f34
+	found BB at 00008f4c
+	found BB at 00008f40
+	found BB at 00008f58
+	found BB at 00008fe4
+	found BB at 00008f60
+	found BB at 00008fb8
+	found BB at 00008f74
+	found BB at 00008f7c
+	found BB at 00008f9c
+	found BB at 00008fc0
+	found BB at 00008fd0
+	found BB at 00008fec
+	found BB at 00008ff4
+	found BB at 0000912c
+	found BB at 00009048
+	found BB at 00009080
+	found BB at 00009060
+	found BB at 000090f0
+	found BB at 00009064
+	found BB at 00009088
+	found BB at 00009070
+	found BB at 000090a8
+	found BB at 00009138
+	found BB at 000090c0
+	found BB at 000090c8
+	found BB at 00009038
+	found BB at 000090d4
+	found BB at 000090e0
+	found BB at 000090fc
+	found BB at 00009168
+	found BB at 0000910c
+	found BB at 00009114
+	found BB at 0000904c
+	found BB at 00009158
+	found BB at 00009144
+	found BB at 00009154
+	found BB at 00009164
+	found BB at 00009124
+	found BB at 00009194
+	found BB at 000091d0
+	found BB at 000091b8
+	found BB at 000091c8
+	found BB at 000091d4
+	found BB at 00009260
+	found BB at 00009220
+	found BB at 000092b4
+	found BB at 0000922c
+	found BB at 0000923c
+	found BB at 00009280
+	found BB at 00009268
+	found BB at 00009278
+	segment .fini
+Ending otawa::CFGBuilder
+PROVIDED: otawa::CFG_INFO_FEATURE by otawa::CFGBuilder
+REQUIRED: otawa::CFG_INFO_FEATURE by otawa::CFGCollector
+Starting otawa::CFGCollector (1.1.0)
+	CFG found for address 0x00008374
+	adding Sum
+	starting recursive traversal
+	ending recursive traversal
+Ending otawa::CFGCollector
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGCollector
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGCollector
+Starting otawa::Virtualizer (1.2.0)
+	begin inlining Sum
+		processing BB 1 (00008374)
+		processing BB 2 (0000846c)
+		processing BB 3 (00008474)
+		processing BB 4 (000083ac)
+		processing BB 5 (00008460)
+		processing BB 6 (00008468)
+		processing BB 7 (000083b4)
+		processing BB 8 (000083e0)
+		processing BB 9 (00008420)
+		processing BB 10 (0000845c)
+	end inlining Sum
+	INFO: 12 basic blocks.
+Ending otawa::Virtualizer
+INVALIDATED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+PROVIDED: otawa::VIRTUALIZED_CFG_FEATURE by otawa::Virtualizer
+PROVIDED: otawa::COLLECTED_CFG_FEATURE by otawa::Virtualizer
+INFO: preparing to run otawa::ipet::TrivialBBTime
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::TrivialBBTime
+Starting otawa::ipet::TrivialBBTime (1.1.0)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::ipet::TrivialBBTime
+PROVIDED: otawa::ipet::BB_TIME_FEATURE by otawa::ipet::TrivialBBTime
+INFO: requiring otawa::ipet::WCET_FEATURE
+REQUIRED: otawa::ipet::CONTROL_CONSTRAINTS_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::BasicConstraintsBuilder
+Starting otawa::ipet::ILPSystemGetter (1.0.0)
+	making an ILP system from "default" plugin
+Ending otawa::ipet::ILPSystemGetter
+PROVIDED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::ILPSystemGetter
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::BasicConstraintsBuilder
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::VarAssignment
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::VarAssignment
+Starting otawa::ipet::VarAssignment (1.0.0)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::ipet::VarAssignment
+PROVIDED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::VarAssignment
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::BasicConstraintsBuilder
+Starting otawa::ipet::BasicConstraintsBuilder (1.0.0)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::ipet::BasicConstraintsBuilder
+PROVIDED: otawa::ipet::CONTROL_CONSTRAINTS_FEATURE by otawa::ipet::BasicConstraintsBuilder
+REQUIRED: otawa::ipet::OBJECT_FUNCTION_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::BB_TIME_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+Starting otawa::ipet::BasicObjectFunctionBuilder (1.0.1)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::ipet::BasicObjectFunctionBuilder
+PROVIDED: otawa::ipet::OBJECT_FUNCTION_FEATURE by otawa::ipet::BasicObjectFunctionBuilder
+REQUIRED: otawa::ipet::FLOW_FACTS_CONSTRAINTS_FEATURE by otawa::ipet::WCETComputation
+REQUIRED: otawa::ipet::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::LOOP_HEADERS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::Dominance
+Starting otawa::Dominance (1.2.0)
+	process CFG Sum
+Ending otawa::Dominance
+PROVIDED: otawa::LOOP_HEADERS_FEATURE by otawa::Dominance
+PROVIDED: otawa::DOMINANCE_FEATURE by otawa::Dominance
+REQUIRED: otawa::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::CHECKED_CFG_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::CFGChecker
+Starting otawa::CFGChecker (1.0.0)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::CFGChecker
+PROVIDED: otawa::CHECKED_CFG_FEATURE by otawa::CFGChecker
+Starting otawa::ipet::FlowFactLoader (1.1.2)
+	process CFG Sum
+		[0] entering call to BB 1 (00008374) from ENTRY
+		[1] processing BB 1 (00008374)
+			MAX_ITERATION([FUN(00008374)]:BB 2 (0000846c)) = 10
+			TOTAL_ITERATION([FUN(00008374)]:BB 2 (0000846c)) = 10
+		[1] processing BB 2 (0000846c)
+		[1] processing BB 4 (000083ac)
+			MAX_ITERATION([FUN(00008374)]:BB 5 (00008460)) = 10
+			TOTAL_ITERATION([FUN(00008374)]:BB 5 (00008460)) = 100
+		[1] processing BB 5 (00008460)
+		[1] processing BB 7 (000083b4)
+		[1] processing BB 9 (00008420)
+		[1] processing BB 10 (0000845c)
+		[1] processing BB 8 (000083e0)
+		[1] processing BB 6 (00008468)
+		[1] processing BB 3 (00008474)
+		[1] leaving call
+		[0] processing EXIT
+Ending otawa::ipet::FlowFactLoader
+	total loop = 2 (100%)
+	found loop = 2 (100%)
+	line loop = 2 (100%)
+	flow cons = 4
+PROVIDED: otawa::ipet::FLOW_FACTS_FEATURE by otawa::ipet::FlowFactLoader
+REQUIRED: otawa::ipet::ASSIGNED_VARS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::LOOP_HEADERS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+Starting otawa::ipet::FlowFactConstraintBuilder (1.1.1)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		looking up loop bound for BB 2 (0000846c)
+		max = 10
+		total = 10
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		looking up loop bound for BB 5 (00008460)
+		max = 10
+		total = 100
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::ipet::FlowFactConstraintBuilder
+PROVIDED: otawa::ipet::FLOW_FACTS_CONSTRAINTS_FEATURE by otawa::ipet::FlowFactConstraintBuilder
+Starting otawa::ipet::WCETComputation (1.0.0)
+	launching ILP solver: lp_solve5
+	objective function = 3101
+	WCET = 3101
+Ending otawa::ipet::WCETComputation
+PROVIDED: otawa::ipet::WCET_FEATURE by otawa::ipet::WCETComputation
+INFO: preparing to run otawa::ipet::WCETCountRecorder
+REQUIRED: otawa::ipet::WCET_FEATURE by otawa::ipet::WCETCountRecorder
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::ipet::WCETCountRecorder
+Starting otawa::ipet::WCETCountRecorder (1.0.1)
+	process CFG Sum
+		process BB 0 (00000000)
+		BB 0 COUNT=1 TOTAL_TIME=0, 
+		process BB 1 (00008374)
+		BB 1 COUNT=1 TOTAL_TIME=14, 
+		process BB 2 (0000846c)
+		BB 2 COUNT=11 TOTAL_TIME=22, 
+		process BB 3 (00008474)
+		BB 3 COUNT=1 TOTAL_TIME=15, 
+		process BB 4 (000083ac)
+		BB 4 COUNT=10 TOTAL_TIME=20, 
+		process BB 5 (00008460)
+		BB 5 COUNT=110 TOTAL_TIME=220, 
+		process BB 6 (00008468)
+		BB 6 COUNT=10 TOTAL_TIME=10, 
+		process BB 7 (000083b4)
+		BB 7 COUNT=100 TOTAL_TIME=1100, 
+		process BB 8 (000083e0)
+		BB 8 COUNT=100 TOTAL_TIME=1600, 
+		process BB 9 (00008420)
+		BB 9 COUNT=0 TOTAL_TIME=0, 
+		process BB 10 (0000845c)
+		BB 10 COUNT=100 TOTAL_TIME=100, 
+		process BB 11 (00000000)
+		BB 11 COUNT=1 TOTAL_TIME=0, 
+Ending otawa::ipet::WCETCountRecorder
+PROVIDED: otawa::ipet::WCET_COUNT_RECORDED_FEATURE by otawa::ipet::WCETCountRecorder
+INFO: preparing to run otawa::display::ILPSystemDisplayer
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::display::ILPSystemDisplayer
+REQUIRED: otawa::ipet::ILP_SYSTEM_FEATURE by otawa::display::ILPSystemDisplayer
+Starting otawa::display::ILPSystemDisplayer (1.0.1)
+Ending otawa::display::ILPSystemDisplayer
+INFO: preparing to run otawa::cfgio::Output
+	setting property otawa::cfgio::Output::FILENAME with wcet.cfg
+INFO: plugged otawa/cfgio (/home/becker/async/WCET_gitlab/otawa/linux-x86_64/otawa-core/lib/otawa/proc/otawa/cfgio.so)
+cfgio::Output: FILENAME=wcet.cfg
+REQUIRED: otawa::COLLECTED_CFG_FEATURE by otawa::cfgio::Output
+Starting otawa::cfgio::Output (1.0.0)
+	process CFG Sum
+		process BB 0 (00000000)
+		process BB 1 (00008374)
+		process BB 2 (0000846c)
+		process BB 3 (00008474)
+		process BB 4 (000083ac)
+		process BB 5 (00008460)
+		process BB 6 (00008468)
+		process BB 7 (000083b4)
+		process BB 8 (000083e0)
+		process BB 9 (00008420)
+		process BB 10 (0000845c)
+		process BB 11 (00000000)
+Ending otawa::cfgio::Output
+Ending otawa::script::Script
+WCET[Sum] = 3101 cycles

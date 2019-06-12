@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="fdct" executed="true" extern="false">
+        <loop loopId="1" line="83" source="fdct.c" exact="true" maxcount="8" totalcount="8">
+        </loop>
+        <loop loopId="2" line="161" source="fdct.c" exact="true" maxcount="8" totalcount="8">
+        </loop>
+    </function>
+</flowfacts>
+

@@ -82,9 +82,13 @@ JsonFlowExporter::exportFlow(const Flow* flow, const InsnMap* insnMap,
         // Get block edges
         auto outEdges = flow->getOutgoingEdges(blockRanges[0].first);
 
-        // Check if block ends with function call
+        // We insert one extra block for callees
+        // FIXME: goa via block type instead of comparing addresses (too low-level for exporter)
         auto fIt = funcLocs.find(blockRanges.back().second);
         if (fIt != funcLocs.end()) {
+
+            assert(block.second->getType() == EBBlockType::CALL && "inconsistency");
+
             // New edge from current block to a new dummy block
             jsonEdges.push_back({blockRanges[0].first, --dummyCounter});
 
@@ -93,11 +97,15 @@ JsonFlowExporter::exportFlow(const Flow* flow, const InsnMap* insnMap,
                 jsonEdges.push_back({dummyCounter, edge.second});
             }
 
+            const std::vector <std::string> callees = block.second->getCallees();
+            json j_vec(callees);
+
             // Add the function block
             outJson["BasicBlocks"].push_back({
                 {"ID", dummyCounter},
                 {"AddrRanges", {*fIt, *fIt}},
-                {"BlockType", "FunctionCall"}
+                {"BlockType", "FunctionCall"},
+                {"calls", j_vec}
             });
 
             funcLocs.erase(fIt);
@@ -123,15 +131,15 @@ JsonFlowExporter::exportFlow(const Flow* flow, const InsnMap* insnMap,
 
 /**
  * @brief: Exports debug data of an executable to JSON format. Output contains
- *         a map of debug line info entries as well as an auxiliary map for 
+ *         a map of debug line info entries as well as an auxiliary map for
  *         mapping vma to their according line info entry.
- * 
- * 
+ *
+ *
  * @todo: Add compilation units to output as well as source files.
- * 
+ *
  * @todo: Speed up the line info look up by 'caching' the last line info entry.
  *        Check if next instruction is in the 'local' line info range (high, low).
- * 
+ *
  * @todo: Move this to DwarfData.
  */
 static void
@@ -198,7 +206,7 @@ JsonFlowExporter::exportDebugData(const DwarfData* debugData,
     //     * DW_TAG_subprogram
     //     * DW_TAG_inlined_subroutine
     //     * DW_TAG_variable
-    // 
+    //
     // - Export all valid attributes
     //
     // - FORMAT: "Data":"Dies": array of DIEs
@@ -238,7 +246,7 @@ JsonFlowExporter::exportDebugData(const DwarfData* debugData,
         }
     }
 
-    // Iterate over all instructions, add to json output map if instruction
+    // Iterate over all instructions, add to json output if instruction
     // has valid debug line information.
     for (auto insnIt = insnMap->begin(); insnIt != insnMap->end(); ++insnIt)
     {
@@ -247,7 +255,7 @@ JsonFlowExporter::exportDebugData(const DwarfData* debugData,
         DwarfLineInfo dwlInfo = debugData->getLineInfo(insnIt->first, status);
         if (!status) continue;
 
-        outJson["Data"]["LineInfoMap"][std::to_string(insnIt->first)] = 
+        outJson["Data"]["LineInfoMap"][std::to_string(insnIt->first)] =
             std::to_string(dwlInfo.lowPc);
     }
 

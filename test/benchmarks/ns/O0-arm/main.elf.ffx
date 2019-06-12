@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<flowfacts>
+    <function name="foo" executed="true" extern="false">
+        <loop loopId="1" line="504" source="ns.c" exact="false" maxcount="5" totalcount="5">
+            <loop loopId="2" line="505" source="ns.c" exact="false" maxcount="5" totalcount="25">
+                <loop loopId="3" line="506" source="ns.c" exact="false" maxcount="5" totalcount="125">
+                    <loop loopId="4" line="507" source="ns.c" exact="false" maxcount="5" totalcount="625">
+                        <conditional id="IF-1"> <condition line="512" source="ns.c" executed="true"> </condition>
+                            <case cond="1" executed="true" line="517" source="ns.c">
+                            </case>
+                            <case cond="0" executed="true" >
+                            </case>
+                        </conditional>
+                    </loop>
+                </loop>
+            </loop>
+        </loop>
+        <conditional id="IF-2"> <condition line="520" source="ns.c" executed="true"> </condition>
+            <case cond="1" executed="true" >
+            </case>
+            <case cond="0" executed="true" >
+            </case>
+        </conditional>
+    </function>
+</flowfacts>
+

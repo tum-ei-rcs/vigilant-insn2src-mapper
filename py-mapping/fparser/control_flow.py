@@ -1,6 +1,7 @@
 import logging
 import os.path
 import copy
+import datetime
 import networkx as nx
 from abc import ABCMeta, abstractmethod
 from sortedcontainers import SortedDict, SortedSet
@@ -83,9 +84,9 @@ class ControlFlow(object):
             self._exitId = ident
 
         # Validate attributes
-        validKeys = self._get_block_attr_keys()
-        assert isinstance(validKeys, set)
-        assert set(_attrs.keys()) <= validKeys
+        # validKeys = self._get_block_attr_keys()
+        # assert isinstance(validKeys, set)
+        # assert set(_attrs.keys()) <= validKeys
 
         self.digraph.add_node(ident, attrs=_attrs, type=_type)
         
@@ -266,7 +267,7 @@ TODO: - Collapse inlined functions (simple case), else raise an AssertionError
 class BinaryControlFlow(ControlFlow):
     """Parses a json object to generate a binary ControlFlow object."""
 
-    attrKeys = {'AddrRanges'}
+    attrKeys = {'AddrRanges'}  # keys guaranteed to be there in regular BBs
 
     def __init__(self, jsonObj, dwData, insns, symbs, dieOffset, opCodeTiming, simplify=False):
         # Hold a reference to dwarf data and instructions
@@ -347,6 +348,7 @@ class BinaryControlFlow(ControlFlow):
     def _attr_block_time(self):
         self._blockTimes = dict()
 
+        timeMissing = set()
         for b in self.get_blocks():
             totalSum = 0
             ar = self.get_addr_ranges(b)
@@ -354,11 +356,24 @@ class BinaryControlFlow(ControlFlow):
                 local_insns = self._insns.get_instructions(r)
                 for i in local_insns:
                     mnem = i['Mnem']
-                    assert mnem in self._opTimes, "Invalid mnemonic: {}".format(mnem)
-                    # Add max time (second element in opTime tuple)
-                    maxTime = self._opTimes[i['Mnem']][1]
-                    totalSum += maxTime
+                    try:
+                        # Add max time (second element in opTime tuple)
+                        maxTime = self._opTimes[mnem][1]
+                        totalSum += maxTime
+                    except KeyError:
+                        timeMissing.add(mnem)
+
             self._blockTimes[b] = totalSum
+
+        if timeMissing:
+            file_missing = 'missing-times-opcodes.csv'
+            with open(file_missing, 'a') as f:
+                f.write("# {}:\n".format(datetime.datetime.now()))
+                for missing_mnemo in timeMissing:
+                    f.write("{};1;1\n".format(missing_mnemo))
+            fullpath = os.path.join(os.getcwd(), file_missing)
+            assert False, "Time missing for some mnemonics in {}. See file {}".format(self.name,
+                                                                                      fullpath)
 
         log.debug("Block times = {}".format(self._blockTimes))
 
@@ -823,15 +838,25 @@ class BinaryControlFlow(ControlFlow):
         for block in self.get_blocks():
             if self.get_block_type(block) == 'FunctionCall':
                 addrRanges = self.get_addr_ranges(block)
+
+                # FIXME: why the follwoing requirements??
                 assert len(addrRanges) == 1, \
-                    "Function block must have a single address range."
+                    "Function block must have a contiguous address range."
                 assert addrRanges[0][0] == addrRanges[0][1], \
                     "Function block must contain a single instruction only."
 
-                insn = self._insns._insnMap[addrRanges[0][0]]
-                assert len(insn['Target']) == 1, \
-                    "Invalid call instruction"
-                self._funcCalls.update({block: self._symbs[insn['Target'][0]]})
+                block_attrs = self.get_block_attrs(block)
+                # use callee info from flow parser if present and nonempty
+                assert len(block_attrs['calls']) == 1, "icall not supported"
+                callee = block_attrs['calls'][0]
+
+                # alternative, deprecated:
+                # find callee ourselves
+                # log.warning("Resolving callee of {}.{}...".format(self.name, block))
+                # insn = self._insns._insnMap[addrRanges[0][0]]
+                # assert len(insn['Target']) == 1, "Invalid call instruction"
+                # callee = self._symbs[insn['Target'][0]]
+                self._funcCalls.update({block: callee})
 
     def _validate_json_obj(self, jsonObj):
         validObjKeys = {'Type', 'Name', 'BasicBlocks', 'Edges'}
@@ -851,15 +876,11 @@ class BinaryControlFlow(ControlFlow):
         return status
 
     def _parse_json_obj(self, jsonObj):
-        validBlockKeys = {'ID', 'BlockType', 'AddrRanges'}
         # Add blocks
         bCount = 0
         for block in jsonObj['BasicBlocks']:
             attrs = {k: [] for k in BinaryControlFlow.attrKeys}
-
-            if not set(block.keys()) <= validBlockKeys:
-                break
-            if block['BlockType'] != 'Entry' and block['BlockType'] != 'Exit':
+            if block['BlockType'].lower() not in ('entry', 'exit'):
                 if not len(block['AddrRanges']):
                     log.error("Block with id {} has invalid AddrRanges.".format(block['ID']))
                     break
@@ -868,6 +889,8 @@ class BinaryControlFlow(ControlFlow):
                     attrs['AddrRanges'] = [(a[0], a[1]) for a in ar]
                 else:
                     attrs['AddrRanges'] = [(ar[0], ar[1])]
+                if 'calls' in block:  # some flow parsers provide this (OTAWA: y, AVR: n)
+                    attrs['calls'] = block['calls']
 
             bCount += 1            
             super(BinaryControlFlow, self)._add_block(
@@ -1046,6 +1069,7 @@ class SourceControlFlow(ControlFlow):
         Find which source block contains given source location
         FIXME:  - Clean up code, remove the last loop, find max in the first loop instead.
         """
+        assert line != 0, "Requesting sBBs at line zero"
         foundBlock = None
         matchedBlocks = dict()
         for n in node_list:
@@ -1085,6 +1109,7 @@ class SourceControlFlow(ControlFlow):
         This function is slow! Hand over lists of lines if multiple queries are needed.
 
         :param line: line number to look for. Can also be a set.
+        :param node_list: list of src nodes to consider
         :type line: int | set
         :return set of bbs or dict, depending on parameter line
         """
@@ -1092,12 +1117,14 @@ class SourceControlFlow(ControlFlow):
             lines = {line}
         else:
             lines = line
+        if 0 in lines:
+            log.warning("Querying for src line ZERO in {} - returning all".format(self.name))
         matchedBlocks = {l: set() for l in lines}
         for n in node_list:
             lInfo = self.get_line_info(n)
-            for l in lines:
-                if lInfo['begin']['l'] <= l <= lInfo['end']['l']:
-                    matchedBlocks[l].add(n)
+            for one_line in lines:
+                if one_line == 0 or lInfo['begin']['l'] <= one_line <= lInfo['end']['l']:
+                    matchedBlocks[one_line].add(n)
         if not isinstance(line, set):
             return matchedBlocks[line]
         else:
