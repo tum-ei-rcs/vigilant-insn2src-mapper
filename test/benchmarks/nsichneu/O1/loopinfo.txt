@@ -1,0 +1,5 @@
+subprogram "main"
+  loop 
+	repeats 2 times;
+  end loop;
+end "main";

@@ -1,0 +1,66 @@
+Note:main.elf::::Bound-T 4c5 for Atmel-AVR
+Note:main.elf::::This AVR device has a 16-bit SP = SPH:SPL.
+Note:main.elf::::File format assumed to be ELF
+Note:main.elf::::Segment 2 not loaded:Zero length in memory
+Note:main.elf::::Loading DWARF info section.
+Note:main.elf::::DWARF debug info ends at End_Index without null entry.
+Note:main.elf::::DWARF debug info ends at End_Index without null entry.
+Note:main.elf::::DWARF debug info ends without null entry.
+Note:main.elf::::Loading DWARF types for compilation unit 1
+Note:main.elf::::Loading DWARF types for compilation unit 2
+Note:main.elf::::Loading DWARF types for compilation unit 3
+Note:main.elf::::Parsing DWARF symbols.
+Note:main.elf::::Entering DWARF compilation unit for [no name]
+Note:main.elf::::Duplicated symbol and value:Variable:MCUCSR:[all] => d800054
+Note:main.elf::::Duplicated symbol and value:Variable:SFIOR:[all] => d800040
+Note:main.elf::::Duplicated symbol and value:Variable:SFIOR:[all] => d800040
+Note:main.elf::::Duplicated symbol and value:Variable:TIMSK:[all] => d800057
+Note:main.elf::::Duplicated symbol and value:Variable:TIFR:[all] => d800056
+Note:main.elf::::Duplicated symbol and value:Variable:SFIOR:[all] => d800040
+Note:main.elf::::Duplicated symbol and value:Variable:TIFR:[all] => d800056
+Note:main.elf::::Duplicated symbol and value:Variable:TIMSK:[all] => d800057
+Note:main.elf::::Duplicated symbol and value:Variable:ETIMSK:[all] => d80007D
+Note:main.elf::::Duplicated symbol and value:Variable:ETIFR:[all] => d80007C
+Note:main.elf::::Duplicated symbol and value:Variable:SFIOR:[all] => d800040
+Note:main.elf::::Entering DWARF compilation unit for cover.c
+Note:main.elf::::Entering DWARF compilation unit for ../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S
+Note:main.elf::::Program implies calling protocol GCC.
+Note:main.elf::::Added unstable stack "SP", pointer dw5D coupling by OPPOSITE to height sh, net change variable, unit 8 bits.
+Note:main.elf:loopinfo.txt:::Routine at 0003A4 classified as NORMAL after inspecting 1 instructions.
+Note:main.elf:cover.c:swi50:134:Root subprogram
+Note:main.elf::::Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf::::Dynamism bounding iteration number 1
+Note:main.elf:cover.c:swi50:134:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134:Analysis for time is needed.
+Note:main.elf:cover.c:swi50:134:Control-flow analysis starts.
+Warning:main.elf:cover.c:swi50:142-:Large combined 16-bit literal 65535 taken as signed = -1
+Warning:main.elf:cover.c:swi50:136-:Large combined 16-bit literal 65535 taken as signed = -1
+Note:main.elf:cover.c:swi50:134:Control-flow analysis finished.
+Note:main.elf:cover.c:swi50:134:Dominator iterations 2 for 82 graph nodes.
+Note:main.elf:cover.c:swi50:134:Assertions resolved 0 of 0 dynamic calls.
+Note:main.elf:cover.c:swi50:134-202:No execution bounds known yet.
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Repeating constant propagation.
+Note:main.elf:cover.c:swi50:134-202:Final stack-height in stack SP is constant for 8 of 8 return points.
+Note:main.elf:cover.c:swi50:134-202:Final stack-height from constant propagation for SP:sh=-2
+Note:main.elf:cover.c:swi50:134-202:Maximum stack-height from constant propagation for SP:0
+Note:main.elf:cover.c:swi50:134-202:Take-off stack-height in stack SP is constant for 0 of 0 calls.
+Note:main.elf:cover.c:swi50:134-202:Constant propagation changed nothing.
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Arithmetic analysis is not needed.
+Note:main.elf:cover.c:swi50:134-202:Unused (# 1 = swi50 at 0003A4) is FALSE
+Note:main.elf:cover.c:swi50:134-202:Time_State for bounds # 1 defined as COMPUTABLE
+Note:main.elf:cover.c:swi50:134-202:Freezing bounds # 1
+Note:main.elf::::Target-specific additional analysis starts.
+Note:main.elf::::Generic worst-case path and time analysis starts.
+Wcet:main.elf:cover.c:swi50:134-202:2205

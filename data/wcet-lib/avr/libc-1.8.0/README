@@ -1,0 +1,7 @@
+In this folder, we can generate an approximate (but unsafe) WCET library for all functions in libc.
+Towards that, create a new subfolder for your target, copy the Makefile from existing ones, 
+and adapt the mmcu flag appropriately.
+
+Then, copy the test from the libc sources to there, and run make.
+
+It will generate a file to be used with cbbanalyzer.

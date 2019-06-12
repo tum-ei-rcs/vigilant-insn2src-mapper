@@ -1,0 +1,5 @@
+subprogram "swi50"
+  loop 
+	repeats 50 times;
+  end loop;
+end "swi50";

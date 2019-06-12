@@ -1,0 +1,8 @@
+*.lst
+*.o
+*.json
+*.asm
+*.map
+temp/
+*.elf
+trace

@@ -1,0 +1,8 @@
+test
+.vscode
+*_flymake.py
+*.py~
+*.pyc
+*.pyo
+*.py#
+.idea/

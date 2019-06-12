@@ -1,0 +1,136 @@
+
+main.elf:     file format elf32-avr
+
+Decoded dump of debug contents of section .debug_line:
+
+File name                            Line number    Col Number    Starting address
+
+CU: crc.c:
+File name                            Line number    Col Number    Starting address
+crc.c                                         58           1                0xce
+crc.c                                         60          32                0xe4
+crc.c                                         60          17                0xf0
+crc.c                                         62           8                0xfc
+crc.c                                         62           2               0x100
+crc.c                                         63           7               0x102
+crc.c                                         63           6               0x106
+crc.c                                         64          15               0x10a
+crc.c                                         64           8               0x116
+crc.c                                         66           8               0x128
+crc.c                                         62          16               0x134
+crc.c                                         62           2               0x13e
+crc.c                                         68           9               0x146
+crc.c                                         69           1               0x14a
+crc.c                                         73           1               0x15c
+crc.c                                         77          32               0x188
+crc.c                                         80           7               0x190
+crc.c                                         80           6               0x198
+crc.c                                         81           9               0x19e
+crc.c                                         82          11               0x1aa
+crc.c                                         82           5               0x1ae
+crc.c                                         83          25               0x1b0
+crc.c                                         83          17               0x1b8
+crc.c                                         83          16               0x1c0
+crc.c                                         84          28               0x1d2
+crc.c                                         84          25               0x1da
+crc.c                                         84          35               0x1e6
+crc.c                                         84          40               0x1f2
+crc.c                                         84          47               0x1f4
+crc.c                                         84          44               0x204
+crc.c                                         84          40               0x20c
+crc.c                                         84          15               0x20e
+crc.c                                         84          14               0x210
+crc.c                                         82          22               0x21c
+crc.c                                         82           5               0x226
+crc.c                                         87           6               0x234
+crc.c                                         87          26               0x23c
+crc.c                                         87          45               0x242
+crc.c                                         87          60               0x248
+crc.c                                         87          41               0x24c
+crc.c                                         87          24               0x250
+crc.c                                         88          11               0x256
+crc.c                                         89          16               0x25e
+crc.c                                         89          15               0x26a
+crc.c                                         89          38               0x276
+crc.c                                         89          37               0x27c
+crc.c                                         89          53               0x288
+crc.c                                         89          31               0x28c
+crc.c                                         89          10               0x290
+crc.c                                         93           9               0x294
+crc.c                                         93           3               0x29c
+crc.c                                         94           8               0x29e
+crc.c                                         95          22               0x2a6
+crc.c                                         95          18               0x2b6
+crc.c                                         95          28               0x2be
+crc.c                                         95          26               0x2c6
+crc.c                                         95          12               0x2c8
+crc.c                                         98          17               0x2d2
+crc.c                                         98          22               0x2de
+crc.c                                         98          20               0x2e6
+crc.c                                         98          12               0x2e8
+crc.c                                        100          19               0x2f0
+crc.c                                        100          28               0x302
+crc.c                                        100          42               0x308
+crc.c                                        100          11               0x30c
+crc.c                                         93          20               0x314
+crc.c                                         93          13               0x31e
+crc.c                                         93           3               0x328
+crc.c                                        102           6               0x33c
+crc.c                                        103          10               0x344
+crc.c                                        106          17               0x34e
+crc.c                                        106          16               0x35a
+crc.c                                        106          39               0x366
+crc.c                                        106          38               0x36c
+crc.c                                        106          54               0x378
+crc.c                                        106          32               0x37c
+crc.c                                        106          10               0x380
+crc.c                                        108          10               0x384
+crc.c                                        109           1               0x388
+crc.c                                        113           1               0x39e
+crc.c                                        118           4               0x3b6
+crc.c                                        119           8               0x3c6
+crc.c                                        119          11               0x3d4
+crc.c                                        120           5               0x3dc
+crc.c                                        121          12               0x3fc
+crc.c                                        121           8               0x404
+crc.c                                        121          11               0x412
+crc.c                                        122           8               0x41a
+crc.c                                        122          12               0x428
+crc.c                                        122          11               0x42a
+crc.c                                        123           6               0x432
+crc.c                                        123           5               0x440
+crc.c                                        124          10               0x45a
+crc.c                                        125           1               0x45e
+
+CU: ../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S:
+File name                            Line number    Col Number    Starting address
+lib1funcs.S                                 2278           0               0x474
+lib1funcs.S                                 2280           0               0x476
+
+CU: ../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S:
+File name                            Line number    Col Number    Starting address
+lib1funcs.S                                 2373           0                0x98
+lib1funcs.S                                 2374           0                0x9a
+lib1funcs.S                                 2375           0                0x9c
+lib1funcs.S                                 2376           0                0x9e
+lib1funcs.S                                 2377           0                0xa0
+lib1funcs.S                                 2378           0                0xa2
+lib1funcs.S                                 2379           0                0xa4
+lib1funcs.S                                 2380           0                0xa6
+lib1funcs.S                                 2382           0                0xa8
+lib1funcs.S                                 2383           0                0xaa
+lib1funcs.S                                 2385           0                0xac
+lib1funcs.S                                 2386           0                0xae
+lib1funcs.S                                 2387           0                0xb0
+
+CU: ../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S:
+File name                            Line number    Col Number    Starting address
+lib1funcs.S                                 2441           0                0xb2
+lib1funcs.S                                 2442           0                0xb4
+lib1funcs.S                                 2443           0                0xb6
+lib1funcs.S                                 2444           0                0xb8
+lib1funcs.S                                 2446           0                0xba
+lib1funcs.S                                 2448           0                0xbc
+lib1funcs.S                                 2449           0                0xbe
+lib1funcs.S                                 2450           0                0xc0
+

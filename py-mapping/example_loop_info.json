@@ -1,0 +1,39 @@
+{
+    "decode": {
+        "file"  : "",
+        "loops" : {
+            "6650" : {
+                "addr"    : "19fa",
+                "line"    : 481,
+                "repeats" : 6,
+                "comment" : "Shift loop, >> 6."
+            }
+        }
+    },
+
+    "scalel": {
+        "file"  : "",
+        "loops" : {
+            "15430" : {
+                "addr"    : "3c46",
+                "line"    : 720,
+                "repeats" : 6,
+                "comment" : "Shift loop, >> 6."
+            },
+
+            "15470" : {
+                "addr"    : "3c6e",
+                "line"    : 721,
+                "repeats" : 11,
+                "comment" : ""
+            },
+
+            "15548" : {
+                "addr"    : "3cbc",
+                "line"    : 722,
+                "repeats" : 255,
+                "comment" : "Refer to loopinfo.txt"
+            }
+        }
+    }
+}

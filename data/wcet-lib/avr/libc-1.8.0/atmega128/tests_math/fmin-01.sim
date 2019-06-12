@@ -1,0 +1,52 @@
+WARN: Symbol at 4e8 already has a name: __ctors_end. Updating to __ctors_start.
+WARN: Symbol at 4e8 already has a name: __ctors_start. Updating to __dtors_end.
+WARN: Symbol at 4e8 already has a name: __dtors_end. Updating to __dtors_start.
+WARN: Symbol at 78c already has a name: exit. Updating to _exit.
+WARN: Symbol at 4e8 already has a name: __dtors_start. Updating to __init.
+WARN: Symbol at 8c already has a name: t. Updating to __trampolines_end.
+WARN: Symbol at 8c already has a name: __trampolines_end. Updating to __trampolines_start.
+WARN: Symbol at 516 already has a name: __bad_interrupt. Updating to __vector_1.
+WARN: Symbol at 516 already has a name: __vector_1. Updating to __vector_10.
+WARN: Symbol at 516 already has a name: __vector_10. Updating to __vector_11.
+WARN: Symbol at 516 already has a name: __vector_11. Updating to __vector_12.
+WARN: Symbol at 516 already has a name: __vector_12. Updating to __vector_13.
+WARN: Symbol at 516 already has a name: __vector_13. Updating to __vector_14.
+WARN: Symbol at 516 already has a name: __vector_14. Updating to __vector_15.
+WARN: Symbol at 516 already has a name: __vector_15. Updating to __vector_16.
+WARN: Symbol at 516 already has a name: __vector_16. Updating to __vector_17.
+WARN: Symbol at 516 already has a name: __vector_17. Updating to __vector_18.
+WARN: Symbol at 516 already has a name: __vector_18. Updating to __vector_19.
+WARN: Symbol at 516 already has a name: __vector_19. Updating to __vector_2.
+WARN: Symbol at 516 already has a name: __vector_2. Updating to __vector_20.
+WARN: Symbol at 516 already has a name: __vector_20. Updating to __vector_21.
+WARN: Symbol at 516 already has a name: __vector_21. Updating to __vector_22.
+WARN: Symbol at 516 already has a name: __vector_22. Updating to __vector_23.
+WARN: Symbol at 516 already has a name: __vector_23. Updating to __vector_24.
+WARN: Symbol at 516 already has a name: __vector_24. Updating to __vector_25.
+WARN: Symbol at 516 already has a name: __vector_25. Updating to __vector_26.
+WARN: Symbol at 516 already has a name: __vector_26. Updating to __vector_27.
+WARN: Symbol at 516 already has a name: __vector_27. Updating to __vector_28.
+WARN: Symbol at 516 already has a name: __vector_28. Updating to __vector_29.
+WARN: Symbol at 516 already has a name: __vector_29. Updating to __vector_3.
+WARN: Symbol at 516 already has a name: __vector_3. Updating to __vector_30.
+WARN: Symbol at 516 already has a name: __vector_30. Updating to __vector_31.
+WARN: Symbol at 516 already has a name: __vector_31. Updating to __vector_32.
+WARN: Symbol at 516 already has a name: __vector_32. Updating to __vector_33.
+WARN: Symbol at 516 already has a name: __vector_33. Updating to __vector_34.
+WARN: Symbol at 516 already has a name: __vector_34. Updating to __vector_4.
+WARN: Symbol at 516 already has a name: __vector_4. Updating to __vector_5.
+WARN: Symbol at 516 already has a name: __vector_5. Updating to __vector_6.
+WARN: Symbol at 516 already has a name: __vector_6. Updating to __vector_7.
+WARN: Symbol at 516 already has a name: __vector_7. Updating to __vector_8.
+WARN: Symbol at 516 already has a name: __vector_8. Updating to __vector_9.
+WARN: Symbol at 0 already has a name: __heap_end. Updating to __vector_default.
+WARN: Symbol at 0 already has a name: __vector_default. Updating to __vectors.
+Loaded 16 symbols.
+Running Simulator live...
+Tracefile ignored
+Running Simulator: simulavr -l0 -datmega128 -Texit -t stdout -f fmin-01.elf
+Cycles: 1 (1 per second), stack=
+Skipping line: number of cpu cycles simulated: 28345
+
+{'main': {'count': 1, 'bcet': 28280, 'fun': 'main', 'running': False, 'valid': True, 'wcet': 28280, 'lastcall': 62, 'et': []}, 'fmin': {'count': 93, 'bcet': 21, 'fun': 'fmin', 'running': False, 'valid': True, 'wcet': 34, 'lastcall': 28239, 'et': []}}
+Total time: 0.3s

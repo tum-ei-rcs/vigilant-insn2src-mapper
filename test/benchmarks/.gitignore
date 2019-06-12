@@ -1,0 +1,7 @@
+modelcheck/
+*.asm
+time.log
+time_lpsolve.log
+stderr.log
+time_oc.log
+trace

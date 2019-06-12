@@ -1,0 +1,96 @@
+CBMCFLAGS: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+GOTOINSFLAGS: 
+Initial guess: 0..0
+Requested WCET precision: 1
+Assertions per step: 10
+Max steps: 0
+All Flags: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+Output path: /home/becker/async/graph-mapping/test/benchmarks/ns/O1/wcet-cbmc
+Output path intermediate: modelcheck
+Template file: ns_i.in
+Other files: 
+...step #1: WCET in [0,9223372036854775807], precision=9223372036854775807
+......cand: 6208, 1, 18854838150406, 1485633833817296, 78, 38543920, 3037000499, 239295116727, 489178, 117057906865942864, 9223372036854775807
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......walltime=7.18, usertime=5.98, dbg_time1=7.27, mem=139260, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [6208,489178], precision=482970
+......remaining steps <=6
+...step #2: WCET in [6208,489178], precision=482970
+......cand: 6208, 199396, 392584, 54505, 247693, 440881, 102802, 295990, 489178, 151099, 344287
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......walltime=6.85, usertime=5.74, dbg_time1=6.90, mem=139240, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [6208,54505], precision=48297
+......remaining steps <=5
+...step #3: WCET in [6208,54505], precision=48297
+......cand: 6208, 54505, 49675, 44845, 40015, 35186, 30356, 25526, 20697, 15867, 11037
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.11]
+......walltime=6.55, usertime=5.64, dbg_time1=6.64, mem=139136, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [11037,15867], precision=4830
+......remaining steps <=4
+...step #4: WCET in [11037,15867], precision=4830
+......cand: 11520, 12003, 12486, 12969, 13452, 13935, 14418, 14901, 15384, 15867, 11037
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.3]
+......WARNING: empty counterexample [CBMCDriver.assertion.4]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......WARNING: empty counterexample [CBMCDriver.assertion.6]
+......WARNING: empty counterexample [CBMCDriver.assertion.11]
+......walltime=7.31, usertime=6.14, dbg_time1=7.40, mem=139332, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [13935,14418], precision=483
+......remaining steps <=3
+...step #5: WCET in [13935,14418], precision=483
+......cand: 14176, 14224, 14369, 14273, 14031, 14128, 14321, 14418, 13935, 13983, 14079
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......WARNING: empty counterexample [CBMCDriver.assertion.6]
+......WARNING: empty counterexample [CBMCDriver.assertion.9]
+......WARNING: empty counterexample [CBMCDriver.assertion.10]
+......WARNING: empty counterexample [CBMCDriver.assertion.11]
+......walltime=7.0, usertime=5.88, dbg_time1=7.09, mem=139252, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [14128,14176], precision=48
+......remaining steps <=2
+...step #6: WCET in [14128,14176], precision=48
+......cand: 14176, 14147, 14152, 14156, 14128, 14161, 14132, 14166, 14137, 14171, 14142
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......WARNING: empty counterexample [CBMCDriver.assertion.7]
+......walltime=7.17, usertime=5.62, dbg_time1=7.23, mem=139140, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15334, 'sum': 15334, 'avg': 15334, 'n': 1, 'min': 15334}}
+......WCET in [14132,14137], precision=5
+......remaining steps <=1
+...step #7: WCET in [14132,14137], precision=5
+......cand: 14132, 14133, 14134, 14135, 14136, 14137
+......Reading properties from ['modelcheck/tmp_ns_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......walltime=8.26, usertime=6.23, dbg_time1=8.32, mem=139144, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 15329, 'sum': 15329, 'avg': 15329, 'n': 1, 'min': 15329}}
+......WCET in [14132,14133], precision=1
+SUCCESS: Precise enough after 7 iterations, precision=1
+RESULT: 14132 < WCET <= 14133 cycles
+peak memory (kBytes): samples=7, min=139136.0, avg=139214.857143, max=139332.0, sum=974504.0
+cbmc walltime (sec): samples=7, min=6.55, avg=7.18857142857, max=8.26, sum=50.32
+cbmc usertime (sec): samples=7, min=5.62, avg=5.89, max=6.23, sum=41.23
+variables: samples=0, min=None, avg=None, max=None, sum=0
+clauses: samples=0, min=None, avg=None, max=None, sum=0
+steps: samples=7, min=15329, avg=15333, max=15334, sum=107333
+Script: alltime=52.93, selftime=2.61, ret=0

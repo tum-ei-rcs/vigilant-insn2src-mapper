@@ -1,0 +1,138 @@
+/* Time-annotations by cbb-analyzer 
+ * Using WCET library for target Atmega128 from 2018-02-16_13:40:25
+ */
+#ifdef WCETREPLAY
+  #define EXTRA_INSTRUCTION __asm__("nop");
+#else
+  #define EXTRA_INSTRUCTION /* nada */
+#endif
+#define TIC(X) ({timeElapsed += (X); EXTRA_INSTRUCTION})
+
+unsigned long timeElapsed = 0;
+/* $Id: crc.c,v 1.2 2005/04/04 11:34:58 csg Exp $ */
+
+/*************************************************************************/
+/*                                                                       */
+/*   SNU-RT Benchmark Suite for Worst Case Timing Analysis               */
+/*   =====================================================               */
+/*                              Collected and Modified by S.-S. Lim      */
+/*                                           sslim@archi.snu.ac.kr       */
+/*                                         Real-Time Research Group      */
+/*                                        Seoul National University      */
+/*                                                                       */
+/*                                                                       */
+/*        < Features > - restrictions for our experimental environment   */
+/*                                                                       */
+/*          1. Completely structured.                                    */
+/*               - There are no unconditional jumps.                     */
+/*               - There are no exit from loop bodies.                   */
+/*                 (There are no 'break' or 'return' in loop bodies)     */
+/*          2. No 'switch' statements.                                   */
+/*          3. No 'do..while' statements.                                */
+/*          4. Expressions are restricted.                               */
+/*               - There are no multiple expressions joined by 'or',     */
+/*                'and' operations.                                      */
+/*          5. No library calls.                                         */
+/*               - All the functions needed are implemented in the       */
+/*                 source file.                                          */
+/*                                                                       */
+/*                                                                       */
+/*************************************************************************/
+/*                                                                       */
+/*  FILE: crc.c                                                          */
+/*  SOURCE : Numerical Recipes in C - The Second Edition                 */
+/*                                                                       */
+/*  DESCRIPTION :                                                        */
+/*                                                                       */
+/*     A demonstration for CRC (Cyclic Redundancy Check) operation.      */
+/*     The CRC is manipulated as two functions, icrc1 and icrc.          */
+/*     icrc1 is for one character and icrc uses icrc1 for a string.      */
+/*     The input string is stored in array lin[].                        */
+/*     icrc is called two times, one for X-Modem string CRC and the      */
+/*     other for X-Modem packet CRC.                                     */
+/*                                                                       */
+/*  REMARK :                                                             */
+/*                                                                       */
+/*  EXECUTION TIME :                                                     */
+/*                                                                       */
+/*                                                                       */
+/*************************************************************************/
+
+
+typedef unsigned char uchar;
+#define LOBYTE(x) ((uchar)((x) & 0xFF))
+#define HIBYTE(x) ((uchar)((x) >> 8))
+
+unsigned char lin[256] = "asdffeagewaHAFEFaeDsFEawFdsFaefaeerdjgp";
+
+unsigned short icrc1(unsigned short crc, unsigned char onech)
+{TIC(0); 
+	int i;
+	unsigned short ans=(crc^onech << 8);
+
+	for (i=0;TIC(8), i<8;TIC(17), i++) {
+		if (ans & 0x8000)
+			TIC(24), ans = (ans <<= 1) ^ 4129;
+		else
+			TIC(10), ans <<= 1;
+	}
+	TIC(65); return ans;
+}
+
+unsigned short icrc(unsigned short crc, unsigned long len,
+		    short jinit, int jrev)
+{TIC(76); 
+  unsigned short icrc1(unsigned short crc, unsigned char onech);
+  static unsigned short icrctb[256],init=0;
+  static uchar rchr[256];
+  unsigned short tmp1, tmp2, j,cword=crc;
+  static uchar it[16]={0,8,4,12,2,10,6,14,1,9,5,13,3,11,7,15};
+
+  if (!init) {
+    TIC(12), init=1;
+    for (j=0;TIC(97)/* TODO: missing time from icrc1 */, j<=255;j++) {
+      icrctb[j]=icrc1(j << 8,(uchar)0);
+      rchr[j]=(uchar)(it[j & 0xF] << 4 | it[j >> 4]);
+    }
+  }
+  if (jinit >= 0) TIC(18), cword=((uchar) jinit) | (((uchar) jinit) << 8);
+  else if (TIC(7), jrev < 0)
+    TIC(34), cword=rchr[HIBYTE(cword)] | rchr[LOBYTE(cword)] << 8;
+#ifdef DEBUG
+  printf("len = %d\n", len);
+#endif
+  for (j=1;TIC(65), j<=len;j++) {
+    if (jrev < 0) {
+      TIC(31), tmp1 = rchr[lin[j]]^ HIBYTE(cword);
+    }
+    else {
+      TIC(22), tmp1 = lin[j]^ HIBYTE(cword);
+    }
+    cword = icrctb[tmp1] ^ LOBYTE(cword) << 8;
+  }
+  if (jrev >= 0) {
+    TIC(10), tmp2 = cword;
+  }
+  else {
+    TIC(34), tmp2 = rchr[HIBYTE(cword)] | rchr[LOBYTE(cword)] << 8;
+  }
+  TIC(23); return (tmp2 );
+}
+
+
+int main(void)
+{TIC(0); 
+
+  TIC(172)/* TODO: missing time from icrc */; unsigned short i1,i2;
+  unsigned long n;
+
+  n=40;
+  lin[n+1]=0;
+  i1=icrc(0,n,(short)0,1);
+  lin[n+1]=HIBYTE(i1);
+  lin[n+2]=LOBYTE(i1);
+  i2=icrc(i1,n+2,(short)0,1);
+  return 0;
+}
+
+

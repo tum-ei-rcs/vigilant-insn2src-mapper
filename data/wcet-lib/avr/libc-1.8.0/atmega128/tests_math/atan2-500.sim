@@ -1,0 +1,58 @@
+WARN: Symbol at 182a already has a name: __ctors_end. Updating to __ctors_start.
+WARN: Symbol at 182a already has a name: __ctors_start. Updating to __dtors_end.
+WARN: Symbol at 182a already has a name: __dtors_end. Updating to __dtors_start.
+WARN: Symbol at 1f08 already has a name: exit. Updating to _exit.
+WARN: Symbol at 182a already has a name: __dtors_start. Updating to __init.
+WARN: Symbol at ba already has a name: t. Updating to __trampolines_end.
+WARN: Symbol at ba already has a name: __trampolines_end. Updating to __trampolines_start.
+WARN: Symbol at 1858 already has a name: __bad_interrupt. Updating to __vector_1.
+WARN: Symbol at 1858 already has a name: __vector_1. Updating to __vector_10.
+WARN: Symbol at 1858 already has a name: __vector_10. Updating to __vector_11.
+WARN: Symbol at 1858 already has a name: __vector_11. Updating to __vector_12.
+WARN: Symbol at 1858 already has a name: __vector_12. Updating to __vector_13.
+WARN: Symbol at 1858 already has a name: __vector_13. Updating to __vector_14.
+WARN: Symbol at 1858 already has a name: __vector_14. Updating to __vector_15.
+WARN: Symbol at 1858 already has a name: __vector_15. Updating to __vector_16.
+WARN: Symbol at 1858 already has a name: __vector_16. Updating to __vector_17.
+WARN: Symbol at 1858 already has a name: __vector_17. Updating to __vector_18.
+WARN: Symbol at 1858 already has a name: __vector_18. Updating to __vector_19.
+WARN: Symbol at 1858 already has a name: __vector_19. Updating to __vector_2.
+WARN: Symbol at 1858 already has a name: __vector_2. Updating to __vector_20.
+WARN: Symbol at 1858 already has a name: __vector_20. Updating to __vector_21.
+WARN: Symbol at 1858 already has a name: __vector_21. Updating to __vector_22.
+WARN: Symbol at 1858 already has a name: __vector_22. Updating to __vector_23.
+WARN: Symbol at 1858 already has a name: __vector_23. Updating to __vector_24.
+WARN: Symbol at 1858 already has a name: __vector_24. Updating to __vector_25.
+WARN: Symbol at 1858 already has a name: __vector_25. Updating to __vector_26.
+WARN: Symbol at 1858 already has a name: __vector_26. Updating to __vector_27.
+WARN: Symbol at 1858 already has a name: __vector_27. Updating to __vector_28.
+WARN: Symbol at 1858 already has a name: __vector_28. Updating to __vector_29.
+WARN: Symbol at 1858 already has a name: __vector_29. Updating to __vector_3.
+WARN: Symbol at 1858 already has a name: __vector_3. Updating to __vector_30.
+WARN: Symbol at 1858 already has a name: __vector_30. Updating to __vector_31.
+WARN: Symbol at 1858 already has a name: __vector_31. Updating to __vector_32.
+WARN: Symbol at 1858 already has a name: __vector_32. Updating to __vector_33.
+WARN: Symbol at 1858 already has a name: __vector_33. Updating to __vector_34.
+WARN: Symbol at 1858 already has a name: __vector_34. Updating to __vector_4.
+WARN: Symbol at 1858 already has a name: __vector_4. Updating to __vector_5.
+WARN: Symbol at 1858 already has a name: __vector_5. Updating to __vector_6.
+WARN: Symbol at 1858 already has a name: __vector_6. Updating to __vector_7.
+WARN: Symbol at 1858 already has a name: __vector_7. Updating to __vector_8.
+WARN: Symbol at 1858 already has a name: __vector_8. Updating to __vector_9.
+WARN: Symbol at 0 already has a name: __heap_end. Updating to __vector_default.
+WARN: Symbol at 0 already has a name: __vector_default. Updating to __vectors.
+Loaded 36 symbols.
+Running Simulator live...
+Tracefile ignored
+Running Simulator: simulavr -l0 -datmega128 -Texit -t stdout -f atan2-500.elf
+Cycles: 1 (1 per second), stack=
+Cycles: 152,818 (152,817 per second), stack=main=>atan2=>atan=>__fp_powser=>__mulsf3x
+Cycles: 305,544 (152,726 per second), stack=main=>atan2=>atan=>square=>__mulsf3x
+Cycles: 560,733 (255,189 per second), stack=main=>atan2=>atan=>__fp_powser=>__addsf3x
+Cycles: 872,473 (311,740 per second), stack=main=>atan2=>atan=>__fp_powser=>__mulsf3x
+Cycles: 1,185,113 (312,640 per second), stack=main=>atan2=>__divsf3_pse=>0x1c50
+Cycles: 1,495,493 (310,380 per second), stack=main=>atan2=>atan=>__mulsf3x=>__fp_split3
+Skipping line: number of cpu cycles simulated: 1608070
+
+{'0x1c50': {'count': 1500, 'bcet': 109, 'fun': '0x1c50', 'running': False, 'valid': True, 'wcet': 133, 'lastcall': 1605339, 'et': []}, '__fp_split3': {'count': 9853, 'bcet': 19, 'fun': '__fp_split3', 'running': False, 'valid': True, 'wcet': 24, 'lastcall': 1607796, 'et': []}, 'atan': {'count': 500, 'bcet': 1496, 'fun': 'atan', 'running': False, 'valid': True, 'wcet': 2713, 'lastcall': 1605508, 'et': []}, '__mulsf3x': {'count': 5000, 'bcet': 44, 'fun': '__mulsf3x', 'running': False, 'valid': True, 'wcet': 267, 'lastcall': 1607645, 'et': []}, '__addsf3x': {'count': 4353, 'bcet': 61, 'fun': '__addsf3x', 'running': False, 'valid': True, 'wcet': 173, 'lastcall': 1607792, 'et': []}, 'atan2': {'count': 500, 'bcet': 2079, 'fun': 'atan2', 'running': False, 'valid': True, 'wcet': 3257, 'lastcall': 1605019, 'et': []}, 'square': {'count': 500, 'bcet': 120, 'fun': 'square', 'running': False, 'valid': True, 'wcet': 294, 'lastcall': 1605532, 'et': []}, '__fp_powser': {'count': 500, 'bcet': 1190, 'fun': '__fp_powser', 'running': False, 'valid': True, 'wcet': 2400, 'lastcall': 1605676, 'et': []}, '__divsf3_pse': {'count': 500, 'bcet': 407, 'fun': '__divsf3_pse', 'running': False, 'valid': True, 'wcet': 443, 'lastcall': 1605068, 'et': []}, 'main': {'count': 1, 'bcet': 1608005, 'fun': 'main', 'running': False, 'valid': True, 'wcet': 1608005, 'lastcall': 62, 'et': []}, '__fp_round': {'count': 1000, 'bcet': 12, 'fun': '__fp_round', 'running': False, 'valid': True, 'wcet': 18, 'lastcall': 1607616, 'et': []}}
+Total time: 6.4s

@@ -1,0 +1,158 @@
+
+.debug_line: line number info for a single cu
+Source lines (from CU-DIE at .debug_info offset 0x0000000b):
+ Line table is present (offset 0x00000000) but no lines present
+
+.debug_line: line number info for a single cu
+Source lines (from CU-DIE at .debug_info offset 0x0000078b):
+
+            NS new statement, BB new basic block, ET end of text sequence
+            PE prologue end, EB epilogue begin
+            IS=val ISA number, DI=val discriminator value
+<pc>        [lno,col] NS BB ET PE EB IS= DI= uri: "filepath"
+0x000000ce  [  58, 1] NS uri: "/home/becker/async/graph-mapping/test/benchmarks/crc/O0/crc.c"
+0x000000e4  [  60,32] NS
+0x000000f0  [  60,17] NS
+0x000000fc  [  62, 8] NS
+0x00000100  [  62, 2] NS
+0x00000102  [  63, 7] NS
+0x00000106  [  63, 6] NS
+0x0000010a  [  64,15] NS
+0x00000116  [  64, 8] NS
+0x00000128  [  66, 8] NS
+0x00000134  [  62,16] NS DI=0x2
+0x0000013e  [  62, 2] NS DI=0x1
+0x00000146  [  68, 9] NS
+0x0000014a  [  69, 1] NS
+0x0000015c  [  73, 1] NS
+0x00000188  [  77,32] NS
+0x00000190  [  80, 7] NS
+0x00000198  [  80, 6] NS
+0x0000019e  [  81, 9] NS
+0x000001aa  [  82,11] NS
+0x000001ae  [  82, 5] NS
+0x000001b0  [  83,25] NS DI=0x3
+0x000001b8  [  83,17] NS DI=0x3
+0x000001c0  [  83,16] NS DI=0x3
+0x000001d2  [  84,28] NS DI=0x3
+0x000001da  [  84,25] NS DI=0x3
+0x000001e6  [  84,35] NS DI=0x3
+0x000001f2  [  84,40] NS DI=0x3
+0x000001f4  [  84,47] NS DI=0x3
+0x00000204  [  84,44] NS DI=0x3
+0x0000020c  [  84,40] NS DI=0x3
+0x0000020e  [  84,15] NS DI=0x3
+0x00000210  [  84,14] NS DI=0x3
+0x0000021c  [  82,22] NS DI=0x3
+0x00000226  [  82, 5] NS DI=0x1
+0x00000234  [  87, 6] NS
+0x0000023c  [  87,26] NS DI=0x1
+0x00000242  [  87,45] NS DI=0x1
+0x00000248  [  87,60] NS DI=0x1
+0x0000024c  [  87,41] NS DI=0x1
+0x00000250  [  87,24] NS DI=0x1
+0x00000256  [  88,11] NS
+0x0000025e  [  89,16] NS
+0x0000026a  [  89,15] NS
+0x00000276  [  89,38] NS
+0x0000027c  [  89,37] NS
+0x00000288  [  89,53] NS
+0x0000028c  [  89,31] NS
+0x00000290  [  89,10] NS
+0x00000294  [  93, 9] NS
+0x0000029c  [  93, 3] NS
+0x0000029e  [  94, 8] NS
+0x000002a6  [  95,22] NS
+0x000002b6  [  95,18] NS
+0x000002be  [  95,28] NS
+0x000002c6  [  95,26] NS
+0x000002c8  [  95,12] NS
+0x000002d2  [  98,17] NS
+0x000002de  [  98,22] NS
+0x000002e6  [  98,20] NS
+0x000002e8  [  98,12] NS
+0x000002f0  [ 100,19] NS DI=0x2
+0x00000302  [ 100,28] NS DI=0x2
+0x00000308  [ 100,42] NS DI=0x2
+0x0000030c  [ 100,11] NS DI=0x2
+0x00000314  [  93,20] NS DI=0x2
+0x0000031e  [  93,13] NS DI=0x1
+0x00000328  [  93, 3] NS DI=0x1
+0x0000033c  [ 102, 6] NS
+0x00000344  [ 103,10] NS
+0x0000034e  [ 106,17] NS
+0x0000035a  [ 106,16] NS
+0x00000366  [ 106,39] NS
+0x0000036c  [ 106,38] NS
+0x00000378  [ 106,54] NS
+0x0000037c  [ 106,32] NS
+0x00000380  [ 106,10] NS
+0x00000384  [ 108,10] NS
+0x00000388  [ 109, 1] NS
+0x0000039e  [ 113, 1] NS
+0x000003b6  [ 118, 4] NS
+0x000003c6  [ 119, 8] NS
+0x000003d4  [ 119,11] NS
+0x000003dc  [ 120, 5] NS
+0x000003fc  [ 121,12] NS
+0x00000404  [ 121, 8] NS
+0x00000412  [ 121,11] NS
+0x0000041a  [ 122, 8] NS
+0x00000428  [ 122,12] NS
+0x0000042a  [ 122,11] NS
+0x00000432  [ 123, 6] NS
+0x00000440  [ 123, 5] NS
+0x0000045a  [ 124,10] NS
+0x0000045e  [ 125, 1] NS
+0x00000474  [ 125, 1] NS ET
+
+.debug_line: line number info for a single cu
+Source lines (from CU-DIE at .debug_info offset 0x000009c1):
+
+            NS new statement, BB new basic block, ET end of text sequence
+            PE prologue end, EB epilogue begin
+            IS=val ISA number, DI=val discriminator value
+<pc>        [lno,col] NS BB ET PE EB IS= DI= uri: "filepath"
+0x00000474  [2278, 0] NS uri: "/home/becker/async/gcc-7.2.0/objdir-avr-new/avr/avr51/libgcc/../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S"
+0x00000476  [2280, 0] NS
+0x00000478  [2280, 0] NS ET
+
+.debug_line: line number info for a single cu
+Source lines (from CU-DIE at .debug_info offset 0x000009e7):
+
+            NS new statement, BB new basic block, ET end of text sequence
+            PE prologue end, EB epilogue begin
+            IS=val ISA number, DI=val discriminator value
+<pc>        [lno,col] NS BB ET PE EB IS= DI= uri: "filepath"
+0x00000098  [2373, 0] NS uri: "/home/becker/async/gcc-7.2.0/objdir-avr-new/avr/avr51/libgcc/../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S"
+0x0000009a  [2374, 0] NS
+0x0000009c  [2375, 0] NS
+0x0000009e  [2376, 0] NS
+0x000000a0  [2377, 0] NS
+0x000000a2  [2378, 0] NS
+0x000000a4  [2379, 0] NS
+0x000000a6  [2380, 0] NS
+0x000000a8  [2382, 0] NS
+0x000000aa  [2383, 0] NS
+0x000000ac  [2385, 0] NS
+0x000000ae  [2386, 0] NS
+0x000000b0  [2387, 0] NS
+0x000000b2  [2387, 0] NS ET
+
+.debug_line: line number info for a single cu
+Source lines (from CU-DIE at .debug_info offset 0x00000a0d):
+
+            NS new statement, BB new basic block, ET end of text sequence
+            PE prologue end, EB epilogue begin
+            IS=val ISA number, DI=val discriminator value
+<pc>        [lno,col] NS BB ET PE EB IS= DI= uri: "filepath"
+0x000000b2  [2441, 0] NS uri: "/home/becker/async/gcc-7.2.0/objdir-avr-new/avr/avr51/libgcc/../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S"
+0x000000b4  [2442, 0] NS
+0x000000b6  [2443, 0] NS
+0x000000b8  [2444, 0] NS
+0x000000ba  [2446, 0] NS
+0x000000bc  [2448, 0] NS
+0x000000be  [2449, 0] NS
+0x000000c0  [2450, 0] NS
+0x000000c2  [2450, 0] NS ET
+

@@ -1,0 +1,53 @@
+WARN: Symbol at 194 already has a name: __ctors_end. Updating to __ctors_start.
+WARN: Symbol at 194 already has a name: __ctors_start. Updating to __dtors_end.
+WARN: Symbol at 194 already has a name: __dtors_end. Updating to __dtors_start.
+WARN: Symbol at 836 already has a name: exit. Updating to _exit.
+WARN: Symbol at 194 already has a name: __dtors_start. Updating to __init.
+WARN: Symbol at 6ee already has a name: modf. Updating to modff.
+WARN: Symbol at c4 already has a name: t. Updating to __trampolines_end.
+WARN: Symbol at c4 already has a name: __trampolines_end. Updating to __trampolines_start.
+WARN: Symbol at 1c2 already has a name: __bad_interrupt. Updating to __vector_1.
+WARN: Symbol at 1c2 already has a name: __vector_1. Updating to __vector_10.
+WARN: Symbol at 1c2 already has a name: __vector_10. Updating to __vector_11.
+WARN: Symbol at 1c2 already has a name: __vector_11. Updating to __vector_12.
+WARN: Symbol at 1c2 already has a name: __vector_12. Updating to __vector_13.
+WARN: Symbol at 1c2 already has a name: __vector_13. Updating to __vector_14.
+WARN: Symbol at 1c2 already has a name: __vector_14. Updating to __vector_15.
+WARN: Symbol at 1c2 already has a name: __vector_15. Updating to __vector_16.
+WARN: Symbol at 1c2 already has a name: __vector_16. Updating to __vector_17.
+WARN: Symbol at 1c2 already has a name: __vector_17. Updating to __vector_18.
+WARN: Symbol at 1c2 already has a name: __vector_18. Updating to __vector_19.
+WARN: Symbol at 1c2 already has a name: __vector_19. Updating to __vector_2.
+WARN: Symbol at 1c2 already has a name: __vector_2. Updating to __vector_20.
+WARN: Symbol at 1c2 already has a name: __vector_20. Updating to __vector_21.
+WARN: Symbol at 1c2 already has a name: __vector_21. Updating to __vector_22.
+WARN: Symbol at 1c2 already has a name: __vector_22. Updating to __vector_23.
+WARN: Symbol at 1c2 already has a name: __vector_23. Updating to __vector_24.
+WARN: Symbol at 1c2 already has a name: __vector_24. Updating to __vector_25.
+WARN: Symbol at 1c2 already has a name: __vector_25. Updating to __vector_26.
+WARN: Symbol at 1c2 already has a name: __vector_26. Updating to __vector_27.
+WARN: Symbol at 1c2 already has a name: __vector_27. Updating to __vector_28.
+WARN: Symbol at 1c2 already has a name: __vector_28. Updating to __vector_29.
+WARN: Symbol at 1c2 already has a name: __vector_29. Updating to __vector_3.
+WARN: Symbol at 1c2 already has a name: __vector_3. Updating to __vector_30.
+WARN: Symbol at 1c2 already has a name: __vector_30. Updating to __vector_31.
+WARN: Symbol at 1c2 already has a name: __vector_31. Updating to __vector_32.
+WARN: Symbol at 1c2 already has a name: __vector_32. Updating to __vector_33.
+WARN: Symbol at 1c2 already has a name: __vector_33. Updating to __vector_34.
+WARN: Symbol at 1c2 already has a name: __vector_34. Updating to __vector_4.
+WARN: Symbol at 1c2 already has a name: __vector_4. Updating to __vector_5.
+WARN: Symbol at 1c2 already has a name: __vector_5. Updating to __vector_6.
+WARN: Symbol at 1c2 already has a name: __vector_6. Updating to __vector_7.
+WARN: Symbol at 1c2 already has a name: __vector_7. Updating to __vector_8.
+WARN: Symbol at 1c2 already has a name: __vector_8. Updating to __vector_9.
+WARN: Symbol at 0 already has a name: __heap_end. Updating to __vector_default.
+WARN: Symbol at 0 already has a name: __vector_default. Updating to __vectors.
+Loaded 40 symbols.
+Running Simulator live...
+Tracefile ignored
+Running Simulator: simulavr -l0 -datmega128 -Texit -t stdout -f tanh-01.elf
+Cycles: 1 (1 per second), stack=
+Skipping line: number of cpu cycles simulated: 30687
+
+{'__subsf3': {'count': 12, 'bcet': 75, 'fun': '__subsf3', 'running': False, 'valid': True, 'wcet': 172, 'lastcall': 26771, 'et': []}, '__fp_split3': {'count': 178, 'bcet': 19, 'fun': '__fp_split3', 'running': False, 'valid': True, 'wcet': 29, 'lastcall': 30484, 'et': []}, 'exp': {'count': 12, 'bcet': 32, 'fun': 'exp', 'running': False, 'valid': True, 'wcet': 2270, 'lastcall': 26613, 'et': []}, 'tanh': {'count': 26, 'bcet': 521, 'fun': 'tanh', 'running': False, 'valid': True, 'wcet': 3154, 'lastcall': 29978, 'et': []}, '__divsf3x': {'count': 12, 'bcet': 415, 'fun': '__divsf3x', 'running': False, 'valid': True, 'wcet': 415, 'lastcall': 26860, 'et': []}, '__fp_powsodd': {'count': 14, 'bcet': 499, 'fun': '__fp_powsodd', 'running': False, 'valid': True, 'wcet': 628, 'lastcall': 29990, 'et': []}, '__mulsf3x': {'count': 84, 'bcet': 44, 'fun': '__mulsf3x', 'running': False, 'valid': True, 'wcet': 113, 'lastcall': 30481, 'et': []}, '__addsf3x': {'count': 82, 'bcet': 55, 'fun': '__addsf3x', 'running': False, 'valid': True, 'wcet': 148, 'lastcall': 30379, 'et': []}, '__divsf3': {'count': 12, 'bcet': 432, 'fun': '__divsf3', 'running': False, 'valid': True, 'wcet': 432, 'lastcall': 26857, 'et': []}, 'ldexp': {'count': 16, 'bcet': 34, 'fun': 'ldexp', 'running': False, 'valid': True, 'wcet': 42, 'lastcall': 26568, 'et': []}, '__fp_splitA': {'count': 28, 'bcet': 11, 'fun': '__fp_splitA', 'running': False, 'valid': True, 'wcet': 15, 'lastcall': 26616, 'et': []}, '__mulsf3_pse': {'count': 4, 'bcet': 89, 'fun': '__mulsf3_pse', 'running': False, 'valid': True, 'wcet': 89, 'lastcall': 21431, 'et': []}, '__fp_powser': {'count': 18, 'bcet': 338, 'fun': '__fp_powser', 'running': False, 'valid': True, 'wcet': 1645, 'lastcall': 30130, 'et': []}, 'modff': {'count': 4, 'bcet': 169, 'fun': 'modff', 'running': False, 'valid': True, 'wcet': 399, 'lastcall': 21533, 'et': []}, '__mulsf3': {'count': 14, 'bcet': 66, 'fun': '__mulsf3', 'running': False, 'valid': True, 'wcet': 126, 'lastcall': 30007, 'et': []}, '__addsf3': {'count': 12, 'bcet': 85, 'fun': '__addsf3', 'running': False, 'valid': True, 'wcet': 167, 'lastcall': 26663, 'et': []}, '0x746': {'count': 2, 'bcet': 15, 'fun': '0x746', 'running': False, 'valid': True, 'wcet': 15, 'lastcall': 21796, 'et': []}, 'main': {'count': 1, 'bcet': 30622, 'fun': 'main', 'running': False, 'valid': True, 'wcet': 30622, 'lastcall': 62, 'et': []}, '0x4e0': {'count': 36, 'bcet': 109, 'fun': '0x4e0', 'running': False, 'valid': True, 'wcet': 112, 'lastcall': 27136, 'et': []}}
+Total time: 0.2s

@@ -1,0 +1,61 @@
+WARN: Symbol at 1626 already has a name: __ctors_end. Updating to __ctors_start.
+WARN: Symbol at 1626 already has a name: __ctors_start. Updating to __dtors_end.
+WARN: Symbol at 1626 already has a name: __dtors_end. Updating to __dtors_start.
+WARN: Symbol at 1f28 already has a name: exit. Updating to _exit.
+WARN: Symbol at 1626 already has a name: __dtors_start. Updating to __init.
+WARN: Symbol at 1b8e already has a name: modf. Updating to modff.
+WARN: Symbol at 10e already has a name: t. Updating to __trampolines_end.
+WARN: Symbol at 10e already has a name: __trampolines_end. Updating to __trampolines_start.
+WARN: Symbol at 1654 already has a name: __bad_interrupt. Updating to __vector_1.
+WARN: Symbol at 1654 already has a name: __vector_1. Updating to __vector_10.
+WARN: Symbol at 1654 already has a name: __vector_10. Updating to __vector_11.
+WARN: Symbol at 1654 already has a name: __vector_11. Updating to __vector_12.
+WARN: Symbol at 1654 already has a name: __vector_12. Updating to __vector_13.
+WARN: Symbol at 1654 already has a name: __vector_13. Updating to __vector_14.
+WARN: Symbol at 1654 already has a name: __vector_14. Updating to __vector_15.
+WARN: Symbol at 1654 already has a name: __vector_15. Updating to __vector_16.
+WARN: Symbol at 1654 already has a name: __vector_16. Updating to __vector_17.
+WARN: Symbol at 1654 already has a name: __vector_17. Updating to __vector_18.
+WARN: Symbol at 1654 already has a name: __vector_18. Updating to __vector_19.
+WARN: Symbol at 1654 already has a name: __vector_19. Updating to __vector_2.
+WARN: Symbol at 1654 already has a name: __vector_2. Updating to __vector_20.
+WARN: Symbol at 1654 already has a name: __vector_20. Updating to __vector_21.
+WARN: Symbol at 1654 already has a name: __vector_21. Updating to __vector_22.
+WARN: Symbol at 1654 already has a name: __vector_22. Updating to __vector_23.
+WARN: Symbol at 1654 already has a name: __vector_23. Updating to __vector_24.
+WARN: Symbol at 1654 already has a name: __vector_24. Updating to __vector_25.
+WARN: Symbol at 1654 already has a name: __vector_25. Updating to __vector_26.
+WARN: Symbol at 1654 already has a name: __vector_26. Updating to __vector_27.
+WARN: Symbol at 1654 already has a name: __vector_27. Updating to __vector_28.
+WARN: Symbol at 1654 already has a name: __vector_28. Updating to __vector_29.
+WARN: Symbol at 1654 already has a name: __vector_29. Updating to __vector_3.
+WARN: Symbol at 1654 already has a name: __vector_3. Updating to __vector_30.
+WARN: Symbol at 1654 already has a name: __vector_30. Updating to __vector_31.
+WARN: Symbol at 1654 already has a name: __vector_31. Updating to __vector_32.
+WARN: Symbol at 1654 already has a name: __vector_32. Updating to __vector_33.
+WARN: Symbol at 1654 already has a name: __vector_33. Updating to __vector_34.
+WARN: Symbol at 1654 already has a name: __vector_34. Updating to __vector_4.
+WARN: Symbol at 1654 already has a name: __vector_4. Updating to __vector_5.
+WARN: Symbol at 1654 already has a name: __vector_5. Updating to __vector_6.
+WARN: Symbol at 1654 already has a name: __vector_6. Updating to __vector_7.
+WARN: Symbol at 1654 already has a name: __vector_7. Updating to __vector_8.
+WARN: Symbol at 1654 already has a name: __vector_8. Updating to __vector_9.
+WARN: Symbol at 0 already has a name: __heap_end. Updating to __vector_default.
+WARN: Symbol at 0 already has a name: __vector_default. Updating to __vectors.
+Loaded 42 symbols.
+Running Simulator live...
+Tracefile ignored
+Running Simulator: simulavr -l0 -datmega128 -Texit -t stdout -f pow-500.elf
+Cycles: 1 (1 per second), stack=
+Cycles: 151,112 (151,111 per second), stack=main=>pow=>log=>__fp_powser=>__addsf3x
+Cycles: 337,041 (185,929 per second), stack=main=>pow=>log=>__fp_powser=>__mulsf3x=>__fp_split3
+Cycles: 640,728 (303,687 per second), stack=main=>pow=>__fp_powser=>__mulsf3x
+Cycles: 944,424 (303,696 per second), stack=main=>pow=>log=>__fp_powser
+Cycles: 1,248,012 (303,588 per second), stack=main=>pow=>__fp_powser=>__mulsf3x
+Cycles: 1,551,217 (303,205 per second), stack=main=>pow=>log=>__fp_powser=>__addsf3x
+Cycles: 1,854,545 (303,328 per second), stack=main=>pow=>log=>__fp_powser=>__mulsf3x
+Cycles: 2,157,696 (303,151 per second), stack=main=>pow=>log=>__fp_powser=>__mulsf3x
+Skipping line: number of cpu cycles simulated: 2371111
+
+{'ldexp': {'count': 443, 'bcet': 34, 'fun': 'ldexp', 'running': False, 'valid': True, 'wcet': 148, 'lastcall': 2370881, 'et': []}, '__fp_split3': {'count': 15701, 'bcet': 19, 'fun': '__fp_split3', 'running': False, 'valid': True, 'wcet': 24, 'lastcall': 2370717, 'et': []}, '0x1962': {'count': 68, 'bcet': 2447, 'fun': '0x1962', 'running': False, 'valid': True, 'wcet': 5552, 'lastcall': 2338266, 'et': []}, 'log': {'count': 448, 'bcet': 2089, 'fun': 'log', 'running': False, 'valid': True, 'wcet': 2634, 'lastcall': 2366194, 'et': []}, '__divsf3x': {'count': 244, 'bcet': 421, 'fun': '__divsf3x', 'running': False, 'valid': True, 'wcet': 463, 'lastcall': 2365316, 'et': []}, 'pow': {'count': 450, 'bcet': 17, 'fun': 'pow', 'running': False, 'valid': True, 'wcet': 5639, 'lastcall': 2366167, 'et': []}, '__mulsf3x': {'count': 7581, 'bcet': 44, 'fun': '__mulsf3x', 'running': False, 'valid': True, 'wcet': 112, 'lastcall': 2370579, 'et': []}, '__addsf3x': {'count': 7876, 'bcet': 55, 'fun': '__addsf3x', 'running': False, 'valid': True, 'wcet': 171, 'lastcall': 2370713, 'et': []}, '0x1e30': {'count': 732, 'bcet': 109, 'fun': '0x1e30', 'running': False, 'valid': True, 'wcet': 133, 'lastcall': 2365613, 'et': []}, '__floatsisf': {'count': 448, 'bcet': 19, 'fun': '__floatsisf', 'running': False, 'valid': True, 'wcet': 74, 'lastcall': 2368282, 'et': []}, '__fp_splitA': {'count': 1339, 'bcet': 11, 'fun': '__fp_splitA', 'running': False, 'valid': True, 'wcet': 11, 'lastcall': 2370884, 'et': []}, '__mulsf3_pse': {'count': 443, 'bcet': 77, 'fun': '__mulsf3_pse', 'running': False, 'valid': True, 'wcet': 89, 'lastcall': 2368704, 'et': []}, '__fp_powser': {'count': 891, 'bcet': 1605, 'fun': '__fp_powser', 'running': False, 'valid': True, 'wcet': 2063, 'lastcall': 2369202, 'et': []}, 'modff': {'count': 443, 'bcet': 29, 'fun': 'modff', 'running': False, 'valid': True, 'wcet': 469, 'lastcall': 2368806, 'et': []}, '__mulsf3': {'count': 448, 'bcet': 117, 'fun': '__mulsf3', 'running': False, 'valid': True, 'wcet': 136, 'lastcall': 2368551, 'et': []}, '__addsf3': {'count': 448, 'bcet': 82, 'fun': '__addsf3', 'running': False, 'valid': True, 'wcet': 190, 'lastcall': 2366242, 'et': []}, '0x1be6': {'count': 295, 'bcet': 15, 'fun': '0x1be6', 'running': False, 'valid': True, 'wcet': 15, 'lastcall': 2369043, 'et': []}, 'main': {'count': 1, 'bcet': 2371046, 'fun': 'main', 'running': False, 'valid': True, 'wcet': 2371046, 'lastcall': 62, 'et': []}}
+Total time: 8.7s

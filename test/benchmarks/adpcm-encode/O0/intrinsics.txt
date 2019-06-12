@@ -1,0 +1,49 @@
+How many calls per intrinsic does wcet-cbmc see?
+
+original WCET: 82490
+
+__ashrdi3:
+ * Bound-T: 17 call per decode()s, 27013 cycles
+ * annotations total: 18
+ * wcet-cbmc with lib entry reduced by 1: 82473
+ => 17 calls
+
+__ashldi3:
+ * wcet reduced: 82480
+ => 10 calls
+
+__muldi3:
+ * wcet reduced: 82441
+ => 49 calls
+
+__adddi3:
+ * wcet reduced: 82454
+ => 36 calls
+
+__adddi3_s8:
+ * wcet reduced: 82490
+ => 0 calls
+
+__negdi2:
+ * wcet reduced: 82488
+ => 2 call
+
+__cmpdi2_s8
+ * wcet reduced: 82484
+ => 6 calls
+
+__muluhisi3:
+ * wcet reduced: 82476
+ => 14 calls 82476
+
+__subdi3:
+ * wcet reduced: 82487
+ => 3 calls
+
+NOT DIRECTLY CALLED:
+__umulhisi3, __muldi3_6:
+ * wcet reduced: 82490
+ * contained in muldi3, muluhisi3
+ => 0 calls
+
+

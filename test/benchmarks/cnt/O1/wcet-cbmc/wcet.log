@@ -1,0 +1,81 @@
+CBMCFLAGS: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+GOTOINSFLAGS: 
+Initial guess: 0..0
+Requested WCET precision: 1
+Assertions per step: 10
+Max steps: 0
+All Flags: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+Output path: /home/becker/async/graph-mapping/test/benchmarks/cnt/O1/wcet-cbmc
+Output path intermediate: modelcheck
+Template file: cnt_i.in
+Other files: 
+...step #1: WCET in [0,9223372036854775807], precision=9223372036854775807
+......cand: 6208, 1, 18854838150406, 1485633833817296, 78, 38543920, 3037000499, 239295116727, 489178, 117057906865942864, 9223372036854775807
+......Reading properties from ['modelcheck/tmp_cnt_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......counterexample [CBMCDriver.assertion.2]: <{'xml': None, 'max': 1742, 'readable': True, 'min': 26}
+......CEGR: CBMCDriver.assertion.2<=1, counterexample=1742
+......counterexample [CBMCDriver.assertion.5]: <{'xml': None, 'max': 1742, 'readable': True, 'min': 26}
+......CEGR: CBMCDriver.assertion.5<=78, counterexample=1742
+......walltime=8.66, usertime=8.62, dbg_time1=8.74, mem=14992, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 2778, 'sum': 2778, 'avg': 2778, 'n': 1, 'min': 2778}}
+......WCET in [1742,6208], precision=4466
+......remaining steps <=4
+...step #2: WCET in [1742,6208], precision=4466
+......cand: 6208, 5761, 5314, 4868, 4421, 3975, 3528, 3081, 2635, 2188, 1742
+......Reading properties from ['modelcheck/tmp_cnt_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......counterexample [CBMCDriver.assertion.11]: <{'xml': None, 'max': 1742, 'readable': True, 'min': 26}
+......walltime=6.26, usertime=6.25, dbg_time1=6.33, mem=14584, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 2778, 'sum': 2778, 'avg': 2778, 'n': 1, 'min': 2778}}
+......WCET in [1742,2188], precision=446
+......remaining steps <=3
+...step #3: WCET in [1742,2188], precision=446
+......cand: 1920, 2054, 1831, 2188, 1965, 1742, 2098, 1875, 2009, 1786, 2143
+......Reading properties from ['modelcheck/tmp_cnt_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......counterexample [CBMCDriver.assertion.1]: <{'xml': None, 'max': 1920, 'readable': True, 'min': 28}
+......counterexample [CBMCDriver.assertion.3]: <{'xml': None, 'max': 1850, 'readable': True, 'min': 28}
+......CEGR: CBMCDriver.assertion.3<=1831, counterexample=1850
+......counterexample [CBMCDriver.assertion.6]: <{'xml': None, 'max': 1742, 'readable': True, 'min': 26}
+......counterexample [CBMCDriver.assertion.8]: <{'xml': None, 'max': 1886, 'readable': True, 'min': 28}
+......CEGR: CBMCDriver.assertion.8<=1875, counterexample=1886
+......counterexample [CBMCDriver.assertion.10]: <{'xml': None, 'max': 1830, 'readable': True, 'min': 26}
+......CEGR: CBMCDriver.assertion.10<=1786, counterexample=1830
+......walltime=11.04, usertime=10.95, dbg_time1=11.11, mem=17092, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 2778, 'sum': 2778, 'avg': 2778, 'n': 1, 'min': 2778}}
+......WCET in [1920,1965], precision=45
+......remaining steps <=2
+...step #4: WCET in [1920,1965], precision=45
+......cand: 1920, 1924, 1960, 1929, 1933, 1965, 1938, 1942, 1956, 1947, 1951
+......Reading properties from ['modelcheck/tmp_cnt_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......counterexample [CBMCDriver.assertion.1]: <{'xml': None, 'max': 1920, 'readable': True, 'min': 26}
+......counterexample [CBMCDriver.assertion.2]: <{'xml': None, 'max': 1924, 'readable': True, 'min': 28}
+......counterexample [CBMCDriver.assertion.4]: <{'xml': None, 'max': 1930, 'readable': True, 'min': 28}
+......CEGR: CBMCDriver.assertion.4<=1929, counterexample=1930
+......counterexample [CBMCDriver.assertion.5]: <{'xml': None, 'max': 1934, 'readable': True, 'min': 28}
+......CEGR: CBMCDriver.assertion.5<=1933, counterexample=1934
+......counterexample [CBMCDriver.assertion.7]: <{'xml': None, 'max': 1938, 'readable': True, 'min': 28}
+......counterexample [CBMCDriver.assertion.8]: <{'xml': None, 'max': 1942, 'readable': True, 'min': 28}
+......walltime=19.26, usertime=19.12, dbg_time1=19.31, mem=17508, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 2778, 'sum': 2778, 'avg': 2778, 'n': 1, 'min': 2778}}
+......WCET in [1942,1947], precision=5
+......remaining steps <=1
+...step #5: WCET in [1942,1947], precision=5
+......cand: 1942, 1943, 1944, 1945, 1946, 1947
+......Reading properties from ['modelcheck/tmp_cnt_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......counterexample [CBMCDriver.assertion.1]: <{'xml': None, 'max': 1942, 'readable': True, 'min': 28}
+......walltime=4.94, usertime=4.9, dbg_time1=5.00, mem=14384, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 2773, 'sum': 2773, 'avg': 2773, 'n': 1, 'min': 2773}}
+......WCET in [1942,1943], precision=1
+SUCCESS: Precise enough after 5 iterations, precision=1
+RESULT: 1942 < WCET <= 1943 cycles
+peak memory (kBytes): samples=5, min=14384.0, avg=15712.0, max=17508.0, sum=78560.0
+cbmc walltime (sec): samples=5, min=4.94, avg=10.032, max=19.26, sum=50.16
+cbmc usertime (sec): samples=5, min=4.9, avg=9.968, max=19.12, sum=49.84
+variables: samples=0, min=None, avg=None, max=None, sum=0
+clauses: samples=0, min=None, avg=None, max=None, sum=0
+steps: samples=5, min=2773, avg=2777, max=2778, sum=13885
+Script: alltime=51.80, selftime=1.64, ret=0

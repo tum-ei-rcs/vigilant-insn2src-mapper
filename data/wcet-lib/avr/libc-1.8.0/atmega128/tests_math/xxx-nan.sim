@@ -1,0 +1,53 @@
+WARN: Symbol at 1fe already has a name: __ctors_end. Updating to __ctors_start.
+WARN: Symbol at 1fe already has a name: __ctors_start. Updating to __dtors_end.
+WARN: Symbol at 1fe already has a name: __dtors_end. Updating to __dtors_start.
+WARN: Symbol at f0c already has a name: exit. Updating to _exit.
+WARN: Symbol at 1fe already has a name: __dtors_start. Updating to __init.
+WARN: Symbol at a6e already has a name: modf. Updating to modff.
+WARN: Symbol at 1d6 already has a name: tnan. Updating to __trampolines_end.
+WARN: Symbol at 1d6 already has a name: __trampolines_end. Updating to __trampolines_start.
+WARN: Symbol at 22c already has a name: __bad_interrupt. Updating to __vector_1.
+WARN: Symbol at 22c already has a name: __vector_1. Updating to __vector_10.
+WARN: Symbol at 22c already has a name: __vector_10. Updating to __vector_11.
+WARN: Symbol at 22c already has a name: __vector_11. Updating to __vector_12.
+WARN: Symbol at 22c already has a name: __vector_12. Updating to __vector_13.
+WARN: Symbol at 22c already has a name: __vector_13. Updating to __vector_14.
+WARN: Symbol at 22c already has a name: __vector_14. Updating to __vector_15.
+WARN: Symbol at 22c already has a name: __vector_15. Updating to __vector_16.
+WARN: Symbol at 22c already has a name: __vector_16. Updating to __vector_17.
+WARN: Symbol at 22c already has a name: __vector_17. Updating to __vector_18.
+WARN: Symbol at 22c already has a name: __vector_18. Updating to __vector_19.
+WARN: Symbol at 22c already has a name: __vector_19. Updating to __vector_2.
+WARN: Symbol at 22c already has a name: __vector_2. Updating to __vector_20.
+WARN: Symbol at 22c already has a name: __vector_20. Updating to __vector_21.
+WARN: Symbol at 22c already has a name: __vector_21. Updating to __vector_22.
+WARN: Symbol at 22c already has a name: __vector_22. Updating to __vector_23.
+WARN: Symbol at 22c already has a name: __vector_23. Updating to __vector_24.
+WARN: Symbol at 22c already has a name: __vector_24. Updating to __vector_25.
+WARN: Symbol at 22c already has a name: __vector_25. Updating to __vector_26.
+WARN: Symbol at 22c already has a name: __vector_26. Updating to __vector_27.
+WARN: Symbol at 22c already has a name: __vector_27. Updating to __vector_28.
+WARN: Symbol at 22c already has a name: __vector_28. Updating to __vector_29.
+WARN: Symbol at 22c already has a name: __vector_29. Updating to __vector_3.
+WARN: Symbol at 22c already has a name: __vector_3. Updating to __vector_30.
+WARN: Symbol at 22c already has a name: __vector_30. Updating to __vector_31.
+WARN: Symbol at 22c already has a name: __vector_31. Updating to __vector_32.
+WARN: Symbol at 22c already has a name: __vector_32. Updating to __vector_33.
+WARN: Symbol at 22c already has a name: __vector_33. Updating to __vector_34.
+WARN: Symbol at 22c already has a name: __vector_34. Updating to __vector_4.
+WARN: Symbol at 22c already has a name: __vector_4. Updating to __vector_5.
+WARN: Symbol at 22c already has a name: __vector_5. Updating to __vector_6.
+WARN: Symbol at 22c already has a name: __vector_6. Updating to __vector_7.
+WARN: Symbol at 22c already has a name: __vector_7. Updating to __vector_8.
+WARN: Symbol at 22c already has a name: __vector_8. Updating to __vector_9.
+WARN: Symbol at 0 already has a name: __heap_end. Updating to __vector_default.
+WARN: Symbol at 0 already has a name: __vector_default. Updating to __vectors.
+Loaded 67 symbols.
+Running Simulator live...
+Tracefile ignored
+Running Simulator: simulavr -l0 -datmega128 -Texit -t stdout -f xxx-nan.elf
+Cycles: 1 (1 per second), stack=
+Skipping line: number of cpu cycles simulated: 121777
+
+{'square': {'count': 10, 'bcet': 82, 'fun': 'square', 'running': False, 'valid': True, 'wcet': 82, 'lastcall': 47207, 'et': []}, 'sinh': {'count': 10, 'bcet': 314, 'fun': 'sinh', 'running': False, 'valid': True, 'wcet': 314, 'lastcall': 94938, 'et': []}, 'cbrt': {'count': 10, 'bcet': 34, 'fun': 'cbrt', 'running': False, 'valid': True, 'wcet': 34, 'lastcall': 50621, 'et': []}, 'floor': {'count': 10, 'bcet': 43, 'fun': 'floor', 'running': False, 'valid': True, 'wcet': 43, 'lastcall': 73197, 'et': []}, '__addsf3x': {'count': 485, 'bcet': 52, 'fun': '__addsf3x', 'running': False, 'valid': True, 'wcet': 73, 'lastcall': 117428, 'et': []}, '__fp_cmp': {'count': 180, 'bcet': 16, 'fun': '__fp_cmp', 'running': False, 'valid': True, 'wcet': 16, 'lastcall': 121696, 'et': []}, 'cosh': {'count': 10, 'bcet': 296, 'fun': 'cosh', 'running': False, 'valid': True, 'wcet': 296, 'lastcall': 68928, 'et': []}, 'ldexp': {'count': 50, 'bcet': 34, 'fun': 'ldexp', 'running': False, 'valid': True, 'wcet': 34, 'lastcall': 117247, 'et': []}, '__fp_arccos': {'count': 20, 'bcet': 1310, 'fun': '__fp_arccos', 'running': False, 'valid': True, 'wcet': 1310, 'lastcall': 29896, 'et': []}, 'tan': {'count': 10, 'bcet': 1329, 'fun': 'tan', 'running': False, 'valid': True, 'wcet': 1329, 'lastcall': 110859, 'et': []}, '__fp_round': {'count': 70, 'bcet': 11, 'fun': '__fp_round', 'running': False, 'valid': True, 'wcet': 11, 'lastcall': 110967, 'et': []}, 'asin': {'count': 10, 'bcet': 1404, 'fun': 'asin', 'running': False, 'valid': True, 'wcet': 1404, 'lastcall': 29885, 'et': []}, '__fp_split3': {'count': 1025, 'bcet': 23, 'fun': '__fp_split3', 'running': False, 'valid': True, 'wcet': 34, 'lastcall': 117531, 'et': []}, 'atan': {'count': 10, 'bcet': 1574, 'fun': 'atan', 'running': False, 'valid': True, 'wcet': 1574, 'lastcall': 47098, 'et': []}, '__fp_rempio2': {'count': 30, 'bcet': 28, 'fun': '__fp_rempio2', 'running': False, 'valid': True, 'wcet': 28, 'lastcall': 110865, 'et': []}, '__divsf3x': {'count': 50, 'bcet': 58, 'fun': '__divsf3x', 'running': False, 'valid': True, 'wcet': 62, 'lastcall': 117528, 'et': []}, 'sqrt': {'count': 30, 'bcet': 36, 'fun': 'sqrt', 'running': False, 'valid': True, 'wcet': 36, 'lastcall': 97219, 'et': []}, '__addsf3': {'count': 10, 'bcet': 70, 'fun': '__addsf3', 'running': False, 'valid': True, 'wcet': 70, 'lastcall': 117329, 'et': []}, 'main': {'count': 1, 'bcet': 121388, 'fun': 'main', 'running': False, 'valid': True, 'wcet': 121388, 'lastcall': 386, 'et': []}, 'log10': {'count': 10, 'bcet': 106, 'fun': 'log10', 'running': False, 'valid': True, 'wcet': 111, 'lastcall': 77830, 'et': []}, 'sin': {'count': 10, 'bcet': 1089, 'fun': 'sin', 'running': False, 'valid': True, 'wcet': 1089, 'lastcall': 89380, 'et': []}, '__subsf3': {'count': 40, 'bcet': 82, 'fun': '__subsf3', 'running': False, 'valid': True, 'wcet': 92, 'lastcall': 117422, 'et': []}, '__fp_pscA': {'count': 975, 'bcet': 10, 'fun': '__fp_pscA', 'running': False, 'valid': True, 'wcet': 10, 'lastcall': 117467, 'et': []}, '__fp_pscB': {'count': 80, 'bcet': 10, 'fun': '__fp_pscB', 'running': False, 'valid': True, 'wcet': 10, 'lastcall': 117570, 'et': []}, 'ceil': {'count': 10, 'bcet': 43, 'fun': 'ceil', 'running': False, 'valid': True, 'wcet': 43, 'lastcall': 52685, 'et': []}, '__fp_splitA': {'count': 740, 'bcet': 11, 'fun': '__fp_splitA', 'running': False, 'valid': True, 'wcet': 15, 'lastcall': 121636, 'et': []}, 'inverse': {'count': 40, 'bcet': 82, 'fun': 'inverse', 'running': False, 'valid': True, 'wcet': 82, 'lastcall': 112097, 'et': []}, '__fp_powser': {'count': 60, 'bcet': 773, 'fun': '__fp_powser', 'running': False, 'valid': True, 'wcet': 1211, 'lastcall': 111085, 'et': []}, '__fp_trunc': {'count': 30, 'bcet': 24, 'fun': '__fp_trunc', 'running': False, 'valid': True, 'wcet': 24, 'lastcall': 119644, 'et': []}, '__mulsf3': {'count': 30, 'bcet': 78, 'fun': '__mulsf3', 'running': False, 'valid': True, 'wcet': 78, 'lastcall': 111000, 'et': []}, 'log': {'count': 20, 'bcet': 30, 'fun': 'log', 'running': False, 'valid': True, 'wcet': 35, 'lastcall': 77833, 'et': []}, 'cos': {'count': 10, 'bcet': 1025, 'fun': 'cos', 'running': False, 'valid': True, 'wcet': 1025, 'lastcall': 63596, 'et': []}, '__divsf3': {'count': 10, 'bcet': 78, 'fun': '__divsf3', 'running': False, 'valid': True, 'wcet': 78, 'lastcall': 117525, 'et': []}, '__unordsf2': {'count': 180, 'bcet': 25, 'fun': '__unordsf2', 'running': False, 'valid': True, 'wcet': 25, 'lastcall': 121693, 'et': []}, 'tanh': {'count': 10, 'bcet': 378, 'fun': 'tanh', 'running': False, 'valid': True, 'wcet': 378, 'lastcall': 117233, 'et': []}, '__fp_powsodd': {'count': 10, 'bcet': 1109, 'fun': '__fp_powsodd', 'running': False, 'valid': True, 'wcet': 1109, 'lastcall': 110983, 'et': []}, '__mulsf3x': {'count': 470, 'bcet': 51, 'fun': '__mulsf3x', 'running': False, 'valid': True, 'wcet': 62, 'lastcall': 112017, 'et': []}, 'exp': {'count': 40, 'bcet': 30, 'fun': 'exp', 'running': False, 'valid': True, 'wcet': 30, 'lastcall': 117284, 'et': []}, 'acos': {'count': 10, 'bcet': 1334, 'fun': 'acos', 'running': False, 'valid': True, 'wcet': 1394, 'lastcall': 14212, 'et': []}, 'trunc': {'count': 10, 'bcet': 43, 'fun': 'trunc', 'running': False, 'valid': True, 'wcet': 43, 'lastcall': 119641, 'et': []}, 'round': {'count': 10, 'bcet': 34, 'fun': 'round', 'running': False, 'valid': True, 'wcet': 34, 'lastcall': 121633, 'et': []}}
+Total time: 0.9s

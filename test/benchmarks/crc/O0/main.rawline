@@ -1,0 +1,646 @@
+
+main.elf:     file format elf32-avr
+
+Raw dump of debug contents of section .debug_line:
+
+  Offset:                      0x0
+  Length:                      25
+  DWARF Version:               2
+  Prologue Length:             19
+  Minimum Instruction Length:  2
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 args
+  Opcode 3 has 1 args
+  Opcode 4 has 1 args
+  Opcode 5 has 1 args
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 args
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 args
+
+ The Directory Table is empty.
+
+ The File Name Table is empty.
+
+ No Line Number Statements.
+  Offset:                      0x1d
+  Length:                      900
+  DWARF Version:               2
+  Prologue Length:             28
+  Minimum Instruction Length:  2
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 args
+  Opcode 3 has 1 args
+  Opcode 4 has 1 args
+  Opcode 5 has 1 args
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 args
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 args
+
+ The Directory Table is empty.
+
+ The File Name Table (offset 0x39):
+  Entry	Dir	Time	Size	Name
+  1	0	0	0	crc.c
+
+ Line Number Statements:
+  [0x00000043]  Set column to 1
+  [0x00000045]  Extended opcode 2: set Address to 0xce
+  [0x0000004c]  Advance Line by 57 to 58
+  [0x0000004e]  Copy
+  [0x0000004f]  Set column to 32
+  [0x00000051]  Advance Line by 2 to 60
+  [0x00000053]  Advance PC by fixed size amount 22 to 0xe4
+  [0x00000056]  Copy
+  [0x00000057]  Set column to 17
+  [0x00000059]  Advance Line by 0 to 60
+  [0x0000005b]  Advance PC by fixed size amount 12 to 0xf0
+  [0x0000005e]  Copy
+  [0x0000005f]  Set column to 8
+  [0x00000061]  Advance Line by 2 to 62
+  [0x00000063]  Advance PC by fixed size amount 12 to 0xfc
+  [0x00000066]  Copy
+  [0x00000067]  Set column to 2
+  [0x00000069]  Advance Line by 0 to 62
+  [0x0000006b]  Advance PC by fixed size amount 4 to 0x100
+  [0x0000006e]  Copy
+  [0x0000006f]  Set column to 7
+  [0x00000071]  Advance Line by 1 to 63
+  [0x00000073]  Advance PC by fixed size amount 2 to 0x102
+  [0x00000076]  Copy
+  [0x00000077]  Set column to 6
+  [0x00000079]  Advance Line by 0 to 63
+  [0x0000007b]  Advance PC by fixed size amount 4 to 0x106
+  [0x0000007e]  Copy
+  [0x0000007f]  Set column to 15
+  [0x00000081]  Advance Line by 1 to 64
+  [0x00000083]  Advance PC by fixed size amount 4 to 0x10a
+  [0x00000086]  Copy
+  [0x00000087]  Set column to 8
+  [0x00000089]  Advance Line by 0 to 64
+  [0x0000008b]  Advance PC by fixed size amount 12 to 0x116
+  [0x0000008e]  Copy
+  [0x0000008f]  Advance Line by 2 to 66
+  [0x00000091]  Advance PC by fixed size amount 18 to 0x128
+  [0x00000094]  Copy
+  [0x00000095]  Set column to 16
+  [0x00000097]  Extended opcode 4: set Discriminator to 2
+  [0x0000009b]  Advance Line by -4 to 62
+  [0x0000009d]  Advance PC by fixed size amount 12 to 0x134
+  [0x000000a0]  Copy
+  [0x000000a1]  Set column to 2
+  [0x000000a3]  Extended opcode 4: set Discriminator to 1
+  [0x000000a7]  Advance Line by 0 to 62
+  [0x000000a9]  Advance PC by fixed size amount 10 to 0x13e
+  [0x000000ac]  Copy
+  [0x000000ad]  Set column to 9
+  [0x000000af]  Advance Line by 6 to 68
+  [0x000000b1]  Advance PC by fixed size amount 8 to 0x146
+  [0x000000b4]  Copy
+  [0x000000b5]  Set column to 1
+  [0x000000b7]  Advance Line by 1 to 69
+  [0x000000b9]  Advance PC by fixed size amount 4 to 0x14a
+  [0x000000bc]  Copy
+  [0x000000bd]  Advance Line by 4 to 73
+  [0x000000bf]  Advance PC by fixed size amount 18 to 0x15c
+  [0x000000c2]  Copy
+  [0x000000c3]  Set column to 32
+  [0x000000c5]  Advance Line by 4 to 77
+  [0x000000c7]  Advance PC by fixed size amount 44 to 0x188
+  [0x000000ca]  Copy
+  [0x000000cb]  Set column to 7
+  [0x000000cd]  Advance Line by 3 to 80
+  [0x000000cf]  Advance PC by fixed size amount 8 to 0x190
+  [0x000000d2]  Copy
+  [0x000000d3]  Set column to 6
+  [0x000000d5]  Advance Line by 0 to 80
+  [0x000000d7]  Advance PC by fixed size amount 8 to 0x198
+  [0x000000da]  Copy
+  [0x000000db]  Set column to 9
+  [0x000000dd]  Advance Line by 1 to 81
+  [0x000000df]  Advance PC by fixed size amount 6 to 0x19e
+  [0x000000e2]  Copy
+  [0x000000e3]  Set column to 11
+  [0x000000e5]  Advance Line by 1 to 82
+  [0x000000e7]  Advance PC by fixed size amount 12 to 0x1aa
+  [0x000000ea]  Copy
+  [0x000000eb]  Set column to 5
+  [0x000000ed]  Advance Line by 0 to 82
+  [0x000000ef]  Advance PC by fixed size amount 4 to 0x1ae
+  [0x000000f2]  Copy
+  [0x000000f3]  Set column to 25
+  [0x000000f5]  Extended opcode 4: set Discriminator to 3
+  [0x000000f9]  Advance Line by 1 to 83
+  [0x000000fb]  Advance PC by fixed size amount 2 to 0x1b0
+  [0x000000fe]  Copy
+  [0x000000ff]  Set column to 17
+  [0x00000101]  Extended opcode 4: set Discriminator to 3
+  [0x00000105]  Advance Line by 0 to 83
+  [0x00000107]  Advance PC by fixed size amount 8 to 0x1b8
+  [0x0000010a]  Copy
+  [0x0000010b]  Set column to 16
+  [0x0000010d]  Extended opcode 4: set Discriminator to 3
+  [0x00000111]  Advance Line by 0 to 83
+  [0x00000113]  Advance PC by fixed size amount 8 to 0x1c0
+  [0x00000116]  Copy
+  [0x00000117]  Set column to 28
+  [0x00000119]  Extended opcode 4: set Discriminator to 3
+  [0x0000011d]  Advance Line by 1 to 84
+  [0x0000011f]  Advance PC by fixed size amount 18 to 0x1d2
+  [0x00000122]  Copy
+  [0x00000123]  Set column to 25
+  [0x00000125]  Extended opcode 4: set Discriminator to 3
+  [0x00000129]  Advance Line by 0 to 84
+  [0x0000012b]  Advance PC by fixed size amount 8 to 0x1da
+  [0x0000012e]  Copy
+  [0x0000012f]  Set column to 35
+  [0x00000131]  Extended opcode 4: set Discriminator to 3
+  [0x00000135]  Advance Line by 0 to 84
+  [0x00000137]  Advance PC by fixed size amount 12 to 0x1e6
+  [0x0000013a]  Copy
+  [0x0000013b]  Set column to 40
+  [0x0000013d]  Extended opcode 4: set Discriminator to 3
+  [0x00000141]  Advance Line by 0 to 84
+  [0x00000143]  Advance PC by fixed size amount 12 to 0x1f2
+  [0x00000146]  Copy
+  [0x00000147]  Set column to 47
+  [0x00000149]  Extended opcode 4: set Discriminator to 3
+  [0x0000014d]  Advance Line by 0 to 84
+  [0x0000014f]  Advance PC by fixed size amount 2 to 0x1f4
+  [0x00000152]  Copy
+  [0x00000153]  Set column to 44
+  [0x00000155]  Extended opcode 4: set Discriminator to 3
+  [0x00000159]  Advance Line by 0 to 84
+  [0x0000015b]  Advance PC by fixed size amount 16 to 0x204
+  [0x0000015e]  Copy
+  [0x0000015f]  Set column to 40
+  [0x00000161]  Extended opcode 4: set Discriminator to 3
+  [0x00000165]  Advance Line by 0 to 84
+  [0x00000167]  Advance PC by fixed size amount 8 to 0x20c
+  [0x0000016a]  Copy
+  [0x0000016b]  Set column to 15
+  [0x0000016d]  Extended opcode 4: set Discriminator to 3
+  [0x00000171]  Advance Line by 0 to 84
+  [0x00000173]  Advance PC by fixed size amount 2 to 0x20e
+  [0x00000176]  Copy
+  [0x00000177]  Set column to 14
+  [0x00000179]  Extended opcode 4: set Discriminator to 3
+  [0x0000017d]  Advance Line by 0 to 84
+  [0x0000017f]  Advance PC by fixed size amount 2 to 0x210
+  [0x00000182]  Copy
+  [0x00000183]  Set column to 22
+  [0x00000185]  Extended opcode 4: set Discriminator to 3
+  [0x00000189]  Advance Line by -2 to 82
+  [0x0000018b]  Advance PC by fixed size amount 12 to 0x21c
+  [0x0000018e]  Copy
+  [0x0000018f]  Set column to 5
+  [0x00000191]  Extended opcode 4: set Discriminator to 1
+  [0x00000195]  Advance Line by 0 to 82
+  [0x00000197]  Advance PC by fixed size amount 10 to 0x226
+  [0x0000019a]  Copy
+  [0x0000019b]  Set column to 6
+  [0x0000019d]  Advance Line by 5 to 87
+  [0x0000019f]  Advance PC by fixed size amount 14 to 0x234
+  [0x000001a2]  Copy
+  [0x000001a3]  Set column to 26
+  [0x000001a5]  Extended opcode 4: set Discriminator to 1
+  [0x000001a9]  Advance Line by 0 to 87
+  [0x000001ab]  Advance PC by fixed size amount 8 to 0x23c
+  [0x000001ae]  Copy
+  [0x000001af]  Set column to 45
+  [0x000001b1]  Extended opcode 4: set Discriminator to 1
+  [0x000001b5]  Advance Line by 0 to 87
+  [0x000001b7]  Advance PC by fixed size amount 6 to 0x242
+  [0x000001ba]  Copy
+  [0x000001bb]  Set column to 60
+  [0x000001bd]  Extended opcode 4: set Discriminator to 1
+  [0x000001c1]  Advance Line by 0 to 87
+  [0x000001c3]  Advance PC by fixed size amount 6 to 0x248
+  [0x000001c6]  Copy
+  [0x000001c7]  Set column to 41
+  [0x000001c9]  Extended opcode 4: set Discriminator to 1
+  [0x000001cd]  Advance Line by 0 to 87
+  [0x000001cf]  Advance PC by fixed size amount 4 to 0x24c
+  [0x000001d2]  Copy
+  [0x000001d3]  Set column to 24
+  [0x000001d5]  Extended opcode 4: set Discriminator to 1
+  [0x000001d9]  Advance Line by 0 to 87
+  [0x000001db]  Advance PC by fixed size amount 4 to 0x250
+  [0x000001de]  Copy
+  [0x000001df]  Set column to 11
+  [0x000001e1]  Advance Line by 1 to 88
+  [0x000001e3]  Advance PC by fixed size amount 6 to 0x256
+  [0x000001e6]  Copy
+  [0x000001e7]  Set column to 16
+  [0x000001e9]  Advance Line by 1 to 89
+  [0x000001eb]  Advance PC by fixed size amount 8 to 0x25e
+  [0x000001ee]  Copy
+  [0x000001ef]  Set column to 15
+  [0x000001f1]  Advance Line by 0 to 89
+  [0x000001f3]  Advance PC by fixed size amount 12 to 0x26a
+  [0x000001f6]  Copy
+  [0x000001f7]  Set column to 38
+  [0x000001f9]  Advance Line by 0 to 89
+  [0x000001fb]  Advance PC by fixed size amount 12 to 0x276
+  [0x000001fe]  Copy
+  [0x000001ff]  Set column to 37
+  [0x00000201]  Advance Line by 0 to 89
+  [0x00000203]  Advance PC by fixed size amount 6 to 0x27c
+  [0x00000206]  Copy
+  [0x00000207]  Set column to 53
+  [0x00000209]  Advance Line by 0 to 89
+  [0x0000020b]  Advance PC by fixed size amount 12 to 0x288
+  [0x0000020e]  Copy
+  [0x0000020f]  Set column to 31
+  [0x00000211]  Advance Line by 0 to 89
+  [0x00000213]  Advance PC by fixed size amount 4 to 0x28c
+  [0x00000216]  Copy
+  [0x00000217]  Set column to 10
+  [0x00000219]  Advance Line by 0 to 89
+  [0x0000021b]  Advance PC by fixed size amount 4 to 0x290
+  [0x0000021e]  Copy
+  [0x0000021f]  Set column to 9
+  [0x00000221]  Advance Line by 4 to 93
+  [0x00000223]  Advance PC by fixed size amount 4 to 0x294
+  [0x00000226]  Copy
+  [0x00000227]  Set column to 3
+  [0x00000229]  Advance Line by 0 to 93
+  [0x0000022b]  Advance PC by fixed size amount 8 to 0x29c
+  [0x0000022e]  Copy
+  [0x0000022f]  Set column to 8
+  [0x00000231]  Advance Line by 1 to 94
+  [0x00000233]  Advance PC by fixed size amount 2 to 0x29e
+  [0x00000236]  Copy
+  [0x00000237]  Set column to 22
+  [0x00000239]  Advance Line by 1 to 95
+  [0x0000023b]  Advance PC by fixed size amount 8 to 0x2a6
+  [0x0000023e]  Copy
+  [0x0000023f]  Set column to 18
+  [0x00000241]  Advance Line by 0 to 95
+  [0x00000243]  Advance PC by fixed size amount 16 to 0x2b6
+  [0x00000246]  Copy
+  [0x00000247]  Set column to 28
+  [0x00000249]  Advance Line by 0 to 95
+  [0x0000024b]  Advance PC by fixed size amount 8 to 0x2be
+  [0x0000024e]  Copy
+  [0x0000024f]  Set column to 26
+  [0x00000251]  Advance Line by 0 to 95
+  [0x00000253]  Advance PC by fixed size amount 8 to 0x2c6
+  [0x00000256]  Copy
+  [0x00000257]  Set column to 12
+  [0x00000259]  Advance Line by 0 to 95
+  [0x0000025b]  Advance PC by fixed size amount 2 to 0x2c8
+  [0x0000025e]  Copy
+  [0x0000025f]  Set column to 17
+  [0x00000261]  Advance Line by 3 to 98
+  [0x00000263]  Advance PC by fixed size amount 10 to 0x2d2
+  [0x00000266]  Copy
+  [0x00000267]  Set column to 22
+  [0x00000269]  Advance Line by 0 to 98
+  [0x0000026b]  Advance PC by fixed size amount 12 to 0x2de
+  [0x0000026e]  Copy
+  [0x0000026f]  Set column to 20
+  [0x00000271]  Advance Line by 0 to 98
+  [0x00000273]  Advance PC by fixed size amount 8 to 0x2e6
+  [0x00000276]  Copy
+  [0x00000277]  Set column to 12
+  [0x00000279]  Advance Line by 0 to 98
+  [0x0000027b]  Advance PC by fixed size amount 2 to 0x2e8
+  [0x0000027e]  Copy
+  [0x0000027f]  Set column to 19
+  [0x00000281]  Extended opcode 4: set Discriminator to 2
+  [0x00000285]  Advance Line by 2 to 100
+  [0x00000287]  Advance PC by fixed size amount 8 to 0x2f0
+  [0x0000028a]  Copy
+  [0x0000028b]  Set column to 28
+  [0x0000028d]  Extended opcode 4: set Discriminator to 2
+  [0x00000291]  Advance Line by 0 to 100
+  [0x00000293]  Advance PC by fixed size amount 18 to 0x302
+  [0x00000296]  Copy
+  [0x00000297]  Set column to 42
+  [0x00000299]  Extended opcode 4: set Discriminator to 2
+  [0x0000029d]  Advance Line by 0 to 100
+  [0x0000029f]  Advance PC by fixed size amount 6 to 0x308
+  [0x000002a2]  Copy
+  [0x000002a3]  Set column to 11
+  [0x000002a5]  Extended opcode 4: set Discriminator to 2
+  [0x000002a9]  Advance Line by 0 to 100
+  [0x000002ab]  Advance PC by fixed size amount 4 to 0x30c
+  [0x000002ae]  Copy
+  [0x000002af]  Set column to 20
+  [0x000002b1]  Extended opcode 4: set Discriminator to 2
+  [0x000002b5]  Advance Line by -7 to 93
+  [0x000002b7]  Advance PC by fixed size amount 8 to 0x314
+  [0x000002ba]  Copy
+  [0x000002bb]  Set column to 13
+  [0x000002bd]  Extended opcode 4: set Discriminator to 1
+  [0x000002c1]  Advance Line by 0 to 93
+  [0x000002c3]  Advance PC by fixed size amount 10 to 0x31e
+  [0x000002c6]  Copy
+  [0x000002c7]  Set column to 3
+  [0x000002c9]  Extended opcode 4: set Discriminator to 1
+  [0x000002cd]  Advance Line by 0 to 93
+  [0x000002cf]  Advance PC by fixed size amount 10 to 0x328
+  [0x000002d2]  Copy
+  [0x000002d3]  Set column to 6
+  [0x000002d5]  Advance Line by 9 to 102
+  [0x000002d7]  Advance PC by fixed size amount 20 to 0x33c
+  [0x000002da]  Copy
+  [0x000002db]  Set column to 10
+  [0x000002dd]  Advance Line by 1 to 103
+  [0x000002df]  Advance PC by fixed size amount 8 to 0x344
+  [0x000002e2]  Copy
+  [0x000002e3]  Set column to 17
+  [0x000002e5]  Advance Line by 3 to 106
+  [0x000002e7]  Advance PC by fixed size amount 10 to 0x34e
+  [0x000002ea]  Copy
+  [0x000002eb]  Set column to 16
+  [0x000002ed]  Advance Line by 0 to 106
+  [0x000002ef]  Advance PC by fixed size amount 12 to 0x35a
+  [0x000002f2]  Copy
+  [0x000002f3]  Set column to 39
+  [0x000002f5]  Advance Line by 0 to 106
+  [0x000002f7]  Advance PC by fixed size amount 12 to 0x366
+  [0x000002fa]  Copy
+  [0x000002fb]  Set column to 38
+  [0x000002fd]  Advance Line by 0 to 106
+  [0x000002ff]  Advance PC by fixed size amount 6 to 0x36c
+  [0x00000302]  Copy
+  [0x00000303]  Set column to 54
+  [0x00000305]  Advance Line by 0 to 106
+  [0x00000307]  Advance PC by fixed size amount 12 to 0x378
+  [0x0000030a]  Copy
+  [0x0000030b]  Set column to 32
+  [0x0000030d]  Advance Line by 0 to 106
+  [0x0000030f]  Advance PC by fixed size amount 4 to 0x37c
+  [0x00000312]  Copy
+  [0x00000313]  Set column to 10
+  [0x00000315]  Advance Line by 0 to 106
+  [0x00000317]  Advance PC by fixed size amount 4 to 0x380
+  [0x0000031a]  Copy
+  [0x0000031b]  Advance Line by 2 to 108
+  [0x0000031d]  Advance PC by fixed size amount 4 to 0x384
+  [0x00000320]  Copy
+  [0x00000321]  Set column to 1
+  [0x00000323]  Advance Line by 1 to 109
+  [0x00000325]  Advance PC by fixed size amount 4 to 0x388
+  [0x00000328]  Copy
+  [0x00000329]  Advance Line by 4 to 113
+  [0x0000032b]  Advance PC by fixed size amount 22 to 0x39e
+  [0x0000032e]  Copy
+  [0x0000032f]  Set column to 4
+  [0x00000331]  Advance Line by 5 to 118
+  [0x00000333]  Advance PC by fixed size amount 24 to 0x3b6
+  [0x00000336]  Copy
+  [0x00000337]  Set column to 8
+  [0x00000339]  Advance Line by 1 to 119
+  [0x0000033b]  Advance PC by fixed size amount 16 to 0x3c6
+  [0x0000033e]  Copy
+  [0x0000033f]  Set column to 11
+  [0x00000341]  Advance Line by 0 to 119
+  [0x00000343]  Advance PC by fixed size amount 14 to 0x3d4
+  [0x00000346]  Copy
+  [0x00000347]  Set column to 5
+  [0x00000349]  Advance Line by 1 to 120
+  [0x0000034b]  Advance PC by fixed size amount 8 to 0x3dc
+  [0x0000034e]  Copy
+  [0x0000034f]  Set column to 12
+  [0x00000351]  Advance Line by 1 to 121
+  [0x00000353]  Advance PC by fixed size amount 32 to 0x3fc
+  [0x00000356]  Copy
+  [0x00000357]  Set column to 8
+  [0x00000359]  Advance Line by 0 to 121
+  [0x0000035b]  Advance PC by fixed size amount 8 to 0x404
+  [0x0000035e]  Copy
+  [0x0000035f]  Set column to 11
+  [0x00000361]  Advance Line by 0 to 121
+  [0x00000363]  Advance PC by fixed size amount 14 to 0x412
+  [0x00000366]  Copy
+  [0x00000367]  Set column to 8
+  [0x00000369]  Advance Line by 1 to 122
+  [0x0000036b]  Advance PC by fixed size amount 8 to 0x41a
+  [0x0000036e]  Copy
+  [0x0000036f]  Set column to 12
+  [0x00000371]  Advance Line by 0 to 122
+  [0x00000373]  Advance PC by fixed size amount 14 to 0x428
+  [0x00000376]  Copy
+  [0x00000377]  Set column to 11
+  [0x00000379]  Advance Line by 0 to 122
+  [0x0000037b]  Advance PC by fixed size amount 2 to 0x42a
+  [0x0000037e]  Copy
+  [0x0000037f]  Set column to 6
+  [0x00000381]  Advance Line by 1 to 123
+  [0x00000383]  Advance PC by fixed size amount 8 to 0x432
+  [0x00000386]  Copy
+  [0x00000387]  Set column to 5
+  [0x00000389]  Advance Line by 0 to 123
+  [0x0000038b]  Advance PC by fixed size amount 14 to 0x440
+  [0x0000038e]  Copy
+  [0x0000038f]  Set column to 10
+  [0x00000391]  Advance Line by 1 to 124
+  [0x00000393]  Advance PC by fixed size amount 26 to 0x45a
+  [0x00000396]  Copy
+  [0x00000397]  Set column to 1
+  [0x00000399]  Advance Line by 1 to 125
+  [0x0000039b]  Advance PC by fixed size amount 4 to 0x45e
+  [0x0000039e]  Copy
+  [0x0000039f]  Advance PC by fixed size amount 22 to 0x474
+  [0x000003a2]  Extended opcode 1: End of Sequence
+
+
+  Offset:                      0x3a5
+  Length:                      103
+  DWARF Version:               2
+  Prologue Length:             74
+  Minimum Instruction Length:  2
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 args
+  Opcode 3 has 1 args
+  Opcode 4 has 1 args
+  Opcode 5 has 1 args
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 args
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 args
+
+ The Directory Table (offset 0x3c0):
+  1	../../../../gcc-7.2.0/libgcc/config/avr
+
+ The File Name Table (offset 0x3e9):
+  Entry	Dir	Time	Size	Name
+  1	1	0	0	lib1funcs.S
+
+ Line Number Statements:
+  [0x000003f9]  Extended opcode 2: set Address to 0x474
+  [0x00000400]  Advance Line by 2277 to 2278
+  [0x00000403]  Copy
+  [0x00000404]  Advance Line by 2 to 2280
+  [0x00000406]  Advance PC by fixed size amount 2 to 0x476
+  [0x00000409]  Copy
+  [0x0000040a]  Advance PC by fixed size amount 2 to 0x478
+  [0x0000040d]  Extended opcode 1: End of Sequence
+
+
+  Offset:                      0x410
+  Length:                      169
+  DWARF Version:               2
+  Prologue Length:             74
+  Minimum Instruction Length:  2
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 args
+  Opcode 3 has 1 args
+  Opcode 4 has 1 args
+  Opcode 5 has 1 args
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 args
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 args
+
+ The Directory Table (offset 0x42b):
+  1	../../../../gcc-7.2.0/libgcc/config/avr
+
+ The File Name Table (offset 0x454):
+  Entry	Dir	Time	Size	Name
+  1	1	0	0	lib1funcs.S
+
+ Line Number Statements:
+  [0x00000464]  Extended opcode 2: set Address to 0x98
+  [0x0000046b]  Advance Line by 2372 to 2373
+  [0x0000046e]  Copy
+  [0x0000046f]  Advance Line by 1 to 2374
+  [0x00000471]  Advance PC by fixed size amount 2 to 0x9a
+  [0x00000474]  Copy
+  [0x00000475]  Advance Line by 1 to 2375
+  [0x00000477]  Advance PC by fixed size amount 2 to 0x9c
+  [0x0000047a]  Copy
+  [0x0000047b]  Advance Line by 1 to 2376
+  [0x0000047d]  Advance PC by fixed size amount 2 to 0x9e
+  [0x00000480]  Copy
+  [0x00000481]  Advance Line by 1 to 2377
+  [0x00000483]  Advance PC by fixed size amount 2 to 0xa0
+  [0x00000486]  Copy
+  [0x00000487]  Advance Line by 1 to 2378
+  [0x00000489]  Advance PC by fixed size amount 2 to 0xa2
+  [0x0000048c]  Copy
+  [0x0000048d]  Advance Line by 1 to 2379
+  [0x0000048f]  Advance PC by fixed size amount 2 to 0xa4
+  [0x00000492]  Copy
+  [0x00000493]  Advance Line by 1 to 2380
+  [0x00000495]  Advance PC by fixed size amount 2 to 0xa6
+  [0x00000498]  Copy
+  [0x00000499]  Advance Line by 2 to 2382
+  [0x0000049b]  Advance PC by fixed size amount 2 to 0xa8
+  [0x0000049e]  Copy
+  [0x0000049f]  Advance Line by 1 to 2383
+  [0x000004a1]  Advance PC by fixed size amount 2 to 0xaa
+  [0x000004a4]  Copy
+  [0x000004a5]  Advance Line by 2 to 2385
+  [0x000004a7]  Advance PC by fixed size amount 2 to 0xac
+  [0x000004aa]  Copy
+  [0x000004ab]  Advance Line by 1 to 2386
+  [0x000004ad]  Advance PC by fixed size amount 2 to 0xae
+  [0x000004b0]  Copy
+  [0x000004b1]  Advance Line by 1 to 2387
+  [0x000004b3]  Advance PC by fixed size amount 2 to 0xb0
+  [0x000004b6]  Copy
+  [0x000004b7]  Advance PC by fixed size amount 2 to 0xb2
+  [0x000004ba]  Extended opcode 1: End of Sequence
+
+
+  Offset:                      0x4bd
+  Length:                      139
+  DWARF Version:               2
+  Prologue Length:             74
+  Minimum Instruction Length:  2
+  Initial value of 'is_stmt':  1
+  Line Base:                   -5
+  Line Range:                  14
+  Opcode Base:                 13
+
+ Opcodes:
+  Opcode 1 has 0 args
+  Opcode 2 has 1 args
+  Opcode 3 has 1 args
+  Opcode 4 has 1 args
+  Opcode 5 has 1 args
+  Opcode 6 has 0 args
+  Opcode 7 has 0 args
+  Opcode 8 has 0 args
+  Opcode 9 has 1 args
+  Opcode 10 has 0 args
+  Opcode 11 has 0 args
+  Opcode 12 has 1 args
+
+ The Directory Table (offset 0x4d8):
+  1	../../../../gcc-7.2.0/libgcc/config/avr
+
+ The File Name Table (offset 0x501):
+  Entry	Dir	Time	Size	Name
+  1	1	0	0	lib1funcs.S
+
+ Line Number Statements:
+  [0x00000511]  Extended opcode 2: set Address to 0xb2
+  [0x00000518]  Advance Line by 2440 to 2441
+  [0x0000051b]  Copy
+  [0x0000051c]  Advance Line by 1 to 2442
+  [0x0000051e]  Advance PC by fixed size amount 2 to 0xb4
+  [0x00000521]  Copy
+  [0x00000522]  Advance Line by 1 to 2443
+  [0x00000524]  Advance PC by fixed size amount 2 to 0xb6
+  [0x00000527]  Copy
+  [0x00000528]  Advance Line by 1 to 2444
+  [0x0000052a]  Advance PC by fixed size amount 2 to 0xb8
+  [0x0000052d]  Copy
+  [0x0000052e]  Advance Line by 2 to 2446
+  [0x00000530]  Advance PC by fixed size amount 2 to 0xba
+  [0x00000533]  Copy
+  [0x00000534]  Advance Line by 2 to 2448
+  [0x00000536]  Advance PC by fixed size amount 2 to 0xbc
+  [0x00000539]  Copy
+  [0x0000053a]  Advance Line by 1 to 2449
+  [0x0000053c]  Advance PC by fixed size amount 2 to 0xbe
+  [0x0000053f]  Copy
+  [0x00000540]  Advance Line by 1 to 2450
+  [0x00000542]  Advance PC by fixed size amount 2 to 0xc0
+  [0x00000545]  Copy
+  [0x00000546]  Advance PC by fixed size amount 2 to 0xc2
+  [0x00000549]  Extended opcode 1: End of Sequence
+
+

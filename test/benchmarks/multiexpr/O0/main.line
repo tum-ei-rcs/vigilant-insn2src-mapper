@@ -1,0 +1,35 @@
+
+main.elf:     file format elf32-avr
+
+Decoded dump of debug contents of section .debug_line:
+
+File name                            Line number    Col Number    Starting address
+
+CU: main.c:
+File name                            Line number    Col Number    Starting address
+main.c                                         1          20                0xa4
+main.c                                         2          13                0xb4
+main.c                                         2           5                0xb8
+main.c                                         6          11                0xba
+main.c                                         4          10                0xc6
+main.c                                         2           5                0xd0
+main.c                                         8          12                0xd8
+main.c                                         9           1                0xdc
+main.c                                        11          12                0xea
+main.c                                        13           8                0xfe
+main.c                                        14          12               0x106
+main.c                                        13          18               0x10c
+main.c                                        15          11               0x110
+main.c                                        15          19               0x114
+main.c                                        14          22               0x118
+main.c                                        16          11               0x11e
+main.c                                        20          19               0x126
+main.c                                        18           7               0x132
+main.c                                        23          12               0x13a
+main.c                                        24           1               0x142
+
+CU: ../../../../gcc-7.2.0/libgcc/config/avr/lib1funcs.S:
+File name                            Line number    Col Number    Starting address
+lib1funcs.S                                 2278           0               0x154
+lib1funcs.S                                 2280           0               0x156
+

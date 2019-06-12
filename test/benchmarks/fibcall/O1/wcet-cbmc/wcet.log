@@ -1,0 +1,50 @@
+CBMCFLAGS: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+GOTOINSFLAGS: 
+Initial guess: 0..0
+Requested WCET precision: 1
+Assertions per step: 10
+Max steps: 0
+All Flags: -DIS_ANALYSIS -DCBMC -DNEWCODE  --function CBMCDriver --all-properties --slice-formula --yices
+Output path: /home/becker/async/graph-mapping/test/benchmarks/fibcall/O1/wcet-cbmc
+Output path intermediate: modelcheck
+Template file: fibcall_i.in
+Other files: 
+...step #1: WCET in [0,9223372036854775807], precision=9223372036854775807
+......cand: 6208, 1, 18854838150406, 1485633833817296, 78, 38543920, 3037000499, 239295116727, 489178, 117057906865942864, 9223372036854775807
+......Reading properties from ['modelcheck/tmp_fibcall_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......walltime=0.04, usertime=0.02, dbg_time1=0.09, mem=11304, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 234, 'sum': 234, 'avg': 234, 'n': 1, 'min': 234}}
+......WCET in [1,78], precision=77
+......remaining steps <=2
+...step #2: WCET in [1,78], precision=77
+......cand: 1, 70, 39, 8, 78, 47, 16, 54, 24, 62, 31
+......Reading properties from ['modelcheck/tmp_fibcall_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......walltime=0.04, usertime=0.03, dbg_time1=0.09, mem=11344, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 234, 'sum': 234, 'avg': 234, 'n': 1, 'min': 234}}
+......WCET in [1,8], precision=7
+......remaining steps <=1
+...step #3: WCET in [1,8], precision=7
+......cand: 1, 2, 3, 4, 5, 6, 7, 8
+......Reading properties from ['modelcheck/tmp_fibcall_i.c']
+......Running cbmc on files ...
+......TIMEOUT for solver yices was fixed: timeout -s QUIT 10m /usr/bin/time -v
+......WARNING: empty counterexample [CBMCDriver.assertion.1]
+......WARNING: empty counterexample [CBMCDriver.assertion.2]
+......WARNING: empty counterexample [CBMCDriver.assertion.3]
+......WARNING: empty counterexample [CBMCDriver.assertion.4]
+......WARNING: empty counterexample [CBMCDriver.assertion.5]
+......walltime=0.05, usertime=0.04, dbg_time1=0.09, mem=11244, complexity={'clauses': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'variables': {'max': None, 'sum': 0, 'avg': None, 'n': 0, 'min': None}, 'steps': {'max': 238, 'sum': 238, 'avg': 238, 'n': 1, 'min': 238}}
+......WCET in [5,6], precision=1
+SUCCESS: Precise enough after 3 iterations, precision=1
+RESULT: 5 < WCET <= 6 cycles
+peak memory (kBytes): samples=3, min=11244.0, avg=11297.3333333, max=11344.0, sum=33892.0
+cbmc walltime (sec): samples=3, min=0.04, avg=0.0433333333333, max=0.05, sum=0.13
+cbmc usertime (sec): samples=3, min=0.02, avg=0.03, max=0.04, sum=0.09
+variables: samples=0, min=None, avg=None, max=None, sum=0
+clauses: samples=0, min=None, avg=None, max=None, sum=0
+steps: samples=3, min=234, avg=235, max=238, sum=706
+Script: alltime=0.43, selftime=0.30, ret=0

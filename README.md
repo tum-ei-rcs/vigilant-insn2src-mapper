@@ -15,8 +15,7 @@ The algorithms are described in detail in the publication
 
 Please cite this work when using our tool.
 
-**Sources are coming soon. We are currently in a refactoring process 
-to make the tool architecture-independent**
+**This is the deprecated version for AVR targets**
 
 ## Overview
 This tool establishes a mapping from the machine instructions of a program
@@ -64,5 +63,22 @@ Python following modules must be installed:
  * networkx >= 2.0
 
 ## Usage
-TODO
- 
+Examples are in the subdirectory `test/benchmarks`. For example, to compute a mapping
+for the program 'adpcm', do the following (assumes Linux):
+
+```sh
+cd test/benchmarks/adpcm-encode/O0
+make build  # compiles the program for AVR (*.elf). Requires avr-gcc installed.
+make flow  # computes CFG from ELF/binary (*.json)
+make mapping  # invokes the Python mapper
+```
+For parameters see Makefile. The mapping process generates several files:
+ 1. The file with a instruction-to-source mapping for all functions: `mapping.map`
+   * this is a CSV file, capturing this mapping from the source's point of view
+   * e.g., `6; l768c9; 17108,17130,-10; 49,__adddi3_s8` indicates that source basic block number 6 (line 768 column 9) caused the binary basic blocks numbers 17108 and 17130 (and a virtual binary block -10), their total time is 49 clock cycles, and additionally a call to `__adddi3_s8` happens, whose timing is not included in the 49 cycles (see WCET library). If this field mentions a source function, then the time is also not included, but the callee has its own mapping. It is therefore the responsibility of the annotation tool to decide whether such calls have a mapping (and thus their timing is considered), or whether they are library functions.
+ 2. The directory `temp` within the benchmark contains various graphs (control flows, dominator trees, etc.). Perhaps the most interesting is the visualization of the maps. To inspect those, use a browser, e.g., `firefox temp/map_quantl.svg` (image is interactive; loops can be collapsed by clicking on their headers).
+
+The file `mapping.map` can be read by our tool `cbbanalyzer` (separate repository), which annotates the C source with the timing. This tool also creates one input file that is necessary for the mapper, which is `adpcm_allflows.csv`. It is generated with clang's CFGGenerator, and gives a listing of source blocks.
+
+### WCET Library
+The mapping contains the timing of all binary blocks that map to each source block. However, this timing excludes calls to all functions for which no source code is available. For such functions, we rely on a WCET library. One such library for avr-libc in version 1.8.0 is included in the file `data/wcet-lib/avr/libc-1.8.0/atmega128/wcet.lib`.
